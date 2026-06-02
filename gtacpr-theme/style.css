@@ -934,3 +934,14 @@ textarea.form-control{resize:vertical;min-height:120px}
 .faq-footer{margin-top:1.25rem}
 .faq-footer a{font-size:13.5px;font-weight:600;color:var(--red);display:inline-flex;align-items:center;gap:5px}
 .faq-footer a:hover{text-decoration:underline}
+/* ── BOOKING MODAL ── */
+.booking-overlay{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);align-items:center;justify-content:center;padding:1rem}
+.booking-overlay.open{display:flex}
+.booking-modal{background:#fff;border-radius:14px;width:100%;max-width:900px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:bm-in .25s ease}
+@keyframes bm-in{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.booking-modal-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--g200);flex-shrink:0}
+.booking-modal-title{font-size:15px;font-weight:800;color:var(--g900)}
+.booking-modal-close{width:32px;height:32px;border-radius:50%;background:var(--g100);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--g600);font-size:18px;line-height:1;transition:background .15s}
+.booking-modal-close:hover{background:var(--g200)}
+.booking-modal iframe{flex:1;border:none;min-height:560px}
+@media(max-width:600px){.booking-modal{max-height:95vh;border-radius:10px}.booking-modal iframe{min-height:480px}}

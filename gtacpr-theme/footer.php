@@ -48,7 +48,7 @@
       <span>© <?php echo date('Y'); ?> GTACPR. All rights reserved.</span>
       <div class="footer-badges">
         <span class="footer-badge">WSIB Approved</span>
-        <span class="footer-badge">TBD</span>
+        <span class="footer-badge">Serving GTA Since 2013</span>
         <span class="footer-badge">4.9 ★ Google</span>
       </div>
     </div>
@@ -57,7 +57,18 @@
 
 <div class="mob-cta" aria-label="Quick actions">
   <a href="tel:4167232571" class="mob-call">📞 Call Now</a>
-  <a href="<?php echo get_permalink( get_page_by_path('register') ); ?>" class="mob-book">Book a Class →</a>
+  <a href="#" class="mob-book open-booking">Book a Class →</a>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="booking-overlay" id="bookingOverlay" role="dialog" aria-modal="true" aria-label="Book a Class">
+  <div class="booking-modal">
+    <div class="booking-modal-header">
+      <span class="booking-modal-title">Book a Class — GTACPR</span>
+      <button class="booking-modal-close" id="bookingClose" aria-label="Close booking">&times;</button>
+    </div>
+    <iframe src="https://gtacprfrontend.simplybook.me/v2/" title="Book a CPR class" loading="lazy" allowfullscreen></iframe>
+  </div>
 </div>
 
 <script type="application/ld+json">
@@ -91,6 +102,16 @@
   document.addEventListener('keydown', function(e){
     if(e.key==='Escape' && document.body.classList.contains('drawer-open')) closeDrawer();
   });
+
+  // Booking modal
+  var bookingOverlay = document.getElementById('bookingOverlay');
+  var bookingClose   = document.getElementById('bookingClose');
+  function openBooking(e){ e.preventDefault(); bookingOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeBooking(){ bookingOverlay.classList.remove('open'); document.body.style.overflow=''; }
+  document.querySelectorAll('.open-booking').forEach(function(el){ el.addEventListener('click', openBooking); });
+  bookingClose.addEventListener('click', closeBooking);
+  bookingOverlay.addEventListener('click', function(e){ if(e.target===bookingOverlay) closeBooking(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeBooking(); });
 
   // FAQ accordion (shared across all pages)
   document.querySelectorAll('.faq-trigger').forEach(function(t){

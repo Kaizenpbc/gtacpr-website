@@ -43,7 +43,7 @@
         416-723-2571
       </a>
       <a href="https://cpr.kpbc.ca" target="_blank" rel="noopener noreferrer" class="nav-btn-outline">Client Portal</a>
-      <a href="<?php echo get_permalink( get_page_by_path('register') ); ?>" class="nav-btn">Book a Class</a>
+      <a href="#" class="nav-btn open-booking">Book a Class</a>
     </div>
 
     <a href="tel:4167232571" class="nav-call-mob" aria-label="Call us">
@@ -77,6 +77,6 @@
   </ul>
   <div class="drawer-footer">
     <a href="tel:4167232571" class="d-call">📞 416-723-2571</a>
-    <a href="<?php echo get_permalink( get_page_by_path('register') ); ?>" class="d-book">Book a Class →</a>
+    <a href="#" class="d-book open-booking">Book a Class →</a>
   </div>
 </div>

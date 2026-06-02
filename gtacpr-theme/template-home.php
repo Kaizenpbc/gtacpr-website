@@ -16,7 +16,7 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
       <h1>CPR &amp; First Aid Training Across the GTA</h1>
       <p class="hero-sub">Get certified fast with trusted, instructor-led training for individuals, workplaces, and ESL learners.</p>
       <div class="hero-btns">
-        <a href="<?php echo esc_url($register_url); ?>" class="bhp">
+        <a href="#" class="bhp open-booking">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           <span class="btn-label">
             <span class="btn-label-main">Join a Class</span>
@@ -112,10 +112,14 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
   <div class="rev-inner">
     <div>
       <div class="map-card">
-        <div class="map-ph" role="img" aria-label="Map of Markham Ontario">
-          <div class="map-grid"></div><div class="mr mr1"></div><div class="mr mr2"></div><div class="mr mr3"></div><div class="map-pin"></div>
+        <div class="map-ph" style="height:210px;padding:0;position:relative;overflow:hidden;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d185621!2d-79.3832!3d43.7182!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb90d7c63ba5%3A0x323555502ab4c477!2sGreater%20Toronto%20Area%2C%20ON!5e0!3m2!1sen!2sca!4v1700000000000"
+            width="100%" height="210" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="GTA-wide service area map">
+          </iframe>
         </div>
-        <a href="https://maps.google.com/?q=46+Sunnyside+Hill+Road+Markham+ON" class="map-btn">Contact Us &amp; Get Directions</a>
+        <a href="https://maps.google.com/?q=GTACPR+Markham+ON" target="_blank" rel="noopener noreferrer" class="map-btn">Contact Us &amp; Get Directions</a>
       </div>
       <div class="map-info">
         <div class="map-info-name">GTACPR — Markham, ON</div>
