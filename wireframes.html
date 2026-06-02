@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTACPR Wireframes — Stage 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#CC1F1F;--g50:#F9FAFB;--g100:#F3F4F6;--g200:#E5E7EB;--g400:#9CA3AF;--g600:#4B5563;--g800:#1F2937;--g900:#111827}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:#F1F5F9;color:var(--g800)}
+
+/* ── TOP NAV ── */
+.ds-nav{position:sticky;top:0;z-index:200;background:var(--g900);height:50px;display:flex;align-items:center;gap:1.5rem;padding:0 1.5rem;overflow-x:auto;scrollbar-width:none}
+.ds-nav::-webkit-scrollbar{display:none}
+.ds-nav-brand{font-size:13px;font-weight:800;color:var(--red);white-space:nowrap;flex-shrink:0}
+.ds-nav a{font-size:12px;font-weight:500;color:rgba(255,255,255,.55);white-space:nowrap;text-decoration:none;transition:color .15s}
+.ds-nav a:hover{color:#fff}
+
+/* ── PAGE TABS ── */
+.tab-bar{display:flex;gap:6px;flex-wrap:wrap;padding:1.5rem 1.5rem .5rem}
+.tab{padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--g200);background:#fff;color:var(--g600);transition:all .15s}
+.tab.active{background:var(--g900);color:#fff;border-color:var(--g900)}
+
+/* ── PAGE CONTAINER ── */
+.page-wf{display:none;padding:0 1.5rem 4rem}
+.page-wf.active{display:block}
+.page-title{font-size:1.2rem;font-weight:800;color:var(--g900);margin-bottom:.25rem;margin-top:1rem}
+.page-desc{font-size:13px;color:var(--g600);margin-bottom:1.5rem}
+
+/* ── WIREFRAME LAYOUT ── */
+.wf-layout{display:flex;gap:1.5rem;align-items:flex-start}
+.wf-desktop{flex:1;min-width:0}
+.wf-mobile-wrap{width:240px;flex-shrink:0}
+.wf-label-sm{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g400);margin-bottom:.5rem;display:block}
+
+/* ── FRAME CHROME ── */
+.wf-frame{border:1.5px solid #94A3B8;border-radius:8px;overflow:hidden;background:#fff}
+.wf-chrome{background:#E2E8F0;padding:7px 10px;display:flex;align-items:center;gap:5px}
+.wf-dot{width:8px;height:8px;border-radius:50%}
+.wf-dot:nth-child(1){background:#F87171}
+.wf-dot:nth-child(2){background:#FCD34D}
+.wf-dot:nth-child(3){background:#4ADE80}
+.wf-url{flex:1;background:#fff;border-radius:4px;height:16px;font-size:9px;color:#94A3B8;display:flex;align-items:center;padding:0 6px;margin-left:4px}
+
+/* ── WIREFRAME SECTIONS ── */
+.wf-sec{position:relative;border-bottom:1px dashed rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;padding:5px 8px;min-height:24px}
+/* Section type colours */
+.s-dark{background:#1E293B}
+.s-hero{background:#0F172A;min-height:140px}
+.s-hero-sm{background:#0F172A;min-height:70px}
+.s-white{background:#fff}
+.s-gray{background:#F8FAFC}
+.s-light{background:#F1F5F9}
+.s-red{background:#FEE2E2}
+.s-trust{background:#fff;min-height:52px}
+
+/* Inner layout helpers */
+.wf-row{display:flex;gap:3px;width:100%;align-items:stretch}
+.wf-col{flex:1;background:rgba(0,0,0,.06);border-radius:3px;min-height:28px;display:flex;align-items:center;justify-content:center}
+.wf-col-dark{flex:1;background:rgba(255,255,255,.1);border-radius:3px;min-height:28px}
+.wf-col-2{flex:2;background:rgba(0,0,0,.06);border-radius:3px}
+.wf-col-3{flex:3;background:rgba(0,0,0,.06);border-radius:3px}
+.wf-line{height:6px;border-radius:2px;background:rgba(0,0,0,.1);margin-bottom:3px;width:100%}
+.wf-line-sm{height:4px;border-radius:2px;background:rgba(0,0,0,.08);margin-bottom:2px;width:80%}
+.wf-btn-r{height:14px;border-radius:3px;background:#CC1F1F;width:80px;margin-top:4px}
+.wf-btn-g{height:14px;border-radius:3px;background:rgba(0,0,0,.15);width:80px;margin-top:4px}
+.wf-content{display:flex;flex-direction:column;align-items:center;width:100%;gap:4px}
+.wf-content-row{display:flex;gap:4px;width:100%;align-items:flex-start}
+.wf-inner-col{display:flex;flex-direction:column;flex:1;gap:3px}
+
+/* Annotation badge */
+.wf-ann{position:absolute;top:3px;right:4px;background:#CC1F1F;color:#fff;font-size:8.5px;font-weight:700;border-radius:3px;padding:1px 4px;line-height:1.4}
+
+/* Section label */
+.wf-lbl{font-size:8.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:2px 0;flex-shrink:0}
+.lbl-light{color:rgba(255,255,255,.55)}
+.lbl-dark{color:#94A3B8}
+
+/* Form placeholder */
+.wf-field{height:10px;background:rgba(0,0,0,.08);border-radius:2px;border:1px solid rgba(0,0,0,.12);width:100%}
+.wf-fields{display:flex;flex-direction:column;gap:3px;width:100%}
+
+/* Fixed bar indicator */
+.wf-fixed{background:#1E293B;text-align:center;padding:6px 8px;border-top:2px solid #CC1F1F}
+
+/* ── ANNOTATIONS TABLE ── */
+.ann-wrap{margin-top:1.5rem}
+.ann-table{width:100%;border-collapse:collapse;font-size:11.5px}
+.ann-table th{background:var(--g900);color:#fff;padding:7px 10px;text-align:left;font-size:10.5px;font-weight:600}
+.ann-table td{padding:6px 10px;border-bottom:1px solid var(--g200);vertical-align:top;line-height:1.5}
+.ann-table tr:nth-child(even) td{background:var(--g50)}
+.ann-n{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:3px;background:var(--red);color:#fff;font-size:9px;font-weight:800;flex-shrink:0}
+.ann-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:1px 5px;border-radius:3px;margin-right:4px}
+.tag-new{background:#DCFCE7;color:#15803D}
+.tag-fix{background:#FEE2E2;color:#9B1515}
+.tag-dep{background:#FEF9C3;color:#854D0E}
+
+@media(max-width:700px){.wf-mobile-wrap{display:none}.wf-layout{display:block}}
+</style>
+</head>
+<body>
+
+<nav class="ds-nav">
+  <span class="ds-nav-brand">GTACPR — Stage 4 Wireframes</span>
+  <a href="design-system.html">← Design System</a>
+</nav>
+
+<div class="tab-bar">
+  <div class="tab active" onclick="showPage('home',this)">Homepage</div>
+  <div class="tab" onclick="showPage('about',this)">About</div>
+  <div class="tab" onclick="showPage('group',this)">Group Training</div>
+  <div class="tab" onclick="showPage('esl',this)">ESL Classes</div>
+  <div class="tab" onclick="showPage('register',this)">Register</div>
+  <div class="tab" onclick="showPage('contact',this)">Contact <span style="font-size:9px;background:#DCFCE7;color:#15803D;padding:1px 4px;border-radius:3px;margin-left:3px">NEW</span></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- HOMEPAGE -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="page-wf active" id="wf-home">
+  <div class="page-title">Homepage <span style="font-size:13px;color:var(--g400);font-weight:400">/ gtacpr-redesign.html</span></div>
+  <div class="page-desc">Primary conversion page. Goal: get visitors to Register or call within 2 scrolls.</div>
+  <div class="wf-layout">
+
+    <!-- DESKTOP -->
+    <div class="wf-desktop">
+      <span class="wf-label-sm">Desktop — 1160px max-width</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url">gtacpr.com</div></div>
+
+        <div class="wf-sec s-dark" style="min-height:20px">
+          <div class="wf-ann">1</div>
+          <div class="wf-lbl lbl-light">Topbar — Announcement Strip</div>
+        </div>
+
+        <div class="wf-sec s-white" style="min-height:44px">
+          <div class="wf-ann">2</div>
+          <div class="wf-row">
+            <div class="wf-col" style="max-width:100px;font-size:8px;color:var(--red);font-weight:800">GTACPR</div>
+            <div style="flex:2;display:flex;gap:6px;justify-content:center;align-items:center">
+              <div class="wf-line" style="width:50px;height:5px"></div>
+              <div class="wf-line" style="width:50px;height:5px"></div>
+              <div class="wf-line" style="width:50px;height:5px"></div>
+              <div class="wf-line" style="width:50px;height:5px"></div>
+            </div>
+            <div style="display:flex;gap:5px;align-items:center">
+              <div class="wf-line" style="width:70px;height:5px"></div>
+              <div class="wf-btn-r" style="width:70px;height:20px;border-radius:4px"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-sec s-hero">
+          <div class="wf-ann">3</div>
+          <div class="wf-content">
+            <div style="width:100%;padding:8px 12px">
+              <div class="wf-line" style="width:60%;height:10px;background:rgba(255,255,255,.2)"></div>
+              <div class="wf-line" style="width:40%;height:7px;background:rgba(255,255,255,.12);margin-top:5px"></div>
+              <div style="display:flex;gap:6px;margin-top:8px">
+                <div class="wf-btn-r" style="height:20px;width:90px"></div>
+                <div class="wf-btn-g" style="height:20px;width:90px;background:rgba(255,255,255,.15)"></div>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:10px">
+                <div class="wf-line" style="width:80px;height:5px;background:rgba(255,255,255,.2)"></div>
+                <div class="wf-line" style="width:80px;height:5px;background:rgba(255,255,255,.2)"></div>
+                <div class="wf-line" style="width:80px;height:5px;background:rgba(255,255,255,.2)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-sec s-trust">
+          <div class="wf-ann">4</div>
+          <div class="wf-row" style="gap:1px">
+            <div class="wf-col" style="background:#FFF0F0;border-right:1px solid var(--g200)"><div style="font-size:7px;color:#CC1F1F;font-weight:700">WSIB Approved</div></div>
+            <div class="wf-col" style="background:#EFF6FF;border-right:1px solid var(--g200)"><div style="font-size:7px;color:#2563EB;font-weight:700">Group Friendly</div></div>
+            <div class="wf-col" style="background:#F0FDF4;border-right:1px solid var(--g200)"><div style="font-size:7px;color:#16A34A;font-weight:700">7 Days / Week</div></div>
+            <div class="wf-col" style="background:#F5F3FF"><div style="font-size:7px;color:#7C3AED;font-weight:700">ESL Classes</div></div>
+          </div>
+        </div>
+
+        <div class="wf-sec s-white" style="min-height:130px">
+          <div class="wf-ann">5</div>
+          <div class="wf-content">
+            <div class="wf-line" style="width:200px;height:7px;margin:6px auto 8px"></div>
+            <div class="wf-row">
+              <div class="wf-col" style="min-height:70px;flex-direction:column;gap:4px;padding:6px">
+                <div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%;margin:4px 0 0"></div>
+              </div>
+              <div class="wf-col" style="min-height:70px;flex-direction:column;gap:4px;padding:6px">
+                <div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%;margin:4px 0 0"></div>
+              </div>
+              <div class="wf-col" style="min-height:70px;flex-direction:column;gap:4px;padding:6px">
+                <div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%;margin:4px 0 0"></div>
+              </div>
+              <div class="wf-col" style="min-height:70px;flex-direction:column;gap:4px;padding:6px">
+                <div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%;margin:4px 0 0"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-sec s-light" style="min-height:100px">
+          <div class="wf-ann">6</div>
+          <div class="wf-row" style="padding:8px">
+            <div class="wf-col" style="flex:1;flex-direction:column;gap:4px;align-items:flex-start;padding:6px">
+              <div class="wf-line" style="width:70%;height:7px"></div>
+              <div class="wf-line-sm"></div><div class="wf-line-sm"></div><div class="wf-line-sm"></div>
+              <div class="wf-btn-r" style="margin-top:4px"></div>
+            </div>
+            <div class="wf-col" style="flex:1;background:#D1D5DB;min-height:80px">
+              <div style="font-size:7px;color:#6B7280;font-weight:600">Photo / Illustration</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-sec s-dark" style="min-height:70px">
+          <div class="wf-ann">7</div>
+          <div class="wf-content">
+            <div class="wf-line" style="width:200px;height:7px;background:rgba(255,255,255,.2)"></div>
+            <div class="wf-line" style="width:140px;height:5px;background:rgba(255,255,255,.12)"></div>
+            <div style="display:flex;gap:8px;margin-top:6px">
+              <div class="wf-btn-r" style="height:18px"></div>
+              <div style="height:18px;width:80px;border:1.5px solid rgba(255,255,255,.3);border-radius:3px"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-sec s-gray" style="min-height:130px">
+          <div class="wf-ann">8</div>
+          <div class="wf-row" style="padding:8px">
+            <div class="wf-col" style="flex:1;flex-direction:column;gap:4px;align-items:flex-start;padding:6px">
+              <div class="wf-col" style="width:100%;min-height:50px;background:#CBD5E1;border-radius:4px"><div style="font-size:7px;color:#64748B">Map Placeholder</div></div>
+              <div style="display:flex;gap:6px;margin-top:4px;align-items:center">
+                <div style="font-size:16px;font-weight:800;color:var(--g900)">4.9</div>
+                <div><div style="font-size:9px;color:#F59E0B">★★★★★</div><div style="font-size:7px;color:#9CA3AF">60+ reviews</div></div>
+              </div>
+            </div>
+            <div class="wf-col" style="flex:2;flex-direction:column;gap:4px;padding:6px">
+              <div class="wf-line" style="height:7px;width:60%"></div>
+              <div class="wf-row">
+                <div class="wf-col" style="min-height:55px"></div>
+                <div class="wf-col" style="min-height:55px"></div>
+                <div class="wf-col" style="min-height:55px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-sec s-white" style="min-height:130px">
+          <div class="wf-ann">9</div>
+          <div class="wf-content" style="padding:8px">
+            <div class="wf-line" style="width:160px;height:7px;margin-bottom:4px"></div>
+            <div style="width:100%;border-top:1px solid #E5E7EB">
+              <div style="border-bottom:1px solid #E5E7EB;height:18px;display:flex;align-items:center;justify-content:space-between;padding:0 4px"><div class="wf-line" style="width:60%;height:5px;margin:0"></div><div style="font-size:10px">+</div></div>
+              <div style="border-bottom:1px solid #E5E7EB;height:18px;display:flex;align-items:center;justify-content:space-between;padding:0 4px"><div class="wf-line" style="width:55%;height:5px;margin:0"></div><div style="font-size:10px">+</div></div>
+              <div style="border-bottom:1px solid #E5E7EB;height:18px;display:flex;align-items:center;justify-content:space-between;padding:0 4px"><div class="wf-line" style="width:65%;height:5px;margin:0"></div><div style="font-size:10px">+</div></div>
+              <div style="border-bottom:1px solid #E5E7EB;height:18px;display:flex;align-items:center;justify-content:space-between;padding:0 4px"><div class="wf-line" style="width:50%;height:5px;margin:0"></div><div style="font-size:10px">+</div></div>
+              <div style="border-bottom:1px solid #E5E7EB;height:18px;display:flex;align-items:center;justify-content:space-between;padding:0 4px"><div class="wf-line" style="width:58%;height:5px;margin:0"></div><div style="font-size:10px">+</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wf-sec s-dark" style="min-height:100px">
+          <div class="wf-ann">10</div>
+          <div class="wf-row" style="padding:8px;align-items:flex-start">
+            <div class="wf-col-dark" style="padding:4px"><div class="wf-line" style="background:rgba(255,255,255,.2);height:5px"></div><div class="wf-line-sm" style="background:rgba(255,255,255,.1)"></div><div class="wf-line-sm" style="background:rgba(255,255,255,.1)"></div></div>
+            <div class="wf-col-dark" style="padding:4px"><div class="wf-line" style="background:rgba(255,255,255,.2);height:5px"></div><div class="wf-line-sm" style="background:rgba(255,255,255,.1)"></div><div class="wf-line-sm" style="background:rgba(255,255,255,.1)"></div></div>
+            <div class="wf-col-dark" style="padding:4px"><div class="wf-line" style="background:rgba(255,255,255,.2);height:5px"></div><div class="wf-line-sm" style="background:rgba(255,255,255,.1)"></div><div class="wf-line-sm" style="background:rgba(255,255,255,.1)"></div></div>
+            <div class="wf-col-dark" style="padding:4px"><div class="wf-line" style="background:rgba(255,255,255,.2);height:5px"></div><div class="wf-line-sm" style="background:rgba(255,255,255,.1)"></div><div class="wf-line-sm" style="background:rgba(255,255,255,.1)"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MOBILE -->
+    <div class="wf-mobile-wrap">
+      <span class="wf-label-sm">Mobile — 390px</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url">gtacpr.com</div></div>
+        <div class="wf-sec s-dark" style="min-height:18px"><div class="wf-lbl lbl-light" style="font-size:7px">Topbar</div></div>
+        <div class="wf-sec s-white" style="min-height:44px">
+          <div class="wf-row">
+            <div style="font-size:8px;color:var(--red);font-weight:800;flex:1">GTACPR</div>
+            <div style="display:flex;gap:5px">
+              <div style="width:24px;height:24px;background:#FFF0F0;border-radius:4px"></div>
+              <div style="width:24px;height:24px;background:var(--g100);border-radius:4px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-hero" style="min-height:160px">
+          <div class="wf-content" style="padding:8px">
+            <div class="wf-line" style="width:90%;height:9px;background:rgba(255,255,255,.2)"></div>
+            <div class="wf-line" style="width:70%;height:9px;background:rgba(255,255,255,.2)"></div>
+            <div class="wf-line" style="width:80%;height:5px;background:rgba(255,255,255,.12)"></div>
+            <div class="wf-btn-r" style="width:100%;height:22px;margin-top:8px"></div>
+            <div style="height:22px;width:100%;border:1.5px solid rgba(255,255,255,.3);border-radius:3px;margin-top:5px"></div>
+          </div>
+        </div>
+        <div class="wf-sec s-trust" style="min-height:80px">
+          <div class="wf-row" style="flex-wrap:wrap;gap:1px">
+            <div class="wf-col" style="min-width:calc(50% - 1px);background:#FFF0F0;min-height:34px"><div style="font-size:6.5px;color:#CC1F1F;font-weight:700">WSIB</div></div>
+            <div class="wf-col" style="min-width:calc(50% - 1px);background:#EFF6FF;min-height:34px"><div style="font-size:6.5px;color:#2563EB;font-weight:700">Group</div></div>
+            <div class="wf-col" style="min-width:calc(50% - 1px);background:#F0FDF4;min-height:34px"><div style="font-size:6.5px;color:#16A34A;font-weight:700">7 Days</div></div>
+            <div class="wf-col" style="min-width:calc(50% - 1px);background:#F5F3FF;min-height:34px"><div style="font-size:6.5px;color:#7C3AED;font-weight:700">ESL</div></div>
+          </div>
+        </div>
+        <div class="wf-sec s-white" style="min-height:200px">
+          <div class="wf-content" style="padding:5px;gap:4px">
+            <div class="wf-line" style="width:120px;height:6px;margin-bottom:2px"></div>
+            <div class="wf-col" style="width:100%;min-height:38px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%"></div></div>
+            <div class="wf-col" style="width:100%;min-height:38px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%"></div></div>
+            <div class="wf-col" style="width:100%;min-height:38px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%"></div></div>
+            <div class="wf-col" style="width:100%;min-height:38px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%"></div></div>
+          </div>
+        </div>
+        <div class="wf-sec s-dark" style="min-height:60px">
+          <div class="wf-content">
+            <div class="wf-line" style="width:80%;height:6px;background:rgba(255,255,255,.2)"></div>
+            <div class="wf-btn-r" style="width:80%;height:18px;margin-top:5px"></div>
+          </div>
+        </div>
+        <div class="wf-fixed"><div style="font-size:7px;color:rgba(255,255,255,.6);font-weight:600">[ CALL NOW ] &nbsp;|&nbsp; [ BOOK A CLASS ]  — Fixed Bottom Bar</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Annotations -->
+  <div class="ann-wrap">
+    <table class="ann-table">
+      <thead><tr><th>#</th><th>Section</th><th>Content / Purpose</th><th>UX Notes</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ann-n">1</span></td><td>Topbar</td><td>Announcement strip — e.g. "WSIB Approved · 7 Days a Week"</td><td><span class="ann-tag tag-fix">Fix</span> Verify "24/7" claim with client before launch</td><td>Keep visible</td></tr>
+        <tr><td><span class="ann-n">2</span></td><td>Nav</td><td>Logo · Home · About · Courses · Group · ESL · Register + phone + Book Now CTA</td><td><span class="ann-tag tag-fix">Fix</span> Remove duplicate About/About Us link on Register page</td><td>Logo + phone icon + hamburger only</td></tr>
+        <tr><td><span class="ann-n">3</span></td><td>Hero</td><td>H1: "CPR &amp; First Aid Training in the GTA" · Sub · 2 CTAs (Book a Class, Call Us) · inline trust row (shield + stars)</td><td>Dark overlay + background photo. Trust row visible without scroll on desktop.</td><td>Stacked layout. Both CTAs full-width. Photo as faded bg only.</td></tr>
+        <tr><td><span class="ann-n">4</span></td><td>Trust Bar</td><td>4 tiles: WSIB Approved · Group Friendly · 7 Days a Week · ESL Classes</td><td>Each tile icon-coloured by brand accent. Immediately below hero — reinforces credibility above fold.</td><td>2×2 grid</td></tr>
+        <tr><td><span class="ann-n">5</span></td><td>Courses Grid</td><td>Section title "Our Courses" + 4 course cards (CPR-A · CPR-C/AED · Standard FA · Recert). Each: image, name, duration, price, CTA button.</td><td>Hover: card lifts. CTA goes to Register page with course pre-selected (future enhancement).</td><td>1-col stacked. Cards full-width.</td></tr>
+        <tr><td><span class="ann-n">6</span></td><td>On-Site Section</td><td>H2 "Train Your Workplace" · benefit list (5 items) · "Get a Quote" CTA · photo right</td><td>Links to Group Training page. Photo requires client asset.</td><td>Photo stacks below text</td></tr>
+        <tr><td><span class="ann-n">7</span></td><td>ESL Strip</td><td>Dark band: "Training in Your Language?" + language flags + View ESL Classes CTA</td><td>Mandarin · Cantonese · Greek shown as language badges. Links to ESL page.</td><td>Full width. Language badges wrap.</td></tr>
+        <tr><td><span class="ann-n">8</span></td><td>Reviews</td><td>Left: map placeholder + 4.9★ rating summary. Right: 3 review cards.</td><td><span class="ann-tag tag-dep">Client</span> 3 real Google reviews needed. Map requires Google Maps embed key.</td><td>Rating row first, then stacked review cards. Map hidden or below cards.</td></tr>
+        <tr><td><span class="ann-n">9</span></td><td>FAQ</td><td>6 accordion items covering: OHSA requirements, cert validity, languages, on-site, group size, payment.</td><td>Only one item open at a time. Last item can link to Contact page.</td><td>Full-width. Same layout.</td></tr>
+        <tr><td><span class="ann-n">10</span></td><td>Footer</td><td>4 columns: About blurb · Quick Links · Courses · Contact. Badge strip: WSIB + Red Cross. Legal line.</td><td><span class="ann-tag tag-fix">Fix</span> Duplicate "WSIB Approved" badge — one must read "Red Cross Training Partner".</td><td>1-col stacked</td></tr>
+        <tr><td><span class="ann-n">11</span></td><td>Mobile CTA Bar</td><td>Fixed bottom: "Call Now" (secondary) + "Book a Class" (primary red)</td><td>Hidden on desktop. Safe-area inset respected.</td><td>Always visible. z-index 400.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ABOUT -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="page-wf" id="wf-about">
+  <div class="page-title">About <span style="font-size:13px;color:var(--g400);font-weight:400">/ gtacpr-about.html</span></div>
+  <div class="page-desc">Build trust and credibility. Humanise the brand. Drive to Register or Group Training.</div>
+  <div class="wf-layout">
+    <div class="wf-desktop">
+      <span class="wf-label-sm">Desktop — 1160px max-width</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url">gtacpr.com/about</div></div>
+        <div class="wf-sec s-dark" style="min-height:20px"><div class="wf-ann">1</div><div class="wf-lbl lbl-light">Topbar</div></div>
+        <div class="wf-sec s-white" style="min-height:44px"><div class="wf-ann">2</div><div class="wf-lbl lbl-dark">Navigation</div></div>
+        <div class="wf-sec s-hero-sm">
+          <div class="wf-ann">3</div>
+          <div class="wf-content" style="padding:8px">
+            <div class="wf-line" style="width:55%;height:9px;background:rgba(255,255,255,.2)"></div>
+            <div class="wf-line" style="width:70%;height:5px;background:rgba(255,255,255,.12);margin-top:4px"></div>
+          </div>
+        </div>
+        <div class="wf-sec s-white" style="min-height:54px">
+          <div class="wf-ann">4</div>
+          <div class="wf-row" style="padding:6px;gap:1px">
+            <div class="wf-col" style="flex-direction:column;gap:3px;padding:4px"><div style="font-size:12px;font-weight:800;color:var(--red)">10+</div><div class="wf-line-sm" style="margin:0"></div></div>
+            <div class="wf-col" style="flex-direction:column;gap:3px;padding:4px"><div style="font-size:12px;font-weight:800;color:var(--red)">2.5K+</div><div class="wf-line-sm" style="margin:0"></div></div>
+            <div class="wf-col" style="flex-direction:column;gap:3px;padding:4px"><div style="font-size:12px;font-weight:800;color:var(--red)">4.9★</div><div class="wf-line-sm" style="margin:0"></div></div>
+            <div class="wf-col" style="flex-direction:column;gap:3px;padding:4px"><div style="font-size:12px;font-weight:800;color:var(--red)">7</div><div class="wf-line-sm" style="margin:0"></div></div>
+            <div class="wf-col" style="flex-direction:column;gap:3px;padding:4px"><div style="font-size:12px;font-weight:800;color:var(--red)">3</div><div class="wf-line-sm" style="margin:0"></div></div>
+          </div>
+        </div>
+        <div class="wf-sec s-light" style="min-height:110px">
+          <div class="wf-ann">5</div>
+          <div class="wf-row" style="padding:8px">
+            <div class="wf-col" style="background:#CBD5E1;min-height:80px"><div style="font-size:7px;color:#64748B">Photo</div></div>
+            <div class="wf-col" style="flex:2;flex-direction:column;gap:4px;align-items:flex-start;padding:6px">
+              <div class="wf-line" style="height:7px;width:60%"></div>
+              <div class="wf-line-sm"></div><div class="wf-line-sm"></div><div class="wf-line-sm"></div><div class="wf-line-sm"></div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-white" style="min-height:120px">
+          <div class="wf-ann">6</div>
+          <div class="wf-content" style="padding:8px">
+            <div class="wf-line" style="width:160px;height:7px;margin-bottom:6px"></div>
+            <div class="wf-row">
+              <div class="wf-col" style="min-height:50px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div></div>
+              <div class="wf-col" style="min-height:50px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div></div>
+              <div class="wf-col" style="min-height:50px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div></div>
+            </div>
+            <div class="wf-row" style="margin-top:4px">
+              <div class="wf-col" style="min-height:50px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div></div>
+              <div class="wf-col" style="min-height:50px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div></div>
+              <div class="wf-col" style="min-height:50px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-light" style="min-height:60px">
+          <div class="wf-ann">7</div>
+          <div class="wf-row" style="padding:8px;gap:8px">
+            <div class="wf-col" style="min-height:40px;background:#E2E8F0"><div style="font-size:7px;color:#64748B">WSIB Logo</div></div>
+            <div class="wf-col" style="min-height:40px;background:#E2E8F0"><div style="font-size:7px;color:#64748B">Red Cross</div></div>
+            <div class="wf-col" style="min-height:40px;background:#E2E8F0"><div style="font-size:7px;color:#64748B">OHSA</div></div>
+            <div class="wf-col" style="min-height:40px;background:#E2E8F0"><div style="font-size:7px;color:#64748B">Google</div></div>
+          </div>
+        </div>
+        <div class="wf-sec s-red" style="min-height:70px">
+          <div class="wf-ann">8</div>
+          <div class="wf-content">
+            <div class="wf-line" style="width:200px;height:7px;background:rgba(204,31,31,.3)"></div>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <div class="wf-btn-g" style="height:20px;background:#CC1F1F;width:90px"></div>
+              <div style="height:20px;width:80px;border:1.5px solid #CC1F1F;border-radius:3px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-dark" style="min-height:80px"><div class="wf-ann">9</div><div class="wf-lbl lbl-light">Footer</div></div>
+      </div>
+    </div>
+    <div class="wf-mobile-wrap">
+      <span class="wf-label-sm">Mobile — 390px</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div></div>
+        <div class="wf-sec s-dark" style="min-height:18px"><div class="wf-lbl lbl-light" style="font-size:7px">Topbar + Nav</div></div>
+        <div class="wf-sec s-hero-sm"><div class="wf-lbl lbl-light">Page Hero</div></div>
+        <div class="wf-sec s-white" style="min-height:60px">
+          <div class="wf-row" style="flex-wrap:wrap;padding:4px;gap:2px">
+            <div class="wf-col" style="min-width:calc(50% - 2px);min-height:26px;flex-direction:column;gap:2px;padding:3px"><div style="font-size:9px;font-weight:800;color:var(--red)">10+</div><div class="wf-line-sm" style="margin:0"></div></div>
+            <div class="wf-col" style="min-width:calc(50% - 2px);min-height:26px;flex-direction:column;gap:2px;padding:3px"><div style="font-size:9px;font-weight:800;color:var(--red)">2.5K+</div><div class="wf-line-sm" style="margin:0"></div></div>
+            <div class="wf-col" style="min-width:calc(50% - 2px);min-height:26px;flex-direction:column;gap:2px;padding:3px"><div style="font-size:9px;font-weight:800;color:var(--red)">4.9★</div><div class="wf-line-sm" style="margin:0"></div></div>
+            <div class="wf-col" style="min-width:calc(50% - 2px);min-height:26px;flex-direction:column;gap:2px;padding:3px"><div style="font-size:9px;font-weight:800;color:var(--red)">7 days</div><div class="wf-line-sm" style="margin:0"></div></div>
+          </div>
+        </div>
+        <div class="wf-sec s-light" style="min-height:120px"><div class="wf-lbl lbl-dark">Vision: Photo top, Text below</div></div>
+        <div class="wf-sec s-white" style="min-height:140px"><div class="wf-lbl lbl-dark">Values: 2-col card grid</div></div>
+        <div class="wf-sec s-red" style="min-height:60px"><div class="wf-lbl lbl-dark" style="color:#9B1515">CTA Band</div></div>
+        <div class="wf-fixed"><div style="font-size:7px;color:rgba(255,255,255,.6);font-weight:600">[ CALL ] | [ BOOK ]</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="ann-wrap">
+    <table class="ann-table">
+      <thead><tr><th>#</th><th>Section</th><th>Content / Purpose</th><th>UX Notes</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ann-n">3</span></td><td>Page Hero</td><td>H1: "About GTACPR" · subtitle describing WSIB-approved GTA provider</td><td>Compact dark header. No CTA needed here — stats do the work below.</td><td>Same, compressed</td></tr>
+        <tr><td><span class="ann-n">4</span></td><td>Stats Bar</td><td>5 stats: 10+ Years · 2,500+ Certified · 4.9★ · 7 Days · 3 Languages</td><td><span class="ann-tag tag-dep">Client</span> Confirm actual numbers. Do not use placeholder figures at launch.</td><td>2×2 + 1 grid</td></tr>
+        <tr><td><span class="ann-n">5</span></td><td>Vision / Story</td><td>Photo left + text right: who we are, why we exist, community focus</td><td><span class="ann-tag tag-dep">Client</span> Needs real team photo. Copy placeholder until client provides.</td><td>Photo above text</td></tr>
+        <tr><td><span class="ann-n">6</span></td><td>Values Grid</td><td>6 cards: Safety · Inclusivity · Accessibility · Quality · Community · WSIB compliance</td><td>Each card: icon + title + 1–2 line description. Icons use brand accent colours.</td><td>2-col grid</td></tr>
+        <tr><td><span class="ann-n">7</span></td><td>Credentials</td><td>4 credential tiles: WSIB · Red Cross · OHSA · Google</td><td><span class="ann-tag tag-dep">Client</span> Requires actual logo assets for each credential. Use official logos only.</td><td>2-col grid</td></tr>
+        <tr><td><span class="ann-n">8</span></td><td>CTA Band</td><td>"Ready to Get Certified?" · Register Now (primary) · Call Us (outline)</td><td>Red CTA band. Drives to register page.</td><td>Buttons stack full-width</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- GROUP TRAINING -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="page-wf" id="wf-group">
+  <div class="page-title">Group Training <span style="font-size:13px;color:var(--g400);font-weight:400">/ gtacpr-group-training.html</span></div>
+  <div class="page-desc">B2B page targeting HR managers and safety officers. Goal: complete the quote form.</div>
+  <div class="wf-layout">
+    <div class="wf-desktop">
+      <span class="wf-label-sm">Desktop — 2-column layout (content 60% · sticky form 40%)</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url">gtacpr.com/group-training</div></div>
+        <div class="wf-sec s-dark" style="min-height:20px"><div class="wf-ann">1</div><div class="wf-lbl lbl-light">Topbar</div></div>
+        <div class="wf-sec s-white" style="min-height:44px"><div class="wf-ann">2</div><div class="wf-lbl lbl-dark">Navigation</div></div>
+        <div class="wf-sec s-hero-sm" style="min-height:80px">
+          <div class="wf-ann">3</div>
+          <div class="wf-content" style="padding:8px">
+            <div class="wf-line" style="width:70%;height:9px;background:rgba(255,255,255,.2)"></div>
+            <div class="wf-line" style="width:80%;height:5px;background:rgba(255,255,255,.12);margin-top:4px"></div>
+            <div style="display:flex;gap:5px;margin-top:6px">
+              <div style="height:14px;padding:0 6px;background:rgba(255,255,255,.15);border-radius:3px;font-size:7px;color:rgba(255,255,255,.6);display:flex;align-items:center">WSIB</div>
+              <div style="height:14px;padding:0 6px;background:rgba(255,255,255,.15);border-radius:3px;font-size:7px;color:rgba(255,255,255,.6);display:flex;align-items:center">24/7</div>
+              <div style="height:14px;padding:0 6px;background:rgba(255,255,255,.15);border-radius:3px;font-size:7px;color:rgba(255,255,255,.6);display:flex;align-items:center">Any Size</div>
+            </div>
+          </div>
+        </div>
+        <!-- 2-col layout: left content + right form -->
+        <div class="wf-sec s-gray" style="min-height:340px;align-items:flex-start;padding:8px;gap:8px">
+          <div class="wf-ann">4</div>
+          <!-- Left col -->
+          <div style="flex:3;display:flex;flex-direction:column;gap:6px">
+            <!-- Why cards -->
+            <div style="background:#fff;border-radius:4px;padding:6px">
+              <div class="wf-line" style="width:140px;height:6px;margin-bottom:5px"></div>
+              <div class="wf-row" style="gap:4px">
+                <div class="wf-col" style="min-height:45px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div></div>
+                <div class="wf-col" style="min-height:45px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div></div>
+                <div class="wf-col" style="min-height:45px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div></div>
+                <div class="wf-col" style="min-height:45px;padding:5px;flex-direction:column;gap:3px"><div class="wf-line"></div><div class="wf-line-sm"></div></div>
+              </div>
+            </div>
+            <!-- Course rows -->
+            <div style="background:#fff;border-radius:4px;padding:6px">
+              <div class="wf-line" style="width:140px;height:6px;margin-bottom:5px"></div>
+              <div class="wf-fields">
+                <div style="display:flex;align-items:center;gap:6px;border-bottom:1px solid #E5E7EB;padding-bottom:4px">
+                  <div style="width:50px;height:12px;background:#FFF0F0;border-radius:2px;border:1px solid #CC1F1F;font-size:6px;color:#CC1F1F;display:flex;align-items:center;justify-content:center">Blended</div>
+                  <div class="wf-line" style="flex:1;margin:0"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;border-bottom:1px solid #E5E7EB;padding-bottom:4px">
+                  <div style="width:50px;height:12px;background:#F0FDF4;border-radius:2px;border:1px solid #16A34A;font-size:6px;color:#16A34A;display:flex;align-items:center;justify-content:center">In-Person</div>
+                  <div class="wf-line" style="flex:1;margin:0"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;border-bottom:1px solid #E5E7EB;padding-bottom:4px">
+                  <div style="width:50px;height:12px;background:#FFF0F0;border-radius:2px;border:1px solid #CC1F1F;font-size:6px;color:#CC1F1F;display:flex;align-items:center;justify-content:center">Blended</div>
+                  <div class="wf-line" style="flex:1;margin:0"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px">
+                  <div style="width:50px;height:12px;background:#F0FDF4;border-radius:2px;border:1px solid #16A34A;font-size:6px;color:#16A34A;display:flex;align-items:center;justify-content:center">In-Person</div>
+                  <div class="wf-line" style="flex:1;margin:0"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Industries -->
+            <div style="background:#fff;border-radius:4px;padding:6px">
+              <div class="wf-line" style="width:120px;height:5px;margin-bottom:4px"></div>
+              <div style="display:flex;gap:3px;flex-wrap:wrap">
+                <div style="height:12px;padding:0 6px;background:#F3F4F6;border-radius:10px;font-size:6px;color:#4B5563">Healthcare</div>
+                <div style="height:12px;padding:0 6px;background:#F3F4F6;border-radius:10px;font-size:6px;color:#4B5563">Construction</div>
+                <div style="height:12px;padding:0 6px;background:#F3F4F6;border-radius:10px;font-size:6px;color:#4B5563">Education</div>
+                <div style="height:12px;padding:0 6px;background:#F3F4F6;border-radius:10px;font-size:6px;color:#4B5563">Hospitality</div>
+                <div style="height:12px;padding:0 6px;background:#F3F4F6;border-radius:10px;font-size:6px;color:#4B5563">Retail</div>
+                <div style="height:12px;padding:0 6px;background:#F3F4F6;border-radius:10px;font-size:6px;color:#4B5563">Office</div>
+              </div>
+            </div>
+            <!-- How it works -->
+            <div style="background:#fff;border-radius:4px;padding:6px">
+              <div class="wf-line" style="width:120px;height:5px;margin-bottom:4px"></div>
+              <div class="wf-row">
+                <div class="wf-col" style="min-height:40px;padding:5px;flex-direction:column;gap:3px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#CC1F1F;font-size:7px;color:#fff;display:flex;align-items:center;justify-content:center">1</div><div class="wf-line-sm"></div></div>
+                <div class="wf-col" style="min-height:40px;padding:5px;flex-direction:column;gap:3px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#CC1F1F;font-size:7px;color:#fff;display:flex;align-items:center;justify-content:center">2</div><div class="wf-line-sm"></div></div>
+                <div class="wf-col" style="min-height:40px;padding:5px;flex-direction:column;gap:3px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#CC1F1F;font-size:7px;color:#fff;display:flex;align-items:center;justify-content:center">3</div><div class="wf-line-sm"></div></div>
+                <div class="wf-col" style="min-height:40px;padding:5px;flex-direction:column;gap:3px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#CC1F1F;font-size:7px;color:#fff;display:flex;align-items:center;justify-content:center">4</div><div class="wf-line-sm"></div></div>
+              </div>
+            </div>
+          </div>
+          <!-- Right sticky form -->
+          <div style="flex:2;background:#fff;border:1.5px solid #E5E7EB;border-radius:6px;padding:8px;position:sticky;top:8px">
+            <div class="wf-ann">5</div>
+            <div class="wf-line" style="width:120px;height:6px;margin-bottom:8px"></div>
+            <div class="wf-fields">
+              <div class="wf-field"></div>
+              <div class="wf-field"></div>
+              <div class="wf-field"></div>
+              <div class="wf-field"></div>
+              <div class="wf-field"></div>
+              <div class="wf-field" style="height:30px"></div>
+            </div>
+            <div class="wf-btn-r" style="width:100%;height:20px;border-radius:4px;margin-top:6px"></div>
+            <div class="wf-line-sm" style="margin-top:4px;text-align:center"></div>
+          </div>
+        </div>
+        <div class="wf-sec s-red" style="min-height:60px"><div class="wf-ann">6</div><div class="wf-lbl lbl-dark" style="color:#9B1515">CTA Band — "Train Your Whole Team"</div></div>
+        <div class="wf-sec s-dark" style="min-height:80px"><div class="wf-ann">7</div><div class="wf-lbl lbl-light">Footer</div></div>
+      </div>
+    </div>
+    <div class="wf-mobile-wrap">
+      <span class="wf-label-sm">Mobile — Form moves to top</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div></div>
+        <div class="wf-sec s-dark" style="min-height:18px"><div class="wf-lbl lbl-light" style="font-size:7px">Topbar + Nav</div></div>
+        <div class="wf-sec s-hero-sm"><div class="wf-lbl lbl-light">Hero</div></div>
+        <div class="wf-sec s-white" style="min-height:120px;padding:6px">
+          <div style="width:100%">
+            <div style="font-size:8px;font-weight:700;color:#CC1F1F;margin-bottom:4px">REQUEST A QUOTE ← Moves to top on mobile</div>
+            <div class="wf-fields" style="gap:4px">
+              <div class="wf-field"></div><div class="wf-field"></div><div class="wf-field"></div><div class="wf-field"></div>
+              <div class="wf-btn-r" style="width:100%;height:18px;border-radius:4px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-gray" style="min-height:160px"><div class="wf-lbl lbl-dark">Why Cards → Course Rows → Industries → How It Works</div></div>
+        <div class="wf-fixed"><div style="font-size:7px;color:rgba(255,255,255,.6);font-weight:600">[ CALL ] | [ BOOK ]</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="ann-wrap">
+    <table class="ann-table">
+      <thead><tr><th>#</th><th>Section</th><th>Content / Purpose</th><th>UX Notes</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ann-n">3</span></td><td>Page Hero</td><td>H1: "On-Site CPR &amp; First Aid for Your Team" · sub · 3 badge pills: WSIB · 24/7 · Any Size</td><td><span class="ann-tag tag-fix">Fix</span> Duplicate "WSIB Approved" badges. Fix to: WSIB · 24/7* · Any Size Group. *Verify claim.</td><td>Same, compressed</td></tr>
+        <tr><td><span class="ann-n">4</span></td><td>Content (left col)</td><td>Why On-Site (4 cards) → Course Rows (4, with delivery badges) → Industry chips → How It Works (4 steps)</td><td>Course rows should show price range or "contact for pricing" clearly.</td><td>Full-width stacked</td></tr>
+        <tr><td><span class="ann-n">5</span></td><td>Quote Form (right, sticky)</td><td>Company · Group Size · Course · Timing · Location · Message · Submit. Success state replaces form.</td><td><span class="ann-tag tag-fix">Fix</span> Form needs a POST endpoint. Recommend Formspree or similar for static site.</td><td>Moves to TOP of page (order:-1 CSS)</td></tr>
+        <tr><td><span class="ann-n">6</span></td><td>CTA Band</td><td>"Ready to Train Your Team?" · Get a Quote · Call Now</td><td>Scrolls up to form on click (#request-form anchor).</td><td>Full-width</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ESL -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="page-wf" id="wf-esl">
+  <div class="page-title">ESL Classes <span style="font-size:13px;color:var(--g400);font-weight:400">/ gtacpr-esl.html</span></div>
+  <div class="page-desc">Serves non-English-speaking GTA communities. Key trust signal: bilingual instructors.</div>
+  <div class="wf-layout">
+    <div class="wf-desktop">
+      <span class="wf-label-sm">Desktop — 1160px max-width</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url">gtacpr.com/esl</div></div>
+        <div class="wf-sec s-dark" style="min-height:20px"><div class="wf-ann">1</div><div class="wf-lbl lbl-light">Topbar + Nav</div></div>
+        <div class="wf-sec s-hero-sm" style="min-height:90px">
+          <div class="wf-ann">2</div>
+          <div class="wf-content" style="padding:8px">
+            <div class="wf-line" style="width:70%;height:9px;background:rgba(255,255,255,.2)"></div>
+            <div class="wf-line" style="width:80%;height:5px;background:rgba(255,255,255,.12);margin-top:4px"></div>
+            <div style="display:flex;gap:5px;margin-top:7px;justify-content:center">
+              <div style="height:18px;padding:0 8px;background:rgba(255,255,255,.12);border-radius:10px;font-size:7.5px;color:rgba(255,255,255,.7);display:flex;align-items:center">🇨🇳 普通话</div>
+              <div style="height:18px;padding:0 8px;background:rgba(255,255,255,.12);border-radius:10px;font-size:7.5px;color:rgba(255,255,255,.7);display:flex;align-items:center">🇭🇰 廣東話</div>
+              <div style="height:18px;padding:0 8px;background:rgba(255,255,255,.12);border-radius:10px;font-size:7.5px;color:rgba(255,255,255,.7);display:flex;align-items:center">🇬🇷 Ελληνικά</div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-white" style="min-height:90px">
+          <div class="wf-ann">3</div>
+          <div class="wf-row" style="padding:8px">
+            <div class="wf-col" style="flex:1;flex-direction:column;gap:3px;align-items:flex-start;padding:6px">
+              <div class="wf-line" style="height:6px;width:60%"></div>
+              <div class="wf-line-sm"></div><div class="wf-line-sm"></div><div class="wf-line-sm"></div>
+            </div>
+            <div class="wf-col" style="flex:1;background:#CBD5E1;min-height:70px"><div style="font-size:7px;color:#64748B">Photo</div></div>
+          </div>
+        </div>
+        <div class="wf-sec s-light" style="min-height:80px">
+          <div class="wf-ann">4</div>
+          <div class="wf-row" style="padding:8px">
+            <div class="wf-col" style="flex:1;background:#CBD5E1;min-height:60px"><div style="font-size:7px;color:#64748B">Photo</div></div>
+            <div class="wf-col" style="flex:1;flex-direction:column;gap:3px;align-items:flex-start;padding:6px">
+              <div class="wf-line" style="height:6px;width:60%"></div>
+              <div style="display:flex;flex-direction:column;gap:2px">
+                <div style="display:flex;gap:4px;align-items:center"><div style="width:7px;height:7px;border-radius:50%;background:#CC1F1F;flex-shrink:0"></div><div class="wf-line-sm" style="margin:0"></div></div>
+                <div style="display:flex;gap:4px;align-items:center"><div style="width:7px;height:7px;border-radius:50%;background:#CC1F1F;flex-shrink:0"></div><div class="wf-line-sm" style="margin:0"></div></div>
+                <div style="display:flex;gap:4px;align-items:center"><div style="width:7px;height:7px;border-radius:50%;background:#CC1F1F;flex-shrink:0"></div><div class="wf-line-sm" style="margin:0"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-white" style="min-height:100px">
+          <div class="wf-ann">5</div>
+          <div class="wf-content" style="padding:8px">
+            <div class="wf-line" style="width:160px;height:6px;margin-bottom:6px"></div>
+            <div class="wf-row">
+              <div class="wf-col" style="min-height:60px;flex-direction:column;gap:3px;padding:5px"><div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%"></div></div>
+              <div class="wf-col" style="min-height:60px;flex-direction:column;gap:3px;padding:5px"><div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%"></div></div>
+              <div class="wf-col" style="min-height:60px;flex-direction:column;gap:3px;padding:5px"><div class="wf-line"></div><div class="wf-line-sm"></div><div class="wf-btn-r" style="width:100%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-light" style="min-height:100px">
+          <div class="wf-ann">6</div>
+          <div class="wf-content" style="padding:8px">
+            <div class="wf-line" style="width:160px;height:6px;margin-bottom:6px"></div>
+            <div class="wf-row">
+              <div class="wf-col" style="min-height:65px;flex-direction:column;padding:5px;gap:3px"><div style="height:30px;background:#CBD5E1;border-radius:3px;width:100%"></div><div class="wf-line" style="height:5px"></div><div class="wf-line-sm"></div></div>
+              <div class="wf-col" style="min-height:65px;flex-direction:column;padding:5px;gap:3px"><div style="height:30px;background:#CBD5E1;border-radius:3px;width:100%"></div><div class="wf-line" style="height:5px"></div><div class="wf-line-sm"></div></div>
+              <div class="wf-col" style="min-height:65px;flex-direction:column;padding:5px;gap:3px"><div style="height:30px;background:#CBD5E1;border-radius:3px;width:100%"></div><div class="wf-line" style="height:5px"></div><div class="wf-line-sm"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-white" style="min-height:100px"><div class="wf-ann">7</div><div class="wf-lbl lbl-dark">FAQ Accordion — 5 Items</div></div>
+        <div class="wf-sec s-dark" style="min-height:70px"><div class="wf-ann">8</div><div class="wf-lbl lbl-light">CTA Band — "Register Now" + "Call Us First"</div></div>
+        <div class="wf-sec s-dark" style="min-height:80px"><div class="wf-lbl lbl-light">Footer</div></div>
+      </div>
+    </div>
+    <div class="wf-mobile-wrap">
+      <span class="wf-label-sm">Mobile — 390px</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div></div>
+        <div class="wf-sec s-hero-sm" style="min-height:100px">
+          <div class="wf-content" style="padding:6px">
+            <div class="wf-lbl lbl-light">Page Hero</div>
+            <div style="display:flex;gap:3px;margin-top:6px">
+              <div style="height:14px;padding:0 5px;background:rgba(255,255,255,.12);border-radius:8px;font-size:6px;color:rgba(255,255,255,.6);display:flex;align-items:center">普通话</div>
+              <div style="height:14px;padding:0 5px;background:rgba(255,255,255,.12);border-radius:8px;font-size:6px;color:rgba(255,255,255,.6);display:flex;align-items:center">廣東話</div>
+              <div style="height:14px;padding:0 5px;background:rgba(255,255,255,.12);border-radius:8px;font-size:6px;color:rgba(255,255,255,.6);display:flex;align-items:center">Ελληνικά</div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-white" style="min-height:70px"><div class="wf-lbl lbl-dark">What Is ESL (stacked)</div></div>
+        <div class="wf-sec s-light" style="min-height:70px"><div class="wf-lbl lbl-dark">Who Is It For (stacked)</div></div>
+        <div class="wf-sec s-white" style="min-height:140px"><div class="wf-lbl lbl-dark">3 Course Cards (stacked)</div></div>
+        <div class="wf-sec s-light" style="min-height:140px"><div class="wf-lbl lbl-dark">3 Language Cards (stacked)</div></div>
+        <div class="wf-sec s-dark" style="min-height:60px"><div class="wf-lbl lbl-light">CTA Band</div></div>
+        <div class="wf-fixed"><div style="font-size:7px;color:rgba(255,255,255,.6);font-weight:600">[ CALL ] | [ BOOK ]</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="ann-wrap">
+    <table class="ann-table">
+      <thead><tr><th>#</th><th>Section</th><th>Content / Purpose</th><th>UX Notes</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ann-n">2</span></td><td>Page Hero + Language Bar</td><td>H1 in English. Language bar below with native scripts: 普通话 · 廣東話 · Ελληνικά</td><td>Native script is the primary trust signal for this audience. Display prominently.</td><td>Language bar wraps to 2 rows</td></tr>
+        <tr><td><span class="ann-n">3</span></td><td>What Is ESL Training</td><td>Text left + photo right. Explains what bilingual training means and why it matters.</td><td><span class="ann-tag tag-dep">Client</span> Verify: "instructors are fluent in your language" — needs confirmation per language.</td><td>Photo stacks below text</td></tr>
+        <tr><td><span class="ann-n">4</span></td><td>Who Is It For</td><td>Photo left + checklist right. Checklist confirms: bilingual instructors, multilingual materials, same cert.</td><td>Checklist builds trust. Keep bullet copy specific and factual.</td><td>Photo stacks above</td></tr>
+        <tr><td><span class="ann-n">5</span></td><td>Course Cards (×3)</td><td>Same courses as homepage but ESL-context pricing/description. 3 most popular for ESL audience.</td><td>Should link to Register page with course pre-selected.</td><td>1-col stacked</td></tr>
+        <tr><td><span class="ann-n">6</span></td><td>Language Cards (×3)</td><td>One card per language: Mandarin · Cantonese · Greek. Photo + native language name + what to expect.</td><td><span class="ann-tag tag-dep">Client</span> Needs 3 language-specific photos or illustrations.</td><td>1-col stacked</td></tr>
+        <tr><td><span class="ann-n">7</span></td><td>FAQ</td><td>5 items focused on ESL concerns: language confirmation, cert validity, materials, group ESL options.</td><td>Last FAQ item can say "Contact us in your language" and link to Contact page.</td><td>Full width</td></tr>
+        <tr><td><span class="ann-n">8</span></td><td>CTA Band</td><td>Two buttons: Register Now (primary) · Call Us First (secondary — important for ESL audience who prefer to call).</td><td>ESL users often prefer to speak before registering. "Call Us First" removes that barrier.</td><td>Buttons stack</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- REGISTER -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="page-wf" id="wf-register">
+  <div class="page-title">Register — 4-Step Wizard <span style="font-size:13px;color:var(--g400);font-weight:400">/ gtacpr-register.html</span></div>
+  <div class="page-desc">Most critical interaction on the site. Minimal friction. Always show progress + order summary.</div>
+  <div class="wf-layout">
+    <div class="wf-desktop">
+      <span class="wf-label-sm">Desktop — 2-column: Steps (65%) · Order Summary (35%)</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url">gtacpr.com/register</div></div>
+        <div class="wf-sec s-dark" style="min-height:20px"><div class="wf-lbl lbl-light">Topbar + Nav</div></div>
+        <div class="wf-sec s-hero-sm" style="min-height:55px"><div class="wf-ann">1</div><div class="wf-lbl lbl-light">Page Hero — "Book Your Course"</div></div>
+        <!-- Stepper -->
+        <div class="wf-sec s-white" style="min-height:44px">
+          <div class="wf-ann">2</div>
+          <div style="display:flex;align-items:center;width:90%;justify-content:center">
+            <div style="width:22px;height:22px;border-radius:50%;background:#CC1F1F;color:#fff;font-size:8px;font-weight:800;display:flex;align-items:center;justify-content:center">✓</div>
+            <div style="font-size:8px;font-weight:700;color:#CC1F1F;margin:0 4px">Course</div>
+            <div style="flex:1;height:2px;background:#CC1F1F"></div>
+            <div style="width:22px;height:22px;border-radius:50%;background:#CC1F1F;color:#fff;font-size:8px;font-weight:800;display:flex;align-items:center;justify-content:center">2</div>
+            <div style="font-size:8px;font-weight:700;color:var(--g900);margin:0 4px">Date</div>
+            <div style="flex:1;height:2px;background:#E5E7EB"></div>
+            <div style="width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid #E5E7EB;color:#9CA3AF;font-size:8px;font-weight:800;display:flex;align-items:center;justify-content:center">3</div>
+            <div style="font-size:8px;color:#9CA3AF;margin:0 4px">Details</div>
+            <div style="flex:1;height:2px;background:#E5E7EB"></div>
+            <div style="width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid #E5E7EB;color:#9CA3AF;font-size:8px;font-weight:800;display:flex;align-items:center;justify-content:center">4</div>
+            <div style="font-size:8px;color:#9CA3AF;margin:0 4px">Review</div>
+          </div>
+        </div>
+        <!-- 2-col: steps + sidebar -->
+        <div class="wf-sec s-gray" style="min-height:320px;align-items:flex-start;padding:8px;gap:8px">
+          <div style="flex:3;display:flex;flex-direction:column;gap:6px">
+            <!-- Step 1 shown -->
+            <div style="background:#fff;border-radius:4px;padding:8px">
+              <div class="wf-ann">3</div>
+              <div class="wf-line" style="width:140px;height:6px;margin-bottom:6px"></div>
+              <div class="wf-row" style="gap:5px">
+                <div style="flex:1;border:2px solid #CC1F1F;border-radius:6px;padding:6px;box-shadow:0 0 0 2px rgba(204,31,31,.1)">
+                  <div class="wf-line" style="height:5px;width:80%"></div>
+                  <div class="wf-line-sm"></div>
+                  <div style="font-size:9px;font-weight:800;color:var(--g900);margin-top:3px">$75</div>
+                </div>
+                <div style="flex:1;border:2px solid #E5E7EB;border-radius:6px;padding:6px">
+                  <div class="wf-line" style="height:5px;width:80%"></div>
+                  <div class="wf-line-sm"></div>
+                  <div style="font-size:9px;font-weight:800;color:var(--g900);margin-top:3px">$65</div>
+                </div>
+                <div style="flex:1;border:2px solid #E5E7EB;border-radius:6px;padding:6px">
+                  <div class="wf-line" style="height:5px;width:80%"></div>
+                  <div class="wf-line-sm"></div>
+                  <div style="font-size:9px;font-weight:800;color:var(--g900);margin-top:3px">$115</div>
+                </div>
+                <div style="flex:1;border:2px solid #E5E7EB;border-radius:6px;padding:6px">
+                  <div class="wf-line" style="height:5px;width:80%"></div>
+                  <div class="wf-line-sm"></div>
+                  <div style="font-size:9px;font-weight:800;color:var(--g900);margin-top:3px">$65</div>
+                </div>
+              </div>
+              <div class="wf-btn-r" style="width:100%;height:20px;border-radius:4px;margin-top:8px;opacity:.4"></div>
+            </div>
+            <!-- Step 2 hint -->
+            <div style="background:#F8FAFC;border:1.5px dashed #CBD5E1;border-radius:4px;padding:6px">
+              <div class="wf-ann">4</div>
+              <div class="wf-line" style="width:120px;height:5px;margin-bottom:5px"></div>
+              <div class="wf-row" style="gap:3px;flex-wrap:wrap">
+                <div style="flex-basis:calc(25% - 3px);border:2px solid #E5E7EB;border-radius:4px;padding:4px;text-align:center"><div style="font-size:7px;color:#9CA3AF">SAT Jun 14</div><div style="font-size:6px;background:#DCFCE7;color:#15803D;border-radius:8px;padding:0 3px;margin-top:2px">8 spots</div></div>
+                <div style="flex-basis:calc(25% - 3px);border:2px solid #E5E7EB;border-radius:4px;padding:4px;text-align:center"><div style="font-size:7px;color:#9CA3AF">SUN Jun 15</div><div style="font-size:6px;background:#FEF9C3;color:#854D0E;border-radius:8px;padding:0 3px;margin-top:2px">3 spots</div></div>
+                <div style="flex-basis:calc(25% - 3px);border:2px solid #E5E7EB;border-radius:4px;padding:4px;text-align:center;opacity:.5"><div style="font-size:7px;color:#9CA3AF">SAT Jun 21</div><div style="font-size:6px;background:#F3F4F6;color:#9CA3AF;border-radius:8px;padding:0 3px;margin-top:2px">Full</div></div>
+                <div style="flex-basis:calc(25% - 3px);border:2px solid #E5E7EB;border-radius:4px;padding:4px;text-align:center"><div style="font-size:7px;color:#9CA3AF">SUN Jun 22</div><div style="font-size:6px;background:#DCFCE7;color:#15803D;border-radius:8px;padding:0 3px;margin-top:2px">12 spots</div></div>
+              </div>
+            </div>
+            <!-- Step 3 hint -->
+            <div style="background:#F8FAFC;border:1.5px dashed #CBD5E1;border-radius:4px;padding:6px">
+              <div class="wf-ann">5</div>
+              <div class="wf-line" style="width:110px;height:5px;margin-bottom:5px"></div>
+              <div class="wf-row" style="gap:4px">
+                <div class="wf-fields" style="flex:1"><div class="wf-field"></div><div class="wf-field"></div><div class="wf-field"></div></div>
+                <div class="wf-fields" style="flex:1"><div class="wf-field"></div><div class="wf-field"></div><div class="wf-field"></div></div>
+              </div>
+            </div>
+            <!-- Step 4 hint -->
+            <div style="background:#F8FAFC;border:1.5px dashed #CBD5E1;border-radius:4px;padding:6px">
+              <div class="wf-ann">6</div>
+              <div class="wf-line" style="width:100px;height:5px;margin-bottom:5px"></div>
+              <div class="wf-row" style="gap:4px">
+                <div class="wf-col" style="min-height:35px;flex-direction:column;gap:2px;padding:4px"><div style="font-size:7px;color:#9CA3AF">Course &amp; Date</div><div class="wf-line-sm"></div></div>
+                <div class="wf-col" style="min-height:35px;flex-direction:column;gap:2px;padding:4px"><div style="font-size:7px;color:#9CA3AF">Your Details</div><div class="wf-line-sm"></div></div>
+                <div class="wf-col" style="min-height:35px;flex-direction:column;gap:2px;padding:4px"><div style="font-size:7px;color:#9CA3AF">Payment</div><div class="wf-btn-r" style="width:100%;height:12px;margin-top:4px"></div></div>
+              </div>
+            </div>
+          </div>
+          <!-- Order Summary sidebar -->
+          <div style="flex:2;background:#fff;border:1.5px solid #E5E7EB;border-radius:6px;overflow:hidden;position:sticky;top:8px">
+            <div class="wf-ann">7</div>
+            <div style="background:var(--g900);padding:6px 8px"><div style="font-size:8px;font-weight:700;color:#fff">Order Summary</div></div>
+            <div style="padding:8px;display:flex;flex-direction:column;gap:4px">
+              <div style="display:flex;justify-content:space-between"><div class="wf-line" style="width:50%;margin:0;height:5px"></div><div class="wf-line" style="width:25%;margin:0;height:5px"></div></div>
+              <div style="display:flex;justify-content:space-between"><div class="wf-line" style="width:40%;margin:0;height:5px"></div><div class="wf-line" style="width:30%;margin:0;height:5px"></div></div>
+              <div style="border-top:1px solid #E5E7EB;margin:4px 0"></div>
+              <div style="display:flex;justify-content:space-between"><div class="wf-line" style="width:40%;margin:0;height:5px"></div><div style="font-size:9px;font-weight:800;color:var(--g900)">$84.75</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wf-mobile-wrap">
+      <span class="wf-label-sm">Mobile — Order summary collapses</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div></div>
+        <div class="wf-sec s-dark" style="min-height:18px"><div class="wf-lbl lbl-light" style="font-size:7px">Topbar + Nav</div></div>
+        <div class="wf-sec s-hero-sm" style="min-height:50px"><div class="wf-lbl lbl-light">Hero</div></div>
+        <div class="wf-sec s-white" style="min-height:36px">
+          <div style="display:flex;align-items:center;gap:3px;font-size:7px">
+            <div style="width:16px;height:16px;border-radius:50%;background:#CC1F1F;color:#fff;font-size:7px;display:flex;align-items:center;justify-content:center">✓</div>
+            <div style="height:2px;flex:1;background:#CC1F1F"></div>
+            <div style="width:16px;height:16px;border-radius:50%;background:#CC1F1F;color:#fff;font-size:7px;display:flex;align-items:center;justify-content:center">2</div>
+            <div style="height:2px;flex:1;background:#E5E7EB"></div>
+            <div style="width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid #E5E7EB;color:#9CA3AF;font-size:7px;display:flex;align-items:center;justify-content:center">3</div>
+            <div style="height:2px;flex:1;background:#E5E7EB"></div>
+            <div style="width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid #E5E7EB;color:#9CA3AF;font-size:7px;display:flex;align-items:center;justify-content:center">4</div>
+          </div>
+        </div>
+        <div class="wf-sec s-white" style="min-height:30px;background:#F8FAFC;border:1px solid #E5E7EB;margin:4px;border-radius:4px">
+          <div style="font-size:7.5px;font-weight:600;color:var(--g600)">▼ Order Summary (collapsed)</div>
+        </div>
+        <div class="wf-sec s-white" style="min-height:130px">
+          <div style="width:100%;padding:5px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:8px;font-weight:700;color:var(--g900);margin-bottom:2px">Step 1: Choose Your Course</div>
+            <div style="border:2px solid #CC1F1F;border-radius:5px;padding:5px"><div class="wf-line" style="height:5px;width:80%"></div><div style="font-size:9px;font-weight:800;color:var(--g900);margin-top:3px">$75</div></div>
+            <div style="border:2px solid #E5E7EB;border-radius:5px;padding:5px"><div class="wf-line" style="height:5px;width:75%"></div><div style="font-size:9px;font-weight:800;color:var(--g900);margin-top:3px">$65</div></div>
+            <div style="border:2px solid #E5E7EB;border-radius:5px;padding:5px"><div class="wf-line" style="height:5px;width:80%"></div><div style="font-size:9px;font-weight:800;color:var(--g900);margin-top:3px">$115</div></div>
+            <div class="wf-btn-r" style="width:100%;height:18px;border-radius:4px;opacity:.4"></div>
+          </div>
+        </div>
+        <div class="wf-fixed"><div style="font-size:7px;color:rgba(255,255,255,.6);font-weight:600">[ CALL ] | [ BOOK ]</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="ann-wrap">
+    <table class="ann-table">
+      <thead><tr><th>#</th><th>Element</th><th>Content / Purpose</th><th>UX Notes</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ann-n">2</span></td><td>Progress Stepper</td><td>4 steps: Course → Date → Your Details → Review. Done (red filled) / Active (red) / Pending (gray).</td><td>Always visible. Clicking a completed step should allow going back.</td><td>Step labels hidden, circles only</td></tr>
+        <tr><td><span class="ann-n">3</span></td><td>Step 1 — Course</td><td>4 course option cards. Selected: red border + glow. "Choose a Date" button disabled until selection made.</td><td>Button should read "Choose a Date →" not just "Next". Disabled state must be obvious.</td><td>1-col stacked cards</td></tr>
+        <tr><td><span class="ann-n">4</span></td><td>Step 2 — Date Grid</td><td>3–4 column date cells. States: Available (green spots) / Limited (amber) / Full (disabled).</td><td><span class="ann-tag tag-fix">Fix</span> Dates are hardcoded. Needs dynamic date management before launch.</td><td>2-col grid</td></tr>
+        <tr><td><span class="ann-n">5</span></td><td>Step 3 — Details Form</td><td>First name · Last name · DOB · Email · Phone · Employer (optional) · Language pref · Notes · 2 checkboxes.</td><td>Language preference drives instructor assignment. Must persist to confirmation email.</td><td>Single column</td></tr>
+        <tr><td><span class="ann-n">6</span></td><td>Step 4 — Review &amp; Pay</td><td>3 review cards: Course &amp; Date · Your Details · Payment. Pay &amp; Confirm button. HST calculated.</td><td><span class="ann-tag tag-fix">Fix</span> No real payment processor connected. Stripe/Square integration required before launch.</td><td>Stacked cards</td></tr>
+        <tr><td><span class="ann-n">7</span></td><td>Order Summary Sidebar</td><td>Sticky right column. Updates in real-time: course name · date · subtotal · HST · total.</td><td>On mobile: collapsed accordion at top of step. Tap to expand. Shows total always.</td><td>Collapsible top bar</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- CONTACT (NEW) -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="page-wf" id="wf-contact">
+  <div class="page-title">Contact <span style="font-size:11px;background:#DCFCE7;color:#15803D;padding:2px 7px;border-radius:4px;font-weight:600;margin-left:6px">NEW PAGE</span></div>
+  <div class="page-desc">Serves users who want to call, email, or ask before booking. Also the fallback for ESL users.</div>
+  <div class="wf-layout">
+    <div class="wf-desktop">
+      <span class="wf-label-sm">Desktop — 1160px max-width</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-url">gtacpr.com/contact</div></div>
+        <div class="wf-sec s-dark" style="min-height:20px"><div class="wf-ann">1</div><div class="wf-lbl lbl-light">Topbar + Nav (active: Contact)</div></div>
+        <div class="wf-sec s-hero-sm" style="min-height:70px">
+          <div class="wf-ann">2</div>
+          <div class="wf-content" style="padding:8px">
+            <div class="wf-line" style="width:50%;height:9px;background:rgba(255,255,255,.2)"></div>
+            <div class="wf-line" style="width:65%;height:5px;background:rgba(255,255,255,.12);margin-top:4px"></div>
+          </div>
+        </div>
+        <!-- 2-col: form left, info right -->
+        <div class="wf-sec s-white" style="min-height:180px;align-items:flex-start;padding:10px;gap:10px">
+          <div class="wf-ann">3</div>
+          <!-- Form left -->
+          <div style="flex:3;background:#F8FAFC;border-radius:6px;padding:10px">
+            <div class="wf-line" style="width:120px;height:6px;margin-bottom:8px"></div>
+            <div class="wf-row" style="gap:5px;margin-bottom:5px">
+              <div class="wf-fields" style="flex:1"><div class="wf-field"></div></div>
+              <div class="wf-fields" style="flex:1"><div class="wf-field"></div></div>
+            </div>
+            <div class="wf-fields">
+              <div class="wf-field"></div>
+              <div class="wf-field"></div>
+              <div class="wf-field"></div>
+              <div class="wf-field" style="height:40px"></div>
+            </div>
+            <div class="wf-btn-r" style="width:100%;height:20px;border-radius:4px;margin-top:8px"></div>
+          </div>
+          <!-- Info right -->
+          <div style="flex:2;display:flex;flex-direction:column;gap:8px">
+            <div class="wf-ann">4</div>
+            <!-- Phone prominent -->
+            <div style="background:#FFF0F0;border-radius:6px;padding:8px;text-align:center">
+              <div style="font-size:14px;font-weight:800;color:#CC1F1F">📞 (416) 555-0100</div>
+              <div style="font-size:7px;color:#9B1515;margin-top:2px">Mon–Sun, 8 AM – 8 PM</div>
+            </div>
+            <!-- Email -->
+            <div style="background:var(--g50);border:1px solid var(--g200);border-radius:6px;padding:8px">
+              <div class="wf-line" style="width:80px;height:5px;margin-bottom:3px"></div>
+              <div class="wf-line-sm"></div>
+            </div>
+            <!-- Address -->
+            <div style="background:var(--g50);border:1px solid var(--g200);border-radius:6px;padding:8px">
+              <div class="wf-line" style="width:70px;height:5px;margin-bottom:3px"></div>
+              <div class="wf-line-sm"></div><div class="wf-line-sm"></div>
+            </div>
+            <!-- Hours -->
+            <div style="background:var(--g50);border:1px solid var(--g200);border-radius:6px;padding:8px">
+              <div class="wf-line" style="width:70px;height:5px;margin-bottom:3px"></div>
+              <div class="wf-line-sm"></div><div class="wf-line-sm"></div><div class="wf-line-sm"></div>
+            </div>
+            <!-- Language prompt -->
+            <div style="background:#F5F3FF;border:1px solid #DDD6FE;border-radius:6px;padding:8px">
+              <div style="font-size:7.5px;font-weight:700;color:#7C3AED;margin-bottom:2px">CALL IN YOUR LANGUAGE</div>
+              <div class="wf-line-sm" style="width:100%"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Map -->
+        <div class="wf-sec s-light" style="min-height:90px">
+          <div class="wf-ann">5</div>
+          <div style="width:100%;background:#CBD5E1;height:80px;border-radius:4px;margin:5px;display:flex;align-items:center;justify-content:center">
+            <div style="font-size:9px;color:#64748B;font-weight:600">Google Maps Embed — Training Location</div>
+          </div>
+        </div>
+        <!-- FAQ snippet -->
+        <div class="wf-sec s-white" style="min-height:90px">
+          <div class="wf-ann">6</div>
+          <div class="wf-content" style="padding:8px">
+            <div class="wf-line" style="width:160px;height:6px;margin-bottom:5px"></div>
+            <div style="width:100%;border-top:1px solid #E5E7EB">
+              <div style="border-bottom:1px solid #E5E7EB;height:18px;display:flex;align-items:center;justify-content:space-between;padding:0 4px"><div class="wf-line" style="width:60%;height:5px;margin:0"></div><div style="font-size:10px">+</div></div>
+              <div style="border-bottom:1px solid #E5E7EB;height:18px;display:flex;align-items:center;justify-content:space-between;padding:0 4px"><div class="wf-line" style="width:55%;height:5px;margin:0"></div><div style="font-size:10px">+</div></div>
+              <div style="height:18px;display:flex;align-items:center;justify-content:space-between;padding:0 4px"><div class="wf-line" style="width:50%;height:5px;margin:0"></div><div style="font-size:10px">+</div></div>
+            </div>
+            <div style="font-size:8px;color:#CC1F1F;font-weight:600;text-align:right;margin-top:4px">View all FAQs →</div>
+          </div>
+        </div>
+        <div class="wf-sec s-dark" style="min-height:80px"><div class="wf-ann">7</div><div class="wf-lbl lbl-light">Footer</div></div>
+      </div>
+    </div>
+    <div class="wf-mobile-wrap">
+      <span class="wf-label-sm">Mobile — Info first, then form</span>
+      <div class="wf-frame">
+        <div class="wf-chrome"><div class="wf-dot"></div><div class="wf-dot"></div><div class="wf-dot"></div></div>
+        <div class="wf-sec s-dark" style="min-height:18px"><div class="wf-lbl lbl-light" style="font-size:7px">Topbar + Nav</div></div>
+        <div class="wf-sec s-hero-sm" style="min-height:55px"><div class="wf-lbl lbl-light">Hero</div></div>
+        <!-- Info first on mobile -->
+        <div class="wf-sec s-white" style="min-height:40px;background:#FFF0F0;border:1px solid #FCA5A5">
+          <div style="text-align:center"><div style="font-size:11px;font-weight:800;color:#CC1F1F">(416) 555-0100</div><div style="font-size:7px;color:#9B1515">Call in your language</div></div>
+        </div>
+        <div class="wf-sec s-light" style="min-height:50px;padding:5px">
+          <div style="width:100%;display:flex;flex-direction:column;gap:3px">
+            <div style="font-size:7.5px;font-weight:700;color:#7C3AED">CALL IN YOUR LANGUAGE</div>
+            <div style="display:flex;gap:3px">
+              <div style="font-size:7px;background:#F5F3FF;border:1px solid #DDD6FE;border-radius:8px;padding:2px 5px;color:#7C3AED">普通话</div>
+              <div style="font-size:7px;background:#F5F3FF;border:1px solid #DDD6FE;border-radius:8px;padding:2px 5px;color:#7C3AED">廣東話</div>
+              <div style="font-size:7px;background:#F5F3FF;border:1px solid #DDD6FE;border-radius:8px;padding:2px 5px;color:#7C3AED">Ελληνικά</div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-white" style="min-height:120px;padding:6px">
+          <div style="width:100%">
+            <div style="font-size:8px;font-weight:700;color:var(--g900);margin-bottom:4px">Send Us a Message</div>
+            <div class="wf-fields" style="gap:4px">
+              <div class="wf-field"></div><div class="wf-field"></div><div class="wf-field"></div>
+              <div class="wf-field" style="height:28px"></div>
+              <div class="wf-btn-r" style="width:100%;height:18px;border-radius:4px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="wf-sec s-light" style="min-height:50px"><div class="wf-lbl lbl-dark">Map (full-width)</div></div>
+        <div class="wf-fixed"><div style="font-size:7px;color:rgba(255,255,255,.6);font-weight:600">[ CALL NOW ] | [ BOOK A CLASS ]</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="ann-wrap">
+    <table class="ann-table">
+      <thead><tr><th>#</th><th>Section</th><th>Content / Purpose</th><th>UX Notes</th><th>Mobile</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ann-n">2</span></td><td>Page Hero</td><td>H1: "Get in Touch" · sub: "We're here 7 days a week"</td><td>Keep it brief. Phone number is the primary CTA on this page.</td><td>Same, compressed</td></tr>
+        <tr><td><span class="ann-n">3</span></td><td>Contact Form</td><td>First name · Last name · Email · Phone · Subject (dropdown: General / Group Booking / ESL / Other) · Message · Submit</td><td><span class="ann-tag tag-new">New</span> <span class="ann-tag tag-fix">Fix needed</span> Needs POST endpoint (Formspree or serverless function). Success state required.</td><td>Full-width, stacked</td></tr>
+        <tr><td><span class="ann-n">4</span></td><td>Contact Info Panel</td><td>Phone (large, prominent) · Email · Address · Business hours table · "Call in your language" strip (purple, links to ESL page)</td><td><span class="ann-tag tag-dep">Client</span> Requires: real phone, email, physical address, hours. All currently placeholder.</td><td>Shows ABOVE form on mobile — phone is the first CTA</td></tr>
+        <tr><td><span class="ann-n">5</span></td><td>Map Embed</td><td>Google Maps iframe showing training location</td><td><span class="ann-tag tag-dep">Client</span> Requires: Google Maps API key + confirmed training address.</td><td>Full-width below form</td></tr>
+        <tr><td><span class="ann-n">6</span></td><td>FAQ Snippet</td><td>3 most common contact-related questions. "View all FAQs" link to homepage FAQ section.</td><td>Reduces repeat enquiries. Questions: "Do you travel to my location?" · "How do I reschedule?" · "Can I pay on the day?"</td><td>Full-width accordion</td></tr>
+        <tr><td><span class="ann-n">7</span></td><td>Footer</td><td>Standard site footer.</td><td>No changes from other pages.</td><td>Stacked</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+function showPage(id, tab) {
+  document.querySelectorAll('.page-wf').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('wf-' + id).classList.add('active');
+  tab.classList.add('active');
+}
+</script>
+</body>
+</html>

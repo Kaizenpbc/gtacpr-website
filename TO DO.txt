@@ -1,0 +1,64 @@
+GTACPR Website — Deferred Items
+================================
+These items were intentionally skipped during the HTML prototype phase.
+Complete before production launch.
+
+CONTENT
+-------
+[ ] #6   Social media URLs — Facebook, Instagram, LinkedIn
+         Add to: topbar social icons + footer social icons on all 6 pages
+
+[ ] #7   3 x real Google reviews (name, star rating, review text, date)
+         Currently: mockup reviews on Homepage and About page
+
+[ ] #8   Team / instructor photos
+         Currently: placeholder images on About page
+
+[ ] #10  Real class dates and availability
+         Currently: hardcoded mockup dates in Register Step 2
+
+[ ] #11  Real course prices
+         Currently: mockup prices in Register Step 1 + order summary
+
+[ ] #17  ESL instructors — confirm names and languages taught (Mandarin, Cantonese, Greek)
+         Currently: mockup instructor info on ESL page
+
+[ ] #18  Confirm headline stats: 5,000+ trained, 98% pass rate, etc.
+         Currently: placeholder stats in Homepage stats bar
+
+[ ] #15  Contact page hero background photo
+         Currently: Unsplash stock photo overlay
+         Action: replace with owned photo (classroom, instructor, or team)
+
+[ ] Google Maps embed iframe
+         46 Sunnyside Hill Road, Markham, Ontario L6B 0X5
+         Action: go to maps.google.com > search address > Share > Embed a map > Copy HTML
+         Paste iframe code to replace the map placeholder div on gtacpr-contact.html
+
+FUNCTIONALITY
+-------------
+[ ] #6   Social media links — add real URLs once accounts confirmed
+
+[ ] #12  Payment processor — Stripe or Square account + integration
+         Affects: Register page Step 4 (currently placeholder payment form)
+
+[ ] #13  Contact form POST endpoint — Formspree (free at formspree.io)
+         Action: create free account > new form > copy endpoint URL
+         e.g. https://formspree.io/f/xxxxxxxx
+         Add to: gtacpr-contact.html form action
+
+[ ] #14  Group training quote form POST endpoint
+         Same Formspree setup as above
+         Add to: gtacpr-group-training.html inquiry form
+
+STAGE 5 → PRODUCTION MIGRATION
+--------------------------------
+[ ] Migrate HTML prototype to Astro framework
+[ ] Set up Vercel or Netlify hosting
+[ ] Add Google Analytics 4 tag to all pages
+[ ] Wire Stripe Checkout to Register wizard
+[ ] Wire Resend or SendGrid for booking confirmation emails
+[ ] Set up Decap CMS if client needs to edit content without code
+[ ] SSL certificate (auto-provisioned by Vercel/Netlify)
+[ ] Set canonical URLs and Open Graph meta tags per page
+[ ] Add sitemap.xml and robots.txt

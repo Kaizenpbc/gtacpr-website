@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GTACPR | WSIB Approved CPR & First Aid Certification — Greater Toronto Area</title>
+<meta name="description" content="Get WSIB certified in CPR and First Aid with GTA's top-rated training provider. Group, individual, ESL, and workplace training. Book online today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1F2937;background:#fff;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+:root{--red:#CC1F1F;--rdk:#9B1515;--rlt:#FFF0F0;--g50:#F9FAFB;--g100:#F3F4F6;--g200:#E5E7EB;--g400:#9CA3AF;--g600:#4B5563;--g800:#1F2937;--g900:#111827;--w:#fff;--r:8px;--sh:0 1px 3px rgba(0,0,0,.08);--shm:0 4px 16px rgba(0,0,0,.10)}
+
+/* TOP BAR */
+.topbar{background:var(--g900);color:rgba(255,255,255,.75);text-align:center;font-size:12px;padding:9px 1rem;line-height:1.4}
+.topbar strong{color:#fff}
+@media(max-width:380px){.topbar{display:none}}
+
+/* NAV */
+nav{background:var(--w);border-bottom:1px solid var(--g200);position:sticky;top:0;z-index:500}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 1rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo{display:flex;align-items:center;flex-shrink:0}
+.nav-logo img{height:40px;width:auto;display:block}
+.nav-logo-icon{display:none}
+.nav-logo-sub{display:none}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;margin:0 auto}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--g600);transition:color .15s;white-space:nowrap}
+.nav-links a:hover{color:var(--g900)}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.nav-phone{display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--g800);white-space:nowrap}
+.nav-phone svg{color:var(--red);flex-shrink:0}
+.nav-btn{background:var(--red);color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:var(--r);white-space:nowrap;transition:background .15s;min-height:38px;display:flex;align-items:center}
+.nav-btn:hover{background:var(--rdk)}
+.nav-btn-outline{background:transparent;color:var(--g800);font-size:13px;font-weight:700;padding:9px 18px;border-radius:var(--r);white-space:nowrap;border:2px solid var(--g200);transition:all .15s;min-height:38px;display:flex;align-items:center}
+.nav-btn-outline:hover{border-color:var(--g400);background:var(--g50)}
+
+.nav-hamburger{display:none;width:44px;height:44px;align-items:center;justify-content:center;border-radius:var(--r);color:var(--g800);flex-shrink:0}
+.nav-hamburger svg{width:22px;height:22px}
+.nav-call-mob{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:var(--rlt);border-radius:var(--r);color:var(--red);flex-shrink:0}
+.nav-call-mob svg{width:20px;height:20px}
+
+/* DRAWER */
+.drawer-overlay{display:none;position:fixed;inset:0;z-index:490;background:rgba(0,0,0,.4);opacity:0;transition:opacity .25s}
+.drawer{position:fixed;top:0;right:-100%;bottom:0;z-index:495;width:min(300px,85vw);background:var(--w);box-shadow:-4px 0 24px rgba(0,0,0,.15);transition:right .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border-bottom:1px solid var(--g200);position:sticky;top:0;background:var(--w);z-index:1}
+.drawer-header-title{font-weight:800;font-size:16px;color:var(--g900)}
+.drawer-close{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:var(--r);color:var(--g600)}
+.drawer-close svg{width:20px;height:20px}
+.drawer-nav{list-style:none;padding:.75rem 0;flex:1}
+.drawer-nav li a{display:flex;align-items:center;gap:12px;padding:13px 1.25rem;font-size:15px;font-weight:500;color:var(--g800);border-bottom:1px solid var(--g100);min-height:50px}
+.drawer-nav li a svg{width:18px;height:18px;color:var(--g400);flex-shrink:0}
+.drawer-nav li a:active{background:var(--g100)}
+.drawer-footer{padding:1rem 1.25rem;border-top:1px solid var(--g200);display:flex;flex-direction:column;gap:10px}
+.drawer-footer a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:var(--r);font-size:14px;font-weight:700;min-height:50px}
+.d-call{background:var(--g100);color:var(--g900)}
+.d-book{background:var(--red);color:#fff}
+body.drawer-open{overflow:hidden}
+body.drawer-open .drawer-overlay{display:block;opacity:1}
+body.drawer-open .drawer{right:0}
+
+/* HERO */
+.hero{position:relative;background:var(--g900);overflow:hidden;display:flex;align-items:center;min-height:clamp(400px,55vw,570px)}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1400&q=80');background-size:cover;background-position:center 30%;opacity:.42}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.58) 0%,rgba(0,0,0,.08) 100%)}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:1160px;margin:0 auto;padding:clamp(2.5rem,6vw,5rem) 1.25rem}
+.hero-content{max-width:540px}
+.hero h1{font-size:clamp(1.7rem,5vw,3rem);font-weight:800;color:#fff;line-height:1.12;letter-spacing:-.02em;margin-bottom:.85rem}
+.hero-sub{font-size:clamp(.9rem,2.5vw,1rem);color:rgba(255,255,255,.8);margin-bottom:1.5rem;line-height:1.65;max-width:460px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.5rem}
+.hero-btns a{min-height:56px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:700;padding:0 22px;border-radius:var(--r);transition:background .15s,border-color .15s;flex:1;min-width:160px}
+.hero-btns a svg{width:18px;height:18px;flex-shrink:0;opacity:.9}
+.btn-label{display:flex;flex-direction:column;align-items:flex-start;gap:1px}
+.btn-label-main{font-size:14px;font-weight:700;line-height:1.2}
+.btn-label-sub{font-size:11px;font-weight:400;opacity:.8;line-height:1}
+.bhp{background:var(--red);color:#fff}
+.bhp:hover,.bhp:active{background:var(--rdk)}
+.bho{color:#fff;border:2px solid rgba(255,255,255,.5)}
+.bho:hover,.bho:active{border-color:#fff;background:rgba(255,255,255,.08)}
+.hero-trust{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 14px}
+.hero-trust-icon{width:30px;height:30px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-trust-icon svg{width:18px;height:18px;color:var(--red)}
+.hero-trust-txt{font-size:12px;color:rgba(255,255,255,.75);line-height:1.4}
+.hero-trust-txt strong{color:#fff;display:block;font-size:12.5px}
+.hstars{color:#F59E0B}
+
+
+
+/* FEATURES */
+.features-bar{padding:1.5rem 1.25rem;background:var(--w);border-bottom:1px solid var(--g200)}
+.features-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--g200);border:1px solid var(--g200);border-radius:10px;overflow:hidden}
+.fi{background:var(--w);padding:1.1rem 1rem;display:flex;gap:12px;align-items:flex-start}
+.fi-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fir{background:var(--rlt)}.fib{background:#EFF6FF}.fig{background:#F0FDF4}.fip{background:#F5F3FF}
+.fi-icon svg{width:19px;height:19px}
+.fir svg{color:var(--red)}.fib svg{color:#2563EB}.fig svg{color:#16A34A}.fip svg{color:#7C3AED}
+.fi-title{font-size:13px;font-weight:700;color:var(--g900);margin-bottom:2px;line-height:1.3}
+.fi-sub{font-size:12px;color:var(--g400);line-height:1.45}
+
+/* COURSES */
+.section{padding:clamp(2rem,5vw,3.5rem) 1.25rem}
+.section-inner{max-width:1160px;margin:0 auto}
+.section-title{font-size:clamp(1.25rem,4vw,1.6rem);font-weight:800;color:var(--g900);text-align:center;margin-bottom:1.5rem;letter-spacing:-.01em}
+.course-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.course-card{background:var(--w);border:1px solid var(--g200);border-radius:10px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.course-card:hover{box-shadow:var(--shm);transform:translateY(-2px)}
+.ci{width:100%;aspect-ratio:4/3;background-size:cover;background-position:center}
+.ci1{background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=70')}
+.ci2{background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=70')}
+.ci3{background-image:url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=70')}
+.ci4{background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&q=70')}
+.course-body{padding:1rem;flex:1;display:flex;flex-direction:column;gap:8px}
+.course-name{font-size:14.5px;font-weight:700;color:var(--g900);line-height:1.3}
+.course-dur{font-size:12px;color:var(--g400);display:flex;align-items:center;gap:4px}
+.course-price{font-size:1.2rem;font-weight:800;color:var(--g900)}
+.course-price span{font-size:12px;font-weight:400;color:var(--g400)}
+.btn-course{display:flex;align-items:center;justify-content:center;min-height:46px;background:var(--red);color:#fff;font-size:13px;font-weight:700;border-radius:var(--r);margin-top:auto;transition:background .15s}
+.btn-course:hover,.btn-course:active{background:var(--rdk)}
+
+/* ON-SITE */
+.onsite{border-top:1px solid var(--g200);border-bottom:1px solid var(--g200)}
+.onsite-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr}
+.onsite-left{padding:clamp(2rem,5vw,3rem) clamp(1.25rem,4vw,3rem);display:flex;flex-direction:column;justify-content:center}
+.onsite-left h2{font-size:clamp(1.2rem,3vw,1.4rem);font-weight:800;color:var(--g900);margin-bottom:1rem;letter-spacing:-.01em;line-height:1.2}
+.onsite-ul{list-style:none;margin-bottom:1.5rem}
+.onsite-ul li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--g600);padding:5px 0}
+.ob{width:20px;height:20px;border-radius:50%;background:var(--rlt);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.ob svg{width:10px;height:10px;color:var(--red)}
+.btn-quote{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 28px;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);align-self:flex-start;transition:background .15s}
+.btn-quote:hover{background:var(--rdk)}
+.onsite-photo{background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80');background-size:cover;background-position:center;min-height:280px}
+
+/* ESL */
+.esl{background:var(--g900);padding:clamp(1.5rem,4vw,2rem) 1.25rem;text-align:center}
+.esl h3{font-size:clamp(1rem,3vw,1.25rem);font-weight:800;color:#fff;margin-bottom:.5rem;line-height:1.3}
+.esl p{font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:1rem}
+.esl-langs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:1.25rem}
+.lang-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.9);font-size:13px;font-weight:600;padding:6px 14px;border-radius:20px}
+.btn-esl{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 28px;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);transition:background .15s}
+.btn-esl:hover{background:var(--rdk)}
+
+/* REVIEWS + MAP */
+.rev-section{background:var(--g50);border-top:1px solid var(--g200);border-bottom:1px solid var(--g200)}
+.rev-inner{max-width:1160px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 1.25rem;display:grid;grid-template-columns:310px 1fr;gap:2.5rem;align-items:start}
+.map-card{border-radius:10px;overflow:hidden;border:1px solid var(--g200);box-shadow:var(--sh)}
+.map-ph{height:210px;background:#dde4ec;position:relative;overflow:hidden}
+.map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px);background-size:28px 28px}
+.mr{position:absolute;background:rgba(255,255,255,.72)}
+.mr1{left:0;right:0;top:42%;height:11px}
+.mr2{top:0;bottom:0;left:34%;width:8px}
+.mr3{left:0;right:0;top:66%;height:7px}
+.map-pin{position:absolute;top:27%;left:31%;width:26px;height:26px;border-radius:50% 50% 50% 0;background:var(--red);transform:rotate(-45deg);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.map-pin::after{content:'';position:absolute;inset:5px;background:#fff;border-radius:50%}
+.map-btn{display:flex;align-items:center;justify-content:center;min-height:50px;width:100%;background:var(--red);color:#fff;font-size:14px;font-weight:700;transition:background .15s}
+.map-btn:hover{background:var(--rdk)}
+.map-info{margin-top:10px;padding:1rem;background:var(--w);border:1px solid var(--g200);border-radius:10px}
+.map-info-name{font-size:13px;font-weight:700;color:var(--g900);margin-bottom:6px}
+.map-info a{display:block;font-size:12.5px;color:var(--g400);margin-bottom:4px}
+.map-info a:hover{color:var(--red)}
+.rev-side h2{font-size:clamp(1.2rem,3vw,1.4rem);font-weight:800;color:var(--g900);margin-bottom:1.25rem;letter-spacing:-.01em}
+.rating-row{display:flex;align-items:center;gap:1rem;background:var(--w);border:1px solid var(--g200);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.25rem}
+.rating-num{font-size:2.4rem;font-weight:800;color:var(--g900);line-height:1}
+.rating-stars{color:#F59E0B;font-size:17px;letter-spacing:2px;margin-bottom:2px}
+.rating-label{font-size:13px;font-weight:600;color:var(--g800)}
+.rating-count{font-size:12px;color:var(--g400)}
+.gg{margin-left:auto;flex-shrink:0}
+.review-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.review-card{background:var(--w);border:1px solid var(--g200);border-radius:10px;padding:1rem;box-shadow:var(--sh);display:flex;flex-direction:column;gap:8px}
+.rev-row{display:flex;align-items:center;gap:10px}
+.rev-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.avb{background:#DBEAFE;color:#1D4ED8}.avp{background:#FCE7F3;color:#9D174D}.avg{background:#D1FAE5;color:#065F46}
+.rev-name{font-size:13px;font-weight:700;color:var(--g900)}
+.rev-type{font-size:11.5px;color:var(--g400)}
+.rev-stars{color:#F59E0B;font-size:13px;letter-spacing:1px}
+.rev-text{font-size:12.5px;color:var(--g600);line-height:1.6}
+
+/* FAQ */
+.faq-section{padding:clamp(2rem,5vw,3.5rem) 1.25rem}
+.faq-inner{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--g200)}
+.faq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;font-size:14.5px;font-weight:600;color:var(--g800);text-align:left;background:none;border:none;cursor:pointer;min-height:54px}
+.faq-trigger:hover{color:var(--red)}
+.faq-icon{width:24px;height:24px;border-radius:50%;background:var(--g100);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--g600);line-height:1;transition:background .15s,transform .2s}
+.faq-item.open .faq-icon{background:var(--red);color:#fff;transform:rotate(45deg)}
+.faq-answer{font-size:13.5px;color:var(--g600);line-height:1.7;padding-bottom:1rem;display:none}
+.faq-item.open .faq-answer{display:block}
+
+/* FOOTER */
+footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,3rem) 1.25rem 1.25rem}
+.footer-inner{max-width:1160px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-brand{font-size:17px;font-weight:800;color:#fff;margin-bottom:8px}
+.footer-tagline{font-size:13px;line-height:1.6;margin-bottom:1rem}
+.footer-contact a{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:5px}
+.footer-contact a:hover{color:#fff}
+.footer-col-title{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.75rem}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:6px}
+.footer-col ul li a{font-size:13px;color:rgba(255,255,255,.5);transition:color .15s}
+.footer-col ul li a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;font-size:12px}
+.footer-badges{display:flex;gap:8px;flex-wrap:wrap}
+.footer-badge{border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:3px 11px;font-size:11px;color:rgba(255,255,255,.45)}
+
+/* MOBILE CTA */
+.mob-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:var(--w);border-top:1px solid var(--g200);padding:10px 1rem calc(10px + env(safe-area-inset-bottom));gap:10px}
+.mob-cta a{flex:1;display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:var(--r);font-size:14px;font-weight:700}
+.mob-call{background:var(--g900);color:#fff}
+.mob-book{background:var(--red);color:#fff}
+
+/* ── BREAKPOINTS ── */
+@media(max-width:1024px){
+  .nav-links,.nav-phone,.nav-btn{display:none}
+  .nav-hamburger,.nav-call-mob{display:flex}
+}
+@media(max-width:768px){
+  body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+  .mob-cta{display:flex}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .course-grid{grid-template-columns:repeat(2,1fr)}
+  .onsite-inner{grid-template-columns:1fr}
+  .onsite-left{padding:2rem 1.25rem}
+  .onsite-photo{min-height:220px;order:-1}
+  .rev-inner{grid-template-columns:1fr}
+  .review-cards{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column}
+  .bhp,.bho{flex:none;width:100%}
+  .course-grid{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .rating-row{flex-wrap:wrap;gap:.75rem}
+  .gg{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><strong>Now Booking June &amp; July Classes</strong> — Spots fill fast &nbsp;·&nbsp; <strong>416-723-2571</strong></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="gtacpr-redesign.html" class="nav-logo" aria-label="GTA CPR Home">
+      <img src="gtacpr-logo.png" alt="GTA CPR — Get Certified!" />
+    </a>
+    <ul class="nav-links" aria-label="Main navigation">
+      <li><a href="gtacpr-about.html">About</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="gtacpr-group-training.html">Workplace</a></li>
+      <li><a href="gtacpr-esl.html">ESL</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="gtacpr-contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:4167232571" class="nav-phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>416-723-2571</a>
+      <a href="https://cpr.kpbc.ca" target="_blank" rel="noopener noreferrer" class="nav-btn-outline">Client Portal</a>
+      <a href="gtacpr-register.html" class="nav-btn">Book a Class</a>
+    </div>
+    <a href="tel:4167232571" class="nav-call-mob" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg></a>
+    <button class="nav-hamburger" id="hbBtn" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</nav>
+
+<div class="drawer-overlay" id="dOverlay"></div>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="drawer-header">
+    <span class="drawer-header-title"><img src="gtacpr-logo.png" alt="GTA CPR" style="height:32px;width:auto;display:block" /></span>
+    <button class="drawer-close" id="dClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <ul class="drawer-nav">
+    <li><a href="gtacpr-about.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>About Us</a></li>
+    <li><a href="#courses"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Join a Class</a></li>
+    <li><a href="gtacpr-group-training.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Group Training</a></li>
+    <li><a href="gtacpr-esl.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>ESL Classes</a></li>
+    <li><a href="#reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Reviews</a></li>
+    <li><a href="#faq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a></li>
+    <li><a href="gtacpr-contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>Contact</a></li>
+  </ul>
+  <div class="drawer-footer">
+    <a href="tel:4167232571" class="d-call">📞 416-723-2571</a>
+    <a href="#courses" class="d-book">Book a Class →</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-bg" role="img" aria-label="CPR training in progress"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1>CPR &amp; First Aid Training Across the GTA</h1>
+      <p class="hero-sub">Get certified fast with trusted, instructor-led training for individuals, workplaces, and ESL learners.</p>
+      <div class="hero-btns">
+        <a href="gtacpr-register.html" class="bhp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="btn-label">
+            <span class="btn-label-main">Join a Class</span>
+            <span class="btn-label-sub">For you</span>
+          </span>
+        </a>
+        <a href="gtacpr-group-training.html" class="bho">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          <span class="btn-label">
+            <span class="btn-label-main">Group Training</span>
+            <span class="btn-label-sub">For your workplace</span>
+          </span>
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="hero-trust-txt"><strong>Trusted by GTA Learners</strong><span><span class="hstars">★★★★★</span> 4.9 / 5 — 60+ reviews</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="features-bar">
+  <div class="features-grid">
+    <div class="fi"><div class="fi-icon fir" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="fi-title">WSIB Approved Provider</div><div class="fi-sub">Ontario workplace safety certified</div></div></div>
+    <div class="fi"><div class="fi-icon fib" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><div class="fi-title">Fast, Same-Day Certification</div><div class="fi-sub">Get certified the same day as your class</div></div></div>
+    <div class="fi"><div class="fi-icon fig" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="fi-title">Classes 7 Days a Week</div><div class="fi-sub">Flexible scheduling across the GTA</div></div></div>
+    <div class="fi"><div class="fi-icon fip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg></div><div><div class="fi-title">ESL CPR Training</div><div class="fi-sub">Mandarin, Cantonese &amp; Greek</div></div></div>
+  </div>
+</div>
+
+<section class="section" id="courses">
+  <div class="section-inner">
+    <h2 class="section-title">Our Courses</h2>
+    <div class="course-grid">
+      <div class="course-card"><div class="ci ci1" role="img" aria-label="CPR Level A training"></div><div class="course-body"><div class="course-name">CPR Level A</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Half-day &nbsp;·&nbsp; 1-year cert</div><div class="course-price">$65 <span>/person</span></div><a href="gtacpr-register.html" class="btn-course">View Course</a></div></div>
+      <div class="course-card"><div class="ci ci2" role="img" aria-label="CPR Level C training"></div><div class="course-body"><div class="course-name">CPR Level C / AED</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Half-day &nbsp;·&nbsp; 1-year cert</div><div class="course-price">$75 <span>/person</span></div><a href="gtacpr-register.html" class="btn-course">View Course</a></div></div>
+      <div class="course-card"><div class="ci ci3" role="img" aria-label="Standard First Aid training"></div><div class="course-body"><div class="course-name">Standard First Aid + CPR-C</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 days &nbsp;·&nbsp; 3-year cert</div><div class="course-price">$115 <span>/person</span></div><a href="gtacpr-register.html" class="btn-course">View Course</a></div></div>
+      <div class="course-card"><div class="ci ci4" role="img" aria-label="Recertification course"></div><div class="course-body"><div class="course-name">Recertification (Blended)</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Online + 4hr session</div><div class="course-price">$65 <span>/person</span></div><a href="gtacpr-register.html" class="btn-course">View Course</a></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="onsite" id="workplace">
+  <div class="onsite-inner">
+    <div class="onsite-left">
+      <h2>On-Site CPR &amp; First Aid Training for Teams</h2>
+      <ul class="onsite-ul">
+        <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>We come to you — no travel for your team</li>
+        <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Group discounts available (5+ people)</li>
+        <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Flexible scheduling — evenings &amp; weekends</li>
+        <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>WSIB Approved &amp; government compliant</li>
+        <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>No cancellation fees*</li>
+      </ul>
+      <a href="gtacpr-group-training.html#request-form" class="btn-quote">Request a Quote</a>
+    </div>
+    <div class="onsite-photo" role="img" aria-label="Group workplace training session"></div>
+  </div>
+</div>
+
+<div class="esl" id="esl">
+  <h3>CPR &amp; First Aid Classes in Mandarin, Cantonese &amp; Greek</h3>
+  <p>Making life-saving skills accessible to newcomers and diverse communities across the GTA.</p>
+  <div class="esl-langs"><span class="lang-badge">🇨🇳 Mandarin</span><span class="lang-badge">🇭🇰 Cantonese</span><span class="lang-badge">🇬🇷 Greek</span></div><br>
+  <a href="gtacpr-esl.html" class="btn-esl">Learn About ESL Classes</a>
+</div>
+
+<div class="rev-section" id="reviews">
+  <div class="rev-inner">
+    <div>
+      <div class="map-card">
+        <div class="map-ph" role="img" aria-label="Map of Markham Ontario">
+          <div class="map-grid"></div><div class="mr mr1"></div><div class="mr mr2"></div><div class="mr mr3"></div><div class="map-pin"></div>
+        </div>
+        <a href="https://maps.google.com/?q=GTACPR+Markham+ON" class="map-btn">Contact Us &amp; Get Directions</a>
+      </div>
+      <div class="map-info">
+        <div class="map-info-name">GTACPR — Markham, ON</div>
+        <a href="tel:4167232571">📞 416-723-2571</a>
+        <a href="mailto:kpbcma@gmail.com">✉ kpbcma@gmail.com</a>
+        <a href="gtacpr-contact.html">📍 GTA-wide service area</a>
+      </div>
+    </div>
+    <div class="rev-side">
+      <h2>What Our Students Say</h2>
+      <div class="rating-row">
+        <div class="rating-num">4.9</div>
+        <div><div class="rating-stars">★★★★★</div><div class="rating-label">Google Rating</div><div class="rating-count">Based on 60+ verified reviews</div></div>
+        <div class="gg" aria-label="Google" role="img"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
+      </div>
+      <div class="review-cards">
+        <div class="review-card"><div class="rev-row"><div class="rev-av avb">JM</div><div><div class="rev-name">James M.</div><div class="rev-type">Standard First Aid</div></div></div><div class="rev-stars" aria-label="5 stars">★★★★★</div><div class="rev-text">"Great hands-on training and a patient, knowledgeable instructor. Felt truly prepared when I left."</div></div>
+        <div class="review-card"><div class="rev-row"><div class="rev-av avp">SP</div><div><div class="rev-name">Sara P.</div><div class="rev-type">CPR Level C</div></div></div><div class="rev-stars" aria-label="5 stars">★★★★★</div><div class="rev-text">"The best CPR class I've ever attended! Clear, fun, and very thorough. Highly recommend."</div></div>
+        <div class="review-card"><div class="rev-row"><div class="rev-av avg">RK</div><div><div class="rev-name">Raj K.</div><div class="rev-type">Workplace Training</div></div></div><div class="rev-stars" aria-label="5 stars">★★★★★</div><div class="rev-text">"Perfect for our workplace safety needs. They came to us and certified 15 people in one day."</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-item open"><button class="faq-trigger" aria-expanded="true">What certification will I receive?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">You will receive an official WSIB Approved certificate, recognized across Canada, WSIB approved, and compliant with Ontario workplace safety requirements.</div></div>
+    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">How long is the course?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">CPR-only courses are typically 4–5 hours. Emergency First Aid is a full day (7–8 hours). Standard First Aid runs over two days (14 hours). Blended options combine online theory with a shorter in-person skills session.</div></div>
+    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">Do you offer recertification?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Yes — blended recertification lets you complete theory online, then attend a shorter in-person practical session. A great time-saving option.</div></div>
+    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">What should I bring to class?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Just yourself and comfortable clothing. All equipment, mannequins, AED trainers, and materials are provided. Your digital certificate is emailed within 24 hours.</div></div>
+    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">Do you offer group or student discounts?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Yes — student discounts with valid ID, and group discounts for 3+ people registering together. Contact us for custom workplace group pricing.</div></div>
+    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">What is your cancellation policy?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Full refund or free reschedule with 48 hours notice for individuals. No cancellation fees for group/on-site training with 24 hours notice.*</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><img src="gtacpr-logo.png" alt="GTA CPR — Get Certified!" style="height:44px;width:auto;display:block;margin-bottom:12px;filter:brightness(0) invert(1)" /><p class="footer-tagline">Greater Toronto Area's trusted WSIB Approved CPR and First Aid training provider. Serving individuals, workplaces, and newcomers since 2013.</p><div class="footer-contact"><a href="tel:4167232571">📞 416-723-2571</a><a href="mailto:kpbcma@gmail.com">✉ kpbcma@gmail.com</a><a href="gtacpr-contact.html#map">📍 46 Sunnyside Hill Road, Markham, ON</a></div></div>
+      <div class="footer-col"><div class="footer-col-title">Courses</div><ul><li><a href="gtacpr-register.html">CPR Level A</a></li><li><a href="gtacpr-register.html">CPR Level C / AED</a></li><li><a href="gtacpr-register.html">Emergency First Aid</a></li><li><a href="gtacpr-register.html">Standard First Aid</a></li><li><a href="gtacpr-register.html">Recertification</a></li><li><a href="gtacpr-esl.html">ESL Classes</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><ul><li><a href="gtacpr-about.html">About Us</a></li><li><a href="gtacpr-about.html#team">Our Instructors</a></li><li><a href="gtacpr-group-training.html">Group Training</a></li><li><a href="gtacpr-redesign.html#reviews">Reviews</a></li><li><a href="gtacpr-contact.html">Contact</a></li><li><a href="gtacpr-redesign.html#faq">FAQ</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Service Areas</div><ul><li><a href="#">CPR Markham</a></li><li><a href="#">CPR Scarborough</a></li><li><a href="#">CPR North York</a></li><li><a href="#">CPR Mississauga</a></li><li><a href="#">CPR Brampton</a></li><li><a href="#">CPR Richmond Hill</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 GTACPR. All rights reserved.</span><div class="footer-badges"><span class="footer-badge">WSIB Approved</span><span class="footer-badge">TBD</span><span class="footer-badge">4.9 ★ Google</span></div></div>
+  </div>
+</footer>
+
+<div class="mob-cta" aria-label="Quick actions">
+  <a href="tel:4167232571" class="mob-call">📞 Call Now</a>
+  <a href="gtacpr-register.html" class="mob-book">Book a Class →</a>
+</div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"GTACPR","url":"https://gtacpr.com","telephone":"+1-416-723-2571","email":"kpbcma@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Markham","addressRegion":"ON","addressCountry":"CA"},"areaServed":["Markham","Scarborough","North York","Toronto","Mississauga","Brampton","Richmond Hill","Vaughan"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"60"}}</script>
+
+<script>
+(function(){
+  var btn=document.getElementById('hbBtn'),drawer=document.getElementById('drawer'),ov=document.getElementById('dOverlay'),cl=document.getElementById('dClose');
+  function open(){document.body.classList.add('drawer-open');btn.setAttribute('aria-expanded','true');cl.focus()}
+  function close(){document.body.classList.remove('drawer-open');btn.setAttribute('aria-expanded','false');btn.focus()}
+  btn.addEventListener('click',open);
+  cl.addEventListener('click',close);
+  ov.addEventListener('click',close);
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.body.classList.contains('drawer-open'))close()});
+  document.querySelectorAll('.faq-trigger').forEach(function(t){
+    t.addEventListener('click',function(){
+      var item=t.closest('.faq-item'),open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-trigger').setAttribute('aria-expanded','false')});
+      if(!open){item.classList.add('open');t.setAttribute('aria-expanded','true')}
+    });
+  });
+})();
+</script>
+</body>
+</html>

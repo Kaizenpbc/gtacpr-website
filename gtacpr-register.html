@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register for a Class | GTA CPR</title>
+<meta name="description" content="Register for a CPR or First Aid class in the Greater Toronto Area. Pick your course, choose a date, and get certified with GTA CPR.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1F2937;background:#F9FAFB;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+:root{--red:#CC1F1F;--rdk:#9B1515;--rlt:#FFF0F0;--g50:#F9FAFB;--g100:#F3F4F6;--g200:#E5E7EB;--g400:#9CA3AF;--g600:#4B5563;--g800:#1F2937;--g900:#111827;--w:#fff;--r:8px;--sh:0 1px 3px rgba(0,0,0,.08);--shm:0 4px 20px rgba(0,0,0,.10)}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--g900);color:rgba(255,255,255,.75);text-align:center;font-size:12px;padding:9px 1rem}
+.topbar strong{color:#fff}
+@media(max-width:380px){.topbar{display:none}}
+
+/* ── NAV ── */
+nav{background:var(--w);border-bottom:1px solid var(--g200);position:sticky;top:0;z-index:500}
+.nav-inner{max-width:1160px;margin:0 auto;padding:0 1rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo{display:flex;align-items:center;flex-shrink:0}
+.nav-logo img{height:40px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;margin:0 auto}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--g600);transition:color .15s;white-space:nowrap}
+.nav-links a:hover{color:var(--g900)}
+.nav-links a.active{font-weight:700;color:var(--red)}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.nav-phone{display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--g800);white-space:nowrap}
+.nav-phone svg{color:var(--red);flex-shrink:0}
+.nav-btn{background:var(--red);color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:var(--r);white-space:nowrap;transition:background .15s;min-height:38px;display:flex;align-items:center}
+.nav-btn:hover{background:var(--rdk)}
+.nav-btn-outline{background:transparent;color:var(--g800);font-size:13px;font-weight:700;padding:9px 18px;border-radius:var(--r);white-space:nowrap;border:2px solid var(--g200);transition:all .15s;min-height:38px;display:flex;align-items:center}
+.nav-btn-outline:hover{border-color:var(--g400);background:var(--g50)}
+
+.nav-hamburger{display:none;width:44px;height:44px;align-items:center;justify-content:center;border-radius:var(--r);color:var(--g800);flex-shrink:0}
+.nav-hamburger svg{width:22px;height:22px}
+.nav-call-mob{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:var(--rlt);border-radius:var(--r);color:var(--red);flex-shrink:0}
+.nav-call-mob svg{width:20px;height:20px}
+
+/* ── DRAWER ── */
+.drawer-overlay{display:none;position:fixed;inset:0;z-index:490;background:rgba(0,0,0,.4);opacity:0;transition:opacity .25s}
+.drawer{position:fixed;top:0;right:-100%;bottom:0;z-index:495;width:min(300px,85vw);background:var(--w);box-shadow:-4px 0 24px rgba(0,0,0,.15);transition:right .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow-y:auto}
+.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border-bottom:1px solid var(--g200);position:sticky;top:0;background:var(--w);z-index:1}
+.drawer-close{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:var(--r);color:var(--g600)}
+.drawer-close svg{width:20px;height:20px}
+.drawer-nav{list-style:none;padding:.75rem 0;flex:1}
+.drawer-nav li a{display:flex;align-items:center;gap:12px;padding:13px 1.25rem;font-size:15px;font-weight:500;color:var(--g800);border-bottom:1px solid var(--g100);min-height:50px}
+.drawer-nav li a svg{width:18px;height:18px;color:var(--g400);flex-shrink:0}
+.drawer-nav li a:active{background:var(--g100)}
+.drawer-footer{padding:1rem 1.25rem;border-top:1px solid var(--g200);display:flex;flex-direction:column;gap:10px}
+.drawer-footer a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:var(--r);font-size:14px;font-weight:700;min-height:50px}
+.d-call{background:var(--g100);color:var(--g900)}
+.d-book{background:var(--red);color:#fff}
+body.drawer-open{overflow:hidden}
+body.drawer-open .drawer-overlay{display:block;opacity:1}
+body.drawer-open .drawer{right:0}
+
+/* ── PAGE HERO ── */
+.page-hero{background:var(--g900);position:relative;overflow:hidden;padding:clamp(2rem,5vw,3.5rem) 1.25rem}
+.page-hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=1400&q=80');background-size:cover;background-position:center;opacity:.25}
+.page-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.7) 0%,rgba(0,0,0,.2) 100%)}
+.page-hero-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:.85rem;flex-wrap:wrap}
+.breadcrumb a{color:rgba(255,255,255,.5);transition:color .15s}
+.breadcrumb a:hover{color:rgba(255,255,255,.85)}
+.breadcrumb svg{width:14px;height:14px;flex-shrink:0}
+.page-hero h1{font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;color:#fff;line-height:1.12;letter-spacing:-.02em;margin-bottom:.6rem}
+.page-hero-sub{font-size:clamp(.875rem,2vw,1rem);color:rgba(255,255,255,.75);line-height:1.65}
+
+/* ── PROGRESS STEPPER ── */
+.stepper-wrap{background:var(--w);border-bottom:1px solid var(--g200);padding:.85rem 1.25rem}
+.stepper{max-width:700px;margin:0 auto;display:flex;align-items:center;gap:0}
+.step-item{display:flex;align-items:center;gap:8px;flex:1}
+.step-item:last-child{flex:0}
+.step-circle{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;transition:background .2s,color .2s,border .2s}
+.step-circle.done{background:var(--red);color:#fff;border:2px solid var(--red)}
+.step-circle.active{background:var(--red);color:#fff;border:2px solid var(--red)}
+.step-circle.pending{background:var(--w);color:var(--g400);border:2px solid var(--g200)}
+.step-text{font-size:12px;font-weight:600;white-space:nowrap}
+.step-text.active{color:var(--g900)}
+.step-text.pending{color:var(--g400)}
+.step-text.done{color:var(--red)}
+.step-line{flex:1;height:2px;background:var(--g200);margin:0 8px;min-width:20px}
+.step-line.done{background:var(--red)}
+@media(max-width:480px){.step-text{display:none}.step-item:last-child .step-text{display:block}}
+
+/* ── MAIN LAYOUT ── */
+.page-body{max-width:1160px;margin:0 auto;padding:clamp(1.5rem,4vw,2.5rem) 1.25rem;display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:start}
+
+/* ── STEPS ── */
+.reg-step{display:none}
+.reg-step.active{display:block}
+
+/* STEP 1 — CHOOSE COURSE */
+.step-heading{font-size:1.1rem;font-weight:800;color:var(--g900);margin-bottom:.35rem}
+.step-sub{font-size:13.5px;color:var(--g600);margin-bottom:1.25rem;line-height:1.6}
+
+.course-select-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+.course-option{background:var(--w);border:2px solid var(--g200);border-radius:12px;padding:1.25rem;cursor:pointer;transition:border-color .15s,box-shadow .15s;position:relative;display:flex;flex-direction:column;gap:10px}
+.course-option:hover{border-color:var(--g400);box-shadow:var(--sh)}
+.course-option.selected{border-color:var(--red);box-shadow:0 0 0 3px rgba(204,31,31,.1)}
+.course-option-check{position:absolute;top:12px;right:12px;width:22px;height:22px;border-radius:50%;border:2px solid var(--g200);background:var(--w);display:flex;align-items:center;justify-content:center;transition:all .15s}
+.course-option.selected .course-option-check{background:var(--red);border-color:var(--red)}
+.course-option-check svg{width:12px;height:12px;color:#fff;opacity:0;transition:opacity .15s}
+.course-option.selected .course-option-check svg{opacity:1}
+.co-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:20px;align-self:flex-start}
+.co-badge-a{background:#EFF6FF;color:#1D4ED8}
+.co-badge-c{background:#F0FDF4;color:#15803D}
+.co-badge-sfa{background:#FFF7ED;color:#C2410C}
+.co-badge-recert{background:#F5F3FF;color:#6D28D9}
+.co-name{font-size:14px;font-weight:700;color:var(--g900);line-height:1.3;padding-right:28px}
+.co-meta{display:flex;flex-direction:column;gap:4px}
+.co-meta-row{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--g600)}
+.co-meta-row svg{width:13px;height:13px;color:var(--g400);flex-shrink:0}
+.co-price{font-size:1.1rem;font-weight:800;color:var(--g900);margin-top:auto}
+.co-price span{font-size:11px;font-weight:400;color:var(--g400)}
+
+/* STEP 2 — CHOOSE DATE */
+.date-intro{font-size:13.5px;color:var(--g600);margin-bottom:1.25rem}
+.selected-course-pill{display:inline-flex;align-items:center;gap:8px;background:var(--rlt);border:1px solid rgba(204,31,31,.2);border-radius:20px;padding:5px 14px;font-size:13px;font-weight:600;color:var(--red);margin-bottom:1.25rem}
+.selected-course-pill svg{width:14px;height:14px}
+
+.date-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.5rem}
+.date-option{background:var(--w);border:2px solid var(--g200);border-radius:10px;padding:1rem;cursor:pointer;transition:border-color .15s,box-shadow .15s;text-align:center}
+.date-option:hover:not(.full){border-color:var(--g400);box-shadow:var(--sh)}
+.date-option.selected{border-color:var(--red);box-shadow:0 0 0 3px rgba(204,31,31,.1)}
+.date-option.full{opacity:.5;cursor:not-allowed;background:var(--g50)}
+.date-day{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--g400);margin-bottom:2px}
+.date-date{font-size:1rem;font-weight:800;color:var(--g900);margin-bottom:4px}
+.date-time{font-size:11.5px;color:var(--g600);margin-bottom:6px}
+.date-spots{font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;display:inline-block}
+.spots-ok{background:#D1FAE5;color:#065F46}
+.spots-low{background:#FEF3C7;color:#92400E}
+.spots-full{background:var(--g100);color:var(--g400)}
+.date-location{font-size:11px;color:var(--g400);margin-top:4px;display:flex;align-items:center;justify-content:center;gap:3px}
+.date-location svg{width:11px;height:11px}
+
+/* STEP 3 — YOUR DETAILS */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.form-group label{font-size:12.5px;font-weight:600;color:#374151}
+.form-group label span{color:var(--red)}
+.form-control{width:100%;padding:10px 13px;border:1.5px solid var(--g200);border-radius:var(--r);font-size:14px;font-family:inherit;color:var(--g900);background:var(--w);transition:border-color .15s,box-shadow .15s;appearance:none;-webkit-appearance:none;min-height:44px}
+.form-control:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(204,31,31,.1)}
+.form-control::placeholder{color:var(--g400)}
+select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;cursor:pointer}
+.form-section-title{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g400);margin-bottom:.75rem;margin-top:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--g200)}
+.form-section-title:first-child{margin-top:0}
+.checkbox-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.checkbox-row input[type="checkbox"]{width:18px;height:18px;margin-top:1px;accent-color:var(--red);flex-shrink:0;cursor:pointer}
+.checkbox-row label{font-size:13px;color:var(--g600);line-height:1.5;cursor:pointer}
+.checkbox-row label a{color:var(--red);font-weight:500}
+.checkbox-row label a:hover{text-decoration:underline}
+.field-hint{font-size:11.5px;color:var(--g400);margin-top:3px}
+.error-msg{font-size:11.5px;color:var(--red);margin-top:3px;display:none}
+.form-group.has-error .form-control{border-color:var(--red)}
+.form-group.has-error .error-msg{display:block}
+
+/* STEP 4 — REVIEW & PAY */
+.review-card{background:var(--w);border:1px solid var(--g200);border-radius:12px;overflow:hidden;margin-bottom:1rem}
+.review-card-header{background:var(--g50);padding:.85rem 1.25rem;border-bottom:1px solid var(--g200)}
+.review-card-header h3{font-size:13px;font-weight:700;color:var(--g900);text-transform:uppercase;letter-spacing:.06em}
+.review-row{display:flex;justify-content:space-between;align-items:flex-start;padding:.85rem 1.25rem;border-bottom:1px solid var(--g100);gap:1rem}
+.review-row:last-child{border-bottom:none}
+.review-row-label{font-size:13px;color:var(--g600);flex-shrink:0}
+.review-row-val{font-size:13px;font-weight:600;color:var(--g900);text-align:right}
+.review-row-val.red{color:var(--red)}
+.payment-methods{display:flex;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap}
+.pm-badge{display:inline-flex;align-items:center;gap:6px;background:var(--g50);border:1px solid var(--g200);border-radius:6px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--g600)}
+.pm-badge svg{width:16px;height:16px}
+.secure-note{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--g400);margin-bottom:1.25rem}
+.secure-note svg{width:14px;height:14px;color:var(--g400);flex-shrink:0}
+
+/* ── NAVIGATION BUTTONS ── */
+.step-nav{display:flex;gap:10px;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--g200)}
+.btn-back{display:flex;align-items:center;gap:6px;min-height:48px;padding:0 20px;background:var(--g100);color:var(--g800);font-size:14px;font-weight:600;border-radius:var(--r);transition:background .15s;flex-shrink:0}
+.btn-back:hover{background:var(--g200)}
+.btn-back svg{width:16px;height:16px}
+.btn-next{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;flex:1;background:var(--red);color:#fff;font-size:15px;font-weight:700;border-radius:var(--r);transition:background .15s;border:none;cursor:pointer;font-family:inherit}
+.btn-next:hover,.btn-next:active{background:var(--rdk)}
+.btn-next svg{width:18px;height:18px}
+.btn-next:disabled{background:var(--g200);color:var(--g400);cursor:not-allowed}
+
+/* ── ORDER SUMMARY (right column) ── */
+.summary-card{background:var(--w);border:1px solid var(--g200);border-radius:12px;overflow:hidden;position:sticky;top:80px}
+.summary-header{background:var(--red);padding:1.1rem 1.25rem}
+.summary-header h3{font-size:14px;font-weight:800;color:#fff}
+.summary-body{padding:1.25rem}
+.summary-empty{text-align:center;padding:1.5rem 1rem;color:var(--g400);font-size:13.5px;line-height:1.6}
+.summary-empty svg{width:36px;height:36px;margin:0 auto .75rem;opacity:.35}
+.summary-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--g100)}
+.summary-row:last-child{border-bottom:none}
+.summary-label{font-size:13px;color:var(--g600)}
+.summary-val{font-size:13px;font-weight:600;color:var(--g900);text-align:right;max-width:55%}
+.summary-total-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0 0;border-top:2px solid var(--g200);margin-top:.5rem}
+.summary-total-label{font-size:15px;font-weight:700;color:var(--g900)}
+.summary-total-val{font-size:1.4rem;font-weight:800;color:var(--red)}
+.summary-note{font-size:11.5px;color:var(--g400);margin-top:.75rem;line-height:1.5}
+.summary-divider{height:1px;background:var(--g100);margin:.85rem 0}
+.summary-help{text-align:center;font-size:12.5px;color:var(--g600);padding-top:.85rem}
+.summary-help a{color:var(--red);font-weight:600}
+
+/* ── SUCCESS ── */
+.success-screen{display:none;max-width:560px;margin:3rem auto;text-align:center;padding:0 1.25rem}
+.success-icon-wrap{width:72px;height:72px;border-radius:50%;background:#D1FAE5;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem}
+.success-icon-wrap svg{width:36px;height:36px;color:#065F46}
+.success-screen h2{font-size:1.4rem;font-weight:800;color:var(--g900);margin-bottom:.75rem}
+.success-screen p{font-size:14.5px;color:var(--g600);line-height:1.7;margin-bottom:.75rem}
+.success-details{background:var(--w);border:1px solid var(--g200);border-radius:12px;padding:1.25rem;margin:1.5rem 0;text-align:left}
+.success-detail-row{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid var(--g100);font-size:13.5px}
+.success-detail-row:last-child{border-bottom:none}
+.success-detail-label{color:var(--g600)}
+.success-detail-val{font-weight:600;color:var(--g900)}
+.btn-home{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 28px;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);transition:background .15s}
+.btn-home:hover{background:var(--rdk)}
+
+/* ── FOOTER ── */
+footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,3rem) 1.25rem 1.25rem;margin-top:3rem}
+.footer-inner{max-width:1160px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-brand img{height:40px;width:auto;display:block;margin-bottom:10px;filter:brightness(0) invert(1)}
+.footer-tagline{font-size:13px;line-height:1.6;margin-bottom:1rem}
+.footer-contact a{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:5px}
+.footer-contact a:hover{color:#fff}
+.footer-col-title{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.75rem}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:6px}
+.footer-col ul li a{font-size:13px;color:rgba(255,255,255,.5);transition:color .15s}
+.footer-col ul li a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;font-size:12px}
+.footer-badges{display:flex;gap:8px;flex-wrap:wrap}
+.footer-badge{border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:3px 11px;font-size:11px;color:rgba(255,255,255,.45)}
+
+/* ── MOBILE CTA ── */
+.mob-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:var(--w);border-top:1px solid var(--g200);padding:10px 1rem calc(10px + env(safe-area-inset-bottom));gap:10px}
+.mob-cta a{flex:1;display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:var(--r);font-size:14px;font-weight:700}
+.mob-call{background:var(--g900);color:#fff}
+.mob-book{background:var(--red);color:#fff}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.nav-links,.nav-phone,.nav-btn{display:none}.nav-hamburger,.nav-call-mob{display:flex}}
+@media(max-width:900px){
+  .page-body{grid-template-columns:1fr}
+  .summary-card{position:static;order:-1}
+}
+@media(max-width:768px){
+  body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+  .mob-cta{display:flex}
+  .course-select-grid{grid-template-columns:1fr}
+  .date-grid{grid-template-columns:repeat(2,1fr)}
+  .form-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .date-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .stepper .step-line{min-width:12px;margin:0 4px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><strong>Same-day certification</strong> — Your WSIB Approved certificate emailed within 24 hours &nbsp;·&nbsp; <strong>416-723-2571</strong></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="gtacpr-redesign.html" class="nav-logo" aria-label="GTA CPR Home">
+      <img src="gtacpr-logo.png" alt="GTA CPR — Get Certified!">
+    </a>
+    <ul class="nav-links">
+      <li><a href="gtacpr-redesign.html">Home</a></li>
+<li><a href="gtacpr-about.html">About</a></li>
+      <li><a href="gtacpr-redesign.html#courses">Courses</a></li>
+      <li><a href="gtacpr-group-training.html">Workplace</a></li>
+      <li><a href="gtacpr-esl.html">ESL</a></li>
+      <li><a href="gtacpr-redesign.html#reviews">Reviews</a></li>
+      <li><a href="gtacpr-redesign.html#faq">FAQ</a></li>
+          <li><a href="gtacpr-contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:4167232571" class="nav-phone">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+        416-723-2571
+      </a>
+      <a href="https://cpr.kpbc.ca" target="_blank" rel="noopener noreferrer" class="nav-btn-outline">Client Portal</a>
+      <a href="#" class="nav-btn active">Register Now</a>
+    </div>
+    <a href="tel:4167232571" class="nav-call-mob" aria-label="Call us">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+    </a>
+    <button class="nav-hamburger" id="hbBtn" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- DRAWER -->
+<div class="drawer-overlay" id="dOverlay"></div>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="drawer-header">
+    <img src="gtacpr-logo.png" alt="GTA CPR" style="height:32px;width:auto">
+    <button class="drawer-close" id="dClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <ul class="drawer-nav">
+    <li><a href="gtacpr-redesign.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a></li>
+    <li><a href="gtacpr-about.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>About Us</a></li>
+    <li><a href="gtacpr-contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>Contact</a></li>
+    <li><a href="gtacpr-redesign.html#courses"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Join a Class</a></li>
+    <li><a href="gtacpr-group-training.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Group Training</a></li>
+    <li><a href="gtacpr-esl.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>ESL Classes</a></li>
+    <li><a href="gtacpr-redesign.html#reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Reviews</a></li>
+  </ul>
+  <div class="drawer-footer">
+    <a href="tel:4167232571" class="d-call">📞 416-723-2571</a>
+    <a href="#" class="d-book">Register Now →</a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="gtacpr-redesign.html">Home</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>Register for a Class</span>
+    </nav>
+    <h1>Register for a Class</h1>
+    <p class="page-hero-sub">Pick your course, choose a date, and get your WSIB Approved certificate. Easy as 1-2-3.</p>
+  </div>
+</div>
+
+<!-- STEPPER -->
+<div class="stepper-wrap">
+  <div class="stepper" id="stepper">
+    <div class="step-item">
+      <div class="step-circle active" id="sc1">1</div>
+      <span class="step-text active" id="st1">Course</span>
+    </div>
+    <div class="step-line" id="sl1"></div>
+    <div class="step-item">
+      <div class="step-circle pending" id="sc2">2</div>
+      <span class="step-text pending" id="st2">Date</span>
+    </div>
+    <div class="step-line" id="sl2"></div>
+    <div class="step-item">
+      <div class="step-circle pending" id="sc3">3</div>
+      <span class="step-text pending" id="st3">Your Details</span>
+    </div>
+    <div class="step-line" id="sl3"></div>
+    <div class="step-item">
+      <div class="step-circle pending" id="sc4">4</div>
+      <span class="step-text pending" id="st4">Review</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN BODY -->
+<div class="page-body" id="mainBody">
+
+  <!-- LEFT: STEPS -->
+  <div>
+
+    <!-- STEP 1: Choose Course -->
+    <div class="reg-step active" id="step1">
+      <div class="step-heading">Choose your course</div>
+      <p class="step-sub">Not sure which one? Call us at <a href="tel:4167232571" style="color:var(--red);font-weight:600">416-723-2571</a> — we'll help you pick the right one.</p>
+
+      <div class="course-select-grid">
+
+        <div class="course-option" data-course="cpr-a" data-name="CPR Level A" data-price="65" data-duration="Half-day" data-cert="1-year cert">
+          <div class="course-option-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <span class="co-badge co-badge-a">Level A</span>
+          <div class="co-name">CPR Level A</div>
+          <div class="co-meta">
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Half-day class</div>
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>1-year WSIB cert</div>
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Infant &amp; adult CPR</div>
+          </div>
+          <div class="co-price">$65 <span>/person</span></div>
+        </div>
+
+        <div class="course-option" data-course="cpr-c" data-name="CPR Level C / AED" data-price="75" data-duration="Half-day" data-cert="1-year cert">
+          <div class="course-option-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <span class="co-badge co-badge-c">Level C</span>
+          <div class="co-name">CPR Level C / AED</div>
+          <div class="co-meta">
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Half-day class</div>
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>1-year WSIB cert</div>
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Includes AED training</div>
+          </div>
+          <div class="co-price">$75 <span>/person</span></div>
+        </div>
+
+        <div class="course-option" data-course="sfa" data-name="Standard First Aid + CPR-C" data-price="115" data-duration="2 days" data-cert="3-year cert">
+          <div class="course-option-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <span class="co-badge co-badge-sfa">Standard FA</span>
+          <div class="co-name">Standard First Aid + CPR-C</div>
+          <div class="co-meta">
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2-day class</div>
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year WSIB cert</div>
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>WSIB &amp; workplace compliant</div>
+          </div>
+          <div class="co-price">$115 <span>/person</span></div>
+        </div>
+
+        <div class="course-option" data-course="recert" data-name="Recertification (Blended)" data-price="65" data-duration="Online + 4hr session" data-cert="1-year cert">
+          <div class="course-option-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <span class="co-badge co-badge-recert">Recertification</span>
+          <div class="co-name">Recertification (Blended)</div>
+          <div class="co-meta">
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Online + 4hr in-person</div>
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>1-year WSIB cert</div>
+            <div class="co-meta-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4.01006C23 4.01006 22 10 19 13C16 16 10.5 20.5 3 22C3 22 4.5 17.5 6.5 14.5C8.5 11.5 16 9 16 9L8.5 10.5C8.5 10.5 11.5 7 16 6C20.5 5 23 4.01006 23 4.01006Z"/></svg>Cert must be current/recently expired</div>
+          </div>
+          <div class="co-price">$65 <span>/person</span></div>
+        </div>
+
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-next" id="nextStep1" disabled>
+          Choose a Date
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Choose Date -->
+    <div class="reg-step" id="step2">
+      <div class="step-heading">Choose a date</div>
+      <div class="selected-course-pill" id="selectedCoursePill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span id="pillCourseName">—</span>
+      </div>
+      <p class="date-intro">All classes are held at our <strong>Markham location</strong>. New dates added regularly — call us if you don't see a time that works.</p>
+
+      <div class="date-grid" id="dateGrid">
+        <!-- populated by JS based on selected course -->
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-back" id="backStep2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back
+        </button>
+        <button class="btn-next" id="nextStep2" disabled>
+          Enter Your Details
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Your Details -->
+    <div class="reg-step" id="step3">
+      <div class="step-heading">Your details</div>
+      <p class="step-sub">Your information is kept private and only used to process your registration and send your certificate.</p>
+
+      <div class="form-section-title">Personal information</div>
+      <div class="form-grid">
+        <div class="form-group" id="fg-fname">
+          <label for="fname">First name <span>*</span></label>
+          <input class="form-control" type="text" id="fname" placeholder="Jane" autocomplete="given-name" required>
+          <span class="error-msg">Please enter your first name</span>
+        </div>
+        <div class="form-group" id="fg-lname">
+          <label for="lname">Last name <span>*</span></label>
+          <input class="form-control" type="text" id="lname" placeholder="Smith" autocomplete="family-name" required>
+          <span class="error-msg">Please enter your last name</span>
+        </div>
+      </div>
+      <div class="form-group" id="fg-dob">
+        <label for="dob">Date of birth <span>*</span></label>
+        <input class="form-control" type="date" id="dob" autocomplete="bday" required>
+        <span class="field-hint">Required for your WSIB Approved certificate</span>
+        <span class="error-msg">Please enter your date of birth</span>
+      </div>
+      <div class="form-grid">
+        <div class="form-group" id="fg-email">
+          <label for="email">Email <span>*</span></label>
+          <input class="form-control" type="email" id="email" placeholder="jane@email.com" autocomplete="email" required>
+          <span class="field-hint">Your certificate will be sent here</span>
+          <span class="error-msg">Please enter a valid email</span>
+        </div>
+        <div class="form-group" id="fg-phone">
+          <label for="phone">Phone <span>*</span></label>
+          <input class="form-control" type="tel" id="phone" placeholder="416-555-0100" autocomplete="tel" required>
+          <span class="error-msg">Please enter your phone number</span>
+        </div>
+      </div>
+
+      <div class="form-section-title">Additional information</div>
+      <div class="form-group">
+        <label for="employer">Employer / Company <span style="font-weight:400;color:var(--g400)">(optional)</span></label>
+        <input class="form-control" type="text" id="employer" placeholder="e.g. Toronto General Hospital" autocomplete="organization">
+      </div>
+      <div class="form-group">
+        <label for="language">Preferred language</label>
+        <select class="form-control" id="language">
+          <option value="english" selected>English</option>
+          <option value="mandarin">Mandarin 普通话</option>
+          <option value="cantonese">Cantonese 廣東話</option>
+          <option value="greek">Greek Ελληνικά</option>
+          <option value="other">Other — please note below</option>
+        </select>
+        <span class="field-hint">We'll do our best to accommodate your language needs</span>
+      </div>
+      <div class="form-group">
+        <label for="notes">Special requirements or notes <span style="font-weight:400;color:var(--g400)">(optional)</span></label>
+        <textarea class="form-control" id="notes" rows="3" placeholder="Accessibility needs, allergies, language notes…" style="resize:vertical;min-height:80px;line-height:1.5"></textarea>
+      </div>
+
+      <div class="form-section-title">Terms</div>
+      <div class="checkbox-row">
+        <input type="checkbox" id="chk-terms">
+        <label for="chk-terms">I agree to the <a href="#">cancellation policy</a> and understand that full payment is required to hold my spot. <span>*</span></label>
+      </div>
+      <div class="checkbox-row">
+        <input type="checkbox" id="chk-health">
+        <label for="chk-health">I confirm I am physically able to participate in hands-on CPR training (kneeling, chest compressions). <span>*</span></label>
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-back" id="backStep3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back
+        </button>
+        <button class="btn-next" id="nextStep3">
+          Review My Registration
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Review -->
+    <div class="reg-step" id="step4">
+      <div class="step-heading">Review your registration</div>
+      <p class="step-sub" style="margin-bottom:1.25rem">Please check everything below before submitting.</p>
+
+      <div class="review-card">
+        <div class="review-card-header"><h3>Course &amp; Date</h3></div>
+        <div class="review-row"><span class="review-row-label">Course</span><span class="review-row-val" id="rv-course">—</span></div>
+        <div class="review-row"><span class="review-row-label">Date</span><span class="review-row-val" id="rv-date">—</span></div>
+        <div class="review-row"><span class="review-row-label">Time</span><span class="review-row-val" id="rv-time">—</span></div>
+        <div class="review-row"><span class="review-row-label">Location</span><span class="review-row-val">Markham, ON</span></div>
+        <div class="review-row"><span class="review-row-label">Duration</span><span class="review-row-val" id="rv-duration">—</span></div>
+        <div class="review-row"><span class="review-row-label">Certificate</span><span class="review-row-val" id="rv-cert">—</span></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-header"><h3>Your Details</h3></div>
+        <div class="review-row"><span class="review-row-label">Name</span><span class="review-row-val" id="rv-name">—</span></div>
+        <div class="review-row"><span class="review-row-label">Date of birth</span><span class="review-row-val" id="rv-dob">—</span></div>
+        <div class="review-row"><span class="review-row-label">Email</span><span class="review-row-val" id="rv-email">—</span></div>
+        <div class="review-row"><span class="review-row-label">Phone</span><span class="review-row-val" id="rv-phone">—</span></div>
+        <div class="review-row"><span class="review-row-label">Language</span><span class="review-row-val" id="rv-lang">—</span></div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-header"><h3>Payment</h3></div>
+        <div class="review-row"><span class="review-row-label">Course fee</span><span class="review-row-val" id="rv-price">—</span></div>
+        <div class="review-row"><span class="review-row-label">Tax (HST 13%)</span><span class="review-row-val" id="rv-tax">—</span></div>
+        <div class="review-row" style="background:var(--g50)"><span class="review-row-label" style="font-weight:700;color:var(--g900)">Total</span><span class="review-row-val red" id="rv-total" style="font-size:1.1rem;font-weight:800">—</span></div>
+      </div>
+
+      <p style="font-size:12.5px;color:var(--g400);margin-bottom:1.25rem;line-height:1.6">Payment is processed securely. Your spot is confirmed upon successful payment. Certificate emailed within 24 hours of course completion.</p>
+
+      <div class="payment-methods">
+        <span class="pm-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Credit Card</span>
+        <span class="pm-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Debit Card</span>
+        <span class="pm-badge">🍎 Apple Pay</span>
+        <span class="pm-badge">🤖 Google Pay</span>
+      </div>
+      <div class="secure-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Secure checkout — your payment info is never stored on our servers
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-back" id="backStep4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back
+        </button>
+        <button class="btn-next" id="submitBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          Pay &amp; Confirm Registration
+        </button>
+      </div>
+    </div>
+
+  </div><!-- end left col -->
+
+  <!-- RIGHT: ORDER SUMMARY -->
+  <div>
+    <div class="summary-card" id="summaryCard">
+      <div class="summary-header"><h3>Your Registration</h3></div>
+      <div class="summary-body" id="summaryBody">
+        <div class="summary-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+          Select a course and date to see your order summary
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-body -->
+
+<!-- SUCCESS SCREEN -->
+<div class="success-screen" id="successScreen">
+  <div class="success-icon-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+  </div>
+  <h2>You're registered! 🎉</h2>
+  <p>A confirmation email has been sent to <strong id="conf-email">—</strong>. Please bring a photo ID to your class.</p>
+  <p style="font-size:13px;color:var(--g400)">Questions? Call us at <a href="tel:4167232571" style="color:var(--red)">416-723-2571</a> or email <a href="mailto:kpbcma@gmail.com" style="color:var(--red)">kpbcma@gmail.com</a></p>
+  <div class="success-details">
+    <div class="success-detail-row"><span class="success-detail-label">Course</span><span class="success-detail-val" id="conf-course">—</span></div>
+    <div class="success-detail-row"><span class="success-detail-label">Date &amp; Time</span><span class="success-detail-val" id="conf-date">—</span></div>
+    <div class="success-detail-row"><span class="success-detail-label">Location</span><span class="success-detail-val">Markham, ON</span></div>
+    <div class="success-detail-row"><span class="success-detail-label">Amount paid</span><span class="success-detail-val" id="conf-total">—</span></div>
+  </div>
+  <a href="gtacpr-redesign.html" class="btn-home">← Back to Home</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="gtacpr-logo.png" alt="GTA CPR — Get Certified!"></div>
+        <p class="footer-tagline">Greater Toronto Area's trusted WSIB Approved CPR and First Aid training provider. Serving individuals, workplaces, and newcomers since 2013.</p>
+        <div class="footer-contact">
+          <a href="tel:4167232571">📞 416-723-2571</a>
+          <a href="mailto:kpbcma@gmail.com">✉ kpbcma@gmail.com</a>
+          <a href="gtacpr-contact.html#map">📍 46 Sunnyside Hill Road, Markham, ON</a>
+        </div>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Courses</div><ul><li><a href="gtacpr-register.html">CPR Level A</a></li><li><a href="gtacpr-register.html">CPR Level C / AED</a></li><li><a href="gtacpr-register.html">Emergency First Aid</a></li><li><a href="gtacpr-register.html">Standard First Aid</a></li><li><a href="gtacpr-register.html">Recertification</a></li><li><a href="gtacpr-esl.html">ESL Classes</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><ul><li><a href="gtacpr-redesign.html">Home</a></li>
+<li><a href="gtacpr-about.html">About</a></li><li><a href="gtacpr-group-training.html">Group Training</a></li><li><a href="gtacpr-redesign.html#reviews">Reviews</a></li><li><a href="gtacpr-redesign.html#faq">FAQ</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Service Areas</div><ul><li><a href="#">CPR Markham</a></li><li><a href="#">CPR Scarborough</a></li><li><a href="#">CPR North York</a></li><li><a href="#">CPR Mississauga</a></li><li><a href="#">CPR Brampton</a></li><li><a href="#">CPR Richmond Hill</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GTACPR. All rights reserved.</span>
+      <div class="footer-badges"><span class="footer-badge">WSIB Approved</span><span class="footer-badge">TBD</span><span class="footer-badge">4.9 ★ Google</span></div>
+    </div>
+  </div>
+</footer>
+
+<div class="mob-cta" aria-label="Quick actions">
+  <a href="tel:4167232571" class="mob-call">📞 Call Now</a>
+  <a href="gtacpr-register.html" class="mob-book">Book a Class →</a>
+</div>
+
+<script>
+(function(){
+  // ── Drawer ──
+  var hb=document.getElementById('hbBtn'),dr=document.getElementById('drawer'),ov=document.getElementById('dOverlay'),cl=document.getElementById('dClose');
+  function openD(){document.body.classList.add('drawer-open');hb.setAttribute('aria-expanded','true');cl.focus()}
+  function closeD(){document.body.classList.remove('drawer-open');hb.setAttribute('aria-expanded','false');hb.focus()}
+  hb.addEventListener('click',openD);cl.addEventListener('click',closeD);ov.addEventListener('click',closeD);
+  dr.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeD)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.body.classList.contains('drawer-open'))closeD()});
+
+  // ── State ──
+  var state={course:null,date:null,step:1};
+
+  // ── Course date schedules ──
+  var schedules={
+    'cpr-a':[
+      {day:'Sat',date:'Jun 7',time:'9:00 AM – 1:00 PM',spots:6,status:'ok'},
+      {day:'Sun',date:'Jun 8',time:'1:00 PM – 5:00 PM',spots:3,status:'low'},
+      {day:'Sat',date:'Jun 14',time:'9:00 AM – 1:00 PM',spots:8,status:'ok'},
+      {day:'Sun',date:'Jun 22',time:'10:00 AM – 2:00 PM',spots:0,status:'full'},
+      {day:'Sat',date:'Jun 28',time:'9:00 AM – 1:00 PM',spots:8,status:'ok'},
+      {day:'Sun',date:'Jul 6',time:'1:00 PM – 5:00 PM',spots:8,status:'ok'}
+    ],
+    'cpr-c':[
+      {day:'Sat',date:'Jun 7',time:'9:00 AM – 2:00 PM',spots:4,status:'low'},
+      {day:'Sun',date:'Jun 15',time:'9:00 AM – 2:00 PM',spots:8,status:'ok'},
+      {day:'Sat',date:'Jun 21',time:'9:00 AM – 2:00 PM',spots:0,status:'full'},
+      {day:'Sun',date:'Jun 29',time:'10:00 AM – 3:00 PM',spots:8,status:'ok'},
+      {day:'Sat',date:'Jul 5',time:'9:00 AM – 2:00 PM',spots:8,status:'ok'},
+      {day:'Sun',date:'Jul 13',time:'1:00 PM – 6:00 PM',spots:6,status:'ok'}
+    ],
+    'sfa':[
+      {day:'Sat–Sun',date:'Jun 14–15',time:'9:00 AM – 5:00 PM',spots:5,status:'ok'},
+      {day:'Sat–Sun',date:'Jun 28–29',time:'9:00 AM – 5:00 PM',spots:2,status:'low'},
+      {day:'Sat–Sun',date:'Jul 12–13',time:'9:00 AM – 5:00 PM',spots:8,status:'ok'},
+      {day:'Sat–Sun',date:'Jul 26–27',time:'9:00 AM – 5:00 PM',spots:8,status:'ok'}
+    ],
+    'recert':[
+      {day:'Sat',date:'Jun 7',time:'2:00 PM – 6:00 PM',spots:6,status:'ok'},
+      {day:'Sun',date:'Jun 15',time:'2:00 PM – 6:00 PM',spots:3,status:'low'},
+      {day:'Sat',date:'Jun 21',time:'9:00 AM – 1:00 PM',spots:8,status:'ok'},
+      {day:'Sun',date:'Jun 29',time:'2:00 PM – 6:00 PM',spots:0,status:'full'},
+      {day:'Sat',date:'Jul 5',time:'9:00 AM – 1:00 PM',spots:8,status:'ok'},
+      {day:'Sun',date:'Jul 13',time:'2:00 PM – 6:00 PM',spots:8,status:'ok'}
+    ]
+  };
+
+  // ── Step navigation helpers ──
+  function goToStep(n){
+    document.querySelectorAll('.reg-step').forEach(function(s){s.classList.remove('active')});
+    document.getElementById('step'+n).classList.add('active');
+    state.step=n;
+    updateStepper(n);
+    window.scrollTo({top:document.querySelector('.stepper-wrap').offsetTop-70,behavior:'smooth'});
+  }
+
+  function updateStepper(current){
+    for(var i=1;i<=4;i++){
+      var sc=document.getElementById('sc'+i);
+      var st=document.getElementById('st'+i);
+      var sl=document.getElementById('sl'+i);
+      if(i<current){
+        sc.className='step-circle done';sc.innerHTML='✓';
+        st.className='step-text done';
+        if(sl)sl.className='step-line done';
+      } else if(i===current){
+        sc.className='step-circle active';sc.innerHTML=i;
+        st.className='step-text active';
+      } else {
+        sc.className='step-circle pending';sc.innerHTML=i;
+        st.className='step-text pending';
+      }
+    }
+  }
+
+  // ── Step 1: Course selection ──
+  document.querySelectorAll('.course-option').forEach(function(opt){
+    opt.addEventListener('click',function(){
+      document.querySelectorAll('.course-option').forEach(function(o){o.classList.remove('selected')});
+      opt.classList.add('selected');
+      state.course={
+        id:opt.dataset.course,
+        name:opt.dataset.name,
+        price:parseFloat(opt.dataset.price),
+        duration:opt.dataset.duration,
+        cert:opt.dataset.cert
+      };
+      document.getElementById('nextStep1').disabled=false;
+      updateSummary();
+    });
+  });
+
+  document.getElementById('nextStep1').addEventListener('click',function(){
+    if(!state.course)return;
+    buildDateGrid(state.course.id);
+    document.getElementById('pillCourseName').textContent=state.course.name;
+    goToStep(2);
+  });
+
+  // ── Step 2: Date selection ──
+  function buildDateGrid(courseId){
+    var grid=document.getElementById('dateGrid');
+    grid.innerHTML='';
+    var dates=schedules[courseId]||[];
+    dates.forEach(function(d,i){
+      var div=document.createElement('div');
+      div.className='date-option'+(d.status==='full'?' full':'');
+      div.dataset.index=i;
+      var spotsLabel=d.status==='full'?'Full':d.status==='low'?d.spots+' spots left':d.spots+' spots';
+      var spotsClass=d.status==='full'?'spots-full':d.status==='low'?'spots-low':'spots-ok';
+      div.innerHTML='<div class="date-day">'+d.day+'</div><div class="date-date">'+d.date+'</div><div class="date-time">'+d.time+'</div><div class="date-spots '+spotsClass+'">'+spotsLabel+'</div><div class="date-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Markham</div>';
+      if(d.status!=='full'){
+        div.addEventListener('click',function(){
+          document.querySelectorAll('.date-option').forEach(function(o){o.classList.remove('selected')});
+          div.classList.add('selected');
+          state.date=d;
+          document.getElementById('nextStep2').disabled=false;
+          updateSummary();
+        });
+      }
+      grid.appendChild(div);
+    });
+  }
+
+  document.getElementById('backStep2').addEventListener('click',function(){goToStep(1)});
+  document.getElementById('nextStep2').addEventListener('click',function(){
+    if(!state.date)return;
+    goToStep(3);
+  });
+
+  // ── Step 3: Details ──
+  document.getElementById('backStep3').addEventListener('click',function(){goToStep(2)});
+  document.getElementById('nextStep3').addEventListener('click',function(){
+    var ok=true;
+    var fields=[
+      {id:'fname',fgId:'fg-fname',msg:'Please enter your first name'},
+      {id:'lname',fgId:'fg-lname',msg:'Please enter your last name'},
+      {id:'dob',fgId:'fg-dob',msg:'Please enter your date of birth'},
+      {id:'email',fgId:'fg-email',msg:'Please enter a valid email'},
+      {id:'phone',fgId:'fg-phone',msg:'Please enter your phone number'}
+    ];
+    fields.forEach(function(f){
+      var el=document.getElementById(f.id);
+      var fg=document.getElementById(f.fgId);
+      if(!el.value.trim()||(f.id==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value))){
+        fg.classList.add('has-error');ok=false;
+      } else {
+        fg.classList.remove('has-error');
+      }
+    });
+    var terms=document.getElementById('chk-terms');
+    var health=document.getElementById('chk-health');
+    if(!terms.checked||!health.checked){
+      alert('Please agree to both checkboxes to continue.');ok=false;
+    }
+    if(!ok)return;
+    populateReview();
+    goToStep(4);
+  });
+
+  // live remove error on input
+  ['fname','lname','dob','email','phone'].forEach(function(id){
+    document.getElementById(id).addEventListener('input',function(){
+      document.getElementById('fg-'+id).classList.remove('has-error');
+    });
+  });
+
+  // ── Step 4: Review ──
+  function populateReview(){
+    var tax=state.course.price*0.13;
+    var total=state.course.price+tax;
+    var langEl=document.getElementById('language');
+    var lang=langEl.options[langEl.selectedIndex].text;
+    document.getElementById('rv-course').textContent=state.course.name;
+    document.getElementById('rv-date').textContent=state.date.date;
+    document.getElementById('rv-time').textContent=state.date.time;
+    document.getElementById('rv-duration').textContent=state.course.duration;
+    document.getElementById('rv-cert').textContent=state.course.cert;
+    document.getElementById('rv-name').textContent=document.getElementById('fname').value+' '+document.getElementById('lname').value;
+    document.getElementById('rv-dob').textContent=document.getElementById('dob').value;
+    document.getElementById('rv-email').textContent=document.getElementById('email').value;
+    document.getElementById('rv-phone').textContent=document.getElementById('phone').value;
+    document.getElementById('rv-lang').textContent=lang;
+    document.getElementById('rv-price').textContent='$'+state.course.price.toFixed(2);
+    document.getElementById('rv-tax').textContent='$'+tax.toFixed(2);
+    document.getElementById('rv-total').textContent='$'+total.toFixed(2);
+  }
+
+  document.getElementById('backStep4').addEventListener('click',function(){goToStep(3)});
+  document.getElementById('submitBtn').addEventListener('click',function(){
+    var tax=state.course.price*0.13;
+    var total=state.course.price+tax;
+    // Show success
+    document.getElementById('mainBody').style.display='none';
+    var ss=document.getElementById('successScreen');
+    ss.style.display='block';
+    document.getElementById('conf-email').textContent=document.getElementById('email').value;
+    document.getElementById('conf-course').textContent=state.course.name;
+    document.getElementById('conf-date').textContent=state.date.date+' · '+state.date.time;
+    document.getElementById('conf-total').textContent='$'+total.toFixed(2);
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  // ── Summary sidebar ──
+  function updateSummary(){
+    var body=document.getElementById('summaryBody');
+    if(!state.course){
+      body.innerHTML='<div class="summary-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>Select a course and date to see your summary</div>';
+      return;
+    }
+    var tax=state.course.price*0.13;
+    var total=state.course.price+tax;
+    var html='';
+    html+='<div class="summary-row"><span class="summary-label">Course</span><span class="summary-val">'+state.course.name+'</span></div>';
+    if(state.date){
+      html+='<div class="summary-row"><span class="summary-label">Date</span><span class="summary-val">'+state.date.date+'</span></div>';
+      html+='<div class="summary-row"><span class="summary-label">Time</span><span class="summary-val">'+state.date.time+'</span></div>';
+    }
+    html+='<div class="summary-row"><span class="summary-label">Location</span><span class="summary-val">Markham, ON</span></div>';
+    html+='<div class="summary-row"><span class="summary-label">Duration</span><span class="summary-val">'+state.course.duration+'</span></div>';
+    html+='<div class="summary-row"><span class="summary-label">Certificate</span><span class="summary-val">'+state.course.cert+'</span></div>';
+    html+='<div class="summary-divider"></div>';
+    html+='<div class="summary-row"><span class="summary-label">Course fee</span><span class="summary-val">$'+state.course.price.toFixed(2)+'</span></div>';
+    html+='<div class="summary-row"><span class="summary-label">HST (13%)</span><span class="summary-val">$'+tax.toFixed(2)+'</span></div>';
+    html+='<div class="summary-total-row"><span class="summary-total-label">Total</span><span class="summary-total-val">$'+total.toFixed(2)+'</span></div>';
+    html+='<p class="summary-note">WSIB Approved certificate emailed within 24 hours of completion.</p>';
+    html+='<div class="summary-divider"></div>';
+    html+='<div class="summary-help">Questions? <a href="tel:4167232571">Call us</a></div>';
+    body.innerHTML=html;
+  }
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTACPR Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#CC1F1F;--rdk:#9B1515;--rlt:#FFF0F0;
+  --g50:#F9FAFB;--g100:#F3F4F6;--g200:#E5E7EB;
+  --g400:#9CA3AF;--g600:#4B5563;--g800:#1F2937;--g900:#111827;
+  --w:#fff;
+  --r:8px;--r-md:10px;--r-lg:12px;--r-pill:20px;
+  --sh:0 1px 3px rgba(0,0,0,.08);--shm:0 4px 16px rgba(0,0,0,.10);
+  --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;
+  --sp-6:24px;--sp-8:32px;--sp-12:48px;--sp-16:64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--g50);color:var(--g800);line-height:1.6}
+
+/* ── DS NAV ── */
+.ds-nav{position:sticky;top:0;z-index:100;background:var(--g900);padding:0 1.5rem;display:flex;align-items:center;gap:2rem;height:54px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.ds-nav::-webkit-scrollbar{display:none}
+.ds-nav-brand{font-size:13px;font-weight:800;color:var(--red);white-space:nowrap;flex-shrink:0}
+.ds-nav a{font-size:12px;font-weight:500;color:rgba(255,255,255,.6);white-space:nowrap;text-decoration:none;transition:color .15s}
+.ds-nav a:hover{color:#fff}
+
+/* ── LAYOUT ── */
+.ds-wrap{max-width:1100px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+.ds-section{margin-bottom:4rem}
+.ds-section-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g400);margin-bottom:1.5rem;padding-bottom:.5rem;border-bottom:1px solid var(--g200)}
+.ds-heading{font-size:1.5rem;font-weight:800;color:var(--g900);margin-bottom:.25rem}
+.ds-sub{font-size:13.5px;color:var(--g600);margin-bottom:2rem}
+.ds-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--g400);margin-bottom:.5rem;display:block}
+
+/* ── GRID HELPERS ── */
+.row{display:flex;flex-wrap:wrap;gap:1rem}
+.row-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.row-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.row-auto{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+@media(max-width:600px){.row-2,.row-3,.row-4{grid-template-columns:1fr}}
+
+/* ── TOKEN: COLOR SWATCHES ── */
+.swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem}
+.swatch{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--g200)}
+.swatch-color{height:72px}
+.swatch-info{padding:.6rem .75rem;background:var(--w)}
+.swatch-name{font-size:12px;font-weight:700;color:var(--g900)}
+.swatch-hex{font-size:11px;color:var(--g400);font-family:monospace}
+.swatch-use{font-size:11px;color:var(--g600);margin-top:2px;line-height:1.4}
+
+/* ── TOKEN: TYPE SCALE ── */
+.type-row{padding:.75rem 0;border-bottom:1px solid var(--g200);display:flex;align-items:baseline;gap:1rem}
+.type-meta{width:180px;flex-shrink:0;font-size:11px;color:var(--g400)}
+.type-meta strong{display:block;font-size:12px;font-weight:600;color:var(--g800);margin-bottom:2px}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-size:14px;font-weight:700;border:none;cursor:pointer;border-radius:var(--r);transition:background .15s,border-color .15s,color .15s;text-decoration:none;line-height:1}
+.btn-lg{min-height:50px;padding:0 28px}
+.btn-md{min-height:46px;padding:0 22px}
+.btn-sm{min-height:38px;padding:0 18px;font-size:13px}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--rdk)}
+.btn-primary:disabled{opacity:.5;pointer-events:none}
+.btn-ghost{background:var(--g100);color:var(--g900)}
+.btn-ghost:hover{background:var(--g200)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6)}
+.btn-outline:hover{border-color:#fff}
+
+/* ── BADGES ── */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:4px}
+.badge-wsib{background:var(--rlt);color:var(--red);border:1px solid rgba(204,31,31,.25)}
+.badge-delivery{background:var(--g100);color:var(--g600);border:1px solid var(--g200)}
+.badge-pill{background:var(--rlt);color:var(--red);border:1px solid rgba(204,31,31,.2);border-radius:var(--r-pill);padding:5px 14px;font-size:13px}
+.badge-chip{background:var(--g100);color:var(--g600);border:1px solid var(--g200);border-radius:var(--r-pill);font-size:12px;padding:4px 12px;font-weight:500}
+
+/* ── FORM CONTROLS ── */
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:1rem}
+.form-group label{font-size:13px;font-weight:600;color:var(--g800)}
+.form-group label span{color:var(--red)}
+.form-control{width:100%;padding:10px 13px;border:1.5px solid var(--g200);border-radius:var(--r);font-size:14px;font-family:inherit;color:var(--g900);background:var(--w);transition:border-color .15s,box-shadow .15s;appearance:none;min-height:44px}
+.form-control:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(204,31,31,.1)}
+.form-control::placeholder{color:var(--g400)}
+.form-control.is-error{border-color:var(--red)}
+.form-control:disabled{background:var(--g100);color:var(--g400);cursor:not-allowed}
+.form-error{font-size:12px;color:var(--red)}
+.form-section-title{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g400);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--g200)}
+.check-row{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--g800)}
+.check-row input[type=checkbox]{width:16px;height:16px;margin-top:2px;accent-color:var(--red)}
+
+/* ── COURSE CARD ── */
+.course-card{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.course-card:hover{box-shadow:var(--shm);transform:translateY(-2px)}
+.course-card-head{background:var(--g900);padding:1.1rem 1rem;position:relative}
+.course-card-name{font-size:14.5px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.35rem}
+.course-card-dur{font-size:12px;color:rgba(255,255,255,.6)}
+.course-card-body{padding:1rem;flex:1;display:flex;flex-direction:column;gap:.5rem}
+.course-card-desc{font-size:13px;color:var(--g600);line-height:1.6;flex:1}
+.course-card-price{font-size:1.2rem;font-weight:800;color:var(--g900)}
+.course-card-price span{font-size:12px;font-weight:400;color:var(--g400)}
+
+/* ── COURSE OPTION CARD (REGISTER) ── */
+.course-option{background:var(--w);border:2px solid var(--g200);border-radius:var(--r-lg);padding:1.25rem;cursor:pointer;transition:border-color .15s,box-shadow .15s;position:relative;display:flex;flex-direction:column;gap:8px}
+.course-option:hover{border-color:var(--g400);box-shadow:var(--sh)}
+.course-option.selected{border-color:var(--red);box-shadow:0 0 0 3px rgba(204,31,31,.1)}
+.co-check{position:absolute;top:12px;right:12px;width:22px;height:22px;border-radius:50%;border:2px solid var(--g200);background:var(--w);display:flex;align-items:center;justify-content:center;transition:all .15s}
+.course-option.selected .co-check{background:var(--red);border-color:var(--red);color:#fff}
+.co-name{font-size:14px;font-weight:700;color:var(--g900);padding-right:28px;line-height:1.3}
+.co-meta{font-size:12px;color:var(--g600)}
+.co-price{font-size:1.1rem;font-weight:800;color:var(--g900)}
+.co-price span{font-size:11px;font-weight:400;color:var(--g400)}
+
+/* ── DATE CELL ── */
+.date-option{background:var(--w);border:2px solid var(--g200);border-radius:var(--r-md);padding:1rem;cursor:pointer;transition:border-color .15s,box-shadow .15s;text-align:center}
+.date-option:hover:not(.full){border-color:var(--g400);box-shadow:var(--sh)}
+.date-option.selected{border-color:var(--red);box-shadow:0 0 0 3px rgba(204,31,31,.1)}
+.date-option.full{opacity:.5;cursor:not-allowed;background:var(--g50)}
+.date-day{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--g400);margin-bottom:2px}
+.date-date{font-size:1rem;font-weight:800;color:var(--g900);margin-bottom:4px}
+.date-time{font-size:11.5px;color:var(--g600);margin-bottom:6px}
+.spots-pill{display:inline-block;font-size:10.5px;font-weight:600;border-radius:20px;padding:2px 8px}
+.spots-ok{background:#F0FDF4;color:#15803D}
+.spots-low{background:#FFFBEB;color:#B45309}
+.spots-full{background:var(--g100);color:var(--g400)}
+
+/* ── STEPPER ── */
+.stepper{display:flex;align-items:center;gap:0;padding:.85rem 0}
+.step-item{display:flex;flex-direction:column;align-items:center;gap:5px}
+.step-circle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.step-circle.done{background:var(--red);color:#fff;border:2px solid var(--red)}
+.step-circle.active{background:var(--red);color:#fff;border:2px solid var(--red)}
+.step-circle.pending{background:var(--w);color:var(--g400);border:2px solid var(--g200)}
+.step-text{font-size:11px;font-weight:500;white-space:nowrap}
+.step-text.done{color:var(--red)}
+.step-text.active{color:var(--g900);font-weight:700}
+.step-text.pending{color:var(--g400)}
+.step-line{flex:1;height:2px;background:var(--g200);margin:0 8px;align-self:flex-start;margin-top:14px;min-width:20px}
+.step-line.done{background:var(--red)}
+
+/* ── FAQ ACCORDION ── */
+.faq-item{border-bottom:1px solid var(--g200)}
+.faq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;font-size:14.5px;font-weight:600;color:var(--g800);text-align:left;background:none;border:none;cursor:pointer;min-height:54px;font-family:inherit}
+.faq-trigger:hover{color:var(--red)}
+.faq-icon{width:24px;height:24px;border-radius:50%;background:var(--g100);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--g600);line-height:1;transition:background .15s,transform .2s;user-select:none}
+.faq-item.open .faq-icon{background:var(--red);color:#fff;transform:rotate(45deg)}
+.faq-answer{font-size:13.5px;color:var(--g600);line-height:1.7;padding-bottom:1rem;display:none}
+.faq-item.open .faq-answer{display:block}
+
+/* ── REVIEW CARD ── */
+.review-card{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-md);padding:1rem;box-shadow:var(--sh);display:flex;flex-direction:column;gap:8px}
+.rev-top{display:flex;align-items:center;gap:10px}
+.rev-avatar{width:32px;height:32px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.rev-name{font-size:13px;font-weight:700;color:var(--g900)}
+.rev-type{font-size:11.5px;color:var(--g400)}
+.rev-stars{color:#F59E0B;font-size:13px;letter-spacing:1px}
+.rev-text{font-size:12.5px;color:var(--g600);line-height:1.6}
+
+/* ── TRUST BAR ── */
+.trust-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--g200);border:1px solid var(--g200);border-radius:var(--r-md);overflow:hidden}
+.trust-item{background:var(--w);padding:1.1rem 1rem;display:flex;gap:12px;align-items:flex-start}
+.trust-icon{width:36px;height:36px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ti-red{background:var(--rlt)}.ti-blue{background:#EFF6FF}.ti-green{background:#F0FDF4}.ti-purple{background:#F5F3FF}
+.trust-title{font-size:13px;font-weight:700;color:var(--g900);margin-bottom:2px}
+.trust-sub{font-size:12px;color:var(--g400)}
+@media(max-width:600px){.trust-bar{grid-template-columns:repeat(2,1fr)}}
+
+/* ── CTA BAND ── */
+.cta-band{border-radius:var(--r-md);padding:2rem 1.5rem;text-align:center}
+.cta-band-dark{background:var(--g900)}
+.cta-band-red{background:var(--red)}
+.cta-band h3{font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:.5rem}
+.cta-band p{font-size:13.5px;color:rgba(255,255,255,.75);margin-bottom:1.25rem}
+.cta-band-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+
+/* ── ORDER SUMMARY ── */
+.order-summary{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-md);overflow:hidden}
+.os-head{background:var(--g900);padding:1rem 1.25rem}
+.os-head h4{font-size:14px;font-weight:700;color:#fff}
+.os-body{padding:1.25rem}
+.os-row{display:flex;justify-content:space-between;font-size:13.5px;color:var(--g600);margin-bottom:.5rem}
+.os-row strong{color:var(--g900)}
+.os-divider{border:none;border-top:1px solid var(--g200);margin:.75rem 0}
+.os-total{display:flex;justify-content:space-between;font-size:15px;font-weight:800;color:var(--g900)}
+
+/* ── STATS BAR ── */
+.stats-bar{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-md);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;overflow:hidden}
+.stat-item{padding:1.25rem 1rem;text-align:center;border-right:1px solid var(--g200)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:var(--red);line-height:1}
+.stat-label{font-size:13px;color:var(--g600);margin-top:4px}
+@media(max-width:600px){.stats-bar{grid-template-columns:repeat(2,1fr)}}
+
+/* ── CARD ── */
+.card{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-md);padding:1.25rem;box-shadow:var(--sh)}
+
+/* ── TOKEN TABLE ── */
+.token-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.token-table th{background:var(--g900);color:#fff;font-size:11px;font-weight:700;text-align:left;padding:8px 10px;letter-spacing:.04em}
+.token-table td{padding:7px 10px;border-bottom:1px solid var(--g200);vertical-align:middle}
+.token-table tr:last-child td{border-bottom:none}
+.token-table tr:nth-child(even) td{background:var(--g50)}
+.mono{font-family:monospace;font-size:11.5px;background:var(--g100);padding:1px 5px;border-radius:3px;color:var(--g900)}
+
+/* ── SHADOW SAMPLES ── */
+.shadow-box{background:var(--w);border-radius:var(--r-md);padding:1.5rem;text-align:center;font-size:12px;color:var(--g600)}
+</style>
+</head>
+<body>
+
+<!-- DS NAV -->
+<nav class="ds-nav">
+  <span class="ds-nav-brand">GTACPR Design System</span>
+  <a href="#colors">Colors</a>
+  <a href="#typography">Typography</a>
+  <a href="#spacing">Spacing</a>
+  <a href="#elevation">Elevation</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#badges">Badges</a>
+  <a href="#forms">Forms</a>
+  <a href="#cards">Cards</a>
+  <a href="#wizard">Wizard</a>
+  <a href="#stepper">Stepper</a>
+  <a href="#faq">FAQ</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#trust">Trust Bar</a>
+  <a href="#cta">CTA Band</a>
+  <a href="#stats">Stats</a>
+  <a href="#order">Order Summary</a>
+</nav>
+
+<div class="ds-wrap">
+
+  <div style="margin-bottom:2.5rem">
+    <div class="ds-heading">GTACPR Design System</div>
+    <div class="ds-sub">Stage 3 · Visual Reference · All tokens and components shown live. Open in any browser — no server needed.</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- COLORS -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="colors">
+    <div class="ds-section-title">Foundation — Colors</div>
+
+    <div class="ds-label" style="margin-bottom:.75rem">Brand</div>
+    <div class="swatch-grid" style="margin-bottom:1.5rem">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#CC1F1F"></div>
+        <div class="swatch-info"><div class="swatch-name">--red</div><div class="swatch-hex">#CC1F1F</div><div class="swatch-use">Primary CTAs, active states</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#9B1515"></div>
+        <div class="swatch-info"><div class="swatch-name">--rdk</div><div class="swatch-hex">#9B1515</div><div class="swatch-use">Hover/active on --red</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFF0F0;border-bottom:1px solid #e5e7eb"></div>
+        <div class="swatch-info"><div class="swatch-name">--rlt</div><div class="swatch-hex">#FFF0F0</div><div class="swatch-use">Tinted bg, badge fills</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#fff;border-bottom:1px solid #e5e7eb"></div>
+        <div class="swatch-info"><div class="swatch-name">--w</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-use">Card/input/nav bg</div></div>
+      </div>
+    </div>
+
+    <div class="ds-label" style="margin-bottom:.75rem">Neutral Gray Scale</div>
+    <div class="swatch-grid" style="margin-bottom:1.5rem">
+      <div class="swatch"><div class="swatch-color" style="background:#F9FAFB;border-bottom:1px solid #e5e7eb"></div><div class="swatch-info"><div class="swatch-name">--g50</div><div class="swatch-hex">#F9FAFB</div><div class="swatch-use">Page backgrounds</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#F3F4F6;border-bottom:1px solid #e5e7eb"></div><div class="swatch-info"><div class="swatch-name">--g100</div><div class="swatch-hex">#F3F4F6</div><div class="swatch-use">Hover fills, disabled bg</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#E5E7EB;border-bottom:1px solid #e5e7eb"></div><div class="swatch-info"><div class="swatch-name">--g200</div><div class="swatch-hex">#E5E7EB</div><div class="swatch-use">Borders, dividers</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#9CA3AF"></div><div class="swatch-info"><div class="swatch-name">--g400</div><div class="swatch-hex">#9CA3AF</div><div class="swatch-use">Placeholders, meta text</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#4B5563"></div><div class="swatch-info"><div class="swatch-name">--g600</div><div class="swatch-hex">#4B5563</div><div class="swatch-use">Body text, descriptions</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#1F2937"></div><div class="swatch-info"><div class="swatch-name">--g800</div><div class="swatch-hex">#1F2937</div><div class="swatch-use">Primary body text</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#111827"></div><div class="swatch-info"><div class="swatch-name">--g900</div><div class="swatch-hex">#111827</div><div class="swatch-use">Headings, dark sections</div></div></div>
+    </div>
+
+    <div class="ds-label" style="margin-bottom:.75rem">Accent — Trust Bar Only</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#2563EB"></div><div class="swatch-info"><div class="swatch-name">Blue</div><div class="swatch-hex">#2563EB / #EFF6FF</div><div class="swatch-use">Group Friendly tile</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#16A34A"></div><div class="swatch-info"><div class="swatch-name">Green</div><div class="swatch-hex">#16A34A / #F0FDF4</div><div class="swatch-use">7-Day Schedule tile</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#7C3AED"></div><div class="swatch-info"><div class="swatch-name">Purple</div><div class="swatch-hex">#7C3AED / #F5F3FF</div><div class="swatch-use">ESL Classes tile</div></div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- TYPOGRAPHY -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="typography">
+    <div class="ds-section-title">Foundation — Typography</div>
+    <div class="ds-sub" style="margin-bottom:1rem">Font: <strong>Inter</strong> (Google Fonts). Weights: 400, 500, 600, 700, 800.</div>
+
+    <div class="type-row">
+      <div class="type-meta"><strong>Hero H1</strong>clamp(1.8rem,5vw,2.6rem) / 800 / lh 1.15</div>
+      <div style="font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;color:var(--g900);line-height:1.15">CPR & First Aid Training</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Section H2</strong>clamp(1.25rem,4vw,1.6rem) / 800 / lh 1.2</div>
+      <div style="font-size:clamp(1.25rem,4vw,1.6rem);font-weight:800;color:var(--g900)">Our Courses</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Card / Sub H3</strong>1.2rem / 800 / lh 1.2</div>
+      <div style="font-size:1.2rem;font-weight:800;color:var(--g900)">On-Site Training for Your Team</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Step Heading H4</strong>1.1rem / 800 / lh 1.25</div>
+      <div style="font-size:1.1rem;font-weight:800;color:var(--g900)">Choose Your Course</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Body Large</strong>15px / 500 / lh 1.6</div>
+      <div style="font-size:15px;font-weight:500;color:var(--g800)">Group Training Available — Call Us Today</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Body</strong>14px / 400 / lh 1.6</div>
+      <div style="font-size:14px;color:var(--g600)">Covers CPR, AED use, and basic first aid for workplace emergencies. Blended or in-person delivery available.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Body Small</strong>13px / 400 / lh 1.7</div>
+      <div style="font-size:13px;color:var(--g600)">Certificate valid for 3 years. Includes digital card.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Caption / Meta</strong>12px / 400 / lh 1.45</div>
+      <div style="font-size:12px;color:var(--g400)">June 14, 2026 · 9:00 AM – 1:00 PM · 6 spots left</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Eyebrow / Label</strong>12px / 700 / uppercase</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g400)">Personal Details</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Price Display</strong>1.2rem / 800 / lh 1</div>
+      <div><span style="font-size:1.2rem;font-weight:800;color:var(--g900)">$75</span> <span style="font-size:12px;color:var(--g400)">+ HST per person</span></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><strong>Rating Display</strong>2.4rem / 800 / lh 1</div>
+      <div style="font-size:2.4rem;font-weight:800;color:var(--g900)">4.9</div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- SPACING -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="spacing">
+    <div class="ds-section-title">Foundation — Spacing & Border Radius</div>
+    <div class="row-2">
+      <div>
+        <div class="ds-label">Spacing Scale (recommended tokens)</div>
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><span class="mono">--sp-1</span></td><td>4px</td><td>Icon gaps, tight labels</td></tr>
+            <tr><td><span class="mono">--sp-2</span></td><td>8px</td><td>Inline gaps, small padding</td></tr>
+            <tr><td><span class="mono">--sp-3</span></td><td>12px</td><td>Form field padding</td></tr>
+            <tr><td><span class="mono">--sp-4</span></td><td>16px</td><td>Card padding, section gaps</td></tr>
+            <tr><td><span class="mono">--sp-6</span></td><td>24px</td><td>Between card groups</td></tr>
+            <tr><td><span class="mono">--sp-8</span></td><td>32px</td><td>Section padding mobile</td></tr>
+            <tr><td><span class="mono">--sp-12</span></td><td>48px</td><td>Section padding tablet</td></tr>
+            <tr><td><span class="mono">--sp-16</span></td><td>64px</td><td>Section padding desktop</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="ds-label">Border Radius</div>
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><span class="mono">--r</span></td><td>8px</td><td>Buttons, inputs, nav controls</td></tr>
+            <tr><td><span class="mono">--r-md</span></td><td>10px</td><td>Cards, review cards, FAQ</td></tr>
+            <tr><td><span class="mono">--r-lg</span></td><td>12px</td><td>Wizard selection cards</td></tr>
+            <tr><td><span class="mono">--r-pill</span></td><td>20px</td><td>Pills, chips, selected course</td></tr>
+            <tr><td><span class="mono">--r-circle</span></td><td>50%</td><td>Avatars, dot badges</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- ELEVATION -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="elevation">
+    <div class="ds-section-title">Foundation — Elevation & Z-Index</div>
+    <div class="row-3" style="margin-bottom:1.5rem">
+      <div class="shadow-box" style="box-shadow:none;border:1px solid var(--g200)">No shadow<br><span class="mono" style="font-size:11px">none</span></div>
+      <div class="shadow-box" style="box-shadow:var(--sh)">Default elevation<br><span class="mono" style="font-size:11px">--sh</span></div>
+      <div class="shadow-box" style="box-shadow:var(--shm)">Hover elevation<br><span class="mono" style="font-size:11px">--shm</span></div>
+    </div>
+    <div class="ds-label">Z-Index Stack</div>
+    <table class="token-table" style="max-width:500px">
+      <thead><tr><th>z-index</th><th>Element</th></tr></thead>
+      <tbody>
+        <tr><td>400</td><td>Mobile sticky CTA bar</td></tr>
+        <tr><td>494</td><td>Drawer overlay</td></tr>
+        <tr><td>495</td><td>Mobile drawer</td></tr>
+        <tr><td>500</td><td>Sticky top navigation</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- BUTTONS -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="buttons">
+    <div class="ds-section-title">Component — Buttons</div>
+
+    <div class="ds-label">Primary Button</div>
+    <div class="row-auto" style="margin-bottom:1.5rem">
+      <a href="#" class="btn btn-primary btn-lg">Book a Class</a>
+      <a href="#" class="btn btn-primary btn-md">Register Now</a>
+      <a href="#" class="btn btn-primary btn-sm">Book Now</a>
+      <button class="btn btn-primary btn-md" disabled>Disabled</button>
+    </div>
+
+    <div class="ds-label">Secondary — Ghost Dark</div>
+    <div class="row-auto" style="margin-bottom:1.5rem">
+      <a href="#" class="btn btn-ghost btn-lg">Call Us</a>
+      <a href="#" class="btn btn-ghost btn-md">Learn More</a>
+      <a href="#" class="btn btn-ghost btn-sm">View All</a>
+    </div>
+
+    <div class="ds-label">Secondary — Outline White (dark backgrounds)</div>
+    <div class="row-auto" style="background:var(--g900);padding:1rem;border-radius:var(--r-md)">
+      <a href="#" class="btn btn-outline btn-lg">Learn More</a>
+      <a href="#" class="btn btn-outline btn-md">Call Us</a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- BADGES -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="badges">
+    <div class="ds-section-title">Component — Badges & Pills</div>
+    <div class="row-auto">
+      <span class="badge badge-wsib">WSIB Approved</span>
+      <span class="badge badge-delivery">Blended Learning</span>
+      <span class="badge badge-delivery">In-Person</span>
+      <span class="badge badge-pill">Standard First Aid + CPR-C</span>
+      <span class="badge badge-chip">Healthcare</span>
+      <span class="badge badge-chip">Construction</span>
+      <span class="badge badge-chip">Education</span>
+      <span class="badge badge-chip">Hospitality</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- FORMS -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="forms">
+    <div class="ds-section-title">Component — Form Controls</div>
+    <div class="row-2">
+      <div>
+        <div class="form-section-title">Personal Details</div>
+        <div class="form-group">
+          <label>First Name <span>*</span></label>
+          <input class="form-control" type="text" placeholder="Jane">
+        </div>
+        <div class="form-group">
+          <label>Email Address <span>*</span></label>
+          <input class="form-control" type="email" placeholder="jane@example.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number <span>*</span></label>
+          <input class="form-control" type="tel" placeholder="416-555-0100">
+        </div>
+        <div class="form-group">
+          <label>Language Preference</label>
+          <select class="form-control">
+            <option>English</option>
+            <option>Mandarin (普通话)</option>
+            <option>Cantonese (廣東話)</option>
+            <option>Greek (Ελληνικά)</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Special Notes</label>
+          <textarea class="form-control" rows="3" placeholder="Any accessibility requirements or questions..."></textarea>
+        </div>
+        <div class="form-group">
+          <div class="check-row"><input type="checkbox" id="terms"><label for="terms">I agree to the terms and conditions</label></div>
+        </div>
+      </div>
+      <div>
+        <div class="ds-label">Focus State</div>
+        <input class="form-control" type="text" value="Focused input" style="border-color:var(--red);box-shadow:0 0 0 3px rgba(204,31,31,.1);margin-bottom:1rem">
+        <div class="ds-label">Error State</div>
+        <div class="form-group">
+          <input class="form-control is-error" type="text" placeholder="Invalid input">
+          <span class="form-error">This field is required.</span>
+        </div>
+        <div class="ds-label">Disabled State</div>
+        <input class="form-control" type="text" value="Disabled field" disabled style="margin-bottom:1rem">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- CARDS -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="cards">
+    <div class="ds-section-title">Component — Course Cards</div>
+    <div class="row-4">
+      <div class="course-card">
+        <div class="course-card-head"><div class="course-card-name">CPR-C / AED</div><div class="course-card-dur">3.5 Hours</div></div>
+        <div class="course-card-body">
+          <span class="badge badge-wsib" style="align-self:flex-start;font-size:10.5px">WSIB Approved</span>
+          <div class="course-card-desc">Core CPR and AED certification for all workplaces. Meets WSIB and OHSA requirements.</div>
+          <div class="course-card-price">$65 <span>+ HST / person</span></div>
+          <a href="#" class="btn btn-primary" style="margin-top:auto;border-radius:var(--r);min-height:46px;width:100%">Register Now</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-card-head"><div class="course-card-name">Standard First Aid + CPR-C</div><div class="course-card-dur">8 Hours (Full Day)</div></div>
+        <div class="course-card-body">
+          <span class="badge badge-wsib" style="align-self:flex-start;font-size:10.5px">WSIB Approved</span>
+          <div class="course-card-desc">Comprehensive first aid and CPR. Covers bleeding, fractures, choking, and AED.</div>
+          <div class="course-card-price">$75 <span>+ HST / person</span></div>
+          <a href="#" class="btn btn-primary" style="margin-top:auto;border-radius:var(--r);min-height:46px;width:100%">Register Now</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-card-head"><div class="course-card-name">Emergency First Aid + CPR-C</div><div class="course-card-dur">4 Hours (Half Day)</div></div>
+        <div class="course-card-body">
+          <span class="badge badge-wsib" style="align-self:flex-start;font-size:10.5px">WSIB Approved</span>
+          <div class="course-card-desc">Essential emergency response skills in a focused half-day format.</div>
+          <div class="course-card-price">$65 <span>+ HST / person</span></div>
+          <a href="#" class="btn btn-primary" style="margin-top:auto;border-radius:var(--r);min-height:46px;width:100%">Register Now</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-card-head"><div class="course-card-name">BLS — Healthcare Providers</div><div class="course-card-dur">4 Hours</div></div>
+        <div class="course-card-body">
+          <span class="badge badge-wsib" style="align-self:flex-start;font-size:10.5px">WSIB Approved</span>
+          <div class="course-card-desc">Advanced BLS skills for nurses, paramedics, and healthcare teams.</div>
+          <div class="course-card-price">$115 <span>+ HST / person</span></div>
+          <a href="#" class="btn btn-primary" style="margin-top:auto;border-radius:var(--r);min-height:46px;width:100%">Register Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- WIZARD COMPONENTS -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="wizard">
+    <div class="ds-section-title">Component — Wizard: Course Option Cards</div>
+    <div class="row-2" style="margin-bottom:2rem">
+      <div class="course-option selected">
+        <div class="co-check">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="co-name">Standard First Aid + CPR-C</div>
+        <div class="co-meta">Full Day · 8 Hours · WSIB Approved</div>
+        <div class="co-price">$75 <span>+ HST / person</span></div>
+      </div>
+      <div class="course-option">
+        <div class="co-check"></div>
+        <div class="co-name">CPR-C / AED</div>
+        <div class="co-meta">Half Day · 3.5 Hours · WSIB Approved</div>
+        <div class="co-price">$65 <span>+ HST / person</span></div>
+      </div>
+    </div>
+
+    <div class="ds-section-title">Component — Wizard: Date Option Cells</div>
+    <div class="row-4">
+      <div class="date-option selected">
+        <div class="date-day">SAT</div>
+        <div class="date-date">Jun 14</div>
+        <div class="date-time">9:00 AM – 5:00 PM</div>
+        <span class="spots-pill spots-ok">8 spots left</span>
+      </div>
+      <div class="date-option">
+        <div class="date-day">SUN</div>
+        <div class="date-date">Jun 15</div>
+        <div class="date-time">9:00 AM – 5:00 PM</div>
+        <span class="spots-pill spots-low">3 spots left</span>
+      </div>
+      <div class="date-option">
+        <div class="date-day">SAT</div>
+        <div class="date-date">Jun 21</div>
+        <div class="date-time">9:00 AM – 5:00 PM</div>
+        <span class="spots-pill spots-ok">12 spots left</span>
+      </div>
+      <div class="date-option full">
+        <div class="date-day">SUN</div>
+        <div class="date-date">Jun 22</div>
+        <div class="date-time">9:00 AM – 5:00 PM</div>
+        <span class="spots-pill spots-full">Full</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- STEPPER -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="stepper">
+    <div class="ds-section-title">Component — Progress Stepper</div>
+    <div class="card">
+      <div style="display:flex;align-items:center">
+        <div class="step-item">
+          <div class="step-circle done">✓</div>
+          <div class="step-text done">Course</div>
+        </div>
+        <div class="step-line done"></div>
+        <div class="step-item">
+          <div class="step-circle done">✓</div>
+          <div class="step-text done">Date</div>
+        </div>
+        <div class="step-line done"></div>
+        <div class="step-item">
+          <div class="step-circle active">3</div>
+          <div class="step-text active">Your Details</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item">
+          <div class="step-circle pending">4</div>
+          <div class="step-text pending">Review</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- FAQ -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="faq">
+    <div class="ds-section-title">Component — FAQ Accordion</div>
+    <div class="card" style="padding:0 1.25rem">
+      <div class="faq-item open">
+        <button class="faq-trigger" onclick="this.parentElement.classList.toggle('open')">
+          <span>Is CPR certification required in Ontario workplaces?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Yes. Under Ontario's Occupational Health and Safety Act (OHSA), many workplaces are required to have trained first aid and CPR responders on site. WSIB recommends certification through an approved provider.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="this.parentElement.classList.toggle('open')">
+          <span>How long is CPR certification valid in Canada?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">CPR and First Aid certification is valid for 3 years. WSIB requires re-certification before expiry to maintain workplace compliance.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="this.parentElement.classList.toggle('open')">
+          <span>Do you offer classes in languages other than English?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Yes. We offer bilingual training in Mandarin, Cantonese, and Greek. All course materials are available in these languages.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- REVIEWS -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="reviews">
+    <div class="ds-section-title">Component — Review Cards</div>
+    <div style="background:var(--w);border:1px solid var(--g200);border-radius:var(--r-md);padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+      <div style="font-size:2.4rem;font-weight:800;color:var(--g900);line-height:1">4.9</div>
+      <div>
+        <div style="color:#F59E0B;font-size:18px;letter-spacing:2px">★★★★★</div>
+        <div style="font-size:13px;font-weight:600;color:var(--g800)">Excellent</div>
+        <div style="font-size:12px;color:var(--g400)">Based on 60+ reviews</div>
+      </div>
+    </div>
+    <div class="row-3">
+      <div class="review-card">
+        <div class="rev-top">
+          <div class="rev-avatar">S</div>
+          <div><div class="rev-name">Sarah M.</div><div class="rev-type">Google Review</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-text">"Excellent instructor and very well-organized class. Felt fully confident after the training. Highly recommend for any workplace."</div>
+      </div>
+      <div class="review-card">
+        <div class="rev-top">
+          <div class="rev-avatar">D</div>
+          <div><div class="rev-name">David K.</div><div class="rev-type">Google Review</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-text">"Our whole team got certified in one day. The on-site option saved us so much time. Will book again next year."</div>
+      </div>
+      <div class="review-card">
+        <div class="rev-top">
+          <div class="rev-avatar">L</div>
+          <div><div class="rev-name">Linda T.</div><div class="rev-type">Google Review</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-text">"I appreciated having the option for Cantonese instruction. Made it so much easier to understand everything clearly."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- TRUST BAR -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="trust">
+    <div class="ds-section-title">Component — Trust / Features Bar</div>
+    <div class="trust-bar">
+      <div class="trust-item">
+        <div class="trust-icon ti-red">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CC1F1F" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div><div class="trust-title">WSIB Approved</div><div class="trust-sub">Meets all Ontario workplace requirements</div></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon ti-blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div><div class="trust-title">Group Friendly</div><div class="trust-sub">On-site training for teams of any size</div></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon ti-green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div><div class="trust-title">7 Days a Week</div><div class="trust-sub">Weekday and weekend sessions available</div></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon ti-purple">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div><div class="trust-title">ESL Classes</div><div class="trust-sub">Mandarin · Cantonese · Greek</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- CTA BAND -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="cta">
+    <div class="ds-section-title">Component — CTA Band</div>
+    <div class="cta-band cta-band-dark" style="margin-bottom:1rem">
+      <h3>Need Training in Your Language?</h3>
+      <p>We offer bilingual CPR and First Aid classes in Mandarin, Cantonese, and Greek.</p>
+      <div class="cta-band-btns">
+        <a href="#" class="btn btn-primary btn-lg">View ESL Classes</a>
+        <a href="#" class="btn btn-outline btn-lg">Call Us First</a>
+      </div>
+    </div>
+    <div class="cta-band cta-band-red">
+      <h3>Ready to Get Your Team Certified?</h3>
+      <p>We come to you. Book on-site training for your workplace today.</p>
+      <div class="cta-band-btns">
+        <a href="#" class="btn btn-ghost btn-lg">Get a Free Quote</a>
+        <a href="#" class="btn btn-outline btn-lg">Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- STATS BAR -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="stats">
+    <div class="ds-section-title">Component — Stats Bar</div>
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Years Training</div></div>
+      <div class="stat-item"><div class="stat-num">5,000+</div><div class="stat-label">Students Certified</div></div>
+      <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">Businesses Served</div></div>
+      <div class="stat-item"><div class="stat-num">4.9★</div><div class="stat-label">Average Rating</div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- ORDER SUMMARY -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <section class="ds-section" id="order">
+    <div class="ds-section-title">Component — Order Summary Sidebar</div>
+    <div style="max-width:360px">
+      <div class="order-summary">
+        <div class="os-head"><h4>Order Summary</h4></div>
+        <div class="os-body">
+          <div class="os-row"><span>Course</span><strong>Standard First Aid + CPR-C</strong></div>
+          <div class="os-row"><span>Date</span><strong>Sat, Jun 14, 2026</strong></div>
+          <div class="os-row"><span>Time</span><strong>9:00 AM – 5:00 PM</strong></div>
+          <div class="os-row"><span>Location</span><strong>North York, ON</strong></div>
+          <hr class="os-divider">
+          <div class="os-row"><span>Subtotal</span><strong>$75.00</strong></div>
+          <div class="os-row"><span>HST (13%)</span><strong>$9.75</strong></div>
+          <hr class="os-divider">
+          <div class="os-total"><span>Total</span><span>$84.75</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /ds-wrap -->
+
+</body>
+</html>
