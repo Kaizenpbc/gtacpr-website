@@ -1,0 +1,229 @@
+INDIVIDUAL CLASS REGISTRATION: WEBSITE VS. SCHEDULING APPLICATION
+================================================================
+
+Prepared for: GTACPR Management
+Date: June 1, 2026
+Subject: Strategic Decision on Individual Public Class Registration
+
+
+CURRENT SITUATION
+-----------------
+
+• Colleges/Workplaces: Use existing scheduling system via "Client Portal" (cpr.kpbc.ca)
+• Individual Public: No registration capability - website is informational only
+• Website: Currently has placeholder for SimplyBook.me widget on registration page
+• Business Need: Individuals need ability to view scheduled public classes and register
+
+
+OPTION 1: INTEGRATE BOOKING INTO WEBSITE
+========================================
+
+ADVANTAGES
+-----------
+
+USER EXPERIENCE
+• Seamless discovery-to-booking flow (user stays on same domain)
+• Lower friction - no redirect to external system
+• Mobile-optimized booking experience
+• Consistent branding throughout customer journey
+
+CONVERSION OPTIMIZATION
+• Website becomes conversion-focused, not just informational
+• Can track user journey from landing page to booking
+• A/B testing opportunities for booking flow
+• Reduced abandonment (no context switching between systems)
+
+SEO BENEFITS
+• Longer time on site (positive ranking signal)
+• Lower bounce rate
+• More pages indexed (individual class pages)
+• Local SEO signals from booking activity
+
+MARKETING INTEGRATION
+• Can run promotions directly on booking pages
+• Email capture before booking
+• Retargeting pixels fire on booking completion
+• Cross-sell/upsell opportunities during booking process
+
+DISADVANTAGES
+-------------
+
+TECHNICAL COMPLEXITY
+• Need to integrate booking system with WordPress
+• Payment processing required on website
+• SSL certificate management
+• Data synchronization between website and existing system
+
+MAINTENANCE
+• Two systems to maintain (website + college portal)
+• Potential duplicate data issues
+• More complex technology stack
+
+COST
+• Booking system subscription fees (~$50-100/month)
+• Payment processing fees (~2.9% per transaction)
+• Development time for integration
+
+
+OPTION 2: EXTEND EXISTING SCHEDULING APPLICATION
+================================================
+
+ADVANTAGES
+-----------
+
+TECHNICAL SIMPLICITY
+• Single booking system for all customers
+• No WordPress integration needed
+• Easier data management
+• Single source of truth for all schedules
+
+LOWER DEVELOPMENT COST
+• Just add public-facing features to existing system
+• No payment integration on website
+• Simpler deployment and maintenance
+
+OPERATIONAL EFFICIENCY
+• One dashboard to manage all bookings
+• Consistent processes for colleges and individuals
+• Easier reporting across all customer types
+
+DISADVANTAGES
+-------------
+
+USER EXPERIENCE
+• Redirect from website to external booking system
+• Context switch reduces conversion rates
+• Potential branding disconnect
+• Mobile experience depends on existing system capabilities
+
+LOST MARKETING OPPORTUNITIES
+• Can't track user journey on website
+• No on-site conversion optimization
+• Harder to retarget website visitors
+• Email capture happens off-site
+
+SEO IMPACT
+• Higher bounce rate (users leave site to book)
+• Shorter time on site
+• Website remains informational only (negative for rankings)
+
+CUSTOMER CONFUSION
+• Two different URLs to explain to customers
+• "Why do I need to go to cpr.kpbc.ca?"
+• Potential trust issues with redirect
+
+
+RECOMMENDATION
+==============
+
+INTEGRATE BOOKING INTO THE WEBSITE for individual public classes.
+
+PRIMARY REASON: CONVERSION OPTIMIZATION
+---------------------------------------
+
+For individual consumers, the purchase journey is fundamentally different from B2B college contracts:
+
+• INDIVIDUALS: Impulse or planned purchase, want quick booking, low friction
+• COLLEGES: Contract-based, relationship-driven, multiple stakeholders
+
+Your website is your primary marketing channel for individuals. Sending them away to book is leaving revenue on the table. Every redirect is an opportunity for abandonment.
+
+
+RECOMMENDED ARCHITECTURE
+-----------------------
+
+Website (gtacpr.com)
+├── Informational content (current)
+├── Public class calendar (new)
+├── Individual booking (new - SimplyBook.me or similar)
+└── Redirects to Client Portal for:
+    └── College/Workplace bookings (existing system)
+
+IMPLEMENTATION APPROACH
+------------------------
+
+1. KEEP COLLEGE PORTAL SEPARATE
+   • Colleges continue using cpr.kpbc.ca
+   • "Client Portal" link in header remains unchanged
+   • Group training quote form still routes to portal
+   • B2B customers get dedicated, relationship-based system
+
+2. ADD INDIVIDUAL BOOKING TO WEBSITE
+   • Integrate SimplyBook.me or similar for public classes
+   • Display public class calendar on website
+   • Payment processing on-site
+   • Confirmation emails from website
+   • Mobile-optimized booking flow
+
+3. DATA SYNCHRONIZATION
+   • Booking system syncs class availability to website
+   • Website sends individual bookings to central database
+   • College portal remains isolated for B2B
+
+
+COST-BENEFIT ANALYSIS
+---------------------
+
+ADDITIONAL COST
+• Booking system: ~$50-100/month
+• Payment processing: ~2.9% per transaction
+• Development integration: One-time cost
+
+POTENTIAL BENEFIT
+• Even a 10% increase in individual bookings could easily offset costs
+• CPR training is a high-conversion, need-based service
+• Reducing friction directly impacts revenue
+• Higher conversion rates = more revenue without additional marketing spend
+
+ESTIMATED BREAK-EVEN
+• If average individual booking = $75
+• 10 additional bookings per month covers booking system cost
+• Conversion rate improvement of 5-10% is realistic with integrated booking
+
+
+HYBRID ALTERNATIVE (IF BUDGET CONSTRAINED)
+==========================================
+
+If budget is constrained, start with a middle-ground approach:
+
+PHASE 1 (Immediate)
+• Website displays public class calendar (read-only)
+• "Register" button links to existing scheduling system
+• Add individual booking flow to existing system first
+• Lower initial development cost
+
+PHASE 2 (Future)
+• Full integration of booking into website
+• On-site payment processing
+• Complete conversion optimization
+
+This gives you public visibility without full website integration cost upfront.
+
+
+CONCLUSION
+==========
+
+ADD INDIVIDUAL CLASS BOOKING TO THE WEBSITE.
+
+The conversion optimization benefits outweigh the technical complexity. Keep the college portal separate - you're serving two different customer segments with different needs:
+
+• INDIVIDUALS: Need quick, frictionless booking on marketing site
+• COLLEGES: Need relationship-based portal for contract management
+
+Your website should be a REVENUE-GENERATING ASSET, not just a brochure. For individual consumers, the website is the entire customer journey - don't interrupt it with redirects to external systems.
+
+Every additional click in the booking process is an opportunity for the customer to abandon. Integrated booking removes that friction and directly impacts your bottom line.
+
+
+NEXT STEPS
+----------
+
+1. Select booking system (SimplyBook.me, Calendly, or custom solution)
+2. Define data synchronization requirements between systems
+3. Plan payment processing integration
+4. Develop public class calendar display
+5. Implement booking widget on registration page
+6. Test conversion flow end-to-end
+7. Launch with monitoring and optimization
+
+Estimated timeline: 4-6 weeks for full implementation.

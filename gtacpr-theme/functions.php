@@ -23,6 +23,13 @@ function gtacpr_enqueue() {
         [ 'google-fonts' ],
         '1.8'
     );
+    wp_enqueue_script(
+        'gtacpr-chat',
+        get_template_directory_uri() . '/chat-widget.js',
+        [],
+        '1.0',
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'gtacpr_enqueue' );
 

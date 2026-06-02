@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Brain</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .scene {
+            perspective: 800px;
+        }
+
+        .brain {
+            animation: spin 8s linear infinite;
+            transform-style: preserve-3d;
+            display: block;
+        }
+
+        @keyframes spin {
+            from { transform: rotateY(0deg) rotateX(15deg); }
+            to   { transform: rotateY(360deg) rotateX(15deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <img class="brain" src="rotating brain.png" alt="Rotating Brain">
+    </div>
+</body>
+</html>
