@@ -25,6 +25,8 @@ $home_url = home_url('/');
     <p class="panel-sub">Have a question about a course, group booking, or ESL training? Fill in the form and we'll get back to you promptly.</p>
 
     <form id="contactForm" novalidate>
+      <!-- Honeypot — bots fill this in, humans don't -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-row">
         <div class="form-group">
           <label for="firstName">First Name <span class="req">*</span></label>
@@ -147,25 +149,53 @@ $home_url = home_url('/');
 
 <script>
 (function(){
-  var form = document.getElementById('contactForm');
+  var FORMSPREE_ID = '<?php echo esc_js( gtacpr_config('formspree_contact') ); ?>';
+  var form    = document.getElementById('contactForm');
   var success = document.getElementById('formSuccess');
-  if(!form) return;
-  form.addEventListener('submit', function(e){
+  var submitBtn = form ? form.querySelector('[type="submit"]') : null;
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
+
+    // Client-side validation
     var valid = true;
-    form.querySelectorAll('[required]').forEach(function(field){
-      if(!field.value.trim()){
+    form.querySelectorAll('[required]').forEach(function(field) {
+      if (!field.value.trim()) {
         field.style.borderColor = 'var(--red)';
         valid = false;
       } else {
         field.style.borderColor = '';
       }
     });
-    if(valid){
-      form.style.display = 'none';
-      success.style.display = 'block';
-      // TODO: POST to Formspree — fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(form) })
-    }
+    if (!valid) return;
+
+    // Honeypot check
+    if (form.querySelector('[name="_gotcha"]').value) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+    .then(function(res) {
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+        alert('Something went wrong. Please call us at <?php echo esc_js( gtacpr_phone() ); ?>.');
+      }
+    })
+    .catch(function() {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+      alert('Connection error. Please call us at <?php echo esc_js( gtacpr_phone() ); ?>.');
+    });
   });
 })();
 </script>

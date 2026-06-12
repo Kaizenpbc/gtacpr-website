@@ -109,6 +109,8 @@ $contact_url = get_permalink( get_page_by_path('contact') );
         <p>We'll respond within one business day</p>
       </div>
 
+      <form id="groupForm" novalidate>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-body" id="formBody">
         <div class="form-row">
           <div class="form-group"><label for="fname">First name <span>*</span></label><input class="form-control" type="text" id="fname" name="fname" placeholder="Jane" required autocomplete="given-name"></div>
@@ -163,8 +165,9 @@ $contact_url = get_permalink( get_page_by_path('contact') );
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           Send My Request
         </button>
-        <p class="form-alt">Prefer to talk? Call <a href="tel:4167232571">416-723-2571</a> or email <a href="mailto:kpbcma@gmail.com">kpbcma@gmail.com</a></p>
+        <p class="form-alt">Prefer to talk? Call <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>"><?php echo esc_html( gtacpr_phone() ); ?></a> or email <a href="mailto:<?php echo esc_attr( gtacpr_email() ); ?>"><?php echo esc_html( gtacpr_email() ); ?></a></p>
       </div>
+      </form>
 
       <div class="form-success" id="formSuccess">
         <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
@@ -177,21 +180,48 @@ $contact_url = get_permalink( get_page_by_path('contact') );
 
 <script>
 (function(){
-  var btn = document.getElementById('submitBtn');
-  var body = document.getElementById('formBody');
+  var FORMSPREE_ID = '<?php echo esc_js( gtacpr_config('formspree_group') ); ?>';
+  var form    = document.getElementById('groupForm');
+  var btn     = document.getElementById('submitBtn');
+  var body    = document.getElementById('formBody');
   var success = document.getElementById('formSuccess');
-  if(!btn) return;
-  btn.addEventListener('click', function(){
+  if (!form || !btn) return;
+
+  btn.addEventListener('click', function() {
+    // Client-side validation
     var valid = true;
-    document.querySelectorAll('#formBody [required]').forEach(function(f){
-      if(!f.value.trim()){ f.style.borderColor='var(--red)'; valid=false; }
-      else f.style.borderColor='';
+    form.querySelectorAll('[required]').forEach(function(f) {
+      if (!f.value.trim()) { f.style.borderColor = 'var(--red)'; valid = false; }
+      else f.style.borderColor = '';
     });
-    if(valid){
-      body.style.display='none';
-      success.style.display='block';
-      // TODO: POST to Formspree endpoint
-    }
+    if (!valid) return;
+
+    // Honeypot check
+    if (form.querySelector('[name="_gotcha"]').value) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+    .then(function(res) {
+      if (res.ok) {
+        body.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send My Request';
+        alert('Something went wrong. Please call <?php echo esc_js( gtacpr_phone() ); ?>.');
+      }
+    })
+    .catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Send My Request';
+      alert('Connection error. Please call <?php echo esc_js( gtacpr_phone() ); ?>.');
+    });
   });
 })();
 </script>

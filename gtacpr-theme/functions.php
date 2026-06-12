@@ -3,6 +3,8 @@
  * GTACPR Theme Functions
  */
 
+require_once get_template_directory() . '/inc/business-config.php';
+
 function gtacpr_setup() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
@@ -30,6 +32,9 @@ function gtacpr_enqueue() {
         '1.0',
         true
     );
+    wp_localize_script( 'gtacpr-chat', 'GTACPR', [
+        'chatApiUrl' => get_template_directory_uri() . '/chat-api.php',
+    ] );
 }
 add_action( 'wp_enqueue_scripts', 'gtacpr_enqueue' );
 
@@ -101,19 +106,21 @@ function gtacpr_is( $slug ) {
  * Topbar message per page
  */
 function gtacpr_topbar_message() {
+    $phone = esc_html( gtacpr_phone() );
+    $since = esc_html( gtacpr_config('since') );
     if ( is_front_page() ) {
-        return '<strong>Now Booking Classes</strong> — Spots fill fast &nbsp;·&nbsp; <strong>416-723-2571</strong>';
+        return '<strong>Now Booking Classes</strong> — Spots fill fast &nbsp;·&nbsp; <strong>' . $phone . '</strong>';
     }
     if ( is_page( 'group-training' ) ) {
-        return '<strong>Group Training Available 24/7</strong> — We come to your location, any size team &nbsp;·&nbsp; <strong>416-723-2571</strong>';
+        return '<strong>Group Training Available 24/7</strong> — We come to your location, any size team &nbsp;·&nbsp; <strong>' . $phone . '</strong>';
     }
     if ( is_page( 'esl' ) ) {
-        return '<strong>ESL Classes Available</strong> — Mandarin · Cantonese · Greek &nbsp;·&nbsp; <strong>416-723-2571</strong>';
+        return '<strong>ESL Classes Available</strong> — Mandarin · Cantonese · Greek &nbsp;·&nbsp; <strong>' . $phone . '</strong>';
     }
     if ( is_page( 'register' ) ) {
-        return '<strong>Same-day certification</strong> — Your WSIB Approved certificate emailed within 24 hours &nbsp;·&nbsp; <strong>416-723-2571</strong>';
+        return '<strong>Same-day certification</strong> — Your WSIB Approved certificate emailed within 24 hours &nbsp;·&nbsp; <strong>' . $phone . '</strong>';
     }
-    return '<strong>GTA CPR</strong> — WSIB Approved training since 2013 &nbsp;·&nbsp; <strong>416-723-2571</strong>';
+    return '<strong>GTA CPR</strong> — WSIB Approved training since ' . $since . ' &nbsp;·&nbsp; <strong>' . $phone . '</strong>';
 }
 
 /**

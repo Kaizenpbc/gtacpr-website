@@ -1,5 +1,6 @@
 (function () {
-  const API_URL = '/wp-content/themes/gtacpr-theme/chat-api.php';
+  const API_URL = (window.GTACPR && window.GTACPR.chatApiUrl)
+    || '/wp-content/themes/gtacpr-theme/chat-api.php'; // fallback
 
   const style = document.createElement('style');
   style.textContent = `
@@ -257,7 +258,7 @@
         </svg>
       </div>
       <div id="gtacpr-chat-header-text">
-        <strong>GTACPR Assistant</strong>
+        <strong>Shanti</strong>
         <span>Ask me anything about courses</span>
       </div>
       <button id="gtacpr-chat-close" aria-label="Close chat">

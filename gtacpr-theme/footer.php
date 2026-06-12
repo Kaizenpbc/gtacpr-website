@@ -5,9 +5,9 @@
         <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR — Get Certified!" style="height:44px;width:auto;display:block;margin-bottom:12px;filter:brightness(0) invert(1)" />
         <p class="footer-tagline">Greater Toronto Area's trusted WSIB Approved CPR and First Aid training provider. Serving individuals, workplaces, and newcomers since 2013.</p>
         <div class="footer-contact">
-          <a href="tel:4167232571">📞 416-723-2571</a>
-          <a href="mailto:kpbcma@gmail.com">✉ kpbcma@gmail.com</a>
-          <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>#map">📍 46 Sunnyside Hill Road, Markham, ON</a>
+          <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>">📞 <?php echo esc_html( gtacpr_phone() ); ?></a>
+          <a href="mailto:<?php echo esc_attr( gtacpr_email() ); ?>">✉ <?php echo esc_html( gtacpr_email() ); ?></a>
+          <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>#map">📍 <?php echo esc_html( gtacpr_address() ); ?></a>
         </div>
       </div>
       <div class="footer-col">
@@ -56,7 +56,7 @@
 </footer>
 
 <div class="mob-cta" aria-label="Quick actions">
-  <a href="tel:4167232571" class="mob-call">📞 Call Now</a>
+  <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>" class="mob-call">📞 Call Now</a>
   <a href="#" class="mob-book open-booking">Book a Class →</a>
 </div>
 
@@ -71,9 +71,33 @@
   </div>
 </div>
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"GTACPR","url":"https://gtacpr.com","telephone":"+1-416-723-2571","email":"kpbcma@gmail.com","address":{"@type":"PostalAddress","streetAddress":"46 Sunnyside Hill Road","addressLocality":"Markham","addressRegion":"ON","postalCode":"L6B 0X5","addressCountry":"CA"},"areaServed":["Markham","Scarborough","North York","Toronto","Mississauga","Brampton","Richmond Hill","Vaughan"],"openingHours":"Mo-Su 09:00-17:00","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"60"}}
-</script>
+<?php
+$_cfg = gtacpr_config();
+$_schema = [
+    '@context'        => 'https://schema.org',
+    '@type'           => 'LocalBusiness',
+    'name'            => $_cfg['name'],
+    'url'             => defined('GTACPR_SITE_URL') ? GTACPR_SITE_URL : home_url('/'),
+    'telephone'       => '+1-' . $_cfg['phone'],
+    'email'           => $_cfg['email'],
+    'address'         => [
+        '@type'           => 'PostalAddress',
+        'streetAddress'   => $_cfg['address'],
+        'addressLocality' => $_cfg['city'],
+        'addressRegion'   => $_cfg['province'],
+        'postalCode'      => $_cfg['postal_code'],
+        'addressCountry'  => $_cfg['country'],
+    ],
+    'areaServed'      => $_cfg['service_areas'],
+    'openingHours'    => $_cfg['hours'],
+    'aggregateRating' => [
+        '@type'       => 'AggregateRating',
+        'ratingValue' => $_cfg['rating'],
+        'reviewCount' => $_cfg['review_count'],
+    ],
+];
+?>
+<script type="application/ld+json"><?php echo wp_json_encode( $_schema ); ?></script>
 
 <script>
 (function(){

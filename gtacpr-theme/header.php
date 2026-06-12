@@ -38,15 +38,15 @@
     </ul>
 
     <div class="nav-right">
-      <a href="tel:4167232571" class="nav-phone">
+      <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>" class="nav-phone">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
-        416-723-2571
+        <?php echo esc_html( gtacpr_phone() ); ?>
       </a>
-      <a href="https://cpr.kpbc.ca" target="_blank" rel="noopener noreferrer" class="nav-btn-outline">Client Portal</a>
+      <a href="<?php echo esc_url( gtacpr_portal_url() ); ?>" target="_blank" rel="noopener noreferrer" class="nav-btn-outline">Client Portal</a>
       <a href="#" class="nav-btn open-booking">Book a Class</a>
     </div>
 
-    <a href="tel:4167232571" class="nav-call-mob" aria-label="Call us">
+    <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>" class="nav-call-mob" aria-label="Call us">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
     </a>
     <button class="nav-hamburger" id="hbBtn" aria-label="Open menu" aria-expanded="false">
@@ -76,7 +76,7 @@
     <li><a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>"<?php echo is_page('contact') ? ' style="color:var(--red)"' : ''; ?>><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>Contact</a></li>
   </ul>
   <div class="drawer-footer">
-    <a href="tel:4167232571" class="d-call">📞 416-723-2571</a>
+    <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>" class="d-call">📞 <?php echo esc_html( gtacpr_phone() ); ?></a>
     <a href="#" class="d-book open-booking">Book a Class →</a>
   </div>
 </div>
