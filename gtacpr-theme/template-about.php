@@ -3,6 +3,8 @@
 get_header();
 ?>
 <style>
+.about-section-header{margin-bottom:1.75rem}
+.about-section-header h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--g900);margin:.4rem 0 0;letter-spacing:-.01em}
 .about-two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--g200)}
 .about-col h2{font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:800;color:var(--g900);margin-bottom:1rem;letter-spacing:-.01em;line-height:1.25}
 .about-col p{font-size:14.5px;color:var(--g600);line-height:1.8;margin-bottom:1rem}
@@ -51,6 +53,11 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
 
 <div class="page-body">
 
+  <div class="about-section-header">
+    <div class="section-label">What We Stand For</div>
+    <h2>Our Values</h2>
+  </div>
+
   <div class="about-two-col">
     <div class="about-col">
       <div class="section-label">Our Vision</div>
@@ -77,8 +84,6 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
   </div>
 
   <div class="values-section">
-    <div class="section-label">What We Stand For</div>
-    <h2>Our Values</h2>
     <div class="values-grid">
       <div class="value-card"><div class="value-icon vi-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="value-title">Accessible to All</div><div class="value-desc">Life-saving skills should not be a privilege. We offer flexible pricing, ESL classes, and evening and weekend schedules to fit every lifestyle.</div></div>
       <div class="value-card"><div class="value-icon vi-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="value-title">Certified Excellence</div><div class="value-desc">Every course meets WSIB and Ontario workplace safety standards, delivered by fully certified, experienced instructors.</div></div>
