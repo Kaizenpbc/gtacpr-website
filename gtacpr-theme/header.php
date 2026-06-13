@@ -9,6 +9,7 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- TOP BAR -->
 <div class="topbar"><?php echo gtacpr_topbar_message(); ?></div>
@@ -54,6 +55,8 @@
     </button>
   </div>
 </nav>
+
+<main id="main-content" tabindex="-1">
 
 <!-- MOBILE DRAWER -->
 <div class="drawer-overlay" id="dOverlay"></div>

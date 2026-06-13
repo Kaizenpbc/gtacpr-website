@@ -185,15 +185,23 @@ $home_url = home_url('/');
       if (res.ok) {
         form.style.display = 'none';
         success.style.display = 'block';
+        success.setAttribute('tabindex', '-1');
+        success.focus();
+        var a = document.getElementById('formAnnounce');
+        if (a) a.textContent = 'Message sent successfully. We will get back to you within a few hours.';
       } else {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Message';
+        var a = document.getElementById('formAnnounce');
+        if (a) a.textContent = 'Something went wrong. Please try again or call us at <?php echo esc_js( gtacpr_phone() ); ?>.';
         alert('Something went wrong. Please call us at <?php echo esc_js( gtacpr_phone() ); ?>.');
       }
     })
     .catch(function() {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';
+      var a = document.getElementById('formAnnounce');
+      if (a) a.textContent = 'Connection error. Please call us at <?php echo esc_js( gtacpr_phone() ); ?>.';
       alert('Connection error. Please call us at <?php echo esc_js( gtacpr_phone() ); ?>.');
     });
   });

@@ -211,15 +211,23 @@ $contact_url = get_permalink( get_page_by_path('contact') );
       if (res.ok) {
         body.style.display = 'none';
         success.style.display = 'block';
+        success.setAttribute('tabindex', '-1');
+        success.focus();
+        var a = document.getElementById('formAnnounce');
+        if (a) a.textContent = 'Request sent successfully. We will contact you within 24 hours.';
       } else {
         btn.disabled = false;
         btn.textContent = 'Send My Request';
+        var a = document.getElementById('formAnnounce');
+        if (a) a.textContent = 'Something went wrong. Please call <?php echo esc_js( gtacpr_phone() ); ?>.';
         alert('Something went wrong. Please call <?php echo esc_js( gtacpr_phone() ); ?>.');
       }
     })
     .catch(function() {
       btn.disabled = false;
       btn.textContent = 'Send My Request';
+      var a = document.getElementById('formAnnounce');
+      if (a) a.textContent = 'Connection error. Please call <?php echo esc_js( gtacpr_phone() ); ?>.';
       alert('Connection error. Please call <?php echo esc_js( gtacpr_phone() ); ?>.');
     });
   });
