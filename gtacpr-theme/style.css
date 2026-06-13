@@ -77,7 +77,6 @@ body.drawer-open .drawer{right:0}
 .hero-bg{position:absolute;inset:0;background:url('assets/hero-cpr1.jpg') center/cover no-repeat;opacity:.35}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,23,42,.7) 0%,rgba(30,41,59,.5) 50%,rgba(15,23,42,.7) 100%)}
 .hero-inner{position:relative;z-index:1;width:100%;max-width:1160px;margin:0 auto;padding:clamp(2.5rem,6vw,5rem) 1.25rem}
-.hero-content{max-width:540px}
 .hero h1{font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.02em;margin-bottom:.85rem;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 .hero-sub{font-size:clamp(.95rem,2.5vw,1.1rem);color:rgba(255,255,255,.95);margin-bottom:1.5rem;line-height:1.65;max-width:460px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.5rem}
@@ -96,15 +95,6 @@ body.drawer-open .drawer{right:0}
 .hero-trust-txt{font-size:12px;color:rgba(255,255,255,.75);line-height:1.4}
 .hero-trust-txt strong{color:#fff;display:block;font-size:12.5px}
 
-/* HERO TWO-COLUMN + BRAIN */
-.hero-inner-2col{display:flex;align-items:center;justify-content:space-between;gap:2rem}
-.hero-content{flex-shrink:0}
-.hero-brain-wrap{flex:1;display:flex;align-items:center;justify-content:center;min-width:0;position:relative;min-height:320px}
-.hero-brain-glow{position:absolute;width:clamp(300px,32vw,460px);height:clamp(300px,32vw,460px);border-radius:50%;background:radial-gradient(circle,rgba(204,31,31,.28) 0%,rgba(204,31,31,.08) 50%,transparent 70%);animation:brainPulse 3.5s ease-in-out infinite;pointer-events:none}
-.hero-brain-clip{width:clamp(350px,37.5vw,550px);height:clamp(350px,37.5vw,550px);border-radius:50%;overflow:hidden;position:relative;z-index:1;flex-shrink:0;filter:drop-shadow(0 0 30px rgba(204,31,31,.5))}
-.hero-brain-canvas{position:absolute;top:-6%;left:-6%;width:112%;height:112%;border:none;background:transparent;display:block}
-@keyframes brainPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
-@media(max-width:960px){.hero-brain-wrap{display:none}.hero-inner-2col{justify-content:flex-start}}
 .hstars{color:#F59E0B}
 
 

@@ -11,46 +11,29 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg" role="img" aria-label="CPR training in progress"></div>
-  <div class="hero-inner hero-inner-2col">
-    <div class="hero-content">
-      <h1>CPR &amp; First Aid Training<br><span style="display:block;text-align:center;margin-left:-2.5em">Across the GTA</span></h1>
-      <p class="hero-sub">Get certified fast with trusted, instructor-led training<br><span style="padding-left:1em">for individuals, workplaces, and ESL learners</span></p>
-      <div class="hero-btns">
-        <a href="#" class="bhp open-booking">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span class="btn-label">
-            <span class="btn-label-main">Join a Class</span>
-            <span class="btn-label-sub">For you</span>
-          </span>
-        </a>
-        <a href="<?php echo esc_url($group_url); ?>" class="bho">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-          <span class="btn-label">
-            <span class="btn-label-main">Group Training</span>
-            <span class="btn-label-sub">For your workplace</span>
-          </span>
-        </a>
-      </div>
-      <div class="hero-trust">
-        <div class="hero-trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="hero-trust-txt"><strong>Trusted by GTA Learners</strong><span><span class="hstars">★★★★★</span> 4.9 / 5 — 60+ reviews</span></div>
-      </div>
+  <div class="hero-inner">
+    <h1>CPR &amp; First Aid Training<br><span style="display:block;text-align:center;margin-left:-2.5em">Across the GTA</span></h1>
+    <p class="hero-sub">Get certified fast with trusted, instructor-led training<br><span style="padding-left:1em">for individuals, workplaces, and ESL learners</span></p>
+    <div class="hero-btns">
+      <a href="#" class="bhp open-booking">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="btn-label">
+          <span class="btn-label-main">Join a Class</span>
+          <span class="btn-label-sub">For you</span>
+        </span>
+      </a>
+      <a href="<?php echo esc_url($group_url); ?>" class="bho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        <span class="btn-label">
+          <span class="btn-label-main">Group Training</span>
+          <span class="btn-label-sub">For your workplace</span>
+        </span>
+      </a>
     </div>
-
-    <!-- ROTATING BRAIN -->
-    <div class="hero-brain-wrap" aria-hidden="true">
-      <div class="hero-brain-glow"></div>
-      <div class="hero-brain-clip">
-      <iframe class="hero-brain-canvas"
-        title="3D Brain"
-        src="https://sketchfab.com/models/28c8971e11334e8b97a2a0d6235992e8/embed?autostart=1&autospin=0.5&ui_controls=0&ui_infos=0&ui_watermark=0&ui_stop=0&ui_vr=0&ui_ar=0&ui_help=0&ui_settings=0&ui_inspector=0&ui_annotations=1&ui_fullscreen=0&preload=1&transparent=1&camera=0"
-        frameborder="0"
-        allow="autoplay; fullscreen; xr-spatial-tracking"
-        allowfullscreen
-      ></iframe>
-      </div>
+    <div class="hero-trust">
+      <div class="hero-trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="hero-trust-txt"><strong>Trusted by GTA Learners</strong><span><span class="hstars">★★★★★</span> 4.9 / 5 — 60+ reviews</span></div>
     </div>
-
   </div>
 </section>
 
