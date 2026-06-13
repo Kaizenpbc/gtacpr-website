@@ -3,6 +3,7 @@
 get_header();
 ?>
 <style>
+.page-body{display:block}
 .about-section-header{margin-bottom:1.75rem}
 .about-section-header h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--g900);margin:.4rem 0 0;letter-spacing:-.01em}
 .about-two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--g200)}
