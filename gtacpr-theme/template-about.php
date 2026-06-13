@@ -1,6 +1,23 @@
 <?php
 /* Template Name: About */
 get_header();
+?>
+<style>
+.about-checklist{list-style:none;padding:0;margin:.75rem 0 0;display:flex;flex-direction:column;gap:.6rem}
+.about-checklist li{display:flex;align-items:center;gap:.6rem;font-size:14.5px;color:var(--g600);line-height:1.5}
+.about-check{width:22px;height:22px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.about-check svg{width:10px;height:10px;stroke:#fff}
+.story-milestones{display:flex;gap:1.5rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--g200)}
+.story-milestone{display:flex;flex-direction:column;gap:.2rem}
+.sm-num{font-size:1.4rem;font-weight:800;color:var(--red);line-height:1}
+.sm-label{font-size:12px;color:var(--g400);font-weight:500}
+@media(max-width:768px){
+  .vision-section,.story-section{grid-template-columns:1fr}
+  .story-photo{order:-1}
+  .story-milestones{gap:1rem}
+}
+</style>
+<?php
 $register_url = get_permalink( get_page_by_path('register') );
 $group_url    = get_permalink( get_page_by_path('group-training') );
 ?>
@@ -39,7 +56,12 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
       <div class="section-label">Our Vision</div>
       <h2>A GTA Where Everyone Knows How to Save a Life</h2>
       <p>Cardiac arrest can happen anywhere — at home, at work, on the subway. The difference between life and death is often the person standing right there. We believe that person should be you.</p>
-      <p>Our vision is a Greater Toronto Area where every resident — regardless of language, background, or budget — has the skills to act in an emergency. That's why we offer flexible scheduling, ESL classes in Mandarin, Cantonese, and Greek, and on-site training that comes to your workplace.</p>
+      <ul class="about-checklist">
+        <li><span class="about-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Flexible scheduling — evenings &amp; weekends, 7 days a week</li>
+        <li><span class="about-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>ESL classes in Mandarin, Cantonese, and Greek</li>
+        <li><span class="about-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>On-site training delivered directly to your workplace</li>
+        <li><span class="about-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>WSIB Approved certificates recognized across Canada</li>
+      </ul>
     </div>
   </div>
 
@@ -49,6 +71,11 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
       <h2>Born from a Belief That Training Should Be Accessible</h2>
       <p>GTA CPR was founded in 2013 by certified instructors who saw a gap — quality CPR training that was affordable, frequent, and available in more than just English in one of the world's most multicultural cities.</p>
       <p>We started with a single weekend class in Markham. Today we train individuals, families, healthcare teams, schools, and corporate offices across the GTA — 7 days a week, and counting.</p>
+      <div class="story-milestones">
+        <div class="story-milestone"><span class="sm-num">2013</span><span class="sm-label">Founded in Markham</span></div>
+        <div class="story-milestone"><span class="sm-num">2,500+</span><span class="sm-label">People Certified</span></div>
+        <div class="story-milestone"><span class="sm-num">4.9★</span><span class="sm-label">Google Rating</span></div>
+      </div>
     </div>
     <div class="story-photo">
       <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&q=80" alt="CPR instructor teaching a class" loading="lazy">
