@@ -3,6 +3,10 @@
 get_header();
 ?>
 <style>
+.about-two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--g200)}
+.about-col h2{font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:800;color:var(--g900);margin-bottom:1rem;letter-spacing:-.01em;line-height:1.25}
+.about-col p{font-size:14.5px;color:var(--g600);line-height:1.8;margin-bottom:1rem}
+.about-col p:last-of-type{margin-bottom:0}
 .about-checklist{list-style:none;padding:0;margin:.75rem 0 0;display:flex;flex-direction:column;gap:.6rem}
 .about-checklist li{display:flex;align-items:center;gap:.6rem;font-size:14.5px;color:var(--g600);line-height:1.5}
 .about-check{width:22px;height:22px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -12,9 +16,9 @@ get_header();
 .sm-num{font-size:1.4rem;font-weight:800;color:var(--red);line-height:1}
 .sm-label{font-size:12px;color:var(--g400);font-weight:500}
 @media(max-width:768px){
-  .vision-section,.story-section{grid-template-columns:1fr}
-  .story-photo{order:-1}
-  .story-milestones{gap:1rem}
+  .about-two-col{grid-template-columns:1fr;gap:2rem}
+  .about-col{padding-bottom:2rem;border-bottom:1px solid var(--g200)}
+  .about-col:last-child{padding-bottom:0;border-bottom:none}
 }
 </style>
 <?php
@@ -47,12 +51,8 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
 
 <div class="page-body">
 
-  <div class="vision-section">
-    <div class="vision-photo">
-      <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&q=80" alt="Community members learning CPR together" loading="lazy">
-      <div class="vision-photo-caption">Training a community — one class at a time</div>
-    </div>
-    <div class="vision-text">
+  <div class="about-two-col">
+    <div class="about-col">
       <div class="section-label">Our Vision</div>
       <h2>A GTA Where Everyone Knows How to Save a Life</h2>
       <p>Cardiac arrest can happen anywhere — at home, at work, on the subway. The difference between life and death is often the person standing right there. We believe that person should be you.</p>
@@ -63,10 +63,7 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
         <li><span class="about-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>WSIB Approved certificates recognized across Canada</li>
       </ul>
     </div>
-  </div>
-
-  <div class="story-section">
-    <div class="story-text">
+    <div class="about-col">
       <div class="section-label">Our Story</div>
       <h2>Born from a Belief That Training Should Be Accessible</h2>
       <p>GTA CPR was founded in 2013 by certified instructors who saw a gap — quality CPR training that was affordable, frequent, and available in more than just English in one of the world's most multicultural cities.</p>
@@ -76,9 +73,6 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
         <div class="story-milestone"><span class="sm-num">2,500+</span><span class="sm-label">People Certified</span></div>
         <div class="story-milestone"><span class="sm-num">4.9★</span><span class="sm-label">Google Rating</span></div>
       </div>
-    </div>
-    <div class="story-photo">
-      <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&q=80" alt="CPR instructor teaching a class" loading="lazy">
     </div>
   </div>
 
