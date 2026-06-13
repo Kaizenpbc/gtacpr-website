@@ -66,12 +66,12 @@ body.drawer-open .drawer{right:0}
 
 /* HERO */
 .hero{position:relative;background:var(--g900);overflow:hidden;display:flex;align-items:center;min-height:clamp(400px,55vw,570px)}
-.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1400&q=80');background-size:cover;background-position:center 30%;opacity:.42}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.58) 0%,rgba(0,0,0,.08) 100%)}
+.hero-bg{position:absolute;inset:0;background:url('gtacpr-theme/assets/hero-cpr1.jpg') center/cover no-repeat;opacity:.35}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,23,42,.7) 0%,rgba(30,41,59,.5) 50%,rgba(15,23,42,.7) 100%)}
 .hero-inner{position:relative;z-index:1;width:100%;max-width:1160px;margin:0 auto;padding:clamp(2.5rem,6vw,5rem) 1.25rem}
 .hero-content{max-width:540px}
-.hero h1{font-size:clamp(1.7rem,5vw,3rem);font-weight:800;color:#fff;line-height:1.12;letter-spacing:-.02em;margin-bottom:.85rem}
-.hero-sub{font-size:clamp(.9rem,2.5vw,1rem);color:rgba(255,255,255,.8);margin-bottom:1.5rem;line-height:1.65;max-width:460px}
+.hero h1{font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.02em;margin-bottom:.85rem;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.hero-sub{font-size:clamp(.95rem,2.5vw,1.1rem);color:rgba(255,255,255,.95);margin-bottom:1.5rem;line-height:1.65;max-width:460px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.5rem}
 .hero-btns a{min-height:56px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:700;padding:0 22px;border-radius:var(--r);transition:background .15s,border-color .15s;flex:1;min-width:160px}
 .hero-btns a svg{width:18px;height:18px;flex-shrink:0;opacity:.9}
@@ -82,7 +82,7 @@ body.drawer-open .drawer{right:0}
 .bhp:hover,.bhp:active{background:var(--rdk)}
 .bho{color:#fff;border:2px solid rgba(255,255,255,.5)}
 .bho:hover,.bho:active{border-color:#fff;background:rgba(255,255,255,.08)}
-.hero-trust{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 14px}
+.hero-trust{display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 14px}
 .hero-trust-icon{width:30px;height:30px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .hero-trust-icon svg{width:18px;height:18px;color:var(--red)}
 .hero-trust-txt{font-size:12px;color:rgba(255,255,255,.75);line-height:1.4}
@@ -114,13 +114,35 @@ body.drawer-open .drawer{right:0}
 .ci2{background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=70')}
 .ci3{background-image:url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=70')}
 .ci4{background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&q=70')}
-.course-body{padding:1rem;flex:1;display:flex;flex-direction:column;gap:8px}
+.course-body{padding:1rem;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
 .course-name{font-size:14.5px;font-weight:700;color:var(--g900);line-height:1.3}
 .course-dur{font-size:12px;color:var(--g400);display:flex;align-items:center;gap:4px}
+.course-sub{font-size:11.5px;color:var(--g400);font-style:italic}
 .course-price{font-size:1.2rem;font-weight:800;color:var(--g900)}
 .course-price span{font-size:12px;font-weight:400;color:var(--g400)}
-.btn-course{display:flex;align-items:center;justify-content:center;min-height:46px;background:var(--red);color:#fff;font-size:13px;font-weight:700;border-radius:var(--r);margin-top:auto;transition:background .15s}
+.btn-course{display:flex;align-items:center;justify-content:center;min-height:46px;background:var(--red);color:#fff;font-size:13px;font-weight:700;border-radius:var(--r);margin-top:auto;transition:background .15s;align-self:stretch}
 .btn-course:hover,.btn-course:active{background:var(--rdk)}
+
+/* COURSE DETAILS */
+.course-detail{max-width:1160px;margin:0 auto;padding:3rem 1.25rem;display:grid;grid-template-columns:1fr 1.4fr;gap:2.5rem;align-items:start;border-bottom:1px solid var(--g200)}
+.cd-img{width:100%;aspect-ratio:4/3;background-size:cover;background-position:center;border-radius:10px}
+.cd-badge{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 10px;border-radius:4px;margin-bottom:.5rem;background:var(--rlt);color:var(--red)}
+.cd-title{font-size:clamp(1.2rem,3vw,1.5rem);font-weight:800;color:var(--g900);margin-bottom:.75rem;line-height:1.2}
+.cd-meta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1rem}
+.cd-meta{display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--g400)}
+.cd-meta svg{width:14px;height:14px;flex-shrink:0}
+.cd-desc{font-size:14.5px;color:var(--g600);line-height:1.7;margin-bottom:1.25rem}
+.cd-section-title{font-size:13px;font-weight:700;color:var(--g900);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.03em}
+.cd-list{list-style:none;margin-bottom:1.25rem}
+.cd-list li{position:relative;padding-left:1.25rem;font-size:13.5px;color:var(--g600);line-height:1.8}
+.cd-list li::before{content:'✓';position:absolute;left:0;color:var(--red);font-weight:700}
+.cd-completion li::before{content:'•';color:var(--g400)}
+.btn-cd{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);transition:background .15s}
+.btn-cd:hover{background:var(--rdk)}
+@media(max-width:768px){
+  .course-detail{grid-template-columns:1fr;gap:1.5rem}
+  .cd-img{max-height:250px}
+}
 
 /* ON-SITE */
 .onsite{border-top:1px solid var(--g200);border-bottom:1px solid var(--g200)}
@@ -294,8 +316,8 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
   <div class="hero-bg" role="img" aria-label="CPR training in progress"></div>
   <div class="hero-inner">
     <div class="hero-content">
-      <h1>CPR &amp; First Aid Training Across the GTA</h1>
-      <p class="hero-sub">Get certified fast with trusted, instructor-led training for individuals, workplaces, and ESL learners.</p>
+      <h1>CPR &amp; First Aid Training<br><span style="display:block;text-align:center;margin-left:-2.5em">Across the GTA</span></h1>
+      <p class="hero-sub">Get certified fast with trusted, instructor-led training<br><span style="padding-left:1em">for individuals, workplaces, and ESL learners</span></p>
       <div class="hero-btns">
         <a href="gtacpr-register.html" class="bhp">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -335,13 +357,172 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
   <div class="section-inner">
     <h2 class="section-title">Our Courses</h2>
     <div class="course-grid">
-      <div class="course-card"><div class="ci ci1" role="img" aria-label="CPR Level A training"></div><div class="course-body"><div class="course-name">CPR Level A</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Half-day &nbsp;·&nbsp; 1-year cert</div><div class="course-price">$65 <span>/person</span></div><a href="gtacpr-register.html" class="btn-course">View Course</a></div></div>
-      <div class="course-card"><div class="ci ci2" role="img" aria-label="CPR Level C training"></div><div class="course-body"><div class="course-name">CPR Level C / AED</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Half-day &nbsp;·&nbsp; 1-year cert</div><div class="course-price">$75 <span>/person</span></div><a href="gtacpr-register.html" class="btn-course">View Course</a></div></div>
-      <div class="course-card"><div class="ci ci3" role="img" aria-label="Standard First Aid training"></div><div class="course-body"><div class="course-name">Standard First Aid + CPR-C</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 days &nbsp;·&nbsp; 3-year cert</div><div class="course-price">$115 <span>/person</span></div><a href="gtacpr-register.html" class="btn-course">View Course</a></div></div>
-      <div class="course-card"><div class="ci ci4" role="img" aria-label="Recertification course"></div><div class="course-body"><div class="course-name">Recertification (Blended)</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Online + 4hr session</div><div class="course-price">$65 <span>/person</span></div><a href="gtacpr-register.html" class="btn-course">View Course</a></div></div>
+      <div class="course-card"><div class="ci ci1" role="img" aria-label="Emergency First Aid &amp; CPR training"></div><div class="course-body"><div class="course-name">Emergency First Aid &amp; CPR</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1 day &nbsp;·&nbsp; 3-year cert</div><a href="#efa" class="btn-course">View Course</a></div></div>
+      <div class="course-card"><div class="ci ci2" role="img" aria-label="Standard First Aid &amp; CPR training"></div><div class="course-body"><div class="course-name">Standard First Aid &amp; CPR</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 days &nbsp;·&nbsp; 3-year cert</div><a href="#sfa" class="btn-course">View Course</a></div></div>
+      <div class="course-card"><div class="ci ci3" role="img" aria-label="Mask Fitting"></div><div class="course-body"><div class="course-name">Mask Fitting</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Quick appointment</div><a href="#mask" class="btn-course">View Course</a></div></div>
+      <div class="course-card"><div class="ci ci4" role="img" aria-label="Recertification course"></div><div class="course-body"><div class="course-name">Recertification</div><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Online + in-person session</div><a href="#recert" class="btn-course">View Course</a></div></div>
     </div>
   </div>
 </section>
+
+<!-- COURSE DETAILS -->
+
+<div class="course-detail" id="efa">
+  <div><div class="cd-img ci1" role="img" aria-label="Emergency First Aid &amp; CPR training"></div></div>
+  <div>
+    <span class="cd-badge">Most Popular</span>
+    <h2 class="cd-title">Emergency First Aid &amp; CPR</h2>
+    <div class="cd-meta-row">
+      <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6.5–7 hrs in-class or blended</span>
+      <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year certification</span>
+    </div>
+    <p class="cd-desc">An essential one-day course that equips you with the skills to respond confidently in an emergency — whether at home or in the workplace. This course meets the requirements of the Federal and Provincial Authority Having Jurisdiction over workplace first aid training, as well as the CSA Z1210 standard for Basic first aid training. Includes the latest first aid and CPR guidelines.</p>
+
+    <div class="cd-section-title">Duration</div>
+    <ul class="cd-list">
+      <li>Emergency First Aid &amp; CPR A: 6.5 hours in-class or 4 hours in-class + 4 hours online</li>
+      <li>Emergency First Aid &amp; CPR C: 7 hours in-class or 5 hours in-class + 4 hours online</li>
+    </ul>
+
+    <div class="cd-section-title">Course Content</div>
+    <ul class="cd-list">
+      <li>Preparing to respond &amp; the EMS system</li>
+      <li>Check, Call, Care framework</li>
+      <li>Airway, breathing &amp; circulation emergencies</li>
+      <li>CPR for respiratory and cardiac arrest</li>
+      <li>Wound care &amp; bleeding control</li>
+      <li>Choking management (all ages)</li>
+    </ul>
+
+    <div class="cd-section-title">Completion Requirements</div>
+    <ul class="cd-list cd-completion">
+      <li>Successfully demonstrate skills and critical steps</li>
+      <li>Minimum 75% on written knowledge evaluation</li>
+      <li>Attend and participate in 100% of the course</li>
+    </ul>
+
+    <div class="cd-section-title">Recertification</div>
+    <ul class="cd-list">
+      <li>CPR A: 4 hours in-class</li>
+      <li>CPR C: 5 hours in-class</li>
+    </ul>
+
+    <div class="cd-section-title">Participant Materials</div>
+    <ul class="cd-list">
+      <li>First Aid &amp; CPR reference guide (print and/or eBook)</li>
+      <li>Digital certificate issued upon successful completion</li>
+    </ul>
+
+    <a href="#" class="btn-cd open-booking">Book This Course</a>
+  </div>
+</div>
+
+<div class="course-detail" id="sfa">
+  <div><div class="cd-img ci2" role="img" aria-label="Standard First Aid &amp; CPR training"></div></div>
+  <div>
+    <span class="cd-badge">Most Comprehensive</span>
+    <h2 class="cd-title">Standard First Aid &amp; CPR</h2>
+    <div class="cd-meta-row">
+      <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14 hrs over 2 days or blended</span>
+      <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year certification</span>
+    </div>
+    <p class="cd-desc">The most comprehensive first aid certification available. Two days of in-depth training covering the full first aid and CPR curriculum — required by many healthcare programs, high-risk workplaces, and provincial regulations. Meets CSA Z1210 standard for Intermediate first aid training.</p>
+
+    <div class="cd-section-title">Duration</div>
+    <ul class="cd-list">
+      <li>Standard First Aid &amp; CPR A: 13 hours in-class or 9 hours in-class + 7 hours online</li>
+      <li>Standard First Aid &amp; CPR C: 14 hours in-class or 10 hours in-class + 7 hours online</li>
+    </ul>
+
+    <div class="cd-section-title">Course Content</div>
+    <ul class="cd-list">
+      <li>Everything in Emergency First Aid &amp; CPR, plus:</li>
+      <li>Medical emergencies (heart attack, stroke, diabetic, seizure)</li>
+      <li>Head, neck &amp; spinal injuries</li>
+      <li>Bone, muscle &amp; joint injuries</li>
+      <li>Burns, poisoning &amp; environmental emergencies</li>
+      <li>Eye &amp; dental injuries</li>
+      <li>Multiple-casualty management</li>
+    </ul>
+
+    <div class="cd-section-title">Completion Requirements</div>
+    <ul class="cd-list cd-completion">
+      <li>Successfully demonstrate skills and critical steps</li>
+      <li>Minimum 75% on written knowledge evaluation</li>
+      <li>Attend and participate in 100% of the course</li>
+    </ul>
+
+    <div class="cd-section-title">Recertification</div>
+    <ul class="cd-list">
+      <li>CPR A: 6.5 hours in-class</li>
+      <li>CPR C: 7.5 hours in-class</li>
+    </ul>
+
+    <div class="cd-section-title">Participant Materials</div>
+    <ul class="cd-list">
+      <li>Comprehensive Guide for First Aid &amp; CPR (print and/or eBook)</li>
+      <li>Digital certificate issued upon successful completion</li>
+    </ul>
+
+    <a href="#" class="btn-cd open-booking">Book This Course</a>
+  </div>
+</div>
+
+<div class="course-detail" id="mask">
+  <div><div class="cd-img ci3" role="img" aria-label="Mask Fitting"></div></div>
+  <div>
+    <h2 class="cd-title">Mask Fitting</h2>
+    <div class="cd-meta-row">
+      <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Quick appointment</span>
+    </div>
+    <p class="cd-desc">Professional respirator mask fit testing to ensure proper seal and protection. Required by many workplaces for employees who use N95 or similar respirator masks. We use quantitative and qualitative testing methods to verify your mask fits correctly.</p>
+
+    <div class="cd-section-title">What's Included</div>
+    <ul class="cd-list">
+      <li>Professional fit test using approved protocols</li>
+      <li>Multiple mask sizes available for testing</li>
+      <li>Fit test documentation &amp; certificate</li>
+      <li>Guidance on proper mask use and maintenance</li>
+    </ul>
+
+    <a href="#" class="btn-cd open-booking">Book This Course</a>
+  </div>
+</div>
+
+<div class="course-detail" id="recert">
+  <div><div class="cd-img ci4" role="img" aria-label="Recertification"></div></div>
+  <div>
+    <h2 class="cd-title">Recertification</h2>
+    <div class="cd-meta-row">
+      <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Online + in-person session</span>
+      <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Renews your certification</span>
+    </div>
+    <p class="cd-desc">Already certified? Renew your credentials efficiently. Complete theory online at your own pace, then attend a shorter in-person skills session to refresh your hands-on abilities. A valid existing certificate is required.</p>
+
+    <div class="cd-section-title">Duration</div>
+    <ul class="cd-list">
+      <li>Emergency First Aid &amp; CPR A: 4 hours in-class</li>
+      <li>Emergency First Aid &amp; CPR C: 5 hours in-class</li>
+      <li>Standard First Aid &amp; CPR A: 6.5 hours in-class</li>
+      <li>Standard First Aid &amp; CPR C: 7.5 hours in-class</li>
+    </ul>
+
+    <div class="cd-section-title">Completion Requirements</div>
+    <ul class="cd-list cd-completion">
+      <li>Successfully demonstrate skills and critical steps</li>
+      <li>Minimum 75% on written knowledge evaluation</li>
+      <li>Valid existing certification required</li>
+    </ul>
+
+    <div class="cd-section-title">Participant Materials</div>
+    <ul class="cd-list">
+      <li>Online theory module (self-paced, completed before class)</li>
+      <li>Updated digital certificate upon successful completion</li>
+    </ul>
+
+    <a href="#" class="btn-cd open-booking">Book This Course</a>
+  </div>
+</div>
 
 <div class="onsite" id="workplace">
   <div class="onsite-inner">
@@ -445,6 +626,12 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
       var item=t.closest('.faq-item'),open=item.classList.contains('open');
       document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-trigger').setAttribute('aria-expanded','false')});
       if(!open){item.classList.add('open');t.setAttribute('aria-expanded','true')}
+    });
+  });
+  document.querySelectorAll('.open-booking').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      window.open('https://gtacprfrontend.simplybook.me/v2/','_blank');
     });
   });
 })();

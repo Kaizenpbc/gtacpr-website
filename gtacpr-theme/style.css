@@ -74,12 +74,12 @@ body.drawer-open .drawer{right:0}
 
 /* HERO */
 .hero{position:relative;background:var(--g900);overflow:hidden;display:flex;align-items:center;min-height:clamp(400px,55vw,570px)}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#0f172a 100%)}
-.hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(204,31,31,.08) 0%,transparent 65%)}
+.hero-bg{position:absolute;inset:0;background:url('assets/hero-cpr1.jpg') center/cover no-repeat;opacity:.35}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,23,42,.7) 0%,rgba(30,41,59,.5) 50%,rgba(15,23,42,.7) 100%)}
 .hero-inner{position:relative;z-index:1;width:100%;max-width:1160px;margin:0 auto;padding:clamp(2.5rem,6vw,5rem) 1.25rem}
 .hero-content{max-width:540px}
-.hero h1{font-size:clamp(1.7rem,5vw,3rem);font-weight:800;color:#fff;line-height:1.12;letter-spacing:-.02em;margin-bottom:.85rem}
-.hero-sub{font-size:clamp(.9rem,2.5vw,1rem);color:rgba(255,255,255,.8);margin-bottom:1.5rem;line-height:1.65;max-width:460px}
+.hero h1{font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.02em;margin-bottom:.85rem;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.hero-sub{font-size:clamp(.95rem,2.5vw,1.1rem);color:rgba(255,255,255,.95);margin-bottom:1.5rem;line-height:1.65;max-width:460px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.5rem}
 .hero-btns a{min-height:56px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:700;padding:0 22px;border-radius:var(--r);transition:background .15s,border-color .15s;flex:1;min-width:160px}
 .hero-btns a svg{width:18px;height:18px;flex-shrink:0;opacity:.9}
@@ -90,7 +90,7 @@ body.drawer-open .drawer{right:0}
 .bhp:hover,.bhp:active{background:var(--rdk)}
 .bho{color:#fff;border:2px solid rgba(255,255,255,.5)}
 .bho:hover,.bho:active{border-color:#fff;background:rgba(255,255,255,.08)}
-.hero-trust{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 14px}
+.hero-trust{display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 14px}
 .hero-trust-icon{width:30px;height:30px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .hero-trust-icon svg{width:18px;height:18px;color:var(--red)}
 .hero-trust-txt{font-size:12px;color:rgba(255,255,255,.75);line-height:1.4}
@@ -132,12 +132,13 @@ body.drawer-open .drawer{right:0}
 .ci2{background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=70')}
 .ci3{background-image:url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=70')}
 .ci4{background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&q=70')}
-.course-body{padding:1rem;flex:1;display:flex;flex-direction:column;gap:8px}
+.course-body{padding:1rem;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
 .course-name{font-size:14.5px;font-weight:700;color:var(--g900);line-height:1.3}
 .course-dur{font-size:12px;color:var(--g400);display:flex;align-items:center;gap:4px}
+.course-sub{font-size:11.5px;color:var(--g400);font-style:italic}
 .course-price{font-size:1.2rem;font-weight:800;color:var(--g900)}
 .course-price span{font-size:12px;font-weight:400;color:var(--g400)}
-.btn-course{display:flex;align-items:center;justify-content:center;min-height:46px;background:var(--red);color:#fff;font-size:13px;font-weight:700;border-radius:var(--r);margin-top:auto;transition:background .15s}
+.btn-course{display:flex;align-items:center;justify-content:center;min-height:46px;background:var(--red);color:#fff;font-size:13px;font-weight:700;border-radius:var(--r);margin-top:auto;transition:background .15s;align-self:stretch}
 .btn-course:hover,.btn-course:active{background:var(--rdk)}
 
 /* ON-SITE */
