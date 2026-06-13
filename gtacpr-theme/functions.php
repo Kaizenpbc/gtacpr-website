@@ -96,6 +96,30 @@ if ( get_option('gtacpr_pages_created') !== '2' ) {
 }
 
 /**
+ * Preload the hero background image for inner pages.
+ * Improves LCP (Largest Contentful Paint) by fetching the hero image early.
+ * Homepage hero is a CSS gradient — nothing to preload there.
+ * Update these URLs when replacing Unsplash placeholders with real images.
+ */
+function gtacpr_preload_hero() {
+    $heroes = [
+        'about'          => 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80',
+        'group-training' => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1400&q=80',
+        'courses'        => 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&q=80',
+        'esl'            => 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=1400&q=80',
+        'register'       => 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=80',
+        'contact'        => 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80',
+    ];
+    foreach ( $heroes as $slug => $url ) {
+        if ( is_page( $slug ) ) {
+            echo '<link rel="preload" as="image" href="' . esc_url( $url ) . '">' . "\n";
+            return;
+        }
+    }
+}
+add_action( 'wp_head', 'gtacpr_preload_hero', 1 );
+
+/**
  * Helper: return true if current page matches slug
  */
 function gtacpr_is( $slug ) {

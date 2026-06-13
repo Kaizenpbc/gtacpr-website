@@ -18,7 +18,7 @@
   <div class="nav-inner">
     <a href="<?php echo home_url('/'); ?>" class="nav-logo" aria-label="GTA CPR Home">
       <?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR — Get Certified!" />
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR — Get Certified!" width="325" height="88" />
       <?php endif; ?>
     </a>
 
@@ -60,7 +60,7 @@
 <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation">
   <div class="drawer-header">
     <span class="drawer-header-title">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR" style="height:32px;width:auto;display:block" />
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR" width="325" height="88" style="height:32px;width:auto;display:block" loading="lazy" />
     </span>
     <button class="drawer-close" id="dClose" aria-label="Close menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>

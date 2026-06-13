@@ -2,7 +2,7 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR — Get Certified!" style="height:44px;width:auto;display:block;margin-bottom:12px;filter:brightness(0) invert(1)" />
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR — Get Certified!" width="325" height="88" style="height:44px;width:auto;display:block;margin-bottom:12px;filter:brightness(0) invert(1)" loading="lazy" />
         <p class="footer-tagline">Greater Toronto Area's trusted WSIB Approved CPR and First Aid training provider. Serving individuals, workplaces, and newcomers since 2013.</p>
         <div class="footer-contact">
           <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>">📞 <?php echo esc_html( gtacpr_phone() ); ?></a>
