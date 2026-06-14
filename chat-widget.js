@@ -257,7 +257,7 @@
         </svg>
       </div>
       <div id="gtacpr-chat-header-text">
-        <strong>GTACPR Assistant</strong>
+        <strong>Shanti</strong>
         <span>Ask me anything about courses</span>
       </div>
       <button id="gtacpr-chat-close" aria-label="Close chat">

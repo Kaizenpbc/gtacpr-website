@@ -157,8 +157,8 @@ GROUP / WORKPLACE TRAINING:
 
 CERTIFICATIONS:
 - All certificates are WSIB Approved
-- Recognized across Canada
-- Compliant with Ontario workplace safety requirements
+- Compliant with Ontario workplace requirements
+- Aligned with the national CSA Z1210 standard
 - {$pol['cert_delivery']}
 
 COMMON QUESTIONS:

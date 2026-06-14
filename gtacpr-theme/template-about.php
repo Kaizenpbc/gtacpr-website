@@ -63,7 +63,7 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
         <li><span class="about-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Flexible scheduling — evenings &amp; weekends, 7 days a week</li>
         <li><span class="about-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>ESL classes in Mandarin, Cantonese, and Greek</li>
         <li><span class="about-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>On-site training delivered directly to your workplace</li>
-        <li><span class="about-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>WSIB Approved certificates recognized across Canada</li>
+        <li><span class="about-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>WSIB Approved certificates meeting Ontario workplace requirements and the national CSA Z1210 standard</li>
       </ul>
     </div>
     <div class="about-col">
