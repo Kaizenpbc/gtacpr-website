@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become an Authorized Provider | GTACPR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1F2937;background:#fff;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+:root{--red:#CC1F1F;--rdk:#9B1515;--rlt:#FFF0F0;--g50:#F9FAFB;--g100:#F3F4F6;--g200:#E5E7EB;--g400:#9CA3AF;--g500:#6B7280;--g600:#4B5563;--g800:#1F2937;--g900:#111827;--w:#fff;--r:8px;--sh:0 1px 3px rgba(0,0,0,.08);--shm:0 4px 16px rgba(0,0,0,.10)}
+
+/* HERO */
+.prov-hero{position:relative;background:var(--g900);overflow:hidden;padding:clamp(3rem,8vw,5rem) 1.25rem}
+.prov-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,23,42,.92) 0%,rgba(30,41,59,.85) 50%,rgba(15,23,42,.92) 100%)}
+.prov-hero-inner{position:relative;z-index:1;max-width:800px;margin:0 auto;text-align:center}
+.prov-hero-inner h1{font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.02em;margin-bottom:1rem}
+.prov-hero-sub{font-size:clamp(.95rem,2.5vw,1.1rem);color:rgba(255,255,255,.85);line-height:1.7;max-width:620px;margin:0 auto 1.5rem}
+.prov-hero-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.prov-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.9);font-size:13px;font-weight:600;padding:6px 14px;border-radius:20px}
+.prov-badge svg{width:14px;height:14px;flex-shrink:0}
+
+/* WHY PARTNER */
+.prov-section{max-width:1000px;margin:0 auto;padding:clamp(2.5rem,6vw,4rem) 1.25rem}
+.prov-section-title{font-size:clamp(1.2rem,3vw,1.5rem);font-weight:800;color:var(--g900);text-align:center;margin-bottom:.5rem;letter-spacing:-.01em}
+.prov-section-sub{font-size:14.5px;color:var(--g500);text-align:center;max-width:600px;margin:0 auto 2rem;line-height:1.7}
+
+.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.benefit-card{background:var(--w);border:1px solid var(--g200);border-radius:10px;padding:1.5rem;box-shadow:var(--sh)}
+.benefit-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.benefit-icon svg{width:20px;height:20px}
+.bi-red{background:var(--rlt)}.bi-red svg{color:var(--red)}
+.bi-blue{background:#EFF6FF}.bi-blue svg{color:#2563EB}
+.bi-green{background:#F0FDF4}.bi-green svg{color:#16A34A}
+.bi-purple{background:#F5F3FF}.bi-purple svg{color:#7C3AED}
+.bi-amber{background:#FFFBEB}.bi-amber svg{color:#D97706}
+.bi-teal{background:#F0FDFA}.bi-teal svg{color:#0D9488}
+.benefit-card h3{font-size:14.5px;font-weight:700;color:var(--g900);margin-bottom:.4rem}
+.benefit-card p{font-size:13px;color:var(--g500);line-height:1.65}
+
+/* HOW IT WORKS */
+.how-section{background:var(--g50);border-top:1px solid var(--g200);border-bottom:1px solid var(--g200)}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;counter-reset:step}
+.how-step{text-align:center;position:relative}
+.how-step::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;font-size:18px;font-weight:800;margin:0 auto 1rem}
+.how-step h3{font-size:14px;font-weight:700;color:var(--g900);margin-bottom:.4rem}
+.how-step p{font-size:13px;color:var(--g500);line-height:1.6}
+
+/* REQUIREMENTS */
+.req-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.req-col h3{font-size:14px;font-weight:700;color:var(--g900);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.03em}
+.req-list{list-style:none}
+.req-list li{position:relative;padding-left:1.5rem;font-size:13.5px;color:var(--g600);line-height:1.9}
+.req-list li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--red)}
+.req-list-check li::before{content:'✓';width:auto;height:auto;border-radius:0;background:none;color:var(--red);font-weight:700;top:0}
+
+/* COURSES */
+.courses-offered{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.co-card{background:var(--w);border:1px solid var(--g200);border-radius:10px;padding:1.25rem;text-align:center;box-shadow:var(--sh)}
+.co-card h4{font-size:14px;font-weight:700;color:var(--g900);margin-bottom:.3rem}
+.co-card p{font-size:12px;color:var(--g400)}
+
+/* CTA */
+.prov-cta{background:linear-gradient(135deg,#1e3a5f 0%,#1d4ed8 100%);padding:clamp(2.5rem,6vw,4rem) 1.25rem;text-align:center}
+.prov-cta h2{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:800;color:#fff;margin-bottom:.75rem}
+.prov-cta p{font-size:14.5px;color:rgba(255,255,255,.85);line-height:1.7;max-width:550px;margin:0 auto 1.5rem}
+.prov-cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-prov-primary{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 28px;background:#fff;color:#1d4ed8;font-size:14px;font-weight:700;border-radius:var(--r);transition:background .15s}
+.btn-prov-primary:hover{background:#EFF6FF}
+.btn-prov-outline{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 28px;background:transparent;color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);border:2px solid rgba(255,255,255,.5);transition:border-color .15s}
+.btn-prov-outline:hover{border-color:#fff}
+
+/* FORM */
+.prov-form-section{background:var(--g50);border-top:1px solid var(--g200)}
+.prov-form-wrap{max-width:640px;margin:0 auto}
+.prov-form{display:flex;flex-direction:column;gap:1rem}
+.prov-form label{font-size:13px;font-weight:600;color:var(--g900);display:block;margin-bottom:4px}
+.prov-form input,.prov-form select,.prov-form textarea{width:100%;padding:10px 12px;border:1px solid var(--g200);border-radius:var(--r);font-size:14px;font-family:inherit;color:var(--g900);background:var(--w);transition:border-color .15s}
+.prov-form input:focus,.prov-form select:focus,.prov-form textarea:focus{outline:none;border-color:var(--red)}
+.prov-form textarea{min-height:100px;resize:vertical}
+.prov-form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-prov-submit{display:flex;align-items:center;justify-content:center;min-height:50px;padding:0 28px;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);transition:background .15s;cursor:pointer;border:none;width:100%}
+.btn-prov-submit:hover{background:var(--rdk)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .benefit-grid{grid-template-columns:1fr}
+  .how-steps{grid-template-columns:repeat(2,1fr)}
+  .req-grid{grid-template-columns:1fr}
+  .courses-offered{grid-template-columns:repeat(2,1fr)}
+  .prov-form-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .how-steps{grid-template-columns:1fr}
+  .courses-offered{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="prov-hero">
+  <div class="prov-hero-bg"></div>
+  <div class="prov-hero-inner">
+    <h1>Become an Authorized Provider</h1>
+    <p class="prov-hero-sub">Deliver WSIB Approved CPR and First Aid certification courses under the GTACPR brand. Join a growing network of authorized training providers across Ontario.</p>
+    <div class="prov-hero-badges">
+      <span class="prov-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>WSIB Approved</span>
+      <span class="prov-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>CSA Z1210 Compliant</span>
+      <span class="prov-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Provider Network</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PARTNER WITH GTACPR -->
+<div class="prov-section">
+  <h2 class="prov-section-title">Why Partner with GTACPR?</h2>
+  <p class="prov-section-sub">We provide everything you need to deliver high-quality, WSIB Approved first aid and CPR training — so you can focus on teaching.</p>
+
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon bi-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>WSIB Approved Certification</h3>
+      <p>Issue WSIB Approved certificates recognized across Canada and compliant with Ontario workplace safety requirements.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon bi-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+      <h3>Complete Curriculum</h3>
+      <p>Access our full course curriculum aligned with CSA Z1210 standards — Emergency First Aid, Standard First Aid, and Recertification programs.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon bi-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <h3>Participant Materials</h3>
+      <p>Provide your students with professional reference guides — print and eBook formats included with every course.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon bi-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <h3>Digital Certificate Platform</h3>
+      <p>Same-day digital certificates issued through our platform — no paperwork, no delays. Professional and verifiable.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon bi-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <h3>Flexible Scheduling</h3>
+      <p>Run courses on your own schedule — days, evenings, weekends. You control when and where you teach.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon bi-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <h3>Ongoing Support</h3>
+      <p>Dedicated provider support team to help with course setup, certification questions, and program updates as standards evolve.</p>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-section">
+  <div class="prov-section" style="padding-bottom:clamp(2.5rem,6vw,4rem)">
+    <h2 class="prov-section-title">How It Works</h2>
+    <p class="prov-section-sub">Getting started as a GTACPR Authorized Provider is straightforward.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <h3>Apply</h3>
+        <p>Submit your application with your instructor credentials and experience.</p>
+      </div>
+      <div class="how-step">
+        <h3>Review</h3>
+        <p>Our team reviews your qualifications and discusses the partnership details.</p>
+      </div>
+      <div class="how-step">
+        <h3>Onboard</h3>
+        <p>Receive your curriculum, materials, and access to our digital certificate platform.</p>
+      </div>
+      <div class="how-step">
+        <h3>Teach</h3>
+        <p>Start delivering WSIB Approved courses and issuing certificates under the GTACPR brand.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REQUIREMENTS -->
+<div class="prov-section">
+  <h2 class="prov-section-title">Provider Requirements</h2>
+  <p class="prov-section-sub">We maintain high standards to ensure every GTACPR-certified student receives exceptional training.</p>
+
+  <div class="req-grid">
+    <div class="req-col">
+      <h3>Qualifications</h3>
+      <ul class="req-list">
+        <li>Current first aid / CPR instructor certification</li>
+        <li>Minimum 2 years teaching experience with an approved provider (Red Cross, St. John Ambulance, FAST, or equivalent)</li>
+        <li>Valid and current CPR and First Aid credentials</li>
+        <li>Clean Vulnerable Sector Check (within 12 months)</li>
+      </ul>
+    </div>
+    <div class="req-col">
+      <h3>Operational Requirements</h3>
+      <ul class="req-list">
+        <li>Commercial general liability insurance (minimum $2M)</li>
+        <li>Suitable training facility with adequate space and ventilation</li>
+        <li>Professional-grade training equipment (mannequins, AED trainers)</li>
+        <li>Commitment to GTACPR curriculum standards and quality assurance</li>
+        <li>Participation in annual provider review and skills verification</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- COURSES YOU CAN DELIVER -->
+<div class="how-section">
+  <div class="prov-section">
+    <h2 class="prov-section-title">Courses You Can Deliver</h2>
+    <p class="prov-section-sub">As an Authorized Provider, you'll have access to our full suite of WSIB Approved programs.</p>
+    <div class="courses-offered">
+      <div class="co-card">
+        <h4>Emergency First Aid &amp; CPR</h4>
+        <p>6.5–7 hrs &middot; 3-year cert</p>
+      </div>
+      <div class="co-card">
+        <h4>Standard First Aid &amp; CPR</h4>
+        <p>14 hrs over 2 days &middot; 3-year cert</p>
+      </div>
+      <div class="co-card">
+        <h4>Mask Fitting</h4>
+        <p>Quick appointment</p>
+      </div>
+      <div class="co-card">
+        <h4>Recertification</h4>
+        <p>Online + in-person</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA + FORM -->
+<div class="prov-cta" id="apply">
+  <h2>Ready to Join Our Provider Network?</h2>
+  <p>Submit your application below and our team will be in touch within 2 business days to discuss the next steps.</p>
+</div>
+
+<div class="prov-form-section">
+  <div class="prov-section">
+    <div class="prov-form-wrap">
+      <form class="prov-form" id="providerForm">
+        <div class="prov-form-row">
+          <div>
+            <label for="prov-first">First Name *</label>
+            <input type="text" id="prov-first" name="first_name" required>
+          </div>
+          <div>
+            <label for="prov-last">Last Name *</label>
+            <input type="text" id="prov-last" name="last_name" required>
+          </div>
+        </div>
+        <div class="prov-form-row">
+          <div>
+            <label for="prov-email">Email *</label>
+            <input type="email" id="prov-email" name="email" required>
+          </div>
+          <div>
+            <label for="prov-phone">Phone *</label>
+            <input type="tel" id="prov-phone" name="phone" required>
+          </div>
+        </div>
+        <div>
+          <label for="prov-company">Company / Organization Name</label>
+          <input type="text" id="prov-company" name="company">
+        </div>
+        <div>
+          <label for="prov-location">City / Region *</label>
+          <input type="text" id="prov-location" name="location" placeholder="e.g. Toronto, Mississauga, Hamilton" required>
+        </div>
+        <div>
+          <label for="prov-current">Current Certifying Body *</label>
+          <select id="prov-current" name="current_provider" required>
+            <option value="">Select your current provider</option>
+            <option value="Red Cross">Canadian Red Cross</option>
+            <option value="St. John Ambulance">St. John Ambulance</option>
+            <option value="FAST">FAST (First Aid & Safety Training)</option>
+            <option value="Other">Other</option>
+            <option value="None">Not currently affiliated</option>
+          </select>
+        </div>
+        <div>
+          <label for="prov-experience">Years of Teaching Experience *</label>
+          <select id="prov-experience" name="experience" required>
+            <option value="">Select experience level</option>
+            <option value="2-5">2–5 years</option>
+            <option value="5-10">5–10 years</option>
+            <option value="10+">10+ years</option>
+          </select>
+        </div>
+        <div>
+          <label for="prov-message">Tell us about your training experience</label>
+          <textarea id="prov-message" name="message" placeholder="Courses you currently teach, number of students per year, why you're interested in GTACPR..."></textarea>
+        </div>
+        <div style="display:none" aria-hidden="true">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn-prov-submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

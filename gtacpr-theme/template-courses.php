@@ -27,10 +27,9 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
 <!-- QUICK NAV -->
 <div class="course-quicknav">
   <div class="course-quicknav-inner">
-    <a href="#cpr-a" class="cqn-item">CPR Level A</a>
-    <a href="#cpr-c" class="cqn-item">CPR Level C / AED</a>
     <a href="#efa" class="cqn-item cqn-popular">Emergency First Aid</a>
     <a href="#sfa" class="cqn-item">Standard First Aid</a>
+    <a href="#mask" class="cqn-item">Mask Fitting</a>
     <a href="#recert" class="cqn-item">Recertification</a>
     <a href="#group" class="cqn-item cqn-group">Group / On-Site</a>
   </div>
@@ -38,199 +37,178 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
 
 <div class="page-body">
 
-  <!-- CPR LEVEL A -->
-  <div class="course-detail" id="cpr-a">
-    <div class="cd-left">
-      <div class="cd-img ci1" role="img" aria-label="CPR Level A training"></div>
-    </div>
-    <div class="cd-right">
-      <span class="course-badge cb-a">CPR Level A</span>
-      <h2>CPR Level A</h2>
-      <div class="cd-meta-row">
-        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Half-day (~4 hrs)</span>
-        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>1-year certification</span>
-        <span class="cd-price">$65 <span>/person</span></span>
-      </div>
-      <p class="cd-desc">An entry-level course covering adult CPR and choking response. Ideal for individuals who need a basic certification for employment or personal peace of mind.</p>
-      <div class="cd-includes">
-        <div class="cd-includes-title">What's included</div>
-        <ul class="cd-list">
-          <li>Adult CPR (mouth-to-mouth &amp; hands-only)</li>
-          <li>Adult choking management</li>
-          <li>Hands-on mannequin practice</li>
-          <li>WSIB Approved certificate emailed same day</li>
-          <li>All equipment and materials provided</li>
-        </ul>
-      </div>
-      <div class="cd-who">
-        <div class="cd-who-label">Who it's for</div>
-        <div class="cd-who-chips">
-          <span class="chip">Individuals</span>
-          <span class="chip">Retail &amp; Service Workers</span>
-          <span class="chip">Volunteers</span>
-          <span class="chip">Basic Employment Requirement</span>
-        </div>
-      </div>
-      <a href="<?php echo esc_url($register_url); ?>" class="btn-cd">Book This Course</a>
-    </div>
-  </div>
-
-  <!-- CPR LEVEL C / AED -->
-  <div class="course-detail course-detail-alt" id="cpr-c">
-    <div class="cd-left">
-      <div class="cd-img ci2" role="img" aria-label="CPR Level C AED training"></div>
-    </div>
-    <div class="cd-right">
-      <span class="course-badge cb-c">CPR Level C / AED</span>
-      <h2>CPR Level C / AED</h2>
-      <div class="cd-meta-row">
-        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Half-day (~4–5 hrs)</span>
-        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>1-year certification</span>
-        <span class="cd-price">$75 <span>/person</span></span>
-      </div>
-      <p class="cd-desc">The most widely required CPR certification in Ontario workplaces. Covers adult, child, and infant CPR along with AED (defibrillator) training — suitable for most WSIB and employer requirements.</p>
-      <div class="cd-includes">
-        <div class="cd-includes-title">What's included</div>
-        <ul class="cd-list">
-          <li>Adult, child &amp; infant CPR</li>
-          <li>AED (automated defibrillator) operation</li>
-          <li>Adult, child &amp; infant choking</li>
-          <li>Hands-on practice with mannequins &amp; AED trainer</li>
-          <li>WSIB Approved certificate emailed same day</li>
-          <li>All equipment and materials provided</li>
-        </ul>
-      </div>
-      <div class="cd-who">
-        <div class="cd-who-label">Who it's for</div>
-        <div class="cd-who-chips">
-          <span class="chip">Workplaces (WSIB)</span>
-          <span class="chip">Childcare Workers</span>
-          <span class="chip">Teachers &amp; ECEs</span>
-          <span class="chip">Fitness Professionals</span>
-          <span class="chip">General Public</span>
-        </div>
-      </div>
-      <a href="<?php echo esc_url($register_url); ?>" class="btn-cd">Book This Course</a>
-    </div>
-  </div>
-
   <!-- EMERGENCY FIRST AID -->
   <div class="course-detail" id="efa">
-    <div class="cd-left">
-      <div class="cd-img ci3" role="img" aria-label="Emergency First Aid training"></div>
-      <div class="cd-popular-badge">Most Popular</div>
-    </div>
-    <div class="cd-right">
-      <span class="course-badge cb-sfa">Emergency First Aid</span>
-      <h2>Emergency First Aid + CPR Level C / AED</h2>
+    <div><div class="cd-img ci1" role="img" aria-label="Emergency First Aid &amp; CPR training"></div></div>
+    <div>
+      <span class="cd-badge">Most Popular</span>
+      <h2 class="cd-title">Emergency First Aid &amp; CPR</h2>
       <div class="cd-meta-row">
-        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1 full day (~7–8 hrs)</span>
+        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6.5–7 hrs in-class or blended</span>
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year certification</span>
-        <span class="cd-price">$90 <span>/person</span></span>
       </div>
-      <p class="cd-desc">Our most popular course — a comprehensive one-day certification covering CPR, AED, and essential first aid skills. The go-to choice for PSW students, healthcare workers, and workplaces needing a 3-year WSIB certificate.</p>
-      <div class="cd-includes">
-        <div class="cd-includes-title">What's included</div>
+      <p class="cd-desc">An essential one-day course that equips you with the skills to respond confidently in an emergency — whether at home or in the workplace. Meets Federal and Provincial workplace first aid requirements and the CSA Z1210 standard. Includes the latest first aid and CPR guidelines.</p>
+      <p class="cd-desc">You'll learn to recognize and respond to breathing and cardiac emergencies, control bleeding, manage choking victims of all ages, and use an AED with confidence. This course is ideal for PSW students, healthcare workers, teachers, childcare providers, and anyone required to hold a valid first aid certificate. All training is instructor-led with hands-on practice using professional-grade mannequins and AED trainers — no online shortcuts. Your WSIB Approved certificate is emailed the same day you complete the course.</p>
+    </div>
+    <div class="cd-columns">
+      <div>
+        <div class="cd-section-title">Duration</div>
         <ul class="cd-list">
-          <li>CPR Level C + AED (adult, child &amp; infant)</li>
-          <li>Bleeding control &amp; wound care</li>
+          <li>CPR A: 6.5 hrs in-class or 4 hrs in-class + 4 hrs online</li>
+          <li>CPR C: 7 hrs in-class or 5 hrs in-class + 4 hrs online</li>
+        </ul>
+        <div class="cd-section-title">Course Content</div>
+        <ul class="cd-list">
+          <li>Preparing to respond &amp; the EMS system</li>
+          <li>Check, Call, Care framework</li>
+          <li>Airway, breathing &amp; circulation emergencies</li>
+          <li>CPR for respiratory and cardiac arrest</li>
+          <li>Wound care &amp; bleeding control</li>
           <li>Choking management (all ages)</li>
-          <li>Shock, burns &amp; fractures</li>
-          <li>Scene assessment &amp; emergency response</li>
-          <li>WSIB Approved 3-year certificate emailed same day</li>
-          <li>All equipment and materials provided</li>
         </ul>
       </div>
-      <div class="cd-who">
-        <div class="cd-who-label">Who it's for</div>
-        <div class="cd-who-chips">
-          <span class="chip">PSW Students</span>
-          <span class="chip">Nursing &amp; Health Programs</span>
-          <span class="chip">Colleges &amp; Universities</span>
-          <span class="chip">Healthcare Workers</span>
-          <span class="chip">Workplaces (WSIB)</span>
-          <span class="chip">Construction &amp; Trades</span>
-        </div>
+      <div>
+        <div class="cd-section-title">Completion Requirements</div>
+        <ul class="cd-list cd-completion">
+          <li>Successfully demonstrate skills and critical steps</li>
+          <li>Minimum 75% on written knowledge evaluation</li>
+          <li>Attend and participate in 100% of the course</li>
+        </ul>
+        <div class="cd-section-title">Recertification</div>
+        <ul class="cd-list">
+          <li>CPR A: 4 hours in-class</li>
+          <li>CPR C: 5 hours in-class</li>
+        </ul>
+        <div class="cd-section-title">Participant Materials</div>
+        <ul class="cd-list">
+          <li>First Aid &amp; CPR reference guide (print and/or eBook)</li>
+          <li>Digital certificate issued upon successful completion</li>
+        </ul>
       </div>
-      <a href="<?php echo esc_url($register_url); ?>" class="btn-cd">Book This Course</a>
     </div>
+    <a href="#" class="btn-cd open-booking">Book This Course</a>
   </div>
 
   <!-- STANDARD FIRST AID -->
-  <div class="course-detail course-detail-alt" id="sfa">
-    <div class="cd-left">
-      <div class="cd-img ci4" role="img" aria-label="Standard First Aid training"></div>
-    </div>
-    <div class="cd-right">
-      <span class="course-badge cb-sfa">Standard First Aid</span>
-      <h2>Standard First Aid + CPR Level C / AED</h2>
+  <div class="course-detail" id="sfa">
+    <div><div class="cd-img ci2" role="img" aria-label="Standard First Aid &amp; CPR training"></div></div>
+    <div>
+      <span class="cd-badge">Most Comprehensive</span>
+      <h2 class="cd-title">Standard First Aid &amp; CPR</h2>
       <div class="cd-meta-row">
-        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 days (~14 hrs total)</span>
+        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14 hrs over 2 days or blended</span>
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year certification</span>
-        <span class="cd-price">$115 <span>/person</span></span>
       </div>
-      <p class="cd-desc">The most comprehensive first aid certification available. Two days of in-depth training covering the full first aid curriculum — required by many healthcare programs and high-risk workplaces.</p>
-      <div class="cd-includes">
-        <div class="cd-includes-title">What's included</div>
+      <p class="cd-desc">The most comprehensive first aid certification available. Two days of in-depth training covering the full first aid and CPR curriculum — required by many healthcare programs, high-risk workplaces, and provincial regulations. Meets CSA Z1210 standard for Intermediate first aid training.</p>
+      <p class="cd-desc">Over two full days, you'll build on Emergency First Aid skills with advanced topics including head, neck and spinal injuries, bone and joint injuries, burns, poisoning, environmental emergencies, and multi-casualty incident management. This is the certification required by nursing programs, security professionals, construction sites, and industrial workplaces across Ontario. All training is hands-on with professional-grade equipment — no online shortcuts. Your WSIB Approved 3-year certificate is emailed the same day you complete the course.</p>
+    </div>
+    <div class="cd-columns">
+      <div>
+        <div class="cd-section-title">Duration</div>
         <ul class="cd-list">
-          <li>CPR Level C + AED (adult, child &amp; infant)</li>
-          <li>Full first aid curriculum (bleeding, shock, burns, fractures, poisoning, head &amp; spinal injuries)</li>
+          <li>CPR A: 13 hrs in-class or 9 hrs in-class + 7 hrs online</li>
+          <li>CPR C: 14 hrs in-class or 10 hrs in-class + 7 hrs online</li>
+        </ul>
+        <div class="cd-section-title">Course Content</div>
+        <ul class="cd-list">
+          <li>Everything in Emergency First Aid &amp; CPR, plus:</li>
           <li>Medical emergencies (heart attack, stroke, diabetic, seizure)</li>
+          <li>Head, neck &amp; spinal injuries</li>
+          <li>Bone, muscle &amp; joint injuries</li>
+          <li>Burns, poisoning &amp; environmental emergencies</li>
           <li>Eye &amp; dental injuries</li>
-          <li>Environmental emergencies (heat, cold)</li>
-          <li>WSIB Approved 3-year certificate emailed same day</li>
-          <li>All equipment and materials provided</li>
+          <li>Multiple-casualty management</li>
         </ul>
       </div>
-      <div class="cd-who">
-        <div class="cd-who-label">Who it's for</div>
-        <div class="cd-who-chips">
-          <span class="chip">Health Science Programs</span>
-          <span class="chip">PSW &amp; Nursing Students</span>
-          <span class="chip">High-Risk Workplaces</span>
-          <span class="chip">Security &amp; Law Enforcement</span>
-          <span class="chip">Industrial &amp; Manufacturing</span>
-        </div>
+      <div>
+        <div class="cd-section-title">Completion Requirements</div>
+        <ul class="cd-list cd-completion">
+          <li>Successfully demonstrate skills and critical steps</li>
+          <li>Minimum 75% on written knowledge evaluation</li>
+          <li>Attend and participate in 100% of the course</li>
+        </ul>
+        <div class="cd-section-title">Recertification</div>
+        <ul class="cd-list">
+          <li>CPR A: 6.5 hours in-class</li>
+          <li>CPR C: 7.5 hours in-class</li>
+        </ul>
+        <div class="cd-section-title">Participant Materials</div>
+        <ul class="cd-list">
+          <li>Comprehensive Guide for First Aid &amp; CPR (print and/or eBook)</li>
+          <li>Digital certificate issued upon successful completion</li>
+        </ul>
       </div>
-      <a href="<?php echo esc_url($register_url); ?>" class="btn-cd">Book This Course</a>
     </div>
+    <a href="#" class="btn-cd open-booking">Book This Course</a>
+  </div>
+
+  <!-- MASK FITTING -->
+  <div class="course-detail" id="mask">
+    <div><div class="cd-img ci3" role="img" aria-label="Mask Fitting"></div></div>
+    <div>
+      <h2 class="cd-title">Mask Fitting</h2>
+      <div class="cd-meta-row">
+        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Quick appointment</span>
+      </div>
+      <p class="cd-desc">Professional respirator mask fit testing to ensure proper seal and protection. Required by many workplaces for employees who use N95 or similar respirator masks. We use quantitative and qualitative testing methods to verify your mask fits correctly.</p>
+      <p class="cd-desc">A proper fit is critical — an ill-fitting respirator offers little to no protection against airborne hazards. Our certified technicians test you with the exact mask model your workplace requires, ensuring a secure seal every time. You'll receive official fit test documentation on the spot, meeting OHSA and CSA Z94.4 compliance requirements. Ideal for healthcare workers, construction crews, laboratory staff, and any employee working in environments that require respiratory protection.</p>
+    </div>
+    <div class="cd-columns">
+      <div>
+        <div class="cd-section-title">What's Included</div>
+        <ul class="cd-list">
+          <li>Professional fit test using approved protocols</li>
+          <li>Multiple mask sizes available for testing</li>
+        </ul>
+      </div>
+      <div>
+        <div class="cd-section-title">&nbsp;</div>
+        <ul class="cd-list">
+          <li>Fit test documentation &amp; certificate</li>
+          <li>Guidance on proper mask use and maintenance</li>
+        </ul>
+      </div>
+    </div>
+    <a href="#" class="btn-cd open-booking">Book This Course</a>
   </div>
 
   <!-- RECERTIFICATION -->
   <div class="course-detail" id="recert">
-    <div class="cd-left">
-      <div class="cd-img cd-img-recert" role="img" aria-label="CPR recertification"></div>
-    </div>
-    <div class="cd-right">
-      <span class="course-badge cb-blended">Blended</span>
-      <h2>Recertification (Blended)</h2>
+    <div><div class="cd-img ci4" role="img" aria-label="Recertification"></div></div>
+    <div>
+      <h2 class="cd-title">Recertification</h2>
       <div class="cd-meta-row">
-        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Online theory + 4hr in-person</span>
+        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Online + in-person session</span>
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Renews your certification</span>
-        <span class="cd-price">$65 <span>/person</span></span>
       </div>
-      <p class="cd-desc">Already certified? Renew efficiently with our blended format — complete the theory online at your own pace, then attend a shorter in-person skills session. A valid existing certificate is required.</p>
-      <div class="cd-includes">
-        <div class="cd-includes-title">What's included</div>
+      <p class="cd-desc">Already certified? Renew your credentials efficiently. Complete theory online at your own pace, then attend a shorter in-person skills session to refresh your hands-on abilities. A valid existing certificate is required.</p>
+      <p class="cd-desc">Recertification keeps your skills sharp and your credentials current without repeating the full course. You'll review updated guidelines online, then demonstrate your CPR and first aid techniques in a focused in-person session with an instructor. Available for both Emergency and Standard First Aid holders. Your renewed WSIB Approved certificate is emailed the same day — no gap in your certification status. Perfect for healthcare professionals, workplace first aiders, and anyone whose certificate is approaching expiry.</p>
+    </div>
+    <div class="cd-columns">
+      <div>
+        <div class="cd-section-title">Duration</div>
         <ul class="cd-list">
-          <li>Online theory module (self-paced)</li>
-          <li>In-person skills verification (approx. 4 hours)</li>
-          <li>CPR skills refresher on mannequins &amp; AED trainer</li>
-          <li>WSIB Approved certificate emailed same day</li>
-          <li>All in-person equipment provided</li>
+          <li>Emergency First Aid CPR A: 4 hrs</li>
+          <li>Emergency First Aid CPR C: 5 hrs</li>
+          <li>Standard First Aid CPR A: 6.5 hrs</li>
+          <li>Standard First Aid CPR C: 7.5 hrs</li>
         </ul>
       </div>
-      <div class="cd-who">
-        <div class="cd-who-label">Who it's for</div>
-        <div class="cd-who-chips">
-          <span class="chip">Renewing Existing Holders</span>
-          <span class="chip">Healthcare Workers</span>
-          <span class="chip">Workplace Renewals</span>
-          <span class="chip">PSW Graduates</span>
-        </div>
+      <div>
+        <div class="cd-section-title">Completion Requirements</div>
+        <ul class="cd-list cd-completion">
+          <li>Successfully demonstrate skills and critical steps</li>
+          <li>Minimum 75% on written knowledge evaluation</li>
+          <li>Valid existing certification required</li>
+        </ul>
+        <div class="cd-section-title">Participant Materials</div>
+        <ul class="cd-list">
+          <li>Online theory module (self-paced)</li>
+          <li>Updated digital certificate upon completion</li>
+        </ul>
       </div>
-      <a href="<?php echo esc_url($register_url); ?>" class="btn-cd">Book This Course</a>
     </div>
+    <a href="#" class="btn-cd open-booking">Book This Course</a>
   </div>
 
   <!-- GROUP / ON-SITE CALLOUT -->
@@ -258,10 +236,10 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
   <div class="cta-band">
     <div>
       <h2>Ready to Get Certified?</h2>
-      <p>Book online, call us at 416-723-2571, or email kpbcma@gmail.com. Classes run 7 days a week across the GTA.</p>
+      <p>Book online, call us at <?php echo gtacpr_phone(); ?>, or email <?php echo gtacpr_email(); ?>. Classes run 7 days a week across the GTA.</p>
     </div>
     <div class="cta-band-btns">
-      <a href="<?php echo esc_url($register_url); ?>" class="btn-cta-primary">Book a Class</a>
+      <a href="#" class="btn-cta-primary open-booking">Book a Class</a>
       <a href="<?php echo esc_url($group_url); ?>" class="btn-cta-outline">Group Training</a>
     </div>
   </div>
