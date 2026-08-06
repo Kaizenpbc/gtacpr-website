@@ -16,7 +16,7 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
       <h1>CPR &amp; First Aid Training<br><span style="display:block;text-align:center;margin-left:-2.5em">Across the GTA</span></h1>
       <p class="hero-sub">Get certified fast with trusted, instructor-led training<br><span style="padding-left:1em">for individuals, workplaces, and ESL learners</span></p>
       <div class="hero-btns">
-        <a href="#" class="bhp open-booking">
+        <a href="<?php echo esc_url($register_url); ?>" class="bhp open-booking">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           <span class="btn-label">
             <span class="btn-label-main">Join a Class</span>
@@ -112,7 +112,7 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
       </ul>
     </div>
   </div>
-  <a href="#" class="btn-cd open-booking">Book This Course</a>
+  <a href="<?php echo esc_url($register_url); ?>" class="btn-cd open-booking">Book This Course</a>
 </div>
 
 <div class="course-detail" id="sfa">
@@ -163,7 +163,7 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
       </ul>
     </div>
   </div>
-  <a href="#" class="btn-cd open-booking">Book This Course</a>
+  <a href="<?php echo esc_url($register_url); ?>" class="btn-cd open-booking">Book This Course</a>
 </div>
 
 <div class="course-detail" id="mask">
@@ -191,7 +191,7 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
       </ul>
     </div>
   </div>
-  <a href="#" class="btn-cd open-booking">Book This Course</a>
+  <a href="<?php echo esc_url($register_url); ?>" class="btn-cd open-booking">Book This Course</a>
 </div>
 
 <div class="course-detail" id="recert">
@@ -229,7 +229,7 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
       </ul>
     </div>
   </div>
-  <a href="#" class="btn-cd open-booking">Book This Course</a>
+  <a href="<?php echo esc_url($register_url); ?>" class="btn-cd open-booking">Book This Course</a>
 </div>
 
 <!-- ON-SITE -->

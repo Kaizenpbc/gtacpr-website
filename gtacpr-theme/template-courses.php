@@ -86,7 +86,7 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         </ul>
       </div>
     </div>
-    <a href="#" class="btn-cd open-booking">Book This Course</a>
+    <a href="<?php echo esc_url($register_url); ?>" class="btn-cd open-booking">Book This Course</a>
   </div>
 
   <!-- STANDARD FIRST AID -->
@@ -138,7 +138,7 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         </ul>
       </div>
     </div>
-    <a href="#" class="btn-cd open-booking">Book This Course</a>
+    <a href="<?php echo esc_url($register_url); ?>" class="btn-cd open-booking">Book This Course</a>
   </div>
 
   <!-- MASK FITTING -->
@@ -167,7 +167,7 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         </ul>
       </div>
     </div>
-    <a href="#" class="btn-cd open-booking">Book This Course</a>
+    <a href="<?php echo esc_url($register_url); ?>" class="btn-cd open-booking">Book This Course</a>
   </div>
 
   <!-- RECERTIFICATION -->
@@ -206,7 +206,7 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         </ul>
       </div>
     </div>
-    <a href="#" class="btn-cd open-booking">Book This Course</a>
+    <a href="<?php echo esc_url($register_url); ?>" class="btn-cd open-booking">Book This Course</a>
   </div>
 
   <!-- GROUP / ON-SITE CALLOUT -->
@@ -237,7 +237,7 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
       <p>Book online, call us at <?php echo gtacpr_phone(); ?>, or email <?php echo gtacpr_email(); ?>. Classes run 7 days a week across the GTA.</p>
     </div>
     <div class="cta-band-btns">
-      <a href="#" class="btn-cta-primary open-booking">Book a Class</a>
+      <a href="<?php echo esc_url($register_url); ?>" class="btn-cta-primary open-booking">Book a Class</a>
       <a href="<?php echo esc_url($group_url); ?>" class="btn-cta-outline">Group Training</a>
     </div>
   </div>
