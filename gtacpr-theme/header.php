@@ -12,7 +12,7 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- TOP BAR -->
-<div class="topbar"><?php echo gtacpr_topbar_message(); ?></div>
+<div class="topbar" id="topbar"><?php echo gtacpr_topbar_message(); ?><button class="topbar-close" id="topbarClose" aria-label="Dismiss announcement"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
 
 <!-- NAV -->
 <nav class="sitenav">

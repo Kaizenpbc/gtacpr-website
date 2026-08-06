@@ -93,7 +93,6 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
   <div class="course-detail" id="sfa">
     <div><div class="cd-img ci2" role="img" aria-label="Standard First Aid &amp; CPR training"></div></div>
     <div>
-      <span class="cd-badge">Most Comprehensive</span>
       <h2 class="cd-title">Standard First Aid &amp; CPR</h2>
       <div class="cd-meta-row">
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14 hrs over 2 days or blended</span>

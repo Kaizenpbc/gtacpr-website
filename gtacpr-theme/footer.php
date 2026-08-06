@@ -187,6 +187,29 @@ $_schema = [
       }
     });
   });
+
+  // Dismissible topbar (MOB-01)
+  var topbar = document.getElementById('topbar');
+  var topbarClose = document.getElementById('topbarClose');
+  if (topbar && topbarClose) {
+    topbarClose.addEventListener('click', function(){
+      topbar.classList.add('dismissed');
+    });
+  }
+
+  // Bottom bar: reveal only after hero scrolls out (MOB-01)
+  var mobCta = document.querySelector('.mob-cta');
+  if (mobCta) {
+    var hero = document.querySelector('.hero, .page-hero');
+    if (hero) {
+      var observer = new IntersectionObserver(function(entries){
+        mobCta.classList.toggle('visible', !entries[0].isIntersecting);
+      }, { threshold: 0 });
+      observer.observe(hero);
+    } else {
+      mobCta.classList.add('visible');
+    }
+  }
 })();
 </script>
 
