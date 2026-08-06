@@ -31,7 +31,7 @@ get_header();
     <div class="benefit-card">
       <div class="benefit-icon bi-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
       <h3>Complete Curriculum</h3>
-      <p>Access our full course curriculum aligned with CSA Z1210 standards — Emergency First Aid, Standard First Aid, and Recertification programs.</p>
+      <p>Access our full course curriculum aligned with CSA Z1210 standards — Basic First Aid, Intermediate First Aid, and Recertification programs.</p>
     </div>
     <div class="benefit-card">
       <div class="benefit-icon bi-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
@@ -92,7 +92,7 @@ get_header();
       <h3>Qualifications</h3>
       <ul class="req-list">
         <li>Current first aid / CPR instructor certification</li>
-        <li>Minimum 2 years teaching experience with an approved provider (Red Cross, St. John Ambulance, FAST, or equivalent)</li>
+        <li>Minimum 2 years teaching experience with a WSIB-approved or recognized first aid training provider</li>
         <li>Valid and current CPR and First Aid credentials</li>
         <li>Clean Vulnerable Sector Check (within 12 months)</li>
       </ul>
@@ -117,11 +117,11 @@ get_header();
     <p class="prov-section-sub">As an Authorized Provider, you'll have access to our full suite of WSIB Approved programs.</p>
     <div class="courses-offered">
       <div class="co-card">
-        <h4>Emergency First Aid &amp; CPR</h4>
+        <h4>Basic First Aid &amp; CPR</h4>
         <p>6.5–7 hrs &middot; 3-year cert</p>
       </div>
       <div class="co-card">
-        <h4>Standard First Aid &amp; CPR</h4>
+        <h4>Intermediate First Aid &amp; CPR</h4>
         <p>14 hrs over 2 days &middot; 3-year cert</p>
       </div>
       <div class="co-card">
@@ -178,10 +178,8 @@ get_header();
           <label for="prov-current">Current Certifying Body *</label>
           <select id="prov-current" name="current_provider" required>
             <option value="">Select your current provider</option>
-            <option value="Red Cross">Canadian Red Cross</option>
-            <option value="St. John Ambulance">St. John Ambulance</option>
-            <option value="FAST">FAST (First Aid &amp; Safety Training)</option>
-            <option value="Other">Other</option>
+            <option value="WSIB Approved Provider">WSIB Approved Provider</option>
+            <option value="Other">Other Recognized Provider</option>
             <option value="None">Not currently affiliated</option>
           </select>
         </div>

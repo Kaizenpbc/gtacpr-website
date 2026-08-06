@@ -69,10 +69,10 @@ $home_url     = home_url('/');
         </div>
       </div>
       <div class="course-card">
-        <img class="course-img" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=70" alt="Standard First Aid" loading="lazy">
+        <img class="course-img" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=70" alt="Intermediate First Aid" loading="lazy">
         <div class="course-body">
           <span class="course-badge cb-sfa">Full Cert</span>
-          <div class="course-name">Standard First Aid + CPR-C</div>
+          <div class="course-name">Intermediate First Aid + CPR-C</div>
           <div class="course-meta">2 days · 3-year cert</div>
           <div class="course-desc">Covers bleeding, choking, cardiac arrest, AED, and emergency scene management.</div>
           <a href="<?php echo esc_url($register_url); ?>" class="btn-course">Register Now</a>

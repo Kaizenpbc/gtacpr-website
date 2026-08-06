@@ -219,6 +219,11 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
 .footer-col ul li{margin-bottom:6px}
 .footer-col ul li a{font-size:13px;color:rgba(255,255,255,.5);transition:color .15s}
 .footer-col ul li a:hover{color:#fff}
+.wsib-badge-row{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.french-offer{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.french-offer p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.6;font-style:italic;max-width:600px}
+.french-offer a{color:rgba(255,255,255,.5);text-decoration:underline}
+.french-offer a:hover{color:#fff}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;font-size:12px}
 .footer-badges{display:flex;gap:8px;flex-wrap:wrap}
 .footer-badge{border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:3px 11px;font-size:11px;color:rgba(255,255,255,.45)}

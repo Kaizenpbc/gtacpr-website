@@ -27,8 +27,8 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
 <!-- QUICK NAV -->
 <div class="course-quicknav">
   <div class="course-quicknav-inner">
-    <a href="#efa" class="cqn-item cqn-popular">Emergency First Aid</a>
-    <a href="#sfa" class="cqn-item">Standard First Aid</a>
+    <a href="#efa" class="cqn-item cqn-popular">Basic First Aid</a>
+    <a href="#sfa" class="cqn-item">Intermediate First Aid</a>
     <a href="#mask" class="cqn-item">Mask Fitting</a>
     <a href="#recert" class="cqn-item">Recertification</a>
     <a href="#group" class="cqn-item cqn-group">Group / On-Site</a>
@@ -37,12 +37,12 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
 
 <div class="page-body">
 
-  <!-- EMERGENCY FIRST AID -->
+  <!-- BASIC FIRST AID -->
   <div class="course-detail" id="efa">
-    <div><div class="cd-img ci1" role="img" aria-label="Emergency First Aid &amp; CPR training"></div></div>
+    <div><div class="cd-img ci1" role="img" aria-label="Basic First Aid &amp; CPR training"></div></div>
     <div>
       <span class="cd-badge">Most Popular</span>
-      <h2 class="cd-title">Emergency First Aid &amp; CPR</h2>
+      <h2 class="cd-title">Basic First Aid &amp; CPR</h2>
       <div class="cd-meta-row">
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6.5–7 hrs in-class or blended</span>
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year certification</span>
@@ -89,17 +89,17 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
     <a href="<?php echo esc_url($register_url); ?>" class="btn-cd open-booking">Book This Course</a>
   </div>
 
-  <!-- STANDARD FIRST AID -->
+  <!-- INTERMEDIATE FIRST AID -->
   <div class="course-detail" id="sfa">
-    <div><div class="cd-img ci2" role="img" aria-label="Standard First Aid &amp; CPR training"></div></div>
+    <div><div class="cd-img ci2" role="img" aria-label="Intermediate First Aid &amp; CPR training"></div></div>
     <div>
-      <h2 class="cd-title">Standard First Aid &amp; CPR</h2>
+      <h2 class="cd-title">Intermediate First Aid &amp; CPR</h2>
       <div class="cd-meta-row">
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14 hrs over 2 days or blended</span>
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year certification</span>
       </div>
       <p class="cd-desc">The most comprehensive first aid certification available. Two days of in-depth training covering the full first aid and CPR curriculum — required by many healthcare programs, high-risk workplaces, and provincial regulations. Meets CSA Z1210 standard for Intermediate first aid training.</p>
-      <p class="cd-desc">Over two full days, you'll build on Emergency First Aid skills with advanced topics including head, neck and spinal injuries, bone and joint injuries, burns, poisoning, environmental emergencies, and multi-casualty incident management. This is the certification required by nursing programs, security professionals, construction sites, and industrial workplaces across Ontario. All training is hands-on with professional-grade equipment — no online shortcuts. Your WSIB Approved 3-year certificate is emailed the same day you complete the course.</p>
+      <p class="cd-desc">Over two full days, you'll build on Basic First Aid skills with advanced topics including head, neck and spinal injuries, bone and joint injuries, burns, poisoning, environmental emergencies, and multi-casualty incident management. This is the certification required by nursing programs, security professionals, construction sites, and industrial workplaces across Ontario. All training is hands-on with professional-grade equipment — no online shortcuts. Your WSIB Approved 3-year certificate is emailed the same day you complete the course.</p>
     </div>
     <div class="cd-columns">
       <div>
@@ -110,7 +110,7 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         </ul>
         <div class="cd-section-title">Course Content</div>
         <ul class="cd-list">
-          <li>Everything in Emergency First Aid &amp; CPR, plus:</li>
+          <li>Everything in Basic First Aid &amp; CPR, plus:</li>
           <li>Medical emergencies (heart attack, stroke, diabetic, seizure)</li>
           <li>Head, neck &amp; spinal injuries</li>
           <li>Bone, muscle &amp; joint injuries</li>
@@ -180,16 +180,16 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Renews your certification</span>
       </div>
       <p class="cd-desc">Already certified? Renew your credentials efficiently. Complete theory online at your own pace, then attend a shorter in-person skills session to refresh your hands-on abilities. A valid existing certificate is required.</p>
-      <p class="cd-desc">Recertification keeps your skills sharp and your credentials current without repeating the full course. You'll review updated guidelines online, then demonstrate your CPR and first aid techniques in a focused in-person session with an instructor. Available for both Emergency and Standard First Aid holders. Your renewed WSIB Approved certificate is emailed the same day — no gap in your certification status. Perfect for healthcare professionals, workplace first aiders, and anyone whose certificate is approaching expiry.</p>
+      <p class="cd-desc">Recertification keeps your skills sharp and your credentials current without repeating the full course. You'll review updated guidelines online, then demonstrate your CPR and first aid techniques in a focused in-person session with an instructor. Available for both Emergency and Intermediate First Aid holders. Your renewed WSIB Approved certificate is emailed the same day — no gap in your certification status. Perfect for healthcare professionals, workplace first aiders, and anyone whose certificate is approaching expiry.</p>
     </div>
     <div class="cd-columns">
       <div>
         <div class="cd-section-title">Duration</div>
         <ul class="cd-list">
-          <li>Emergency First Aid CPR A: 4 hrs</li>
-          <li>Emergency First Aid CPR C: 5 hrs</li>
-          <li>Standard First Aid CPR A: 6.5 hrs</li>
-          <li>Standard First Aid CPR C: 7.5 hrs</li>
+          <li>Basic First Aid CPR A: 4 hrs</li>
+          <li>Basic First Aid CPR C: 5 hrs</li>
+          <li>Intermediate First Aid CPR A: 6.5 hrs</li>
+          <li>Intermediate First Aid CPR C: 7.5 hrs</li>
         </ul>
       </div>
       <div>

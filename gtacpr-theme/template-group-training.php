@@ -66,10 +66,10 @@ $contact_url = get_permalink( get_page_by_path('contact') );
     <section class="courses-section">
       <h2>Available Group Courses</h2>
       <div class="course-list">
-        <div class="course-row"><div class="course-badge"><span class="cb cb-blended">Blended</span></div><div><div class="course-row-name">Emergency First Aid &amp; CPR Level C with AED</div><div class="course-row-sub">Online theory + in-person skills · 1-day equivalent · 3-year cert</div></div></div>
-        <div class="course-row"><div class="course-badge"><span class="cb cb-inperson">In-Person</span></div><div><div class="course-row-name">Emergency First Aid &amp; CPR Level C with AED</div><div class="course-row-sub">Full in-person delivery at your site · 1 day · 3-year cert</div></div></div>
-        <div class="course-row"><div class="course-badge"><span class="cb cb-blended">Blended</span></div><div><div class="course-row-name">Standard First Aid &amp; CPR Level C with AED</div><div class="course-row-sub">Online theory + in-person skills · 2-day equivalent · 3-year cert</div></div></div>
-        <div class="course-row"><div class="course-badge"><span class="cb cb-inperson">In-Person</span></div><div><div class="course-row-name">Standard First Aid &amp; CPR Level C with AED</div><div class="course-row-sub">Full in-person delivery at your site · 2 days · 3-year cert</div></div></div>
+        <div class="course-row"><div class="course-badge"><span class="cb cb-blended">Blended</span></div><div><div class="course-row-name">Basic First Aid &amp; CPR Level C with AED</div><div class="course-row-sub">Online theory + in-person skills · 1-day equivalent · 3-year cert</div></div></div>
+        <div class="course-row"><div class="course-badge"><span class="cb cb-inperson">In-Person</span></div><div><div class="course-row-name">Basic First Aid &amp; CPR Level C with AED</div><div class="course-row-sub">Full in-person delivery at your site · 1 day · 3-year cert</div></div></div>
+        <div class="course-row"><div class="course-badge"><span class="cb cb-blended">Blended</span></div><div><div class="course-row-name">Intermediate First Aid &amp; CPR Level C with AED</div><div class="course-row-sub">Online theory + in-person skills · 2-day equivalent · 3-year cert</div></div></div>
+        <div class="course-row"><div class="course-badge"><span class="cb cb-inperson">In-Person</span></div><div><div class="course-row-name">Intermediate First Aid &amp; CPR Level C with AED</div><div class="course-row-sub">Full in-person delivery at your site · 2 days · 3-year cert</div></div></div>
       </div>
     </section>
 
@@ -125,13 +125,13 @@ $contact_url = get_permalink( get_page_by_path('contact') );
           <label for="course">Course <span>*</span></label>
           <select class="form-control" id="course" name="course" required>
             <option value="" disabled selected>Select a course…</option>
-            <optgroup label="Emergency First Aid &amp; CPR Level C with AED">
-              <option value="efa-blended">Emergency First Aid + CPR-C — Blended</option>
-              <option value="efa-inperson">Emergency First Aid + CPR-C — In-Person</option>
+            <optgroup label="Basic First Aid &amp; CPR Level C with AED">
+              <option value="efa-blended">Basic First Aid + CPR-C — Blended</option>
+              <option value="efa-inperson">Basic First Aid + CPR-C — In-Person</option>
             </optgroup>
-            <optgroup label="Standard First Aid &amp; CPR Level C with AED">
-              <option value="sfa-blended">Standard First Aid + CPR-C — Blended</option>
-              <option value="sfa-inperson">Standard First Aid + CPR-C — In-Person</option>
+            <optgroup label="Intermediate First Aid &amp; CPR Level C with AED">
+              <option value="sfa-blended">Intermediate First Aid + CPR-C — Blended</option>
+              <option value="sfa-inperson">Intermediate First Aid + CPR-C — In-Person</option>
             </optgroup>
             <option value="unsure">Not sure — please advise</option>
           </select>

@@ -17,8 +17,8 @@
         <ul>
           <li><a href="<?php echo get_permalink( get_page_by_path('register') ); ?>">CPR Level A</a></li>
           <li><a href="<?php echo get_permalink( get_page_by_path('register') ); ?>">CPR Level C / AED</a></li>
-          <li><a href="<?php echo get_permalink( get_page_by_path('register') ); ?>">Emergency First Aid</a></li>
-          <li><a href="<?php echo get_permalink( get_page_by_path('register') ); ?>">Standard First Aid</a></li>
+          <li><a href="<?php echo get_permalink( get_page_by_path('register') ); ?>">Basic First Aid</a></li>
+          <li><a href="<?php echo get_permalink( get_page_by_path('register') ); ?>">Intermediate First Aid</a></li>
           <li><a href="<?php echo get_permalink( get_page_by_path('register') ); ?>">Recertification</a></li>
           <li><a href="<?php echo get_permalink( get_page_by_path('esl') ); ?>">ESL Classes</a></li>
         </ul>
@@ -34,6 +34,14 @@
           <li><a href="<?php echo home_url('/'); ?>#faq">FAQ</a></li>
         </ul>
       </div>
+    </div>
+    <!-- WSIB First Aid Program Badge -->
+    <div class="wsib-badge-row">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/wsib-first-aid-badge.png" alt="WSIB First Aid Program Approved Provider" width="160" height="80" style="height:50px;width:auto;display:block" loading="lazy" />
+    </div>
+    <!-- French Language Active Offer (WSIB Appendix A requirement) -->
+    <div class="french-offer">
+      <p lang="fr">Ce fournisseur de formation agréé n'offre pas actuellement de services de formation en premiers soins en français. Pour trouver un fournisseur offrant des services en français, veuillez consulter le <a href="https://www.wsib.ca" rel="noopener noreferrer" target="_blank">site Web de la WSIB</a>.</p>
     </div>
     <div class="footer-bottom">
       <span>© <?php echo date('Y'); ?> GTACPR. All rights reserved.</span>
@@ -98,7 +106,7 @@ $_schema = [
     '@type'      => 'FAQPage',
     'mainEntity' => [
         ['@type' => 'Question', 'name' => 'What certification will I receive?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'You will receive an official WSIB Approved certificate, compliant with Ontario workplace requirements and aligned with the national CSA Z1210 standard.']],
-        ['@type' => 'Question', 'name' => 'How long is the course?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'CPR-only courses are typically 4-5 hours. Emergency First Aid is a full day (6.5-7 hours). Standard First Aid runs over two days (14 hours). Blended options combine online theory with a shorter in-person skills session.']],
+        ['@type' => 'Question', 'name' => 'How long is the course?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'CPR-only courses are typically 4-5 hours. Basic First Aid is a full day (6.5-7 hours). Intermediate First Aid runs over two days (14 hours). Blended options combine online theory with a shorter in-person skills session.']],
         ['@type' => 'Question', 'name' => 'Do you offer recertification?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes — blended recertification lets you complete theory online, then attend a shorter in-person practical session.']],
         ['@type' => 'Question', 'name' => 'What should I bring to class?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Just yourself and comfortable clothing. All equipment, mannequins, AED trainers, and materials are provided. Your digital certificate is emailed the same day.']],
         ['@type' => 'Question', 'name' => 'Do you offer group or student discounts?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes — student discounts with valid ID, and group discounts for 3+ people registering together. Contact us for custom workplace group pricing.']],

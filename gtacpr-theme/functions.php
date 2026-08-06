@@ -146,7 +146,7 @@ add_filter( 'document_title_parts', 'gtacpr_page_titles' );
 function gtacpr_meta_tags() {
     $descriptions = [
         'home'           => 'Get WSIB Approved CPR and First Aid certification in the Greater Toronto Area. Same-day certificates, 7 days a week. Individual, group, and ESL classes available.',
-        'courses'        => 'Emergency First Aid, Standard First Aid, CPR Level C, Mask Fitting and Recertification. WSIB Approved courses with same-day certification across the GTA.',
+        'courses'        => 'Basic First Aid, Intermediate First Aid, CPR Level C, Mask Fitting and Recertification. WSIB Approved courses with same-day certification across the GTA.',
         'about'          => 'GTA CPR has provided WSIB Approved CPR and First Aid training across the Greater Toronto Area since 2013. 4.9-star Google rating, 2,500+ people certified.',
         'group-training' => 'On-site CPR and First Aid training for colleges, universities, and workplaces across the GTA. WSIB Approved, flexible scheduling, any group size.',
         'esl'            => 'CPR and First Aid classes taught in Mandarin, Cantonese, and Greek. Same WSIB Approved certification, bilingual instructors, no English required.',
