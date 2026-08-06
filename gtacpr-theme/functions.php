@@ -142,7 +142,7 @@ function gtacpr_topbar_message() {
         return '<strong>ESL Classes Available</strong> — Mandarin · Cantonese · Greek &nbsp;·&nbsp; <strong>' . $phone . '</strong>';
     }
     if ( is_page( 'register' ) ) {
-        return '<strong>Same-day certification</strong> — Your WSIB Approved certificate emailed within 24 hours &nbsp;·&nbsp; <strong>' . $phone . '</strong>';
+        return '<strong>Same-day certification</strong> — Your WSIB Approved certificate emailed the same day &nbsp;·&nbsp; <strong>' . $phone . '</strong>';
     }
     return '<strong>GTA CPR</strong> — WSIB Approved training since ' . $since . ' &nbsp;·&nbsp; <strong>' . $phone . '</strong>';
 }
@@ -230,3 +230,17 @@ add_action( 'wp_head', 'gtacpr_meta_tags', 1 );
 
 // Remove WordPress version meta tag (TECH-03)
 remove_action( 'wp_head', 'wp_generator' );
+
+// Prevent staging site from being indexed (TECH-01)
+function gtacpr_staging_noindex() {
+    if ( isset( $_SERVER['HTTP_HOST'] ) && strpos( $_SERVER['HTTP_HOST'], 'stagegtacpr' ) !== false ) {
+        echo '<meta name="robots" content="noindex, nofollow">' . "\n";
+    }
+}
+add_action( 'wp_head', 'gtacpr_staging_noindex', 0 );
+
+add_action( 'send_headers', function() {
+    if ( isset( $_SERVER['HTTP_HOST'] ) && strpos( $_SERVER['HTTP_HOST'], 'stagegtacpr' ) !== false ) {
+        header( 'X-Robots-Tag: noindex, nofollow', true );
+    }
+} );
