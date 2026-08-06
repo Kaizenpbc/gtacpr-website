@@ -23,7 +23,14 @@ function gtacpr_enqueue() {
         'gtacpr-style',
         get_stylesheet_uri(),
         [ 'google-fonts' ],
-        '1.8'
+        '1.9'
+    );
+    wp_enqueue_script(
+        'gtacpr-main',
+        get_template_directory_uri() . '/main.js',
+        [],
+        '1.1',
+        true
     );
     wp_enqueue_script(
         'gtacpr-chat',
@@ -38,62 +45,7 @@ function gtacpr_enqueue() {
 }
 add_action( 'wp_enqueue_scripts', 'gtacpr_enqueue' );
 
-/**
- * One-time page setup — auto-removes after running
- */
-function gtacpr_setup_pages() {
-    global $wpdb;
-
-    // Fix home-page slug → home
-    $wpdb->update( $wpdb->posts, [ 'post_name' => 'home' ],           [ 'post_name' => 'home-page',           'post_type' => 'page' ] );
-    // Fix higher-ed-workplace slug → group-training
-    $wpdb->update( $wpdb->posts, [ 'post_name' => 'group-training', 'post_title' => 'Group Training' ], [ 'post_name' => 'higher-ed-workplace', 'post_type' => 'page' ] );
-    // Fix template-about slug → about
-    $wpdb->update( $wpdb->posts, [ 'post_name' => 'about' ],          [ 'post_name' => 'template-about',      'post_type' => 'page' ] );
-
-    // Ensure templates are assigned correctly
-    $template_map = [
-        'home'           => 'template-home.php',
-        'about'          => 'template-about.php',
-        'courses'        => 'template-courses.php',
-        'group-training' => 'template-group-training.php',
-        'esl'            => 'template-esl.php',
-        'register'       => 'template-register.php',
-        'contact'        => 'template-contact.php',
-    ];
-    foreach ( $template_map as $slug => $template ) {
-        $page = get_page_by_path( $slug );
-        if ( $page ) {
-            update_post_meta( $page->ID, '_wp_page_template', $template );
-        } else {
-            // Create missing page
-            $id = wp_insert_post([
-                'post_title'  => ucwords( str_replace( '-', ' ', $slug ) ),
-                'post_name'   => $slug,
-                'post_status' => 'publish',
-                'post_type'   => 'page',
-            ]);
-            if ( $id && ! is_wp_error($id) ) {
-                update_post_meta( $id, '_wp_page_template', $template );
-            }
-        }
-    }
-
-    // Set Home as static front page
-    clean_post_cache( 0 );
-    $home = get_page_by_path('home');
-    if ( $home ) {
-        update_option( 'show_on_front', 'page' );
-        update_option( 'page_on_front', $home->ID );
-    }
-
-    // Remove self after running once
-    remove_action( 'init', 'gtacpr_setup_pages' );
-    update_option( 'gtacpr_pages_created', '2' );
-}
-if ( get_option('gtacpr_pages_created') !== '2' ) {
-    add_action( 'init', 'gtacpr_setup_pages' );
-}
+// SEC-01: setup-pages code removed — pages already exist, unauthenticated init hook was a security risk.
 
 /**
  * Preload the hero background image for inner pages.
@@ -243,4 +195,24 @@ add_action( 'send_headers', function() {
     if ( isset( $_SERVER['HTTP_HOST'] ) && strpos( $_SERVER['HTTP_HOST'], 'stagegtacpr' ) !== false ) {
         header( 'X-Robots-Tag: noindex, nofollow', true );
     }
+    // SEC-03: Security headers
+    header( 'X-Content-Type-Options: nosniff' );
+    header( 'X-Frame-Options: SAMEORIGIN' );
+    header( 'Referrer-Policy: strict-origin-when-cross-origin' );
+    header( 'Permissions-Policy: geolocation=(), microphone=(), camera=()' );
 } );
+
+/**
+ * Canonical URL tag (SEO-06)
+ */
+function gtacpr_canonical() {
+    if ( is_front_page() ) {
+        $url = home_url( '/' );
+    } elseif ( is_page() ) {
+        $url = get_permalink();
+    } else {
+        return;
+    }
+    echo '<link rel="canonical" href="' . esc_url( $url ) . '">' . "\n";
+}
+add_action( 'wp_head', 'gtacpr_canonical', 1 );

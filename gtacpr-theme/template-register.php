@@ -28,76 +28,37 @@ $contact_url = get_permalink( get_page_by_path('contact') );
       <p>Select a course and available date below. All classes include equipment, materials, and same-day digital certification.</p>
     </div>
 
-    <!-- SimplyBook.me widget goes here -->
-    <!-- TODO: Replace this placeholder with SimplyBook.me embed code once account is set up -->
-    <div class="booking-placeholder">
-      <div class="booking-placeholder-inner">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <h3>Online Booking Coming Soon</h3>
-        <p>Our online booking system is being set up. In the meantime, please call or email us to register for a class.</p>
-        <div class="booking-placeholder-btns">
-          <a href="tel:4167232571" class="btn-ph-call"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg> Call 416-723-2571</a>
-          <a href="<?php echo esc_url($contact_url); ?>" class="btn-ph-contact">Send a Message</a>
-        </div>
-      </div>
+    <!-- SimplyBook.me booking widget -->
+    <div class="booking-embed">
+      <iframe src="https://gtacprfrontend.simplybook.me/v2/" title="Book a CPR or First Aid class" loading="lazy" allowfullscreen></iframe>
     </div>
-    <!-- END SimplyBook placeholder -->
 
-    <!-- Course reference cards -->
+    <!-- Course reference cards (DATA-01: generated from business-config.php) -->
     <div class="courses-ref">
       <h3>Course Reference</h3>
       <div class="courses-ref-grid">
-        <div class="ref-card">
-          <div class="ref-name">CPR Level A</div>
-          <div class="ref-meta">Half-day · 1-year cert</div>
-          <div class="ref-price">$65<span>/person</span></div>
+        <?php
+        $courses = gtacpr_config('courses');
+        foreach ( $courses as $c ) :
+          if ( $c['id'] === 'esl' ) continue; // ESL has its own page
+          $is_popular = $c['id'] === 'efa';
+          $price_display = $c['price'] !== null ? '$' . $c['price'] . '<span>/person</span>' : '<span>Contact for pricing</span>';
+          $meta_parts = [];
+          if ( $c['duration'] ) $meta_parts[] = $c['duration'];
+          if ( $c['cert_years'] ) $meta_parts[] = $c['cert_years'] . '-year cert';
+        ?>
+        <div class="ref-card<?php echo $is_popular ? ' ref-popular' : ''; ?>">
+          <?php if ( $is_popular ) : ?><div class="ref-badge">Most Popular</div><?php endif; ?>
+          <div class="ref-name"><?php echo esc_html( $c['name'] ); ?></div>
+          <div class="ref-meta"><?php echo esc_html( implode( ' · ', $meta_parts ) ); ?></div>
+          <div class="ref-price"><?php echo $price_display; ?></div>
           <ul class="ref-list">
-            <li>Adult CPR &amp; choking</li>
+            <li><?php echo esc_html( $c['notes'] ); ?></li>
             <li>WSIB Approved</li>
-            <li>Certificate same day</li>
+            <li><?php echo esc_html( gtacpr_config('policies')['cert_delivery'] ); ?></li>
           </ul>
         </div>
-        <div class="ref-card">
-          <div class="ref-name">CPR Level C / AED</div>
-          <div class="ref-meta">Half-day · 1-year cert</div>
-          <div class="ref-price">$75<span>/person</span></div>
-          <ul class="ref-list">
-            <li>Adult, child &amp; infant CPR</li>
-            <li>AED training included</li>
-            <li>WSIB Approved</li>
-          </ul>
-        </div>
-        <div class="ref-card ref-popular">
-          <div class="ref-badge">Most Popular</div>
-          <div class="ref-name">Emergency First Aid + CPR-C</div>
-          <div class="ref-meta">1 day · 3-year cert</div>
-          <div class="ref-price">$90<span>/person</span></div>
-          <ul class="ref-list">
-            <li>CPR Level C + AED</li>
-            <li>Bleeding, choking, shock</li>
-            <li>WSIB Approved</li>
-          </ul>
-        </div>
-        <div class="ref-card">
-          <div class="ref-name">Standard First Aid + CPR-C</div>
-          <div class="ref-meta">2 days · 3-year cert</div>
-          <div class="ref-price">$115<span>/person</span></div>
-          <ul class="ref-list">
-            <li>Full first aid curriculum</li>
-            <li>Most comprehensive cert</li>
-            <li>WSIB Approved</li>
-          </ul>
-        </div>
-        <div class="ref-card">
-          <div class="ref-name">Recertification (Blended)</div>
-          <div class="ref-meta">Online + 4hr session</div>
-          <div class="ref-price">$65<span>/person</span></div>
-          <ul class="ref-list">
-            <li>Online theory first</li>
-            <li>In-person skills check</li>
-            <li>Existing cert required</li>
-          </ul>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
 
@@ -110,15 +71,9 @@ $contact_url = get_permalink( get_page_by_path('contact') );
 .booking-header{text-align:center;margin-bottom:2rem}
 .booking-header h2{font-size:clamp(1.2rem,3vw,1.5rem);font-weight:800;color:var(--g900);margin-bottom:.5rem}
 .booking-header p{font-size:14px;color:var(--g600);max-width:500px;margin:0 auto}
-.booking-placeholder{background:var(--w);border:2px dashed var(--g200);border-radius:16px;padding:3rem 2rem;text-align:center;margin-bottom:3rem}
-.booking-placeholder-inner svg{width:48px;height:48px;color:var(--g400);margin:0 auto 1rem}
-.booking-placeholder-inner h3{font-size:1.2rem;font-weight:800;color:var(--g800);margin-bottom:.5rem}
-.booking-placeholder-inner p{font-size:14px;color:var(--g600);margin-bottom:1.5rem;line-height:1.6}
-.booking-placeholder-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.btn-ph-call{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;background:var(--g900);color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);transition:background .15s}
-.btn-ph-call:hover{background:var(--g800)}
-.btn-ph-contact{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);transition:background .15s}
-.btn-ph-contact:hover{background:var(--rdk)}
+.booking-embed{background:var(--w);border-radius:16px;overflow:hidden;margin-bottom:3rem;box-shadow:var(--sh)}
+.booking-embed iframe{width:100%;height:700px;border:0;display:block}
+@media(max-width:768px){.booking-embed iframe{height:600px}}
 .courses-ref h3{font-size:1rem;font-weight:700;color:var(--g800);margin-bottom:1rem}
 .courses-ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .ref-card{background:var(--w);border:1px solid var(--g200);border-radius:12px;padding:1.25rem;position:relative;box-shadow:var(--sh)}
@@ -132,7 +87,7 @@ $contact_url = get_permalink( get_page_by_path('contact') );
 .ref-list li{padding:2px 0;padding-left:14px;position:relative}
 .ref-list li::before{content:'✓';position:absolute;left:0;color:var(--red);font-weight:700;font-size:11px}
 @media(max-width:768px){.courses-ref-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.courses-ref-grid{grid-template-columns:1fr}.booking-placeholder-btns{flex-direction:column}}
+@media(max-width:480px){.courses-ref-grid{grid-template-columns:1fr}.booking-embed iframe{height:500px}}
 </style>
 
 <?php get_footer(); ?>

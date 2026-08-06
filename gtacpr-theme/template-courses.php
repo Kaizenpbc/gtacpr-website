@@ -244,4 +244,39 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
 
 </div>
 
+<?php
+// SCHEMA-02: Course structured data
+$_cfg = gtacpr_config();
+$_courses_schema = [];
+foreach ( $_cfg['courses'] as $c ) {
+    if ( $c['id'] === 'esl' ) continue;
+    $course = [
+        '@type'       => 'Course',
+        'name'        => $c['name'],
+        'description' => $c['notes'],
+        'provider'    => [
+            '@type' => 'Organization',
+            'name'  => $_cfg['name'],
+            'url'   => home_url('/'),
+        ],
+    ];
+    if ( $c['duration'] ) {
+        $course['timeRequired'] = $c['duration'];
+    }
+    if ( $c['price'] !== null ) {
+        $course['offers'] = [
+            '@type'         => 'Offer',
+            'price'         => $c['price'],
+            'priceCurrency' => 'CAD',
+        ];
+    }
+    $_courses_schema[] = $course;
+}
+?>
+<script type="application/ld+json"><?php echo wp_json_encode([
+    '@context'  => 'https://schema.org',
+    '@type'     => 'ItemList',
+    'itemListElement' => $_courses_schema,
+]); ?></script>
+
 <?php get_footer(); ?>

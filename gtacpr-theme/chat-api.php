@@ -30,7 +30,12 @@ if ( ! $allowed_origin ) {
     exit;
 }
 
-if ( $request_origin !== $allowed_origin ) {
+// SEC-02: Validate both Origin and Referer headers to harden against spoofing
+$request_referer = $_SERVER['HTTP_REFERER'] ?? '';
+$origin_ok  = $request_origin === $allowed_origin;
+$referer_ok = $request_referer && strpos( $request_referer, $allowed_origin ) === 0;
+
+if ( ! $origin_ok && ! $referer_ok ) {
     http_response_code(403);
     echo json_encode(['error' => 'Forbidden']);
     exit;
