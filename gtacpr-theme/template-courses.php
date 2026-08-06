@@ -44,27 +44,28 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
       <span class="cd-badge">Most Popular</span>
       <h2 class="cd-title">Basic First Aid &amp; CPR</h2>
       <div class="cd-meta-row">
-        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6.5–7 hrs in-class or blended</span>
+        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8 hours in-class or blended</span>
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year certification</span>
       </div>
-      <p class="cd-desc">An essential one-day course that equips you with the skills to respond confidently in an emergency — whether at home or in the workplace. Meets Federal and Provincial workplace first aid requirements and the CSA Z1210 standard. Includes the latest first aid and CPR guidelines.</p>
-      <p class="cd-desc">You'll learn to recognize and respond to breathing and cardiac emergencies, control bleeding, manage choking victims of all ages, and use an AED with confidence. This course is ideal for PSW students, healthcare workers, teachers, childcare providers, and anyone required to hold a valid first aid certificate. All training is instructor-led with hands-on practice using professional-grade mannequins and AED trainers — no online shortcuts. Your WSIB Approved certificate is emailed the same day you complete the course.</p>
+      <p class="cd-desc">A one-day course aligned with the CSA Z1210 standard that equips you with the skills to respond confidently in an emergency — whether at home or in the workplace. Meets WSIB requirements for Ontario workplace first aid compliance.</p>
+      <p class="cd-desc">You'll learn to recognize and respond to breathing and cardiac emergencies, control bleeding, manage choking, use an AED, and recognize mental health emergencies. This course is ideal for PSW students, healthcare workers, teachers, childcare providers, and anyone required to hold a valid first aid certificate. All training is instructor-led with hands-on practice using professional-grade mannequins and AED trainers. Your WSIB Approved certificate is emailed the same day you complete the course.</p>
     </div>
     <div class="cd-columns">
       <div>
         <div class="cd-section-title">Duration</div>
         <ul class="cd-list">
-          <li>CPR A: 6.5 hrs in-class or 4 hrs in-class + 4 hrs online</li>
-          <li>CPR C: 7 hrs in-class or 5 hrs in-class + 4 hrs online</li>
+          <li>8 hours in-class, or blended (online theory + in-person skills)</li>
         </ul>
-        <div class="cd-section-title">Course Content</div>
+        <div class="cd-section-title">Course Content (CSA Z1210)</div>
         <ul class="cd-list">
           <li>Preparing to respond &amp; the EMS system</li>
           <li>Check, Call, Care framework</li>
           <li>Airway, breathing &amp; circulation emergencies</li>
-          <li>CPR for respiratory and cardiac arrest</li>
+          <li>CPR &amp; AED for adults, children &amp; infants</li>
           <li>Wound care &amp; bleeding control</li>
           <li>Choking management (all ages)</li>
+          <li>Shock recognition &amp; management</li>
+          <li>Mental health emergency recognition</li>
         </ul>
       </div>
       <div>
@@ -76,8 +77,8 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         </ul>
         <div class="cd-section-title">Recertification</div>
         <ul class="cd-list">
-          <li>CPR A: 4 hours in-class</li>
-          <li>CPR C: 5 hours in-class</li>
+          <li>8-hour refresher course</li>
+          <li>Certificate may be renewed once; full course required after</li>
         </ul>
         <div class="cd-section-title">Participant Materials</div>
         <ul class="cd-list">
@@ -95,26 +96,27 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
     <div>
       <h2 class="cd-title">Intermediate First Aid &amp; CPR</h2>
       <div class="cd-meta-row">
-        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14 hrs over 2 days or blended</span>
+        <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>16 hours over 2 days or blended</span>
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year certification</span>
       </div>
-      <p class="cd-desc">The most comprehensive first aid certification available. Two days of in-depth training covering the full first aid and CPR curriculum — required by many healthcare programs, high-risk workplaces, and provincial regulations. Meets CSA Z1210 standard for Intermediate first aid training.</p>
-      <p class="cd-desc">Over two full days, you'll build on Basic First Aid skills with advanced topics including head, neck and spinal injuries, bone and joint injuries, burns, poisoning, environmental emergencies, and multi-casualty incident management. This is the certification required by nursing programs, security professionals, construction sites, and industrial workplaces across Ontario. All training is hands-on with professional-grade equipment — no online shortcuts. Your WSIB Approved 3-year certificate is emailed the same day you complete the course.</p>
+      <p class="cd-desc">The most comprehensive first aid certification available. Two full days of in-depth training covering the complete CSA Z1210 Intermediate first aid curriculum — required by many healthcare programs, high-risk workplaces, and provincial regulations.</p>
+      <p class="cd-desc">Over two days, you'll build on Basic First Aid skills with advanced topics including head, neck and spinal injuries, bone and joint injuries, burns, poisoning, opioid overdose awareness, environmental emergencies, mental health first aid, and multi-casualty incident management. This is the certification required by nursing programs, security professionals, construction sites, and industrial workplaces across Ontario. All training is hands-on with professional-grade equipment. Your WSIB Approved 3-year certificate is emailed the same day you complete the course.</p>
     </div>
     <div class="cd-columns">
       <div>
         <div class="cd-section-title">Duration</div>
         <ul class="cd-list">
-          <li>CPR A: 13 hrs in-class or 9 hrs in-class + 7 hrs online</li>
-          <li>CPR C: 14 hrs in-class or 10 hrs in-class + 7 hrs online</li>
+          <li>16 hours in-class (2 days), or blended (online theory + in-person skills)</li>
         </ul>
-        <div class="cd-section-title">Course Content</div>
+        <div class="cd-section-title">Course Content (CSA Z1210)</div>
         <ul class="cd-list">
           <li>Everything in Basic First Aid &amp; CPR, plus:</li>
-          <li>Medical emergencies (heart attack, stroke, diabetic, seizure)</li>
+          <li>Medical emergencies (heart attack, stroke, diabetic, seizure, asthma)</li>
           <li>Head, neck &amp; spinal injuries</li>
           <li>Bone, muscle &amp; joint injuries</li>
           <li>Burns, poisoning &amp; environmental emergencies</li>
+          <li>Opioid overdose &amp; poisoning awareness</li>
+          <li>Mental health first aid</li>
           <li>Eye &amp; dental injuries</li>
           <li>Multiple-casualty management</li>
         </ul>
@@ -128,8 +130,8 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         </ul>
         <div class="cd-section-title">Recertification</div>
         <ul class="cd-list">
-          <li>CPR A: 6.5 hours in-class</li>
-          <li>CPR C: 7.5 hours in-class</li>
+          <li>8-hour refresher course</li>
+          <li>Certificate may be renewed once; full course required after</li>
         </ul>
         <div class="cd-section-title">Participant Materials</div>
         <ul class="cd-list">
@@ -179,17 +181,20 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Online + in-person session</span>
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Renews your certification</span>
       </div>
-      <p class="cd-desc">Already certified? Renew your credentials efficiently. Complete theory online at your own pace, then attend a shorter in-person skills session to refresh your hands-on abilities. A valid existing certificate is required.</p>
-      <p class="cd-desc">Recertification keeps your skills sharp and your credentials current without repeating the full course. You'll review updated guidelines online, then demonstrate your CPR and first aid techniques in a focused in-person session with an instructor. Available for both Emergency and Intermediate First Aid holders. Your renewed WSIB Approved certificate is emailed the same day — no gap in your certification status. Perfect for healthcare professionals, workplace first aiders, and anyone whose certificate is approaching expiry.</p>
+      <p class="cd-desc">Already certified? Renew your credentials efficiently. Complete theory online at your own pace, then attend a shorter in-person skills session to refresh your hands-on abilities. A valid, unexpired certificate is required.</p>
+      <p class="cd-desc">Recertification keeps your skills sharp and your credentials current without repeating the full course. You'll review updated guidelines online, then demonstrate your CPR and first aid techniques in a focused in-person session with an instructor. Available for both Basic and Intermediate First Aid holders. Note: under the CSA Z1210 standard, certificates may only be renewed once — after that, the full course is required. Your renewed WSIB Approved certificate is emailed the same day.</p>
     </div>
     <div class="cd-columns">
       <div>
         <div class="cd-section-title">Duration</div>
         <ul class="cd-list">
-          <li>Basic First Aid CPR A: 4 hrs</li>
-          <li>Basic First Aid CPR C: 5 hrs</li>
-          <li>Intermediate First Aid CPR A: 6.5 hrs</li>
-          <li>Intermediate First Aid CPR C: 7.5 hrs</li>
+          <li>Basic First Aid: 8-hour refresher</li>
+          <li>Intermediate First Aid: 8-hour refresher</li>
+        </ul>
+        <div class="cd-section-title">Important</div>
+        <ul class="cd-list">
+          <li>Certificates may only be renewed once via recertification</li>
+          <li>After one renewal, the full original course is required</li>
         </ul>
       </div>
       <div>
@@ -197,7 +202,7 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         <ul class="cd-list cd-completion">
           <li>Successfully demonstrate skills and critical steps</li>
           <li>Minimum 75% on written knowledge evaluation</li>
-          <li>Valid existing certification required</li>
+          <li>Valid, unexpired certification required</li>
         </ul>
         <div class="cd-section-title">Participant Materials</div>
         <ul class="cd-list">

@@ -63,8 +63,8 @@ $home_url     = home_url('/');
         <div class="course-body">
           <span class="course-badge cb-c">Most Popular</span>
           <div class="course-name">Basic First Aid + CPR-C</div>
-          <div class="course-meta">1 day · 3-year cert</div>
-          <div class="course-desc">CPR, AED, bleeding control and choking response. WSIB Approved — the most common certification for Ontario workplaces.</div>
+          <div class="course-meta">8 hrs · 3-year cert</div>
+          <div class="course-desc">CPR, AED, bleeding control, choking response and mental health emergency recognition. WSIB Approved — the most common certification for Ontario workplaces.</div>
           <a href="<?php echo esc_url($register_url); ?>" class="btn-course">Register Now</a>
         </div>
       </div>
@@ -73,8 +73,8 @@ $home_url     = home_url('/');
         <div class="course-body">
           <span class="course-badge cb-sfa">Full Cert</span>
           <div class="course-name">Intermediate First Aid + CPR-C</div>
-          <div class="course-meta">2 days · 3-year cert</div>
-          <div class="course-desc">The most comprehensive certification — covers the full first aid and CPR curriculum over two days.</div>
+          <div class="course-meta">16 hrs over 2 days · 3-year cert</div>
+          <div class="course-desc">The most comprehensive certification — covers the full CSA Z1210 first aid and CPR curriculum over two days.</div>
           <a href="<?php echo esc_url($register_url); ?>" class="btn-course">Register Now</a>
         </div>
       </div>

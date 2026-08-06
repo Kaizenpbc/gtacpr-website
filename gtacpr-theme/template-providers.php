@@ -118,11 +118,11 @@ get_header();
     <div class="courses-offered">
       <div class="co-card">
         <h4>Basic First Aid &amp; CPR</h4>
-        <p>6.5–7 hrs &middot; 3-year cert</p>
+        <p>8 hrs &middot; 3-year cert</p>
       </div>
       <div class="co-card">
         <h4>Intermediate First Aid &amp; CPR</h4>
-        <p>14 hrs over 2 days &middot; 3-year cert</p>
+        <p>16 hrs over 2 days &middot; 3-year cert</p>
       </div>
       <div class="co-card">
         <h4>Mask Fitting</h4>
