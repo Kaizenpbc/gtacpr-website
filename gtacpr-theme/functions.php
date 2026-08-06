@@ -23,7 +23,7 @@ function gtacpr_enqueue() {
         'gtacpr-style',
         get_stylesheet_uri(),
         [ 'google-fonts' ],
-        '2.1'
+        '2.2'
     );
     wp_enqueue_script(
         'gtacpr-main',
@@ -174,7 +174,10 @@ function gtacpr_meta_tags() {
         echo '<meta property="og:site_name" content="GTA CPR">' . "\n";
         echo '<meta property="og:title" content="' . esc_attr( $title ) . '">' . "\n";
         echo '<meta property="og:description" content="' . esc_attr( $desc ) . '">' . "\n";
-        echo '<meta property="og:url" content="' . esc_url( home_url( $_SERVER['REQUEST_URI'] ) ) . '">' . "\n";
+        $og_url = is_front_page() ? home_url( '/' ) : get_permalink();
+        echo '<meta property="og:url" content="' . esc_url( $og_url ) . '">' . "\n";
+        $og_image = get_template_directory_uri() . '/assets/gtacpr-og.png';
+        echo '<meta property="og:image" content="' . esc_url( $og_image ) . '">' . "\n";
         echo '<meta name="twitter:card" content="summary">' . "\n";
     }
 }

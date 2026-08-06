@@ -121,10 +121,37 @@ $home_url     = home_url('/');
     </div>
     <div class="cta-btns">
       <a href="<?php echo esc_url($register_url); ?>" class="btn-primary">Register Now</a>
-      <a href="tel:4167232571" class="btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg> Call Us First</a>
+      <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>" class="btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg> Call Us First</a>
     </div>
   </div>
 
 </div>
+
+<?php
+$_cfg = gtacpr_config();
+$_esl_languages = ['Mandarin', 'Cantonese', 'Greek'];
+$_esl_courses = [];
+foreach ( $_esl_languages as $lang ) {
+    $_esl_courses[] = [
+        '@type'              => 'Course',
+        'name'               => 'Basic First Aid & CPR — ' . $lang,
+        'description'        => 'WSIB Approved Basic First Aid and CPR course taught in ' . $lang . '.',
+        'inLanguage'         => $lang,
+        'provider'           => [ '@type' => 'Organization', 'name' => $_cfg['name'], 'url' => home_url('/') ],
+    ];
+    $_esl_courses[] = [
+        '@type'              => 'Course',
+        'name'               => 'Intermediate First Aid & CPR — ' . $lang,
+        'description'        => 'WSIB Approved Intermediate First Aid and CPR course taught in ' . $lang . '.',
+        'inLanguage'         => $lang,
+        'provider'           => [ '@type' => 'Organization', 'name' => $_cfg['name'], 'url' => home_url('/') ],
+    ];
+}
+?>
+<script type="application/ld+json"><?php echo wp_json_encode([
+    '@context'        => 'https://schema.org',
+    '@type'           => 'ItemList',
+    'itemListElement' => $_esl_courses,
+]); ?></script>
 
 <?php get_footer(); ?>
