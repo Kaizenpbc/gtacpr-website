@@ -50,22 +50,23 @@ function gtacpr_config( $key = null ) {
             // price: integer (dollars) or null = contact for pricing
             // cert_years: integer or null = N/A
             'courses' => [
-                [
-                    'id'         => 'cpr-a',
-                    'name'       => 'CPR Level A',
-                    'price'      => 65,
-                    'duration'   => 'Half-day',
-                    'cert_years' => 1,
-                    'notes'      => 'Basic CPR for adults.',
-                ],
-                [
-                    'id'         => 'cpr-c',
-                    'name'       => 'CPR Level C / AED',
-                    'price'      => 75,
-                    'duration'   => 'Half-day',
-                    'cert_years' => 1,
-                    'notes'      => 'CPR for adults, children & infants + AED use. Most common for workplaces.',
-                ],
+                // HIDDEN: non-WSIB courses — owner decision pending
+                // [
+                //     'id'         => 'cpr-a',
+                //     'name'       => 'CPR Level A',
+                //     'price'      => 65,
+                //     'duration'   => 'Half-day',
+                //     'cert_years' => 1,
+                //     'notes'      => 'Basic CPR for adults.',
+                // ],
+                // [
+                //     'id'         => 'cpr-c',
+                //     'name'       => 'CPR Level C / AED',
+                //     'price'      => 75,
+                //     'duration'   => 'Half-day',
+                //     'cert_years' => 1,
+                //     'notes'      => 'CPR for adults, children & infants + AED use. Most common for workplaces.',
+                // ],
                 [
                     'id'         => 'sfa',
                     'name'       => 'Intermediate First Aid + CPR-C',
