@@ -291,7 +291,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .stat-label{font-size:12px;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
 
 /* ── MAIN CONTENT ── */
-.page-body{max-width:1160px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 1.25rem}
+.stat-bar + .page-body{max-width:1160px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 1.25rem;display:block}
 
 /* VISION SECTION */
 .vision-section{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--g200)}
@@ -564,7 +564,7 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 }
 
 /* ════════════════════════════
-   ESL PAGE
+   ESL PAGE — reset grid from other page-body rules
 ════════════════════════════ */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -600,7 +600,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .lang-native{font-size:12px;color:rgba(255,255,255,.75);display:block}
 
 /* ── MAIN CONTENT ── */
-.page-body{max-width:1160px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 1.25rem}
+.lang-bar + .page-body{max-width:1160px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 1.25rem;display:block}
 
 /* SPLIT SECTIONS — same as About page */
 .split-section{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--g200)}
