@@ -4,12 +4,12 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR — Get Certified!" width="325" height="88" style="height:44px;width:auto;display:block;margin-bottom:12px;filter:brightness(0) invert(1)" loading="lazy" />
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="" width="325" height="88" style="height:44px;width:auto;display:block;margin-bottom:12px;filter:brightness(0) invert(1)" loading="lazy" />
         <p class="footer-tagline">Greater Toronto Area's trusted WSIB Approved CPR and First Aid training provider. Serving individuals, workplaces, and newcomers since 2013.</p>
         <div class="footer-contact">
-          <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>">📞 <?php echo esc_html( gtacpr_phone() ); ?></a>
-          <a href="mailto:<?php echo esc_attr( gtacpr_email() ); ?>">✉ <?php echo esc_html( gtacpr_email() ); ?></a>
-          <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>#map">📍 <?php echo esc_html( gtacpr_address() ); ?></a>
+          <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg> <?php echo esc_html( gtacpr_phone() ); ?></a>
+          <a href="mailto:<?php echo esc_attr( gtacpr_email() ); ?>"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <?php echo esc_html( gtacpr_email() ); ?></a>
+          <a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>#map"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <?php echo esc_html( gtacpr_address() ); ?></a>
         </div>
       </div>
       <div class="footer-col">
@@ -34,31 +34,19 @@
           <li><a href="<?php echo home_url('/'); ?>#faq">FAQ</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Service Areas</div>
-        <ul>
-          <li><a href="#">CPR Markham</a></li>
-          <li><a href="#">CPR Scarborough</a></li>
-          <li><a href="#">CPR North York</a></li>
-          <li><a href="#">CPR Mississauga</a></li>
-          <li><a href="#">CPR Brampton</a></li>
-          <li><a href="#">CPR Richmond Hill</a></li>
-        </ul>
-      </div>
     </div>
     <div class="footer-bottom">
       <span>© <?php echo date('Y'); ?> GTACPR. All rights reserved.</span>
       <div class="footer-badges">
         <span class="footer-badge">WSIB Approved</span>
         <span class="footer-badge">Serving GTA Since 2013</span>
-        <span class="footer-badge">4.9 ★ Google</span>
       </div>
     </div>
   </div>
 </footer>
 
 <div class="mob-cta" aria-label="Quick actions">
-  <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>" class="mob-call">📞 Call Now</a>
+  <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>" class="mob-call"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg> Call Now</a>
   <a href="#" class="mob-book open-booking">Book a Class →</a>
 </div>
 
@@ -78,13 +66,18 @@
 
 <?php
 $_cfg = gtacpr_config();
+$_url = defined('GTACPR_SITE_URL') ? GTACPR_SITE_URL : home_url('/');
 $_schema = [
     '@context'        => 'https://schema.org',
     '@type'           => 'LocalBusiness',
+    '@id'             => $_url . '#business',
     'name'            => $_cfg['name'],
-    'url'             => defined('GTACPR_SITE_URL') ? GTACPR_SITE_URL : home_url('/'),
+    'description'     => $_cfg['tagline'],
+    'url'             => $_url,
     'telephone'       => '+1-' . $_cfg['phone'],
     'email'           => $_cfg['email'],
+    'foundingDate'    => $_cfg['since'],
+    'priceRange'      => '$',
     'address'         => [
         '@type'           => 'PostalAddress',
         'streetAddress'   => $_cfg['address'],
@@ -95,6 +88,7 @@ $_schema = [
     ],
     'areaServed'      => $_cfg['service_areas'],
     'openingHours'    => $_cfg['hours'],
+    'sameAs'          => [],
     'aggregateRating' => [
         '@type'       => 'AggregateRating',
         'ratingValue' => $_cfg['rating'],
@@ -103,6 +97,20 @@ $_schema = [
 ];
 ?>
 <script type="application/ld+json"><?php echo wp_json_encode( $_schema ); ?></script>
+<?php if ( is_front_page() ) : ?>
+<script type="application/ld+json"><?php echo wp_json_encode([
+    '@context'   => 'https://schema.org',
+    '@type'      => 'FAQPage',
+    'mainEntity' => [
+        ['@type' => 'Question', 'name' => 'What certification will I receive?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'You will receive an official WSIB Approved certificate, compliant with Ontario workplace requirements and aligned with the national CSA Z1210 standard.']],
+        ['@type' => 'Question', 'name' => 'How long is the course?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'CPR-only courses are typically 4-5 hours. Emergency First Aid is a full day (6.5-7 hours). Standard First Aid runs over two days (14 hours). Blended options combine online theory with a shorter in-person skills session.']],
+        ['@type' => 'Question', 'name' => 'Do you offer recertification?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes — blended recertification lets you complete theory online, then attend a shorter in-person practical session.']],
+        ['@type' => 'Question', 'name' => 'What should I bring to class?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Just yourself and comfortable clothing. All equipment, mannequins, AED trainers, and materials are provided. Your digital certificate is emailed the same day.']],
+        ['@type' => 'Question', 'name' => 'Do you offer group or student discounts?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Yes — student discounts with valid ID, and group discounts for 3+ people registering together. Contact us for custom workplace group pricing.']],
+        ['@type' => 'Question', 'name' => 'What is your cancellation policy?', 'acceptedAnswer' => ['@type' => 'Answer', 'text' => 'Full refund or free reschedule with 48 hours notice for individuals. No cancellation fees for group/on-site training with 24 hours notice.']],
+    ],
+]); ?></script>
+<?php endif; ?>
 
 <script>
 (function(){

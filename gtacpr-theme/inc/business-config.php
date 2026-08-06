@@ -105,7 +105,7 @@ function gtacpr_config( $key = null ) {
                 'cancellation_individual' => '48 hours notice for full refund or free reschedule',
                 'cancellation_group'      => 'No cancellation fees with 24 hours notice',
                 'bring_to_class'          => 'Just yourself and comfortable clothes. All equipment provided.',
-                'cert_delivery'           => 'Digital certificate emailed within 24 hours',
+                'cert_delivery'           => 'Digital certificate emailed same day',
                 'group_min_discount'      => 3,
             ],
 

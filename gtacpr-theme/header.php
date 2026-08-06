@@ -19,7 +19,7 @@
   <div class="nav-inner">
     <a href="<?php echo home_url('/'); ?>" class="nav-logo" aria-label="GTA CPR Home">
       <?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR — Get Certified!" width="325" height="88" />
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR home" width="325" height="88" />
       <?php endif; ?>
     </a>
 
@@ -31,7 +31,7 @@
       ?>
       <?php echo gtacpr_nav_item( 'About',         get_permalink( get_page_by_path('about') ),          'about' ); ?>
       <?php echo gtacpr_nav_item( 'Courses',       get_permalink( get_page_by_path('courses') ),        'courses' ); ?>
-      <?php echo gtacpr_nav_item( 'Colleges/Workplace', get_permalink( get_page_by_path('group-training') ), 'group-training' ); ?>
+      <?php echo gtacpr_nav_item( 'Group Training', get_permalink( get_page_by_path('group-training') ), 'group-training' ); ?>
       <?php echo gtacpr_nav_item( 'ESL',           get_permalink( get_page_by_path('esl') ),            'esl' ); ?>
       <?php echo gtacpr_nav_item( 'Providers',     get_permalink( get_page_by_path('providers') ),     'providers' ); ?>
       <li><a href="<?php echo esc_url($reviews_link); ?>">Reviews</a></li>
@@ -73,7 +73,7 @@
   <ul class="drawer-nav">
     <li><a href="<?php echo get_permalink( get_page_by_path('about') ); ?>"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>About Us</a></li>
     <li><a href="<?php echo get_permalink( get_page_by_path('courses') ); ?>"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Courses</a></li>
-    <li><a href="<?php echo get_permalink( get_page_by_path('group-training') ); ?>"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Colleges/Workplace</a></li>
+    <li><a href="<?php echo get_permalink( get_page_by_path('group-training') ); ?>"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Group Training</a></li>
     <li><a href="<?php echo get_permalink( get_page_by_path('esl') ); ?>"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>ESL Classes</a></li>
     <li><a href="<?php echo get_permalink( get_page_by_path('providers') ); ?>"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Providers</a></li>
     <li><a href="<?php echo esc_url($reviews_link); ?>"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Reviews</a></li>
@@ -81,7 +81,7 @@
     <li><a href="<?php echo get_permalink( get_page_by_path('contact') ); ?>"<?php echo is_page('contact') ? ' style="color:var(--red)"' : ''; ?>><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>Contact</a></li>
   </ul>
   <div class="drawer-footer">
-    <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>" class="d-call">📞 <?php echo esc_html( gtacpr_phone() ); ?></a>
+    <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>" class="d-call"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg> <?php echo esc_html( gtacpr_phone() ); ?></a>
     <a href="#" class="d-book open-booking">Book a Class →</a>
   </div>
 </div>

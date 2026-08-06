@@ -33,7 +33,7 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
       </div>
       <div class="hero-trust">
         <div class="hero-trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="hero-trust-txt"><strong>Trusted by GTA Learners</strong><span><span class="hstars">★★★★★</span> 4.9 / 5 — 60+ reviews</span></div>
+        <div class="hero-trust-txt"><strong>Trusted by GTA Learners</strong><span><span role="img" aria-label="Rated 4.9 out of 5"><span class="hstars" aria-hidden="true">★★★★★</span></span> 4.9 / 5 — 60+ reviews</span></div>
       </div>
     </div>
   </div>
@@ -186,7 +186,6 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
       </ul>
     </div>
     <div>
-      <div class="cd-section-title">&nbsp;</div>
       <ul class="cd-list">
         <li>Fit test documentation &amp; certificate</li>
         <li>Guidance on proper mask use and maintenance</li>
@@ -241,10 +240,10 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
       <h2>On-Site CPR &amp; First Aid Training for Teams</h2>
       <ul class="onsite-ul">
         <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>We come to you — no travel for your team</li>
-        <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Group discounts available (5+ people)</li>
+        <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Group discounts available (3+ people)</li>
         <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Flexible scheduling — evenings &amp; weekends</li>
         <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>WSIB Approved &amp; government compliant</li>
-        <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>No cancellation fees*</li>
+        <li><span class="ob" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>No cancellation fees with 24 hours notice</li>
       </ul>
       <a href="<?php echo esc_url($group_url); ?>#request-form" class="btn-quote">Request a Quote</a>
     </div>
@@ -257,9 +256,9 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
   <h3>CPR &amp; First Aid Classes in Mandarin, Cantonese &amp; Greek</h3>
   <p>Making life-saving skills accessible to newcomers and diverse communities across the GTA.</p>
   <div class="esl-langs">
-    <span class="lang-badge">🇨🇳 Mandarin</span>
-    <span class="lang-badge">🇭🇰 Cantonese</span>
-    <span class="lang-badge">🇬🇷 Greek</span>
+    <span class="lang-badge">Mandarin</span>
+    <span class="lang-badge">Cantonese</span>
+    <span class="lang-badge">Greek</span>
   </div><br>
   <a href="<?php echo esc_url($esl_url); ?>" class="btn-esl">Learn About ESL Classes</a>
 </div>
@@ -280,22 +279,22 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
       </div>
       <div class="map-info">
         <div class="map-info-name">GTACPR — Markham, ON</div>
-        <a href="tel:4167232571">📞 416-723-2571</a>
-        <a href="mailto:kpbcma@gmail.com">✉ kpbcma@gmail.com</a>
-        <a href="<?php echo esc_url($contact_url); ?>">📍 GTA-wide service area</a>
+        <a href="tel:4167232571"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg> 416-723-2571</a>
+        <a href="mailto:kpbcma@gmail.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> kpbcma@gmail.com</a>
+        <a href="<?php echo esc_url($contact_url); ?>"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> GTA-wide service area</a>
       </div>
     </div>
     <div class="rev-side">
       <h2>What Our Students Say</h2>
       <div class="rating-row">
         <div class="rating-num">4.9</div>
-        <div><div class="rating-stars">★★★★★</div><div class="rating-label">Google Rating</div><div class="rating-count">Based on 60+ verified reviews</div></div>
+        <div><div class="rating-stars" role="img" aria-label="Rated 4.9 out of 5"><span aria-hidden="true">★★★★★</span></div><div class="rating-label">Google Rating</div><div class="rating-count">Based on 60+ verified reviews</div></div>
         <div class="gg" aria-label="Google" role="img"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
       </div>
       <div class="review-cards">
-        <div class="review-card"><div class="rev-row"><div class="rev-av avb">JM</div><div><div class="rev-name">James M.</div><div class="rev-type">Standard First Aid</div></div></div><div class="rev-stars" aria-label="5 stars">★★★★★</div><div class="rev-text">"Great hands-on training and a patient, knowledgeable instructor. Felt truly prepared when I left."</div></div>
-        <div class="review-card"><div class="rev-row"><div class="rev-av avp">SP</div><div><div class="rev-name">Sara P.</div><div class="rev-type">CPR Level C</div></div></div><div class="rev-stars" aria-label="5 stars">★★★★★</div><div class="rev-text">"The best CPR class I've ever attended! Clear, fun, and very thorough. Highly recommend."</div></div>
-        <div class="review-card"><div class="rev-row"><div class="rev-av avg">RK</div><div><div class="rev-name">Raj K.</div><div class="rev-type">Workplace Training</div></div></div><div class="rev-stars" aria-label="5 stars">★★★★★</div><div class="rev-text">"Perfect for our workplace safety needs. They came to us and certified 15 people in one day."</div></div>
+        <div class="review-card"><div class="rev-row"><div class="rev-av avb">JM</div><div><div class="rev-name">James M.</div><div class="rev-type">Standard First Aid</div></div></div><div class="rev-stars" role="img" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div><div class="rev-text">"Great hands-on training and a patient, knowledgeable instructor. Felt truly prepared when I left."</div></div>
+        <div class="review-card"><div class="rev-row"><div class="rev-av avp">SP</div><div><div class="rev-name">Sara P.</div><div class="rev-type">CPR Level C</div></div></div><div class="rev-stars" role="img" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div><div class="rev-text">"The best CPR class I've ever attended! Clear, fun, and very thorough. Highly recommend."</div></div>
+        <div class="review-card"><div class="rev-row"><div class="rev-av avg">RK</div><div><div class="rev-name">Raj K.</div><div class="rev-type">Workplace Training</div></div></div><div class="rev-stars" role="img" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div><div class="rev-text">"Perfect for our workplace safety needs. They came to us and certified 15 people in one day."</div></div>
       </div>
     </div>
   </div>
@@ -306,11 +305,11 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
   <div class="faq-inner">
     <h2 class="section-title">Frequently Asked Questions</h2>
     <div class="faq-item open"><button class="faq-trigger" aria-expanded="true">What certification will I receive?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">You will receive an official WSIB Approved certificate, compliant with Ontario workplace requirements and aligned with the national CSA Z1210 standard.</div></div>
-    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">How long is the course?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">CPR-only courses are typically 4–5 hours. Emergency First Aid is a full day (7–8 hours). Standard First Aid runs over two days (14 hours). Blended options combine online theory with a shorter in-person skills session.</div></div>
+    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">How long is the course?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">CPR-only courses are typically 4–5 hours. Emergency First Aid is a full day (6.5–7 hours). Standard First Aid runs over two days (14 hours). Blended options combine online theory with a shorter in-person skills session.</div></div>
     <div class="faq-item"><button class="faq-trigger" aria-expanded="false">Do you offer recertification?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Yes — blended recertification lets you complete theory online, then attend a shorter in-person practical session. A great time-saving option.</div></div>
-    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">What should I bring to class?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Just yourself and comfortable clothing. All equipment, mannequins, AED trainers, and materials are provided. Your digital certificate is emailed within 24 hours.</div></div>
+    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">What should I bring to class?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Just yourself and comfortable clothing. All equipment, mannequins, AED trainers, and materials are provided. Your digital certificate is emailed the same day.</div></div>
     <div class="faq-item"><button class="faq-trigger" aria-expanded="false">Do you offer group or student discounts?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Yes — student discounts with valid ID, and group discounts for 3+ people registering together. Contact us for custom workplace group pricing.</div></div>
-    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">What is your cancellation policy?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Full refund or free reschedule with 48 hours notice for individuals. No cancellation fees for group/on-site training with 24 hours notice.*</div></div>
+    <div class="faq-item"><button class="faq-trigger" aria-expanded="false">What is your cancellation policy?<span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer">Full refund or free reschedule with 48 hours notice for individuals. No cancellation fees for group/on-site training with 24 hours notice.</div></div>
   </div>
 </section>
 

@@ -162,7 +162,6 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
         </ul>
       </div>
       <div>
-        <div class="cd-section-title">&nbsp;</div>
         <ul class="cd-list">
           <li>Fit test documentation &amp; certificate</li>
           <li>Guidance on proper mask use and maintenance</li>

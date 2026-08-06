@@ -46,7 +46,7 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
   <div class="stat-bar-inner">
     <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label">Years in GTA</span></div>
     <div class="stat-item"><span class="stat-num">2,500+</span><span class="stat-label">People Certified</span></div>
-    <div class="stat-item"><span class="stat-num">4.9★</span><span class="stat-label">Google Rating</span></div>
+    <div class="stat-item"><span class="stat-num">4.9<span aria-hidden="true">★</span></span><span class="stat-label">Google Rating</span></div>
     <div class="stat-item"><span class="stat-num">7</span><span class="stat-label">Days a Week</span></div>
     <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Languages</span></div>
   </div>
@@ -74,7 +74,7 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
       <div class="story-milestones">
         <div class="story-milestone"><span class="sm-num">2013</span><span class="sm-label">Founded in Markham</span></div>
         <div class="story-milestone"><span class="sm-num">2,500+</span><span class="sm-label">People Certified</span></div>
-        <div class="story-milestone"><span class="sm-num">4.9★</span><span class="sm-label">Google Rating</span></div>
+        <div class="story-milestone"><span class="sm-num">4.9<span aria-hidden="true">★</span></span><span class="sm-label">Google Rating</span></div>
       </div>
     </div>
   </div>

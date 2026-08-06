@@ -26,9 +26,9 @@ $home_url     = home_url('/');
 
 <div class="lang-bar">
   <div class="lang-bar-inner">
-    <div class="lang-item"><span class="lang-flag">🇨🇳</span><div><span class="lang-name">Mandarin</span><span class="lang-native">普通话</span></div></div>
-    <div class="lang-item"><span class="lang-flag">🇭🇰</span><div><span class="lang-name">Cantonese</span><span class="lang-native">廣東話</span></div></div>
-    <div class="lang-item"><span class="lang-flag">🇬🇷</span><div><span class="lang-name">Greek</span><span class="lang-native">Ελληνικά</span></div></div>
+    <div class="lang-item"><span class="lang-flag" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span><div><span class="lang-name">Mandarin</span><span class="lang-native">普通话</span></div></div>
+    <div class="lang-item"><span class="lang-flag" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span><div><span class="lang-name">Cantonese</span><span class="lang-native">廣東話</span></div></div>
+    <div class="lang-item"><span class="lang-flag" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span><div><span class="lang-name">Greek</span><span class="lang-native">Ελληνικά</span></div></div>
   </div>
 </div>
 
@@ -95,9 +95,9 @@ $home_url     = home_url('/');
     <div class="section-label">Languages We Teach In</div>
     <h2>Choose Your Language</h2>
     <div class="langs-grid">
-      <div class="lang-card"><div class="lang-card-body"><span class="lang-card-flag">🇨🇳</span><div class="lang-card-name">Mandarin</div><div class="lang-card-native">普通话 (Pǔtōnghuà)</div><div class="lang-card-desc">Mandarin-speaking instructor training GTA residents from Markham, Scarborough, and Richmond Hill. Weekends available.</div></div></div>
-      <div class="lang-card"><div class="lang-card-body"><span class="lang-card-flag">🇭🇰</span><div class="lang-card-name">Cantonese</div><div class="lang-card-native">廣東話 (Gwóngdūng wá)</div><div class="lang-card-desc">Serving the Cantonese-speaking GTA community. Small class sizes ensure hands-on practice time with a patient instructor.</div></div></div>
-      <div class="lang-card"><div class="lang-card-body"><span class="lang-card-flag">🇬🇷</span><div class="lang-card-name">Greek</div><div class="lang-card-native">Ελληνικά</div><div class="lang-card-desc">Proudly serving the Greek community across Toronto and the region. Contact us to schedule a Greek-language class.</div></div></div>
+      <div class="lang-card"><div class="lang-card-body"><span class="lang-card-flag" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span><div class="lang-card-name">Mandarin</div><div class="lang-card-native">普通话 (Pǔtōnghuà)</div><div class="lang-card-desc">Mandarin-speaking instructor training GTA residents from Markham, Scarborough, and Richmond Hill. Weekends available.</div></div></div>
+      <div class="lang-card"><div class="lang-card-body"><span class="lang-card-flag" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span><div class="lang-card-name">Cantonese</div><div class="lang-card-native">廣東話 (Gwóngdūng wá)</div><div class="lang-card-desc">Serving the Cantonese-speaking GTA community. Small class sizes ensure hands-on practice time with a patient instructor.</div></div></div>
+      <div class="lang-card"><div class="lang-card-body"><span class="lang-card-flag" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span><div class="lang-card-name">Greek</div><div class="lang-card-native">Ελληνικά</div><div class="lang-card-desc">Proudly serving the Greek community across Toronto and the region. Contact us to schedule a Greek-language class.</div></div></div>
     </div>
   </div>
 
@@ -119,7 +119,7 @@ $home_url     = home_url('/');
     </div>
     <div class="cta-btns">
       <a href="<?php echo esc_url($register_url); ?>" class="btn-primary">Register Now</a>
-      <a href="tel:4167232571" class="btn-outline">📞 Call Us First</a>
+      <a href="tel:4167232571" class="btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg> Call Us First</a>
     </div>
   </div>
 

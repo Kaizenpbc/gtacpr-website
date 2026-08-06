@@ -161,3 +161,76 @@ function gtacpr_nav_item( $label, $href, $active_slug = '' ) {
     }
     return '<li><a href="' . esc_url( $href ) . '"' . $active . '>' . $label . '</a></li>';
 }
+
+/**
+ * Unique page titles (SEO-01)
+ */
+function gtacpr_page_titles( $title_parts ) {
+    $titles = [
+        'home'           => 'GTA CPR — WSIB Approved CPR & First Aid Training in the GTA',
+        'courses'        => 'CPR & First Aid Courses — GTA CPR',
+        'about'          => 'About GTA CPR — Trusted Training Since 2013',
+        'group-training' => 'Group & Workplace CPR Training — GTA CPR',
+        'esl'            => 'ESL CPR Classes — Mandarin, Cantonese & Greek — GTA CPR',
+        'contact'        => 'Contact GTA CPR — Call, Email, or Visit',
+        'register'       => 'Book a CPR Class — GTA CPR',
+        'providers'      => 'Authorized Training Providers — GTA CPR',
+    ];
+    if ( is_front_page() ) {
+        $title_parts['title'] = $titles['home'];
+        unset( $title_parts['site'] );
+    } else {
+        foreach ( $titles as $slug => $t ) {
+            if ( $slug !== 'home' && is_page( $slug ) ) {
+                $title_parts['title'] = $t;
+                unset( $title_parts['site'] );
+                break;
+            }
+        }
+    }
+    return $title_parts;
+}
+add_filter( 'document_title_parts', 'gtacpr_page_titles' );
+
+/**
+ * Meta descriptions + Open Graph tags (SEO-01, TECH-03)
+ */
+function gtacpr_meta_tags() {
+    $descriptions = [
+        'home'           => 'Get WSIB Approved CPR and First Aid certification in the Greater Toronto Area. Same-day certificates, 7 days a week. Individual, group, and ESL classes available.',
+        'courses'        => 'Emergency First Aid, Standard First Aid, CPR Level C, Mask Fitting and Recertification. WSIB Approved courses with same-day certification across the GTA.',
+        'about'          => 'GTA CPR has provided WSIB Approved CPR and First Aid training across the Greater Toronto Area since 2013. 4.9-star Google rating, 2,500+ people certified.',
+        'group-training' => 'On-site CPR and First Aid training for colleges, universities, and workplaces across the GTA. WSIB Approved, flexible scheduling, any group size.',
+        'esl'            => 'CPR and First Aid classes taught in Mandarin, Cantonese, and Greek. Same WSIB Approved certification, bilingual instructors, no English required.',
+        'contact'        => 'Reach GTA CPR at 416-723-2571 or kpbcma@gmail.com. Located in Markham, serving the entire GTA. Available 7 days a week.',
+        'register'       => 'Book your WSIB Approved CPR or First Aid class online. Choose your course, pick a date, and get certified. Same-day digital certificate.',
+        'providers'      => 'GTA CPR authorized training provider information and credentials.',
+    ];
+    $desc = '';
+    $title = '';
+    if ( is_front_page() ) {
+        $desc  = $descriptions['home'];
+        $title = 'GTA CPR — WSIB Approved CPR & First Aid Training in the GTA';
+    } else {
+        foreach ( $descriptions as $slug => $d ) {
+            if ( $slug !== 'home' && is_page( $slug ) ) {
+                $desc = $d;
+                break;
+            }
+        }
+        $title = wp_get_document_title();
+    }
+    if ( $desc ) {
+        echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
+        echo '<meta property="og:type" content="website">' . "\n";
+        echo '<meta property="og:site_name" content="GTA CPR">' . "\n";
+        echo '<meta property="og:title" content="' . esc_attr( $title ) . '">' . "\n";
+        echo '<meta property="og:description" content="' . esc_attr( $desc ) . '">' . "\n";
+        echo '<meta property="og:url" content="' . esc_url( home_url( $_SERVER['REQUEST_URI'] ) ) . '">' . "\n";
+        echo '<meta name="twitter:card" content="summary">' . "\n";
+    }
+}
+add_action( 'wp_head', 'gtacpr_meta_tags', 1 );
+
+// Remove WordPress version meta tag (TECH-03)
+remove_action( 'wp_head', 'wp_generator' );
