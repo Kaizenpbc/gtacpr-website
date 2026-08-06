@@ -77,7 +77,10 @@
       <span class="booking-modal-title">Book a Class — GTACPR</span>
       <button class="booking-modal-close" id="bookingClose" aria-label="Close booking">&times;</button>
     </div>
-    <iframe src="https://gtacprfrontend.simplybook.me/v2/" title="Book a CPR class" loading="lazy" allowfullscreen></iframe>
+    <div class="booking-modal-body">
+      <div class="booking-spinner" aria-hidden="true"></div>
+      <iframe src="https://gtacprfrontend.simplybook.me/v2/" title="Book a CPR class" loading="lazy" allowfullscreen></iframe>
+    </div>
   </div>
 </div>
 

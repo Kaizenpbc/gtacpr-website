@@ -57,16 +57,15 @@
     }
   });
 
-  // FAQ accordion (shared across all pages)
+  // FAQ accordion — independent toggle (multiple can be open)
   document.querySelectorAll('.faq-trigger').forEach(function(t){
     t.addEventListener('click', function(){
       var item = t.closest('.faq-item');
       var isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(i){
-        i.classList.remove('open');
-        i.querySelector('.faq-trigger').setAttribute('aria-expanded','false');
-      });
-      if(!isOpen){
+      if(isOpen){
+        item.classList.remove('open');
+        t.setAttribute('aria-expanded','false');
+      } else {
         item.classList.add('open');
         t.setAttribute('aria-expanded','true');
       }
@@ -93,6 +92,29 @@
       observer.observe(hero);
     } else {
       mobCta.classList.add('visible');
+    }
+  }
+  // Course quicknav scroll-spy
+  var qnav = document.querySelector('.course-quicknav');
+  if (qnav) {
+    var sections = document.querySelectorAll('.course-detail, .cd-group-band');
+    var links = qnav.querySelectorAll('.cqn-item');
+    if (sections.length && links.length) {
+      var spyObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            var id = entry.target.id;
+            links.forEach(function(l){
+              if (l.getAttribute('href') === '#' + id) {
+                l.classList.add('cqn-active');
+              } else {
+                l.classList.remove('cqn-active');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-120px 0px -60% 0px', threshold: 0 });
+      sections.forEach(function(s){ spyObserver.observe(s); });
     }
   }
 })();

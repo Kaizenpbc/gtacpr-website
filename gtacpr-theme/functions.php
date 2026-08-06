@@ -23,13 +23,13 @@ function gtacpr_enqueue() {
         'gtacpr-style',
         get_stylesheet_uri(),
         [ 'google-fonts' ],
-        '2.0'
+        '2.1'
     );
     wp_enqueue_script(
         'gtacpr-main',
         get_template_directory_uri() . '/main.js',
         [],
-        '1.1',
+        '1.2',
         true
     );
     wp_enqueue_script(
