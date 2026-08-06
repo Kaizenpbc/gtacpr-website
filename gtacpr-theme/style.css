@@ -40,6 +40,9 @@ nav{background:var(--w);border-bottom:1px solid var(--g200);position:sticky;top:
 .nav-logo img{height:40px;width:auto;display:block}
 .nav-logo-icon{display:none}
 .nav-logo-sub{display:none}
+.nav-wsib{display:flex;align-items:center;gap:5px;padding:4px 10px;border:1.5px solid #22c55e;border-radius:6px;font-size:11px;font-weight:700;color:#15803d;white-space:nowrap;flex-shrink:0;transition:background .15s}
+.nav-wsib svg{width:14px;height:14px;color:#22c55e}
+.nav-wsib:hover{background:#f0fdf4}
 .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;margin:0 auto}
 .nav-links a{font-size:13.5px;font-weight:500;color:var(--g600);transition:color .15s;white-space:nowrap}
 .nav-links a:hover{color:var(--g900)}
@@ -242,7 +245,7 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
 
 /* ── BREAKPOINTS ── */
 @media(max-width:1024px){
-  .nav-links,.nav-phone,.nav-btn{display:none}
+  .nav-links,.nav-phone,.nav-btn,.nav-wsib{display:none}
   .nav-hamburger,.nav-call-mob{display:flex}
 }
 @media(max-width:768px){

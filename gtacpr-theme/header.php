@@ -22,6 +22,10 @@
         <img src="<?php echo get_template_directory_uri(); ?>/assets/gtacpr-logo.png" alt="GTA CPR home" width="325" height="88" />
       <?php endif; ?>
     </a>
+    <a href="https://www.virtualbadge.io/certificate-validator?credential=1e259afa-4016-4c00-bc46-bd7ef0c180bd" target="_blank" rel="noopener noreferrer" class="nav-wsib" title="Verify WSIB Credential">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>WSIB Approved</span>
+    </a>
 
     <ul class="nav-links" aria-label="Main navigation">
       <?php
