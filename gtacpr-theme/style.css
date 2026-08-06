@@ -506,7 +506,7 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 ════════════════════════════ */
 
 /* Override page-body for courses — course-detail handles its own max-width */
-.page-hero + .course-quicknav + .page-body{max-width:none;padding:0}
+.page-hero + .course-quicknav + .page-body{max-width:none;padding:0;display:block}
 
 /* Quick nav */
 .course-quicknav{background:var(--w);border-bottom:1px solid var(--g200);position:sticky;top:0;z-index:90;overflow-x:auto}
