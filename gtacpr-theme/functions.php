@@ -177,15 +177,11 @@ function gtacpr_page_titles( $title_parts ) {
         'providers'      => 'Authorized Training Providers — GTA CPR',
     ];
     if ( is_front_page() ) {
-        $title_parts['title'] = $titles['home'];
-        unset( $title_parts['site'] );
-    } else {
-        foreach ( $titles as $slug => $t ) {
-            if ( $slug !== 'home' && is_page( $slug ) ) {
-                $title_parts['title'] = $t;
-                unset( $title_parts['site'] );
-                break;
-            }
+        return [ 'title' => $titles['home'] ];
+    }
+    foreach ( $titles as $slug => $t ) {
+        if ( $slug !== 'home' && is_page( $slug ) ) {
+            return [ 'title' => $t ];
         }
     }
     return $title_parts;
