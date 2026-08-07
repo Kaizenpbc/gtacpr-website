@@ -22,6 +22,7 @@ function gtacpr_config( $key = null ) {
             'phone_raw'    => '4167232571',       // for tel: href
             'email'        => 'kpbcma@gmail.com',
             'portal_url'   => 'https://cpr.kpbc.ca',
+            'booking_url'  => 'https://gtacprfrontend.simplybook.me/v2/',
 
             // ── Address ───────────────────────────────────────────────────────
             'address'      => '46 Sunnyside Hill Road',

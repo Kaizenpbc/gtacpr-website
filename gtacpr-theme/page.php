@@ -1,3 +1,5 @@
 <?php get_header(); ?>
-  <div class="section"><div class="section-inner"><?php the_content(); ?></div></div>
+  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <div class="section"><div class="section-inner"><?php the_content(); ?></div></div>
+  <?php endwhile; endif; ?>
 <?php get_footer(); ?>

@@ -30,7 +30,7 @@ $contact_url = get_permalink( get_page_by_path('contact') );
 
     <!-- SimplyBook.me booking widget -->
     <div class="booking-embed">
-      <iframe src="https://gtacprfrontend.simplybook.me/v2/" title="Book a CPR or First Aid class" loading="lazy" allowfullscreen></iframe>
+      <iframe src="<?php echo esc_url( gtacpr_config('booking_url') ); ?>" title="Book a CPR or First Aid class" loading="lazy" allowfullscreen></iframe>
     </div>
 
     <!-- Course reference cards (DATA-01: generated from business-config.php) -->

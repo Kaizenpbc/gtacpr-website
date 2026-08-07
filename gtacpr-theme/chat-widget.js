@@ -342,12 +342,14 @@
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const data = await res.json();
       hideTyping();
-      const reply = data.reply || 'Sorry, I had trouble answering that. Please call us at 416-723-2571.';
+      const phone = (window.GTACPR && window.GTACPR.phone) || '416-723-2571';
+      const reply = data.reply || 'Sorry, I had trouble answering that. Please call us at ' + phone + '.';
       messages.push({ role: 'assistant', content: reply });
       addMessage('bot', reply);
     } catch {
       hideTyping();
-      addMessage('bot', 'Connection error. Please call us at 416-723-2571.');
+      const phone = (window.GTACPR && window.GTACPR.phone) || '416-723-2571';
+      addMessage('bot', 'Connection error. Please call us at ' + phone + '.');
     }
 
     isLoading = false;

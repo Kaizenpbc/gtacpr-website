@@ -75,7 +75,7 @@
     </div>
     <div class="booking-modal-body">
       <div class="booking-spinner" aria-hidden="true"></div>
-      <iframe data-src="https://gtacprfrontend.simplybook.me/v2/" title="Book a CPR class" allowfullscreen></iframe>
+      <iframe data-src="<?php echo esc_url( gtacpr_config('booking_url') ); ?>" title="Book a CPR class" allowfullscreen></iframe>
     </div>
   </div>
 </div>

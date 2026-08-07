@@ -16,7 +16,7 @@ $courses_url  = get_permalink( get_page_by_path('courses') );
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
       <span>About Us</span>
     </nav>
-    <h1>Helping the GTA Save Lives Since 2013</h1>
+    <h1>Helping the GTA Save Lives Since <?php echo esc_html( gtacpr_config('since') ); ?></h1>
     <p class="page-hero-sub">We are a WSIB Approved training provider dedicated to making CPR and First Aid education accessible, practical, and inclusive for every community in the Greater Toronto Area.</p>
   </div>
 </div>
@@ -48,10 +48,10 @@ $courses_url  = get_permalink( get_page_by_path('courses') );
     <div class="about-col">
       <div class="section-label">Our Story</div>
       <h2>Born from a Belief That Training Should Be Accessible</h2>
-      <p>GTA CPR was founded in 2013 by certified instructors who saw a gap — quality CPR training that was affordable, frequent, and available in more than just English in one of the world's most multicultural cities.</p>
+      <p>GTA CPR was founded in <?php echo esc_html( gtacpr_config('since') ); ?> by certified instructors who saw a gap — quality CPR training that was affordable, frequent, and available in more than just English in one of the world's most multicultural cities.</p>
       <p>We started with a single weekend class in Markham. Today we train individuals, families, healthcare teams, schools, and corporate offices across the GTA — 7 days a week, and counting.</p>
       <div class="story-milestones">
-        <div class="story-milestone"><span class="sm-num">2013</span><span class="sm-label">Founded in Markham</span></div>
+        <div class="story-milestone"><span class="sm-num"><?php echo esc_html( gtacpr_config('since') ); ?></span><span class="sm-label">Founded in Markham</span></div>
         <div class="story-milestone"><span class="sm-num"><?php echo esc_html( gtacpr_config('certified_count') ); ?>+</span><span class="sm-label">People Certified</span></div>
         <div class="story-milestone"><span class="sm-num"><?php echo esc_html( gtacpr_config('rating') ); ?><span aria-hidden="true">★</span></span><span class="sm-label">Google Rating</span></div>
       </div>

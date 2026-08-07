@@ -41,6 +41,7 @@ function gtacpr_enqueue() {
     );
     wp_localize_script( 'gtacpr-chat', 'GTACPR', [
         'chatApiUrl' => get_template_directory_uri() . '/chat-api.php',
+        'phone'      => gtacpr_phone(),
     ] );
 }
 add_action( 'wp_enqueue_scripts', 'gtacpr_enqueue' );
@@ -126,7 +127,7 @@ function gtacpr_page_titles( $title_parts ) {
     $titles = [
         'home'           => 'GTA CPR — WSIB Approved CPR & First Aid Training in the GTA',
         'courses'        => 'CPR & First Aid Courses — GTA CPR',
-        'about'          => 'About GTA CPR — Trusted Training Since 2013',
+        'about'          => 'About GTA CPR — Trusted Training Since ' . gtacpr_config('since'),
         'group-training' => 'Group & Workplace CPR Training — GTA CPR',
         'esl'            => 'ESL CPR Classes — Mandarin, Cantonese & Greek — GTA CPR',
         'contact'        => 'Contact GTA CPR — Call, Email, or Visit',
