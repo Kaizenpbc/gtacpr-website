@@ -1,5 +1,6 @@
 <?php
 /* Template Name: Authorized Providers */
+if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 ?>
 

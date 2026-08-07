@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
 <?php get_header(); ?>
 
 <div class="page-hero" style="min-height:auto">

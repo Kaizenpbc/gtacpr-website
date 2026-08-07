@@ -2,6 +2,7 @@
 /**
  * GTACPR Theme Functions
  */
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 require_once get_template_directory() . '/inc/business-config.php';
 

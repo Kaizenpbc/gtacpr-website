@@ -1,5 +1,6 @@
 <?php
 /* Template Name: Group Training */
+if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 $home_url    = home_url('/');
 $contact_url = gtacpr_url('contact');

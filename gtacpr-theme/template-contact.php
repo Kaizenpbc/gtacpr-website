@@ -1,5 +1,6 @@
 <?php
 /* Template Name: Contact */
+if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 $esl_url  = gtacpr_url('esl');
 $home_url = home_url('/');

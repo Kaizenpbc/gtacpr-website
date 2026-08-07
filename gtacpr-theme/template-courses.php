@@ -1,5 +1,6 @@
 <?php
 /* Template Name: Courses */
+if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 $register_url = gtacpr_url('register');
 $group_url    = gtacpr_url('group-training');

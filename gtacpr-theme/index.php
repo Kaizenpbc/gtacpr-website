@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
 <?php get_header(); ?>
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <div class="section"><div class="section-inner"><?php the_content(); ?></div></div>

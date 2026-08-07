@@ -130,7 +130,7 @@ foreach ( $cfg['courses'] as $c ) {
 }
 
 $areas      = implode( ', ', $cfg['service_areas'] );
-$phone      = htmlspecialchars( $cfg['phone'], ENT_QUOTES, 'UTF-8' );
+$phone      = $cfg['phone'];
 $email      = $cfg['email'];
 $portal     = $cfg['portal_url'];
 $since      = $cfg['since'];

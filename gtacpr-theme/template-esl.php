@@ -1,5 +1,6 @@
 <?php
 /* Template Name: ESL Classes */
+if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 $register_url = gtacpr_url('register');
 $contact_url  = gtacpr_url('contact');

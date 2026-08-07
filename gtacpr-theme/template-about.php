@@ -1,5 +1,6 @@
 <?php
 /* Template Name: About */
+if ( ! defined( 'ABSPATH' ) ) exit;
 get_header();
 ?>
 <?php
