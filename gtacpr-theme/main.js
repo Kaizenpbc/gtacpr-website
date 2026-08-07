@@ -58,9 +58,16 @@
   });
 
   // FAQ accordion — independent toggle (multiple can be open)
-  document.querySelectorAll('.faq-trigger').forEach(function(t){
+  document.querySelectorAll('.faq-trigger').forEach(function(t, i){
+    var item = t.closest('.faq-item');
+    var answer = item.querySelector('.faq-answer');
+    var id = 'faq-answer-' + i;
+    answer.id = id;
+    answer.setAttribute('role', 'region');
+    answer.setAttribute('aria-labelledby', 'faq-trigger-' + i);
+    t.id = 'faq-trigger-' + i;
+    t.setAttribute('aria-controls', id);
     t.addEventListener('click', function(){
-      var item = t.closest('.faq-item');
       var isOpen = item.classList.contains('open');
       if(isOpen){
         item.classList.remove('open');

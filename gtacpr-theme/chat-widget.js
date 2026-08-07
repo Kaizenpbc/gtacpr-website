@@ -267,7 +267,7 @@
         </svg>
       </button>
     </div>
-    <div id="gtacpr-chat-messages"></div>
+    <div id="gtacpr-chat-messages" aria-live="polite" aria-relevant="additions"></div>
     <div id="gtacpr-chat-suggestions">
       <button class="gc-suggestion">Which course do I need?</button>
       <button class="gc-suggestion">How much does it cost?</button>
@@ -370,6 +370,19 @@
 
   btn.addEventListener('click', () => isOpen ? closeChat() : openChat());
   win.querySelector('#gtacpr-chat-close').addEventListener('click', closeChat);
+
+  // Escape key and focus trap for chat dialog
+  document.addEventListener('keydown', (e) => {
+    if (!isOpen) return;
+    if (e.key === 'Escape') { closeChat(); btn.focus(); return; }
+    var focusable = win.querySelectorAll('button:not([disabled]),textarea,input,[tabindex]:not([tabindex="-1"])');
+    if (!focusable.length) return;
+    var first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.key === 'Tab') {
+      if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+      else            { if (document.activeElement === last)  { e.preventDefault(); first.focus(); } }
+    }
+  });
 
   sendBtn.addEventListener('click', () => {
     sendMessage(input.value);

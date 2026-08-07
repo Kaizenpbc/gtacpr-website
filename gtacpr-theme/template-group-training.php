@@ -110,7 +110,7 @@ $contact_url = get_permalink( get_page_by_path('contact') );
       </div>
 
       <form id="groupForm" novalidate>
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div style="display:none" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <div class="form-body" id="formBody">
         <div class="form-row">
           <div class="form-group"><label for="fname">First name <span>*</span></label><input class="form-control" type="text" id="fname" name="fname" placeholder="Jane" required autocomplete="given-name"></div>
@@ -161,7 +161,7 @@ $contact_url = get_permalink( get_page_by_path('contact') );
         </div>
         <div class="form-group"><label for="location">Training location / city</label><input class="form-control" type="text" id="location" name="location" placeholder="e.g. Markham, Scarborough, North York…"></div>
         <div class="form-group"><label for="message">Anything else we should know?</label><textarea class="form-control" id="message" name="message" placeholder="Shift work, language needs, access requirements, specific dates…"></textarea></div>
-        <button class="btn-submit" id="submitBtn" type="button">
+        <button class="btn-submit" id="submitBtn" type="submit">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           Send My Request
         </button>
@@ -187,14 +187,15 @@ $contact_url = get_permalink( get_page_by_path('contact') );
   var success = document.getElementById('formSuccess');
   if (!form || !btn) return;
 
-  btn.addEventListener('click', function() {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
     // Client-side validation
     var valid = true;
     form.querySelectorAll('[required]').forEach(function(f) {
-      if (!f.value.trim()) { f.style.borderColor = 'var(--red)'; valid = false; }
-      else f.style.borderColor = '';
+      if (!f.value.trim()) { f.style.borderColor = 'var(--red)'; f.setAttribute('aria-invalid','true'); valid = false; }
+      else { f.style.borderColor = ''; f.removeAttribute('aria-invalid'); }
     });
-    if (!valid) return;
+    if (!valid) { var a = document.getElementById('formAnnounce'); if (a) a.textContent = 'Please fill in all required fields.'; return; }
 
     // Honeypot check
     if (form.querySelector('[name="_gotcha"]').value) return;

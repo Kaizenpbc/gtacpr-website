@@ -26,7 +26,7 @@ $home_url = home_url('/');
 
     <form id="contactForm" novalidate>
       <!-- Honeypot — bots fill this in, humans don't -->
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div style="display:none" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <div class="form-row">
         <div class="form-group">
           <label for="firstName">First Name <span class="req">*</span></label>
@@ -163,12 +163,18 @@ $home_url = home_url('/');
     form.querySelectorAll('[required]').forEach(function(field) {
       if (!field.value.trim()) {
         field.style.borderColor = 'var(--red)';
+        field.setAttribute('aria-invalid', 'true');
         valid = false;
       } else {
         field.style.borderColor = '';
+        field.removeAttribute('aria-invalid');
       }
     });
-    if (!valid) return;
+    if (!valid) {
+      var a = document.getElementById('formAnnounce');
+      if (a) a.textContent = 'Please fill in all required fields.';
+      return;
+    }
 
     // Honeypot check
     if (form.querySelector('[name="_gotcha"]').value) return;

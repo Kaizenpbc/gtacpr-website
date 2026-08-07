@@ -25,7 +25,7 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
 </div>
 
 <!-- QUICK NAV -->
-<div class="course-quicknav">
+<nav class="course-quicknav" aria-label="Course navigation">
   <div class="course-quicknav-inner">
     <a href="#efa" class="cqn-item cqn-popular">Basic First Aid</a>
     <a href="#sfa" class="cqn-item">Intermediate First Aid</a>
@@ -33,7 +33,7 @@ $contact_url  = get_permalink( get_page_by_path('contact') );
     <a href="#recert" class="cqn-item">Recertification</a>
     <a href="#group" class="cqn-item cqn-group">Group / On-Site</a>
   </div>
-</div>
+</nav>
 
 <div class="page-body">
 

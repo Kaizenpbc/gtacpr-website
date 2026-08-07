@@ -4,7 +4,7 @@ get_header();
 ?>
 
 <!-- HERO -->
-<section class="prov-hero">
+<section class="prov-hero" aria-label="Authorized Providers">
   <div class="prov-hero-bg"></div>
   <div class="prov-hero-inner">
     <h1>Become an Authorized Provider</h1>
@@ -149,26 +149,26 @@ get_header();
         <div class="prov-form-row">
           <div>
             <label for="prov-first">First Name *</label>
-            <input type="text" id="prov-first" name="first_name" required>
+            <input type="text" id="prov-first" name="first_name" required autocomplete="given-name">
           </div>
           <div>
             <label for="prov-last">Last Name *</label>
-            <input type="text" id="prov-last" name="last_name" required>
+            <input type="text" id="prov-last" name="last_name" required autocomplete="family-name">
           </div>
         </div>
         <div class="prov-form-row">
           <div>
             <label for="prov-email">Email *</label>
-            <input type="email" id="prov-email" name="email" required>
+            <input type="email" id="prov-email" name="email" required autocomplete="email">
           </div>
           <div>
             <label for="prov-phone">Phone *</label>
-            <input type="tel" id="prov-phone" name="phone" required>
+            <input type="tel" id="prov-phone" name="phone" required autocomplete="tel">
           </div>
         </div>
         <div>
           <label for="prov-company">Company / Organization Name</label>
-          <input type="text" id="prov-company" name="company">
+          <input type="text" id="prov-company" name="company" autocomplete="organization">
         </div>
         <div>
           <label for="prov-location">City / Region *</label>

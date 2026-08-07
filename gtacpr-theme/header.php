@@ -12,10 +12,10 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- TOP BAR -->
-<div class="topbar" id="topbar"><?php echo gtacpr_topbar_message(); ?><button class="topbar-close" id="topbarClose" aria-label="Dismiss announcement"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+<div class="topbar" id="topbar" role="region" aria-label="Announcement"><?php echo gtacpr_topbar_message(); ?><button class="topbar-close" id="topbarClose" aria-label="Dismiss announcement"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
 
 <!-- NAV -->
-<nav class="sitenav">
+<nav class="sitenav" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="<?php echo home_url('/'); ?>" class="nav-logo" aria-label="GTA CPR Home">
       <?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
@@ -27,7 +27,7 @@
       <span>WSIB Approved</span>
     </a>
 
-    <ul class="nav-links" aria-label="Main navigation">
+    <ul class="nav-links">
       <?php
         $home = home_url('/');
         $reviews_link  = is_front_page() ? '#reviews'  : $home . '#reviews';
@@ -60,8 +60,6 @@
     </button>
   </div>
 </nav>
-
-<main id="main-content" tabindex="-1">
 
 <!-- MOBILE DRAWER -->
 <div class="drawer-overlay" id="dOverlay"></div>
@@ -97,3 +95,5 @@
     <a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>" class="d-book open-booking">Book a Class →</a>
   </div>
 </div>
+
+<main id="main-content" tabindex="-1">
