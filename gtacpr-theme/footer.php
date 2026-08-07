@@ -26,11 +26,11 @@
         <div class="footer-col-title">Company</div>
         <ul>
           <li><a href="<?php echo esc_url( gtacpr_url('about') ); ?>">About Us</a></li>
-          <li><a href="<?php echo esc_url( gtacpr_url('about') ); ?>#team">Our Instructors</a></li>
           <li><a href="<?php echo esc_url( gtacpr_url('group-training') ); ?>">Group Training</a></li>
           <li><a href="<?php echo esc_url( home_url('/') ); ?>#reviews">Reviews</a></li>
           <li><a href="<?php echo esc_url( gtacpr_url('contact') ); ?>">Contact</a></li>
           <li><a href="<?php echo esc_url( home_url('/') ); ?>#faq">FAQ</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('privacy-policy') ); ?>">Privacy Policy</a></li>
         </ul>
       </div>
     </div>

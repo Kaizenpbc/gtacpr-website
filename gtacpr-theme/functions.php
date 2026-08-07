@@ -134,6 +134,7 @@ function gtacpr_page_titles( $title_parts ) {
         'contact'        => 'Contact GTA CPR — Call, Email, or Visit',
         'register'       => 'Book a CPR Class — GTA CPR',
         'providers'      => 'Authorized Training Providers — GTA CPR',
+        'privacy-policy' => 'Privacy Policy — GTA CPR',
     ];
     if ( is_front_page() ) {
         return [ 'title' => $titles['home'] ];
@@ -161,6 +162,7 @@ function gtacpr_meta_tags() {
         'contact'        => 'Reach GTA CPR at ' . $cfg['phone'] . ' or ' . $cfg['email'] . '. Located in ' . $cfg['city'] . ', serving the entire GTA. Available 7 days a week.',
         'register'       => 'Book your WSIB Approved CPR or First Aid class online. Choose your course, pick a date, and get certified. Same-day digital certificate.',
         'providers'      => 'GTA CPR authorized training provider information and credentials.',
+        'privacy-policy' => 'How GTA CPR collects, uses, and protects your personal information. PIPEDA compliant privacy practices.',
     ];
     $desc = '';
     $title = '';

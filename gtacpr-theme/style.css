@@ -778,6 +778,9 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 .booking-header{text-align:center;margin-bottom:2rem}
 .booking-header h2{font-size:clamp(1.2rem,3vw,1.5rem);font-weight:800;color:var(--g900);margin-bottom:.5rem}
 .booking-header p{font-size:14px;color:var(--g600);max-width:500px;margin:0 auto}
+.booking-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:1rem}
+.booking-trust-item{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:var(--g600)}
+.booking-trust-item svg{color:var(--red);flex-shrink:0}
 .booking-embed{background:var(--w);border-radius:16px;overflow:hidden;margin-bottom:3rem;box-shadow:var(--sh)}
 .booking-embed iframe{width:100%;height:700px;border:0;display:block}
 @media(max-width:768px){.booking-embed iframe{height:600px}}
@@ -795,6 +798,14 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 .ref-list li::before{content:'✓';position:absolute;left:0;color:var(--red);font-weight:700;font-size:11px}
 @media(max-width:768px){.courses-ref-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.courses-ref-grid{grid-template-columns:1fr}.booking-embed iframe{height:500px}}
+
+/* ── PROSE (privacy, generic pages) ── */
+.section-inner h2{font-size:clamp(1.1rem,2.5vw,1.35rem);font-weight:700;color:var(--g900);margin:2rem 0 .75rem}
+.section-inner p{font-size:15px;color:var(--g700);line-height:1.7;margin-bottom:1rem}
+.section-inner ul{margin:0 0 1.25rem 1.5rem;color:var(--g700);line-height:1.7}
+.section-inner li{margin-bottom:.35rem}
+.section-inner a{color:var(--red);font-weight:500}
+.section-inner a:hover{text-decoration:underline}
 
 /* ── PRINT ── */
 @media print{

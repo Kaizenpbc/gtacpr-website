@@ -27,6 +27,12 @@ $contact_url = gtacpr_url('contact');
     <div class="booking-header">
       <h2>Available Classes</h2>
       <p>Select a course and available date below. All classes include equipment, materials, and same-day digital certification.</p>
+      <div class="booking-trust">
+        <span class="booking-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>WSIB Approved</span>
+        <span class="booking-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="16" height="16"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Same-Day Certificate</span>
+        <span class="booking-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="16" height="16"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>7 Days a Week</span>
+        <span class="booking-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><?php echo esc_html( gtacpr_config('rating') ); ?>/5 Google Rating</span>
+      </div>
     </div>
 
     <!-- SimplyBook.me booking widget -->

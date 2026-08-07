@@ -120,6 +120,7 @@ $home_url     = home_url('/');
     <div>
       <h2>Ready to Register?</h2>
       <p>Pick a course, choose a date, and get your WSIB certificate — all in your language. Classes available 7 days a week across the GTA.</p>
+      <p style="font-size:14px;margin-top:.75rem">Need training for a community group or organization? <a href="<?php echo esc_url( gtacpr_url('group-training') ); ?>" style="color:var(--w);text-decoration:underline;font-weight:600">Learn about group training →</a></p>
     </div>
     <div class="cta-btns">
       <a href="<?php echo esc_url($register_url); ?>" class="btn-primary">Register Now</a>
