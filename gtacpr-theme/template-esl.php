@@ -81,7 +81,7 @@ $home_url     = home_url('/');
       </div>
       <!-- HIDDEN: CPR Level A — standalone non-WSIB course
       <div class="course-card">
-        <img class="course-img" src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=70" alt="CPR Level A" loading="lazy">
+        <img class="course-img" src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=70" alt="Mask fitting session" width="600" height="400" loading="lazy">
         <div class="course-body">
           <span class="course-badge cb-a">Entry Level</span>
           <div class="course-name">CPR Level A</div>

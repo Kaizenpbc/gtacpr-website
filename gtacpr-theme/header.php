@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://images.unsplash.com">
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -19,7 +20,7 @@
   <div class="nav-inner">
     <a href="<?php echo esc_url( home_url('/') ); ?>" class="nav-logo" aria-label="GTA CPR Home">
       <?php if ( has_custom_logo() ) : the_custom_logo(); else : ?>
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/gtacpr-logo.png" alt="GTA CPR home" width="325" height="88" />
+        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/gtacpr-logo.png" alt="GTA CPR home" width="325" height="88" fetchpriority="high" />
       <?php endif; ?>
     </a>
     <a href="https://www.virtualbadge.io/certificate-validator?credential=1e259afa-4016-4c00-bc46-bd7ef0c180bd" target="_blank" rel="noopener noreferrer" class="nav-wsib" aria-label="WSIB Approved — verify credential (opens new tab)" title="Verify WSIB Credential">

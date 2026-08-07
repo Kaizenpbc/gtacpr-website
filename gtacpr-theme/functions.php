@@ -57,7 +57,7 @@ add_action( 'wp_enqueue_scripts', 'gtacpr_enqueue' );
 function gtacpr_preload_hero() {
     if ( is_front_page() ) {
         $url = get_template_directory_uri() . '/assets/hero-cpr1.jpg';
-        echo '<link rel="preload" as="image" href="' . esc_url( $url ) . '">' . "\n";
+        echo '<link rel="preload" as="image" href="' . esc_url( $url ) . '" fetchpriority="high">' . "\n";
         return;
     }
     $heroes = [
@@ -70,7 +70,7 @@ function gtacpr_preload_hero() {
     ];
     foreach ( $heroes as $slug => $url ) {
         if ( is_page( $slug ) ) {
-            echo '<link rel="preload" as="image" href="' . esc_url( $url ) . '">' . "\n";
+            echo '<link rel="preload" as="image" href="' . esc_url( $url ) . '" fetchpriority="high">' . "\n";
             return;
         }
     }
