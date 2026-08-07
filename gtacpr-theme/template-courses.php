@@ -250,32 +250,45 @@ $contact_url  = gtacpr_url('contact');
 </div>
 
 <?php
-// SCHEMA-02: Course structured data
+// SCHEMA-02: Course structured data (ItemList with ListItem wrappers)
 $_cfg = gtacpr_config();
+$_courses_url = gtacpr_url('courses');
+$_home_url = home_url('/');
 $_courses_schema = [];
+$_pos = 0;
+// Map durations to ISO 8601
+$_dur_map = [ '8 hours (1 day)' => 'PT8H', '16 hours (2 days)' => 'PT16H', 'Online + 4-hour in-person' => 'PT4H' ];
 foreach ( $_cfg['courses'] as $c ) {
     if ( $c['id'] === 'esl' ) continue;
+    $_pos++;
     $course = [
         '@type'       => 'Course',
         'name'        => $c['name'],
         'description' => $c['notes'],
+        'url'         => $_courses_url . '#' . $c['id'],
         'provider'    => [
             '@type' => 'Organization',
             'name'  => $_cfg['name'],
-            'url'   => home_url('/'),
+            'url'   => $_home_url,
         ],
     ];
-    if ( $c['duration'] ) {
-        $course['timeRequired'] = $c['duration'];
+    if ( $c['duration'] && isset( $_dur_map[ $c['duration'] ] ) ) {
+        $course['timeRequired'] = $_dur_map[ $c['duration'] ];
     }
     if ( $c['price'] !== null ) {
         $course['offers'] = [
             '@type'         => 'Offer',
-            'price'         => $c['price'],
+            'price'         => (string) $c['price'],
             'priceCurrency' => 'CAD',
+            'url'           => $_courses_url . '#' . $c['id'],
+            'availability'  => 'https://schema.org/InStock',
         ];
     }
-    $_courses_schema[] = $course;
+    $_courses_schema[] = [
+        '@type'    => 'ListItem',
+        'position' => $_pos,
+        'item'     => $course,
+    ];
 }
 ?>
 <script type="application/ld+json"><?php echo wp_json_encode([

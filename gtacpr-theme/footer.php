@@ -83,6 +83,7 @@
 <?php
 $_cfg = gtacpr_config();
 $_url = defined('GTACPR_SITE_URL') ? GTACPR_SITE_URL : home_url('/');
+$_areas = array_map( function( $a ) { return [ '@type' => 'City', 'name' => $a ]; }, $_cfg['service_areas'] );
 $_schema = [
     '@context'        => 'https://schema.org',
     '@type'           => 'LocalBusiness',
@@ -92,8 +93,9 @@ $_schema = [
     'url'             => $_url,
     'telephone'       => '+1-' . $_cfg['phone'],
     'email'           => $_cfg['email'],
-    'foundingDate'    => $_cfg['since'],
+    'foundingDate'    => $_cfg['since'] . '-01-01',
     'priceRange'      => '$',
+    'image'           => $_url . 'wp-content/themes/gtacpr-theme/assets/gtacpr-logo.png',
     'address'         => [
         '@type'           => 'PostalAddress',
         'streetAddress'   => $_cfg['address'],
@@ -102,8 +104,13 @@ $_schema = [
         'postalCode'      => $_cfg['postal_code'],
         'addressCountry'  => $_cfg['country'],
     ],
-    'areaServed'      => $_cfg['service_areas'],
-    'openingHours'    => $_cfg['hours'],
+    'areaServed'      => $_areas,
+    'openingHoursSpecification' => [
+        '@type'     => 'OpeningHoursSpecification',
+        'dayOfWeek' => ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+        'opens'     => '09:00',
+        'closes'    => '17:00',
+    ],
 ];
 ?>
 <script type="application/ld+json"><?php echo wp_json_encode( $_schema ); ?></script>
