@@ -208,6 +208,8 @@ add_action( 'send_headers', function() {
     header( 'X-Frame-Options: SAMEORIGIN' );
     header( 'Referrer-Policy: strict-origin-when-cross-origin' );
     header( 'Permissions-Policy: geolocation=(), microphone=(), camera=()' );
+    // SEC-09: Content Security Policy
+    header( "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; frame-src https://gtacprfrontend.simplybook.me https://www.virtualbadge.io; connect-src 'self' https://formspree.io; base-uri 'self'; form-action 'self' https://formspree.io;" );
 } );
 
 /**

@@ -201,8 +201,76 @@ get_header();
         </div>
         <button type="submit" class="btn-prov-submit">Submit Application</button>
       </form>
+      <div class="prov-form-success" id="provSuccess" style="display:none">
+        <div style="text-align:center;padding:2rem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2.5" style="width:48px;height:48px;margin-bottom:1rem"><polyline points="20 6 9 17 4 12"/></svg>
+          <h3 style="margin-bottom:.5rem">Application Submitted!</h3>
+          <p>Thanks for your interest. Our team will review your application and be in touch within 2 business days.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+(function(){
+  var FORMSPREE_ID = '<?php echo esc_js( gtacpr_config('formspree_provider') ); ?>';
+  var form    = document.getElementById('providerForm');
+  var success = document.getElementById('provSuccess');
+  var submitBtn = form ? form.querySelector('[type="submit"]') : null;
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var valid = true;
+    form.querySelectorAll('[required]').forEach(function(field) {
+      if (!field.value.trim()) {
+        field.style.borderColor = 'var(--red)';
+        field.setAttribute('aria-invalid', 'true');
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+        field.removeAttribute('aria-invalid');
+      }
+    });
+    if (!valid) {
+      var a = document.getElementById('formAnnounce');
+      if (a) a.textContent = 'Please fill in all required fields.';
+      return;
+    }
+
+    if (form.querySelector('[name="_gotcha"]').value) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+    .then(function(res) {
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+        success.setAttribute('tabindex', '-1');
+        success.focus();
+        var a = document.getElementById('formAnnounce');
+        if (a) a.textContent = 'Application submitted successfully.';
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+        alert('Something went wrong. Please call <?php echo esc_js( gtacpr_phone() ); ?>.');
+      }
+    })
+    .catch(function() {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Application';
+      alert('Connection error. Please call <?php echo esc_js( gtacpr_phone() ); ?>.');
+    });
+  });
+})();
+</script>
 
 <?php get_footer(); ?>

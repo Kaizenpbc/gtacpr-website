@@ -11,7 +11,7 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
   <div class="page-hero-bg" role="img" aria-label="GTA CPR team" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80')"></div>
   <div class="page-hero-inner">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="<?php echo home_url('/'); ?>">Home</a>
+      <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
       <span>About Us</span>
     </nav>

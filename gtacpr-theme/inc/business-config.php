@@ -112,8 +112,9 @@ function gtacpr_config( $key = null ) {
 
             // ── Form integrations ─────────────────────────────────────────────
             // Sign up at formspree.io, create two forms, paste the IDs here.
-            'formspree_contact' => 'mnjyopek',
-            'formspree_group'   => 'xzdqkrpr',
+            'formspree_contact'  => 'mnjyopek',
+            'formspree_group'    => 'xzdqkrpr',
+            'formspree_provider' => 'TODO_PROVIDER_FORM_ID', // Create at formspree.io and paste ID here
         ];
     }
     return $key !== null ? ( $cfg[ $key ] ?? null ) : $cfg;

@@ -42,7 +42,9 @@ $contact_url = get_permalink( get_page_by_path('contact') );
         foreach ( $courses as $c ) :
           if ( $c['id'] === 'esl' ) continue; // ESL has its own page
           $is_popular = $c['id'] === 'efa';
-          $price_display = $c['price'] !== null ? '$' . $c['price'] . '<span>/person</span>' : '<span>Contact for pricing</span>';
+          $price_display = $c['price'] !== null
+            ? '$' . esc_html( $c['price'] ) . '<span>/person</span>'
+            : '<span>Contact for pricing</span>';
           $meta_parts = [];
           if ( $c['duration'] ) $meta_parts[] = $c['duration'];
           if ( $c['cert_years'] ) $meta_parts[] = $c['cert_years'] . '-year cert';
