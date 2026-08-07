@@ -79,7 +79,7 @@ $courses_url  = gtacpr_url('courses');
     <h2>Certified and Recognized</h2>
     <div class="certs-grid">
       <div class="cert-card"><div class="cert-icon" style="background:#FEE2E2"><svg viewBox="0 0 24 24" fill="none" stroke="#CC1F1F" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cert-name">WSIB Approved</div><div class="cert-issuer">Ontario Workplace Safety</div></div>
-      <div class="cert-card"><div class="cert-icon" style="background:#DBEAFE"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="cert-name">Canada-Wide Recognition</div><div class="cert-issuer">Valid in all provinces</div></div>
+
       <div class="cert-card"><div class="cert-icon" style="background:#D1FAE5"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="cert-name">OHSA Compliant</div><div class="cert-issuer">Occupational Health &amp; Safety Act</div></div>
       <div class="cert-card"><div class="cert-icon" style="background:#FEF3C7"><svg viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="cert-name"><?php echo esc_html( gtacpr_config('rating') ); ?> / 5 Stars</div><div class="cert-issuer"><?php echo esc_html( gtacpr_config('review_count') ); ?>+ Google Reviews</div></div>
     </div>
