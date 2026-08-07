@@ -11,7 +11,7 @@ $home_url = home_url('/');
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="<?php echo esc_url($home_url); ?>">Home</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>Contact</span>
+      <span aria-current="page">Contact</span>
     </nav>
     <h1>Get in Touch</h1>
     <p class="page-hero-sub">We're available 7 days a week. Call, email, or send a message — we typically respond within a few hours.</p>
@@ -30,17 +30,17 @@ $home_url = home_url('/');
       <div class="form-row">
         <div class="form-group">
           <label for="firstName">First Name <span class="req">*</span></label>
-          <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Jane" required autocomplete="given-name">
+          <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Jane" required aria-required="true" autocomplete="given-name">
         </div>
         <div class="form-group">
           <label for="lastName">Last Name <span class="req">*</span></label>
-          <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Smith" required autocomplete="family-name">
+          <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Smith" required aria-required="true" autocomplete="family-name">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label for="email">Email Address <span class="req">*</span></label>
-          <input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com" required autocomplete="email">
+          <input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com" required aria-required="true" autocomplete="email">
         </div>
         <div class="form-group">
           <label for="phone">Phone Number</label>
@@ -49,7 +49,7 @@ $home_url = home_url('/');
       </div>
       <div class="form-group">
         <label for="subject">Subject <span class="req">*</span></label>
-        <select id="subject" name="subject" class="form-control" required>
+        <select id="subject" name="subject" class="form-control" required aria-required="true">
           <option value="" disabled selected>Select a topic…</option>
           <option value="general">General Enquiry</option>
           <option value="course">Course Information</option>
@@ -62,7 +62,7 @@ $home_url = home_url('/');
       </div>
       <div class="form-group">
         <label for="message">Message <span class="req">*</span></label>
-        <textarea id="message" name="message" class="form-control" placeholder="Tell us how we can help…" required rows="5"></textarea>
+        <textarea id="message" name="message" class="form-control" placeholder="Tell us how we can help…" required aria-required="true" rows="5"></textarea>
       </div>
       <button type="submit" class="btn-submit">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -109,7 +109,7 @@ $home_url = home_url('/');
       <div class="info-card-title">Business Hours</div>
       <div class="info-card-body">
         <table class="hours-table">
-          <tr><td>Monday – Sunday</td><td>9:00 AM – 5:00 PM</td></tr>
+          <tr><th scope="row">Monday – Sunday</th><td>9:00 AM – 5:00 PM</td></tr>
         </table>
       </div>
     </div>

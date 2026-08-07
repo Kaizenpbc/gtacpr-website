@@ -12,7 +12,7 @@ $contact_url  = gtacpr_url('contact');
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>Courses</span>
+      <span aria-current="page">Courses</span>
     </nav>
     <h1>CPR &amp; First Aid Courses</h1>
     <p class="page-hero-sub">WSIB Approved certification for individuals, PSW &amp; health students, and workplaces. All courses include hands-on practice, equipment, and same-day digital certification.</p>

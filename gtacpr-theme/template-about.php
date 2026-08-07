@@ -14,7 +14,7 @@ $courses_url  = gtacpr_url('courses');
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>About Us</span>
+      <span aria-current="page">About Us</span>
     </nav>
     <h1>Helping the GTA Save Lives Since <?php echo esc_html( gtacpr_config('since') ); ?></h1>
     <p class="page-hero-sub">We are a WSIB Approved training provider dedicated to making CPR and First Aid education accessible, practical, and inclusive for every community in the Greater Toronto Area.</p>

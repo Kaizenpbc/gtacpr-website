@@ -11,7 +11,7 @@ $contact_url = gtacpr_url('contact');
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="<?php echo esc_url($home_url); ?>">Home</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>Book a Class</span>
+      <span aria-current="page">Book a Class</span>
     </nav>
     <h1>Book Your CPR Class</h1>
     <p class="page-hero-sub">Choose your course, pick a date, and pay securely online. Your WSIB Approved certificate is emailed same day.</p>

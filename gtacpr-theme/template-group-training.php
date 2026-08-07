@@ -12,7 +12,7 @@ $courses_url = gtacpr_url('courses');
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="<?php echo esc_url($home_url); ?>">Home</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>Colleges &amp; Workplace Training</span>
+      <span aria-current="page">Colleges &amp; Workplace Training</span>
     </nav>
     <h1>CPR &amp; First Aid Training for Colleges, Universities &amp; Workplaces</h1>
     <p class="page-hero-sub">We come to you. WSIB Approved certification for PSW and health students, and on-site safety training for employees — flexible scheduling across the GTA.</p>
@@ -114,17 +114,17 @@ $courses_url = gtacpr_url('courses');
       <div style="display:none" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <div class="form-body" id="formBody">
         <div class="form-row">
-          <div class="form-group"><label for="fname">First name <span>*</span></label><input class="form-control" type="text" id="fname" name="fname" placeholder="Jane" required autocomplete="given-name"></div>
-          <div class="form-group"><label for="lname">Last name <span>*</span></label><input class="form-control" type="text" id="lname" name="lname" placeholder="Smith" required autocomplete="family-name"></div>
+          <div class="form-group"><label for="fname">First name <span>*</span></label><input class="form-control" type="text" id="fname" name="fname" placeholder="Jane" required aria-required="true" autocomplete="given-name"></div>
+          <div class="form-group"><label for="lname">Last name <span>*</span></label><input class="form-control" type="text" id="lname" name="lname" placeholder="Smith" required aria-required="true" autocomplete="family-name"></div>
         </div>
-        <div class="form-group"><label for="company">College, Company / Organization <span>*</span></label><input class="form-control" type="text" id="company" name="company" placeholder="e.g. Centennial College, Acme Corp" required autocomplete="organization"></div>
+        <div class="form-group"><label for="company">College, Company / Organization <span>*</span></label><input class="form-control" type="text" id="company" name="company" placeholder="e.g. Centennial College, Acme Corp" required aria-required="true" autocomplete="organization"></div>
         <div class="form-row">
-          <div class="form-group"><label for="email">Email <span>*</span></label><input class="form-control" type="email" id="email" name="email" placeholder="jane@company.com" required autocomplete="email"></div>
-          <div class="form-group"><label for="phone">Phone <span>*</span></label><input class="form-control" type="tel" id="phone" name="phone" placeholder="416-555-0100" required autocomplete="tel"></div>
+          <div class="form-group"><label for="email">Email <span>*</span></label><input class="form-control" type="email" id="email" name="email" placeholder="jane@company.com" required aria-required="true" autocomplete="email"></div>
+          <div class="form-group"><label for="phone">Phone <span>*</span></label><input class="form-control" type="tel" id="phone" name="phone" placeholder="416-555-0100" required aria-required="true" autocomplete="tel"></div>
         </div>
         <div class="form-group">
           <label for="course">Course <span>*</span></label>
-          <select class="form-control" id="course" name="course" required>
+          <select class="form-control" id="course" name="course" required aria-required="true">
             <option value="" disabled selected>Select a course…</option>
             <optgroup label="Basic First Aid &amp; CPR Level C with AED">
               <option value="efa-blended">Basic First Aid + CPR-C — Blended</option>
@@ -140,7 +140,7 @@ $courses_url = gtacpr_url('courses');
         <div class="form-row">
           <div class="form-group">
             <label for="groupsize">Group size <span>*</span></label>
-            <select class="form-control" id="groupsize" name="groupsize" required>
+            <select class="form-control" id="groupsize" name="groupsize" required aria-required="true">
               <option value="" disabled selected>Select…</option>
               <option value="5-10">5 – 10 people</option>
               <option value="11-20">11 – 20 people</option>

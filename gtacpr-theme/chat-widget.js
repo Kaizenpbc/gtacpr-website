@@ -232,6 +232,9 @@
       #gtacpr-chat-window { bottom: 80px; right: 12px; left: 12px; width: auto; }
       #gtacpr-chat-btn { bottom: 80px; right: 12px; }
     }
+    @media (prefers-reduced-motion: reduce) {
+      #gtacpr-chat-window, #gtacpr-chat-btn, .gc-dot { transition: none !important; animation: none !important; }
+    }
   `;
   document.head.appendChild(style);
 

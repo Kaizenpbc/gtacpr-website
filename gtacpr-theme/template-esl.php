@@ -12,7 +12,7 @@ $home_url     = home_url('/');
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="<?php echo esc_url($home_url); ?>">Home</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>ESL Classes</span>
+      <span aria-current="page">ESL Classes</span>
     </nav>
     <h1>CPR &amp; First Aid Training in Your Language</h1>
     <p class="page-hero-sub">Life-saving skills should have no language barrier. We offer CPR and First Aid classes in Mandarin, Cantonese, and Greek — taught by instructors who speak your language.</p>

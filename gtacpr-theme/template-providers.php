@@ -149,21 +149,21 @@ get_header();
         <div class="prov-form-row">
           <div>
             <label for="prov-first">First Name *</label>
-            <input type="text" id="prov-first" name="first_name" required autocomplete="given-name">
+            <input type="text" id="prov-first" name="first_name" required aria-required="true" autocomplete="given-name">
           </div>
           <div>
             <label for="prov-last">Last Name *</label>
-            <input type="text" id="prov-last" name="last_name" required autocomplete="family-name">
+            <input type="text" id="prov-last" name="last_name" required aria-required="true" autocomplete="family-name">
           </div>
         </div>
         <div class="prov-form-row">
           <div>
             <label for="prov-email">Email *</label>
-            <input type="email" id="prov-email" name="email" required autocomplete="email">
+            <input type="email" id="prov-email" name="email" required aria-required="true" autocomplete="email">
           </div>
           <div>
             <label for="prov-phone">Phone *</label>
-            <input type="tel" id="prov-phone" name="phone" required autocomplete="tel">
+            <input type="tel" id="prov-phone" name="phone" required aria-required="true" autocomplete="tel">
           </div>
         </div>
         <div>
@@ -172,11 +172,11 @@ get_header();
         </div>
         <div>
           <label for="prov-location">City / Region *</label>
-          <input type="text" id="prov-location" name="location" placeholder="e.g. Toronto, Mississauga, Hamilton" required>
+          <input type="text" id="prov-location" name="location" placeholder="e.g. Toronto, Mississauga, Hamilton" required aria-required="true">
         </div>
         <div>
           <label for="prov-current">Current Certifying Body *</label>
-          <select id="prov-current" name="current_provider" required>
+          <select id="prov-current" name="current_provider" required aria-required="true">
             <option value="">Select your current provider</option>
             <option value="WSIB Approved Provider">WSIB Approved Provider</option>
             <option value="Other">Other Recognized Provider</option>
@@ -185,7 +185,7 @@ get_header();
         </div>
         <div>
           <label for="prov-experience">Years of Teaching Experience *</label>
-          <select id="prov-experience" name="experience" required>
+          <select id="prov-experience" name="experience" required aria-required="true">
             <option value="">Select experience level</option>
             <option value="2-5">2–5 years</option>
             <option value="5-10">5–10 years</option>
