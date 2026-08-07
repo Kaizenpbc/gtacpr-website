@@ -184,7 +184,11 @@ function gtacpr_meta_tags() {
         echo '<meta property="og:url" content="' . esc_url( $og_url ) . '">' . "\n";
         $og_image = get_template_directory_uri() . '/assets/gtacpr-og.png';
         echo '<meta property="og:image" content="' . esc_url( $og_image ) . '">' . "\n";
+        echo '<meta property="og:locale" content="en_CA">' . "\n";
         echo '<meta name="twitter:card" content="summary">' . "\n";
+        echo '<meta name="twitter:title" content="' . esc_attr( $title ) . '">' . "\n";
+        echo '<meta name="twitter:description" content="' . esc_attr( $desc ) . '">' . "\n";
+        echo '<meta name="twitter:image" content="' . esc_url( $og_image ) . '">' . "\n";
     }
 }
 add_action( 'wp_head', 'gtacpr_meta_tags', 1 );

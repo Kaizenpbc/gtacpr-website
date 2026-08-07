@@ -22,7 +22,7 @@
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/gtacpr-logo.png" alt="GTA CPR home" width="325" height="88" />
       <?php endif; ?>
     </a>
-    <a href="https://www.virtualbadge.io/certificate-validator?credential=1e259afa-4016-4c00-bc46-bd7ef0c180bd" target="_blank" rel="noopener noreferrer" class="nav-wsib" title="Verify WSIB Credential">
+    <a href="https://www.virtualbadge.io/certificate-validator?credential=1e259afa-4016-4c00-bc46-bd7ef0c180bd" target="_blank" rel="noopener noreferrer" class="nav-wsib" aria-label="WSIB Approved — verify credential (opens new tab)" title="Verify WSIB Credential">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <span>WSIB Approved</span>
     </a>
@@ -48,7 +48,7 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
         <?php echo esc_html( gtacpr_phone() ); ?>
       </a>
-      <a href="<?php echo esc_url( gtacpr_portal_url() ); ?>" target="_blank" rel="noopener noreferrer" class="nav-btn-outline">Client Portal</a>
+      <a href="<?php echo esc_url( gtacpr_portal_url() ); ?>" target="_blank" rel="noopener noreferrer" class="nav-btn-outline">Client Portal <span class="sr-only">(opens new tab)</span></a>
       <a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>" class="nav-btn open-booking">Book a Class</a>
     </div>
 

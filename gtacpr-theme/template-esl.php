@@ -70,7 +70,7 @@ $home_url     = home_url('/');
         </div>
       </div>
       <div class="course-card">
-        <img class="course-img" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=70" alt="Intermediate First Aid" width="600" height="400" loading="lazy">
+        <img class="course-img" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=70" alt="Instructor demonstrating first aid techniques in class" width="600" height="400" loading="lazy">
         <div class="course-body">
           <span class="course-badge cb-sfa">Full Cert</span>
           <div class="course-name">Intermediate First Aid + CPR-C</div>

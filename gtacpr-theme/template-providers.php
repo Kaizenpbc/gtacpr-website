@@ -117,19 +117,19 @@ get_header();
     <p class="prov-section-sub">As an Authorized Provider, you'll have access to our full suite of WSIB Approved programs.</p>
     <div class="courses-offered">
       <div class="co-card">
-        <h4>Basic First Aid &amp; CPR</h4>
+        <h3>Basic First Aid &amp; CPR</h3>
         <p>8 hrs &middot; 3-year cert</p>
       </div>
       <div class="co-card">
-        <h4>Intermediate First Aid &amp; CPR</h4>
+        <h3>Intermediate First Aid &amp; CPR</h3>
         <p>16 hrs over 2 days &middot; 3-year cert</p>
       </div>
       <div class="co-card">
-        <h4>Mask Fitting</h4>
+        <h3>Mask Fitting</h3>
         <p>Quick appointment</p>
       </div>
       <div class="co-card">
-        <h4>Recertification</h4>
+        <h3>Recertification</h3>
         <p>Online + in-person</p>
       </div>
     </div>

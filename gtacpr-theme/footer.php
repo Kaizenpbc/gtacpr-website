@@ -104,7 +104,6 @@ $_schema = [
     ],
     'areaServed'      => $_cfg['service_areas'],
     'openingHours'    => $_cfg['hours'],
-    'sameAs'          => [],
 ];
 ?>
 <script type="application/ld+json"><?php echo wp_json_encode( $_schema ); ?></script>
