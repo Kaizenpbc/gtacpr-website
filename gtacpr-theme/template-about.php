@@ -3,9 +3,9 @@
 get_header();
 ?>
 <?php
-$register_url = get_permalink( get_page_by_path('register') );
-$group_url    = get_permalink( get_page_by_path('group-training') );
-$courses_url  = get_permalink( get_page_by_path('courses') );
+$register_url = gtacpr_url('register');
+$group_url    = gtacpr_url('group-training');
+$courses_url  = gtacpr_url('courses');
 ?>
 
 <div class="page-hero">

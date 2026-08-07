@@ -2,8 +2,8 @@
 /* Template Name: Group Training */
 get_header();
 $home_url    = home_url('/');
-$contact_url = get_permalink( get_page_by_path('contact') );
-$courses_url = get_permalink( get_page_by_path('courses') );
+$contact_url = gtacpr_url('contact');
+$courses_url = gtacpr_url('courses');
 ?>
 
 <div class="page-hero">

@@ -1,8 +1,8 @@
 <?php
 /* Template Name: ESL Classes */
 get_header();
-$register_url = get_permalink( get_page_by_path('register') );
-$contact_url  = get_permalink( get_page_by_path('contact') );
+$register_url = gtacpr_url('register');
+$contact_url  = gtacpr_url('contact');
 $home_url     = home_url('/');
 ?>
 

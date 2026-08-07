@@ -200,7 +200,7 @@ get_header();
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
         </div>
         <button type="submit" class="btn-prov-submit">Submit Application</button>
-        <p class="prov-form-note">Questions? <a href="<?php echo esc_url( get_permalink( get_page_by_path('contact') ) ); ?>">Contact us</a> or call <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>"><?php echo esc_html( gtacpr_phone() ); ?></a>.</p>
+        <p class="prov-form-note">Questions? <a href="<?php echo esc_url( gtacpr_url('contact') ); ?>">Contact us</a> or call <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>"><?php echo esc_html( gtacpr_phone() ); ?></a>.</p>
       </form>
       <div class="prov-form-success" id="provSuccess" style="display:none">
         <div style="text-align:center;padding:2rem">

@@ -1,9 +1,9 @@
 <?php
 /* Template Name: Courses */
 get_header();
-$register_url = get_permalink( get_page_by_path('register') );
-$group_url    = get_permalink( get_page_by_path('group-training') );
-$contact_url  = get_permalink( get_page_by_path('contact') );
+$register_url = gtacpr_url('register');
+$group_url    = gtacpr_url('group-training');
+$contact_url  = gtacpr_url('contact');
 ?>
 
 <div class="page-hero">

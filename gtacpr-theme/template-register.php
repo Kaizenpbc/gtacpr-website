@@ -2,7 +2,7 @@
 /* Template Name: Book a Class */
 get_header();
 $home_url    = home_url('/');
-$contact_url = get_permalink( get_page_by_path('contact') );
+$contact_url = gtacpr_url('contact');
 ?>
 
 <div class="page-hero">
@@ -53,7 +53,7 @@ $contact_url = get_permalink( get_page_by_path('contact') );
           <?php if ( $is_popular ) : ?><div class="ref-badge">Most Popular</div><?php endif; ?>
           <div class="ref-name"><?php echo esc_html( $c['name'] ); ?></div>
           <div class="ref-meta"><?php echo esc_html( implode( ' · ', $meta_parts ) ); ?></div>
-          <div class="ref-price"><?php echo $price_display; ?></div>
+          <div class="ref-price"><?php echo wp_kses( $price_display, [ 'span' => [] ] ); ?></div>
           <ul class="ref-list">
             <li><?php echo esc_html( $c['notes'] ); ?></li>
             <li>WSIB Approved</li>

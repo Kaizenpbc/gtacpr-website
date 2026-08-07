@@ -1,10 +1,11 @@
 <?php
 /* Template Name: Homepage */
 get_header();
-$register_url     = get_permalink( get_page_by_path('register') );
-$group_url        = get_permalink( get_page_by_path('group-training') );
-$esl_url          = get_permalink( get_page_by_path('esl') );
-$contact_url      = get_permalink( get_page_by_path('contact') );
+$register_url     = gtacpr_url('register');
+$group_url        = gtacpr_url('group-training');
+$esl_url          = gtacpr_url('esl');
+$contact_url      = gtacpr_url('contact');
+$courses_url      = gtacpr_url('courses');
 ?>
 
 <!-- HERO -->
@@ -53,7 +54,6 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
   <div class="section-inner">
     <h2 class="section-title">Our Courses</h2>
     <div class="course-grid">
-      <?php $courses_url = get_permalink( get_page_by_path('courses') ); ?>
       <div class="course-card"><div class="ci ci1" role="img" aria-label="Basic First Aid &amp; CPR training"></div><div class="course-body"><h3 class="course-name">Basic First Aid &amp; CPR</h3><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1 day &nbsp;·&nbsp; 3-year cert</div><p class="course-teaser">Learn CPR, AED, bleeding control and choking response in one day. WSIB Approved — ideal for PSW students, healthcare workers and workplaces.</p><a href="<?php echo esc_url($courses_url); ?>#efa" class="btn-course">View Course</a></div></div>
       <div class="course-card"><div class="ci ci2" role="img" aria-label="Intermediate First Aid &amp; CPR training"></div><div class="course-body"><h3 class="course-name">Intermediate First Aid &amp; CPR</h3><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 days &nbsp;·&nbsp; 3-year cert</div><p class="course-teaser">The most comprehensive certification — covers the full first aid curriculum over two days. Required by nursing programs, security and high-risk workplaces.</p><a href="<?php echo esc_url($courses_url); ?>#sfa" class="btn-course">View Course</a></div></div>
       <div class="course-card"><div class="ci ci3" role="img" aria-label="Mask Fitting"></div><div class="course-body"><h3 class="course-name">Mask Fitting</h3><div class="course-dur"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Quick appointment</div><p class="course-teaser">Professional respirator fit testing for N95 and similar masks. Get official documentation meeting OHSA and CSA Z94.4 requirements.</p><a href="<?php echo esc_url($courses_url); ?>#mask" class="btn-course">View Course</a></div></div>
@@ -88,7 +88,7 @@ $contact_url      = get_permalink( get_page_by_path('contact') );
     <span class="lang-badge">Mandarin</span>
     <span class="lang-badge">Cantonese</span>
     <span class="lang-badge">Greek</span>
-  </div><br>
+  </div>
   <a href="<?php echo esc_url($esl_url); ?>" class="btn-esl">Learn About ESL Classes</a>
 </div>
 

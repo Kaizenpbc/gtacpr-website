@@ -1,7 +1,7 @@
 /*
 Theme Name: GTACPR
 Description: Custom theme for GTACPR — WSIB Approved CPR & First Aid Training
-Version: 2.2
+Version: 2.3
 Author: GTACPR
 */
 
@@ -23,7 +23,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 :focus-visible{outline:3px solid #CC1F1F;outline-offset:3px;border-radius:2px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-:root{--red:#CC1F1F;--rdk:#9B1515;--rlt:#FFF0F0;--g50:#F9FAFB;--g100:#F3F4F6;--g200:#E5E7EB;--g400:#6B7280;--g600:#4B5563;--g700:#374151;--g800:#1F2937;--g900:#111827;--w:#fff;--r:8px;--sh:0 1px 3px rgba(0,0,0,.08);--shm:0 4px 16px rgba(0,0,0,.10)}
+:root{--red:#CC1F1F;--rdk:#9B1515;--rlt:#FFF0F0;--g50:#F9FAFB;--g100:#F3F4F6;--g200:#E5E7EB;--g400:#6B7280;--g500:#6B7280;--g600:#4B5563;--g700:#374151;--g800:#1F2937;--g900:#111827;--w:#fff;--r:8px;--sh:0 1px 3px rgba(0,0,0,.08);--shm:0 4px 16px rgba(0,0,0,.10)}
 
 /* TOP BAR */
 .topbar{background:var(--g900);color:rgba(255,255,255,.75);text-align:center;font-size:12px;padding:9px 1rem;line-height:1.4;position:relative;transition:margin-top .3s}
@@ -38,8 +38,6 @@ nav{background:var(--w);border-bottom:1px solid var(--g200);position:sticky;top:
 .nav-inner{max-width:1160px;margin:0 auto;padding:0 1rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .nav-logo{display:flex;align-items:center;flex-shrink:0}
 .nav-logo img{height:40px;width:auto;display:block}
-.nav-logo-icon{display:none}
-.nav-logo-sub{display:none}
 .nav-wsib{display:flex;align-items:center;gap:5px;padding:4px 10px;background:#f0fdf4;border:1.5px solid #bbf7d0;border-radius:6px;font-size:11px;font-weight:700;color:#15803d;white-space:nowrap;flex-shrink:0;transition:background .15s,border-color .15s}
 .nav-wsib svg{width:14px;height:14px;color:#16a34a}
 .nav-wsib:hover{background:#dcfce7;border-color:#86efac}
@@ -136,10 +134,7 @@ body.drawer-open .drawer{right:0}
 .course-body{padding:1rem;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
 .course-name{font-size:14.5px;font-weight:700;color:var(--g900);line-height:1.3}
 .course-dur{font-size:12px;color:var(--g400);display:flex;align-items:center;gap:4px}
-.course-sub{font-size:11.5px;color:var(--g400);font-style:italic}
 .course-teaser{font-size:12.5px;color:var(--g500);line-height:1.6;margin:0;text-align:left}
-.course-price{font-size:1.2rem;font-weight:800;color:var(--g900)}
-.course-price span{font-size:12px;font-weight:400;color:var(--g400)}
 .btn-course{display:flex;align-items:center;justify-content:center;min-height:46px;background:var(--red);color:#fff;font-size:13px;font-weight:700;border-radius:var(--r);margin-top:auto;transition:background .15s;align-self:stretch}
 .btn-course:hover,.btn-course:active{background:var(--rdk)}
 
@@ -170,13 +165,6 @@ body.drawer-open .drawer{right:0}
 .rev-inner{max-width:1160px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 1.25rem;display:grid;grid-template-columns:310px 1fr;gap:2.5rem;align-items:start}
 .map-card{border-radius:10px;overflow:hidden;border:1px solid var(--g200);box-shadow:var(--sh)}
 .map-ph{height:210px;background:#dde4ec;position:relative;overflow:hidden}
-.map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px);background-size:28px 28px}
-.mr{position:absolute;background:rgba(255,255,255,.72)}
-.mr1{left:0;right:0;top:42%;height:11px}
-.mr2{top:0;bottom:0;left:34%;width:8px}
-.mr3{left:0;right:0;top:66%;height:7px}
-.map-pin{position:absolute;top:27%;left:31%;width:26px;height:26px;border-radius:50% 50% 50% 0;background:var(--red);transform:rotate(-45deg);box-shadow:0 2px 8px rgba(0,0,0,.3)}
-.map-pin::after{content:'';position:absolute;inset:5px;background:#fff;border-radius:50%}
 .map-btn{display:flex;align-items:center;justify-content:center;min-height:50px;width:100%;background:var(--red);color:#fff;font-size:14px;font-weight:700;transition:background .15s}
 .map-btn:hover{background:var(--rdk)}
 .map-info{margin-top:10px;padding:1rem;background:var(--w);border:1px solid var(--g200);border-radius:10px}
@@ -301,16 +289,6 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
 /* ── MAIN CONTENT ── */
 .stat-bar + .page-body{max-width:1160px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 1.25rem;display:block}
 
-/* VISION SECTION */
-.vision-section{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--g200)}
-.vision-photo{border-radius:16px;overflow:hidden;aspect-ratio:4/3;position:relative}
-.vision-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.vision-photo-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);padding:1.25rem;color:rgba(255,255,255,.85);font-size:12px}
-.vision-text .section-label{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:.6rem}
-.vision-text h2{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;color:var(--g900);margin-bottom:1rem;letter-spacing:-.01em;line-height:1.2}
-.vision-text p{font-size:14.5px;color:var(--g600);line-height:1.8;margin-bottom:1rem}
-.vision-text p:last-child{margin-bottom:0}
-
 /* VALUES */
 .values-section{margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--g200)}
 .values-section .section-label{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:.6rem;text-align:center}
@@ -349,7 +327,7 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
 .cta-band{background:var(--g900);border-radius:16px;padding:clamp(2rem,5vw,3rem);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-bottom:clamp(2rem,4vw,3rem)}
 .cta-band h2{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:800;color:#fff;margin-bottom:.5rem;letter-spacing:-.01em}
 .cta-band p{font-size:14px;color:rgba(255,255,255,.65);line-height:1.6}
-.cta-band-btns{display:flex;flex-direction:column;gap:10px;flex-shrink:0}
+.cta-band-btns,.cta-btns{display:flex;flex-direction:column;gap:10px;flex-shrink:0}
 .btn-cta-primary{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);transition:background .15s;white-space:nowrap}
 .btn-cta-primary:hover{background:var(--rdk)}
 .btn-cta-outline{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;background:transparent;color:#fff;font-size:14px;font-weight:600;border-radius:var(--r);border:1.5px solid rgba(255,255,255,.3);transition:border-color .15s;white-space:nowrap}
@@ -375,7 +353,8 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
   .about-col{padding-bottom:2rem;border-bottom:1px solid var(--g200)}
   .about-col:last-child{padding-bottom:0;border-bottom:none}
   .certs-grid{grid-template-columns:repeat(2,1fr)}
-  .cta-band-btns{flex-direction:row;justify-content:center;flex-wrap:wrap}
+  .cta-band{grid-template-columns:1fr;text-align:center}
+  .cta-band-btns,.cta-btns{flex-direction:row;justify-content:center;flex-wrap:wrap}
 }
 @media(max-width:480px){
   .certs-grid{grid-template-columns:1fr}
@@ -603,26 +582,23 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 .check-bullet{width:20px;height:20px;border-radius:50%;background:var(--rlt);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px}
 .check-bullet svg{width:10px;height:10px;color:var(--red)}
 
-/* COURSES SECTION */
+/* COURSES SECTION (ESL / Courses page — scoped to avoid homepage collision) */
 .courses-section{margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--g200)}
 .courses-section .section-label{text-align:center}
 .courses-section h2{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;color:var(--g900);text-align:center;margin-bottom:.75rem;letter-spacing:-.01em}
 .courses-section .courses-sub{font-size:14.5px;color:var(--g600);text-align:center;max-width:520px;margin:0 auto 2rem;line-height:1.7}
-.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.course-card{background:var(--w);border:1px solid var(--g200);border-radius:12px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
-.course-card:hover{box-shadow:var(--shm);transform:translateY(-2px)}
+.courses-section .course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.courses-section .course-card{border-radius:12px}
 .course-img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--g100)}
-.course-body{padding:1.25rem;flex:1;display:flex;flex-direction:column;gap:8px}
+.courses-section .course-body{padding:1.25rem;align-items:flex-start;text-align:left}
 .course-badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:20px;align-self:flex-start}
 .cb-a{background:#EFF6FF;color:#1D4ED8}
 .cb-c{background:#F0FDF4;color:#15803D}
 .cb-sfa{background:#FFF7ED;color:#C2410C}
-.course-name{font-size:14.5px;font-weight:700;color:var(--g900);line-height:1.3}
 .course-meta{font-size:12.5px;color:var(--g400);display:flex;align-items:center;gap:5px}
 .course-meta svg{width:13px;height:13px;flex-shrink:0}
 .course-desc{font-size:13px;color:var(--g600);line-height:1.6;flex:1}
-.btn-course{display:flex;align-items:center;justify-content:center;min-height:44px;background:var(--red);color:#fff;font-size:13px;font-weight:700;border-radius:var(--r);margin-top:auto;transition:background .15s}
-.btn-course:hover,.btn-course:active{background:var(--rdk)}
+.courses-section .btn-course{min-height:44px}
 
 /* LANGUAGES SECTION */
 .langs-section{margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--g200)}
@@ -637,11 +613,6 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 .lang-card-native{font-size:13px;color:var(--g400);margin-bottom:.75rem}
 .lang-card-desc{font-size:13.5px;color:var(--g600);line-height:1.65}
 
-/* CTA BAND */
-.cta-band{background:var(--g900);border-radius:16px;padding:clamp(2rem,5vw,3rem);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-bottom:clamp(2rem,4vw,3rem)}
-.cta-band h2{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:800;color:#fff;margin-bottom:.5rem;letter-spacing:-.01em}
-.cta-band p{font-size:14px;color:rgba(255,255,255,.65);line-height:1.6}
-.cta-btns{display:flex;flex-direction:column;gap:10px;flex-shrink:0}
 .btn-primary{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);transition:background .15s;white-space:nowrap}
 .btn-primary:hover{background:var(--rdk)}
 .btn-outline{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;background:transparent;color:#fff;font-size:14px;font-weight:600;border-radius:var(--r);border:1.5px solid rgba(255,255,255,.3);transition:border-color .15s;white-space:nowrap}
@@ -651,8 +622,6 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
   .split-section.reverse .split-photo,.split-section.reverse .split-text{order:unset}
   .courses-section .course-grid{grid-template-columns:repeat(2,1fr)}
   .langs-grid{grid-template-columns:1fr}
-  .cta-band{grid-template-columns:1fr;text-align:center}
-  .cta-btns{flex-direction:row;justify-content:center;flex-wrap:wrap}
 }
 @media(max-width:480px){
   .courses-section .course-grid{grid-template-columns:1fr}
@@ -693,12 +662,12 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 .hours-table tr td{padding:3px 0;color:var(--g600)}
 .hours-table tr td:first-child{font-weight:600;color:var(--g800);width:130px}
 
-.lang-card{background:#F5F3FF;border:1px solid #DDD6FE;border-radius:12px;padding:1.25rem}
-.lang-card-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C3AED;margin-bottom:.6rem}
-.lang-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.75rem}
-.lang-badge{display:inline-flex;align-items:center;gap:5px;background:#EDE9FE;border:1px solid #C4B5FD;border-radius:20px;padding:4px 10px;font-size:12px;font-weight:600;color:#6D28D9}
-.lang-card p{font-size:13px;color:#6D28D9;line-height:1.5}
-.lang-card a{font-weight:700;color:#7C3AED;text-decoration:underline}
+.contact-lang-card{background:#F5F3FF;border:1px solid #DDD6FE;border-radius:12px;padding:1.25rem}
+.contact-lang-card-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C3AED;margin-bottom:.6rem}
+.contact-lang-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.75rem}
+.contact-lang-badge{display:inline-flex;align-items:center;gap:5px;background:#EDE9FE;border:1px solid #C4B5FD;border-radius:20px;padding:4px 10px;font-size:12px;font-weight:600;color:#6D28D9}
+.contact-lang-card p{font-size:13px;color:#6D28D9;line-height:1.5}
+.contact-lang-card a{font-weight:700;color:#7C3AED;text-decoration:underline}
 
 /* ── MAP SECTION ── */
 .map-section{background:var(--g50);border-top:1px solid var(--g200);border-bottom:1px solid var(--g200);padding:clamp(1.5rem,4vw,2.5rem) 1.25rem}

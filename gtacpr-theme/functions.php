@@ -117,7 +117,7 @@ function gtacpr_nav_item( $label, $href, $active_slug = '' ) {
             $active = ' class="active"';
         }
     }
-    return '<li><a href="' . esc_url( $href ) . '"' . $active . '>' . $label . '</a></li>';
+    return '<li><a href="' . esc_url( $href ) . '"' . $active . '>' . esc_html( $label ) . '</a></li>';
 }
 
 /**

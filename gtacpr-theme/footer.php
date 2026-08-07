@@ -9,26 +9,26 @@
         <div class="footer-contact">
           <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg> <?php echo esc_html( gtacpr_phone() ); ?></a>
           <a href="mailto:<?php echo esc_attr( gtacpr_email() ); ?>"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <?php echo esc_html( gtacpr_email() ); ?></a>
-          <a href="<?php echo esc_url( get_permalink( get_page_by_path('contact') ) ); ?>#map"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <?php echo esc_html( gtacpr_address() ); ?></a>
+          <a href="<?php echo esc_url( gtacpr_url('contact') ); ?>#map"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> <?php echo esc_html( gtacpr_address() ); ?></a>
         </div>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Courses</div>
         <ul>
-          <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>">Basic First Aid</a></li>
-          <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>">Intermediate First Aid</a></li>
-          <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>">Recertification</a></li>
-          <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('esl') ) ); ?>">ESL Classes</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('register') ); ?>">Basic First Aid</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('register') ); ?>">Intermediate First Aid</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('register') ); ?>">Recertification</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('esl') ); ?>">ESL Classes</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
         <ul>
-          <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('about') ) ); ?>">About Us</a></li>
-          <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('about') ) ); ?>#team">Our Instructors</a></li>
-          <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('group-training') ) ); ?>">Group Training</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('about') ); ?>">About Us</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('about') ); ?>#team">Our Instructors</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('group-training') ); ?>">Group Training</a></li>
           <li><a href="<?php echo esc_url( home_url('/') ); ?>#reviews">Reviews</a></li>
-          <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('contact') ) ); ?>">Contact</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('contact') ); ?>">Contact</a></li>
           <li><a href="<?php echo esc_url( home_url('/') ); ?>#faq">FAQ</a></li>
         </ul>
       </div>
@@ -60,7 +60,7 @@
 
 <div class="mob-cta" role="toolbar" aria-label="Quick actions">
   <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>" class="mob-call"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg> Call Now</a>
-  <a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>" class="mob-book open-booking">Book a Class →</a>
+  <a href="<?php echo esc_url( gtacpr_url('register') ); ?>" class="mob-book open-booking">Book a Class →</a>
 </div>
 
 <!-- ARIA live region for form feedback (used by contact + group training forms) -->

@@ -1,7 +1,7 @@
 <?php
 /* Template Name: Contact */
 get_header();
-$esl_url  = get_permalink( get_page_by_path('esl') );
+$esl_url  = gtacpr_url('esl');
 $home_url = home_url('/');
 ?>
 
@@ -113,12 +113,12 @@ $home_url = home_url('/');
         </table>
       </div>
     </div>
-    <div class="lang-card">
-      <div class="lang-card-title">Call in Your Language</div>
-      <div class="lang-badges">
-        <span class="lang-badge">普通话 Mandarin</span>
-        <span class="lang-badge">廣東話 Cantonese</span>
-        <span class="lang-badge">Ελληνικά Greek</span>
+    <div class="contact-lang-card">
+      <div class="contact-lang-card-title">Call in Your Language</div>
+      <div class="contact-lang-badges">
+        <span class="contact-lang-badge">普通话 Mandarin</span>
+        <span class="contact-lang-badge">廣東話 Cantonese</span>
+        <span class="contact-lang-badge">Ελληνικά Greek</span>
       </div>
       <p>Bilingual instructors available. <a href="<?php echo esc_url($esl_url); ?>">Learn about our ESL classes →</a></p>
     </div>
