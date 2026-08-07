@@ -149,13 +149,14 @@ add_filter( 'document_title_parts', 'gtacpr_page_titles' );
  * Meta descriptions + Open Graph tags (SEO-01, TECH-03)
  */
 function gtacpr_meta_tags() {
+    $cfg = gtacpr_config();
     $descriptions = [
         'home'           => 'Get WSIB Approved CPR and First Aid certification in the Greater Toronto Area. Same-day certificates, 7 days a week. Individual, group, and ESL classes available.',
         'courses'        => 'Basic First Aid (8 hrs) and Intermediate First Aid (16 hrs) aligned with CSA Z1210. Plus Mask Fitting and Recertification. WSIB Approved, same-day certification across the GTA.',
-        'about'          => 'GTA CPR has provided WSIB Approved CPR and First Aid training across the Greater Toronto Area since 2013. 4.9-star Google rating, 2,500+ people certified.',
+        'about'          => 'GTA CPR has provided WSIB Approved CPR and First Aid training across the Greater Toronto Area since ' . $cfg['since'] . '. ' . $cfg['rating'] . '-star Google rating, ' . $cfg['certified_count'] . '+ people certified.',
         'group-training' => 'On-site CPR and First Aid training for colleges, universities, and workplaces across the GTA. WSIB Approved, flexible scheduling, any group size.',
         'esl'            => 'CPR and First Aid classes taught in Mandarin, Cantonese, and Greek. Same WSIB Approved certification, bilingual instructors, no English required.',
-        'contact'        => 'Reach GTA CPR at 416-723-2571 or kpbcma@gmail.com. Located in Markham, serving the entire GTA. Available 7 days a week.',
+        'contact'        => 'Reach GTA CPR at ' . $cfg['phone'] . ' or ' . $cfg['email'] . '. Located in ' . $cfg['city'] . ', serving the entire GTA. Available 7 days a week.',
         'register'       => 'Book your WSIB Approved CPR or First Aid class online. Choose your course, pick a date, and get certified. Same-day digital certificate.',
         'providers'      => 'GTA CPR authorized training provider information and credentials.',
     ];

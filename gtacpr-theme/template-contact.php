@@ -100,8 +100,8 @@ $home_url = home_url('/');
     <div class="info-card" id="map">
       <div class="info-card-title">Location</div>
       <div class="info-card-body">
-        46 Sunnyside Hill Road<br>
-        Markham, Ontario L6B 0X5<br>
+        <?php echo esc_html( gtacpr_config('address') ); ?><br>
+        <?php echo esc_html( gtacpr_config('city') ); ?>, Ontario <?php echo esc_html( gtacpr_config('postal_code') ); ?><br>
         <span style="font-size:13px;color:var(--g400)">We also travel to your workplace for group training.</span>
       </div>
     </div>
@@ -128,12 +128,12 @@ $home_url = home_url('/');
 <div class="map-section">
   <div class="map-inner">
     <h2>Find Us</h2>
-    <!-- TODO: Replace div below with Google Maps iframe once you have the embed code -->
-    <div class="map-embed" role="img" aria-label="Map showing GTA CPR location in Markham Ontario">
-      <div class="map-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <p>46 Sunnyside Hill Road, Markham, ON · GTA-wide service</p>
-      </div>
+    <div class="map-embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d185621!2d-79.3832!3d43.7182!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb90d7c63ba5%3A0x323555502ab4c477!2sGreater%20Toronto%20Area%2C%20ON!5e0!3m2!1sen!2sca!4v1700000000000"
+        width="100%" height="300" style="border:0;display:block;border-radius:12px" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="GTA CPR service area map">
+      </iframe>
     </div>
   </div>
 </div>

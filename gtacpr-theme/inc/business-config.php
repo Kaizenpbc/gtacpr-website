@@ -37,8 +37,9 @@ function gtacpr_config( $key = null ) {
             ],
 
             // ── Social proof ──────────────────────────────────────────────────
-            'rating'       => '4.9',
-            'review_count' => '60',
+            'rating'          => '4.9',
+            'review_count'    => '60',
+            'certified_count' => '2,500',
 
             // ── Hours ─────────────────────────────────────────────────────────
             'hours'        => 'Mo-Su 09:00-17:00',

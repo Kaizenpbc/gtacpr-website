@@ -15,10 +15,6 @@
       <div class="footer-col">
         <div class="footer-col-title">Courses</div>
         <ul>
-          <!-- HIDDEN: non-WSIB courses
-          <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>">CPR Level A</a></li>
-          <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>">CPR Level C / AED</a></li>
-          -->
           <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>">Basic First Aid</a></li>
           <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>">Intermediate First Aid</a></li>
           <li><a href="<?php echo esc_url( get_permalink( get_page_by_path('register') ) ); ?>">Recertification</a></li>
