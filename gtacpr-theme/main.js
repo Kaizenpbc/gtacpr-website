@@ -45,7 +45,12 @@
   var bookingClose   = document.getElementById('bookingClose');
   var bookingModal   = bookingOverlay.querySelector('.booking-modal');
   var _bookingOpener = null;
-  function openBooking(e){ e.preventDefault(); _bookingOpener = e.currentTarget; bookingOverlay.classList.add('open'); document.body.style.overflow='hidden'; bookingClose.focus(); }
+  function openBooking(e){
+    e.preventDefault(); _bookingOpener = e.currentTarget; bookingOverlay.classList.add('open'); document.body.style.overflow='hidden';
+    var iframe = bookingOverlay.querySelector('iframe');
+    if (iframe && !iframe.src && iframe.dataset.src) { iframe.src = iframe.dataset.src; }
+    bookingClose.focus();
+  }
   function closeBooking(){ bookingOverlay.classList.remove('open'); document.body.style.overflow=''; if(_bookingOpener){ _bookingOpener.focus(); _bookingOpener=null; } }
   document.querySelectorAll('.open-booking').forEach(function(el){ el.addEventListener('click', openBooking); });
   bookingClose.addEventListener('click', closeBooking);

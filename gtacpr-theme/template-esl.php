@@ -6,7 +6,7 @@ $home_url     = home_url('/');
 ?>
 
 <div class="page-hero">
-  <div class="page-hero-bg" role="img" aria-label="Diverse students learning together"></div>
+  <div class="page-hero-bg" role="img" aria-label="Diverse students learning together" style="background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=1400&q=80')"></div>
   <div class="page-hero-inner">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="<?php echo esc_url($home_url); ?>">Home</a>
@@ -36,7 +36,7 @@ $home_url     = home_url('/');
 
   <div class="split-section">
     <div class="split-photo">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="Diverse group learning together" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="Diverse group learning together" width="800" height="534" loading="lazy">
       <div class="split-photo-caption">Small groups mean more personal attention for every student</div>
     </div>
     <div class="split-text">
@@ -59,7 +59,7 @@ $home_url     = home_url('/');
     <h2>Courses Available in All Three Languages</h2>
     <div class="course-grid">
       <div class="course-card">
-        <img class="course-img" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=70" alt="Basic First Aid class" loading="lazy">
+        <img class="course-img" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=70" alt="Basic First Aid class" width="600" height="400" loading="lazy">
         <div class="course-body">
           <span class="course-badge cb-c">Most Popular</span>
           <div class="course-name">Basic First Aid + CPR-C</div>
@@ -69,7 +69,7 @@ $home_url     = home_url('/');
         </div>
       </div>
       <div class="course-card">
-        <img class="course-img" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=70" alt="Intermediate First Aid" loading="lazy">
+        <img class="course-img" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=70" alt="Intermediate First Aid" width="600" height="400" loading="lazy">
         <div class="course-body">
           <span class="course-badge cb-sfa">Full Cert</span>
           <div class="course-name">Intermediate First Aid + CPR-C</div>

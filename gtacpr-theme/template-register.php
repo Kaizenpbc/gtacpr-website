@@ -6,7 +6,7 @@ $contact_url = get_permalink( get_page_by_path('contact') );
 ?>
 
 <div class="page-hero">
-  <div class="page-hero-bg" role="img" aria-label="CPR class booking"></div>
+  <div class="page-hero-bg" role="img" aria-label="CPR class booking" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=80')"></div>
   <div class="page-hero-inner">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="<?php echo esc_url($home_url); ?>">Home</a>

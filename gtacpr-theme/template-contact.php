@@ -6,7 +6,7 @@ $home_url = home_url('/');
 ?>
 
 <div class="page-hero">
-  <div class="page-hero-bg" role="img" aria-label="GTA CPR contact"></div>
+  <div class="page-hero-bg" role="img" aria-label="GTA CPR contact" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80')"></div>
   <div class="page-hero-inner">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="<?php echo esc_url($home_url); ?>">Home</a>

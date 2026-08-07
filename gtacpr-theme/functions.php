@@ -23,20 +23,20 @@ function gtacpr_enqueue() {
         'gtacpr-style',
         get_stylesheet_uri(),
         [ 'google-fonts' ],
-        '2.2'
+        filemtime( get_template_directory() . '/style.css' )
     );
     wp_enqueue_script(
         'gtacpr-main',
         get_template_directory_uri() . '/main.js',
         [],
-        '1.2',
+        filemtime( get_template_directory() . '/main.js' ),
         true
     );
     wp_enqueue_script(
         'gtacpr-chat',
         get_template_directory_uri() . '/chat-widget.js',
         [],
-        '1.0',
+        filemtime( get_template_directory() . '/chat-widget.js' ),
         true
     );
     wp_localize_script( 'gtacpr-chat', 'GTACPR', [
@@ -54,6 +54,11 @@ add_action( 'wp_enqueue_scripts', 'gtacpr_enqueue' );
  * Update these URLs when replacing Unsplash placeholders with real images.
  */
 function gtacpr_preload_hero() {
+    if ( is_front_page() ) {
+        $url = get_template_directory_uri() . '/assets/hero-cpr1.jpg';
+        echo '<link rel="preload" as="image" href="' . esc_url( $url ) . '">' . "\n";
+        return;
+    }
     $heroes = [
         'about'          => 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80',
         'group-training' => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1400&q=80',

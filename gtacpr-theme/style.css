@@ -204,9 +204,9 @@ body.drawer-open .drawer{right:0}
 .faq-section{padding:clamp(2rem,5vw,3.5rem) 1.25rem}
 .faq-inner{max-width:720px;margin:0 auto}
 .faq-item{border-bottom:1px solid var(--g200)}
-.faq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;font-size:14.5px;font-weight:600;color:var(--g800);text-align:left;background:none;border:none;cursor:pointer;min-height:54px}
+.faq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;font-size:14.5px;font-weight:600;color:var(--g800);text-align:left;background:none;border:none;cursor:pointer;min-height:54px;font-family:inherit}
 .faq-trigger:hover{color:var(--red)}
-.faq-icon{width:24px;height:24px;border-radius:50%;background:var(--g100);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--g600);line-height:1;transition:background .15s,transform .2s}
+.faq-icon{width:24px;height:24px;border-radius:50%;background:var(--g100);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--g600);line-height:1;transition:background .15s,transform .2s;user-select:none}
 .faq-item.open .faq-icon{background:var(--red);color:#fff;transform:rotate(45deg)}
 .faq-answer{font-size:13.5px;color:var(--g600);line-height:1.7;padding-bottom:1rem;display:none}
 .faq-item.open .faq-answer{display:block}
@@ -281,7 +281,7 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
 
 /* ── PAGE HERO ── */
 .page-hero{background:var(--g900);position:relative;overflow:hidden;padding:clamp(2.5rem,6vw,4.5rem) 1.25rem}
-.page-hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80');background-size:cover;background-position:center 40%;opacity:.3}
+.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.28}
 .page-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.65) 0%,rgba(0,0,0,.15) 100%)}
 .page-hero-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1}
 .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:1rem;flex-wrap:wrap}
@@ -637,19 +637,6 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 .lang-card-native{font-size:13px;color:var(--g400);margin-bottom:.75rem}
 .lang-card-desc{font-size:13.5px;color:var(--g600);line-height:1.65}
 
-/* FAQ */
-.faq-section{margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--g200)}
-.faq-section .section-label{text-align:center}
-.faq-section h2{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;color:var(--g900);text-align:center;margin-bottom:2rem;letter-spacing:-.01em}
-.faq-inner{max-width:720px;margin:0 auto}
-.faq-item{border-bottom:1px solid var(--g200)}
-.faq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;font-size:14.5px;font-weight:600;color:var(--g800);text-align:left;background:none;border:none;cursor:pointer;min-height:54px}
-.faq-trigger:hover{color:var(--red)}
-.faq-icon{width:24px;height:24px;border-radius:50%;background:var(--g100);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--g600);line-height:1;transition:background .15s,transform .2s}
-.faq-item.open .faq-icon{background:var(--red);color:#fff;transform:rotate(45deg)}
-.faq-answer{font-size:13.5px;color:var(--g600);line-height:1.7;padding-bottom:1rem;display:none}
-.faq-item.open .faq-answer{display:block}
-
 /* CTA BAND */
 .cta-band{background:var(--g900);border-radius:16px;padding:clamp(2rem,5vw,3rem);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-bottom:clamp(2rem,4vw,3rem)}
 .cta-band h2{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:800;color:#fff;margin-bottom:.5rem;letter-spacing:-.01em}
@@ -663,18 +650,6 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 /* ════════════════════════════
    REGISTER / BOOKING PAGE
 ════════════════════════════ */
-
-/* ── PAGE HERO ── */
-.page-hero{background:var(--g900);position:relative;overflow:hidden;padding:clamp(2rem,5vw,3.5rem) 1.25rem}
-.page-hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=1400&q=80');background-size:cover;background-position:center;opacity:.25}
-.page-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.7) 0%,rgba(0,0,0,.2) 100%)}
-.page-hero-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1}
-.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:.85rem;flex-wrap:wrap}
-.breadcrumb a{color:rgba(255,255,255,.5);transition:color .15s}
-.breadcrumb a:hover{color:rgba(255,255,255,.85)}
-.breadcrumb svg{width:14px;height:14px;flex-shrink:0}
-.page-hero h1{font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;color:#fff;line-height:1.12;letter-spacing:-.02em;margin-bottom:.6rem}
-.page-hero-sub{font-size:clamp(.875rem,2vw,1rem);color:rgba(255,255,255,.75);line-height:1.65}
 
 /* ── PROGRESS STEPPER ── */
 .stepper-wrap{background:var(--w);border-bottom:1px solid var(--g200);padding:.85rem 1.25rem}
@@ -745,13 +720,6 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 
 /* STEP 3 — YOUR DETAILS */
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
-.form-group label{font-size:12.5px;font-weight:600;color:#374151}
-.form-group label span{color:var(--red)}
-.form-control{width:100%;padding:10px 13px;border:1.5px solid var(--g200);border-radius:var(--r);font-size:14px;font-family:inherit;color:var(--g900);background:var(--w);transition:border-color .15s,box-shadow .15s;appearance:none;-webkit-appearance:none;min-height:44px}
-.form-control:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(204,31,31,.1)}
-.form-control::placeholder{color:var(--g400)}
-select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;cursor:pointer}
 .form-section-title{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--g400);margin-bottom:.75rem;margin-top:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--g200)}
 .form-section-title:first-child{margin-top:0}
 .checkbox-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
@@ -816,18 +784,6 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
    CONTACT PAGE
 ════════════════════════════ */
 
-/* ── PAGE HERO ── */
-.page-hero{background:var(--g900);position:relative;overflow:hidden;padding:clamp(2.5rem,6vw,4rem) 1.25rem}
-.page-hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=80');background-size:cover;background-position:center 30%;opacity:.25}
-.page-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.7) 0%,rgba(0,0,0,.2) 100%)}
-.page-hero-inner{max-width:1160px;margin:0 auto;position:relative;z-index:1}
-.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:1rem;flex-wrap:wrap}
-.breadcrumb a{color:rgba(255,255,255,.5)}
-.breadcrumb a:hover{color:rgba(255,255,255,.85)}
-.breadcrumb svg{width:14px;height:14px;flex-shrink:0}
-.page-hero h1{font-size:clamp(1.7rem,4.5vw,2.8rem);font-weight:800;color:#fff;line-height:1.12;letter-spacing:-.02em;margin-bottom:.85rem;max-width:600px}
-.page-hero-sub{font-size:clamp(.9rem,2vw,1.05rem);color:rgba(255,255,255,.78);max-width:500px;line-height:1.65}
-
 /* ── CONTACT SECTION ── */
 .contact-section{max-width:1160px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 1.25rem;display:grid;grid-template-columns:3fr 2fr;gap:3rem;align-items:flex-start}
 
@@ -836,23 +792,8 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
 .contact-form-panel h2{font-size:1.2rem;font-weight:800;color:var(--g900);margin-bottom:.35rem}
 .contact-form-panel .panel-sub{font-size:13.5px;color:var(--g600);margin-bottom:1.5rem;line-height:1.6}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:1rem}
-.form-group label{font-size:13px;font-weight:600;color:var(--g800)}
 .form-group label .req{color:var(--red)}
-.form-control{width:100%;padding:10px 13px;border:1.5px solid var(--g200);border-radius:var(--r);font-size:14px;font-family:inherit;color:var(--g900);background:var(--w);transition:border-color .15s,box-shadow .15s;appearance:none;-webkit-appearance:none;min-height:44px}
-.form-control:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(204,31,31,.1)}
-.form-control::placeholder{color:var(--g400)}
-textarea.form-control{resize:vertical;min-height:120px}
-.btn-submit{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:50px;background:var(--red);color:#fff;font-size:14px;font-weight:700;border-radius:var(--r);border:none;cursor:pointer;transition:background .15s;font-family:inherit}
-.btn-submit:hover{background:var(--rdk)}
-.form-note{font-size:12px;color:var(--g400);text-align:center;margin-top:.75rem;line-height:1.5}
-
-/* SUCCESS STATE */
-.form-success{display:none;text-align:center;padding:2rem 1rem}
-.success-icon{width:56px;height:56px;border-radius:50%;background:#DCFCE7;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
-.success-icon svg{width:28px;height:28px;color:#16A34A}
-.form-success h3{font-size:1.1rem;font-weight:800;color:var(--g900);margin-bottom:.5rem}
-.form-success p{font-size:14px;color:var(--g600);line-height:1.6}
+.contact-form-panel textarea.form-control{min-height:120px}
 
 /* INFO PANEL */
 .contact-info-panel{display:flex;flex-direction:column;gap:1rem}
@@ -891,15 +832,6 @@ textarea.form-control{resize:vertical;min-height:120px}
 .map-placeholder p{font-size:13px}
 
 /* ── FAQ SNIPPET ── */
-.faq-section{max-width:1160px;margin:0 auto;padding:clamp(2rem,4vw,3rem) 1.25rem}
-.faq-section h2{font-size:1.15rem;font-weight:800;color:var(--g900);margin-bottom:1.25rem}
-.faq-item{border-bottom:1px solid var(--g200)}
-.faq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;font-size:14.5px;font-weight:600;color:var(--g800);text-align:left;background:none;border:none;cursor:pointer;min-height:54px;font-family:inherit}
-.faq-trigger:hover{color:var(--red)}
-.faq-icon{width:24px;height:24px;border-radius:50%;background:var(--g100);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--g600);line-height:1;transition:background .15s,transform .2s;user-select:none}
-.faq-item.open .faq-icon{background:var(--red);color:#fff;transform:rotate(45deg)}
-.faq-answer{font-size:13.5px;color:var(--g600);line-height:1.7;padding-bottom:1rem;display:none}
-.faq-item.open .faq-answer{display:block}
 .faq-footer{margin-top:1.25rem}
 .faq-footer a{font-size:13.5px;font-weight:600;color:var(--red);display:inline-flex;align-items:center;gap:5px}
 .faq-footer a:hover{text-decoration:underline}
