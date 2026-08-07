@@ -179,60 +179,15 @@ $contact_url = get_permalink( get_page_by_path('contact') );
 </div>
 
 <script>
-(function(){
-  var FORMSPREE_ID = '<?php echo esc_js( gtacpr_config('formspree_group') ); ?>';
-  var form    = document.getElementById('groupForm');
-  var btn     = document.getElementById('submitBtn');
-  var body    = document.getElementById('formBody');
-  var success = document.getElementById('formSuccess');
-  if (!form || !btn) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    // Client-side validation
-    var valid = true;
-    form.querySelectorAll('[required]').forEach(function(f) {
-      if (!f.value.trim()) { f.style.borderColor = 'var(--red)'; f.setAttribute('aria-invalid','true'); valid = false; }
-      else { f.style.borderColor = ''; f.removeAttribute('aria-invalid'); }
-    });
-    if (!valid) { var a = document.getElementById('formAnnounce'); if (a) a.textContent = 'Please fill in all required fields.'; return; }
-
-    // Honeypot check
-    if (form.querySelector('[name="_gotcha"]').value) return;
-
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(form)
-    })
-    .then(function(res) {
-      if (res.ok) {
-        body.style.display = 'none';
-        success.style.display = 'block';
-        success.setAttribute('tabindex', '-1');
-        success.focus();
-        var a = document.getElementById('formAnnounce');
-        if (a) a.textContent = 'Request sent successfully. We will contact you within 24 hours.';
-      } else {
-        btn.disabled = false;
-        btn.textContent = 'Send My Request';
-        var a = document.getElementById('formAnnounce');
-        if (a) a.textContent = 'Something went wrong. Please call <?php echo esc_js( gtacpr_phone() ); ?>.';
-        alert('Something went wrong. Please call <?php echo esc_js( gtacpr_phone() ); ?>.');
-      }
-    })
-    .catch(function() {
-      btn.disabled = false;
-      btn.textContent = 'Send My Request';
-      var a = document.getElementById('formAnnounce');
-      if (a) a.textContent = 'Connection error. Please call <?php echo esc_js( gtacpr_phone() ); ?>.';
-      alert('Connection error. Please call <?php echo esc_js( gtacpr_phone() ); ?>.');
-    });
-  });
-})();
+gtacprForm({
+  formId: 'groupForm',
+  successId: 'formSuccess',
+  bodyId: 'formBody',
+  formspreeId: '<?php echo esc_js( gtacpr_config('formspree_group') ); ?>',
+  phone: '<?php echo esc_js( gtacpr_phone() ); ?>',
+  successMsg: 'Request sent successfully. We will contact you within 24 hours.',
+  btnLabel: 'Send My Request'
+});
 </script>
 
 <?php get_footer(); ?>

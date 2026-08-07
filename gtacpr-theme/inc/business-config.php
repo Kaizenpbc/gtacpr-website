@@ -145,3 +145,15 @@ function gtacpr_address() {
 function gtacpr_portal_url() {
     return gtacpr_config('portal_url');
 }
+
+/**
+ * Memoized page URL helper — avoids repeated get_page_by_path() DB lookups.
+ * Usage: gtacpr_url('register'), gtacpr_url('courses'), etc.
+ */
+function gtacpr_url( $slug ) {
+    static $cache = [];
+    if ( ! isset( $cache[ $slug ] ) ) {
+        $cache[ $slug ] = get_permalink( get_page_by_path( $slug ) );
+    }
+    return $cache[ $slug ];
+}

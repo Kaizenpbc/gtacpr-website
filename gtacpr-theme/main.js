@@ -129,4 +129,49 @@
       sections.forEach(function(s){ spyObserver.observe(s); });
     }
   }
+  // ── Shared Formspree form handler (CQ-04) ──
+  // Usage: gtacprForm({ formId, successId, formspreeId, phone, successMsg, btnLabel })
+  window.gtacprForm = function(cfg) {
+    var form    = document.getElementById(cfg.formId);
+    var success = document.getElementById(cfg.successId);
+    if (!form) return;
+    var submitBtn = form.querySelector('[type="submit"]');
+    var btnLabel  = cfg.btnLabel || submitBtn.textContent;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var valid = true;
+      form.querySelectorAll('[required]').forEach(function(f) {
+        if (!f.value.trim()) { f.style.borderColor='var(--red)'; f.setAttribute('aria-invalid','true'); valid=false; }
+        else { f.style.borderColor=''; f.removeAttribute('aria-invalid'); }
+      });
+      if (!valid) { var a=document.getElementById('formAnnounce'); if(a) a.textContent='Please fill in all required fields.'; return; }
+      var hp = form.querySelector('[name="_gotcha"]');
+      if (hp && hp.value) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      fetch('https://formspree.io/f/' + cfg.formspreeId, {
+        method: 'POST', headers: {'Accept':'application/json'}, body: new FormData(form)
+      })
+      .then(function(res) {
+        if (res.ok) {
+          var body = cfg.bodyId ? document.getElementById(cfg.bodyId) : form;
+          body.style.display = 'none';
+          success.style.display = 'block';
+          success.setAttribute('tabindex', '-1');
+          success.focus();
+          var a=document.getElementById('formAnnounce');
+          if(a) a.textContent = cfg.successMsg || 'Message sent successfully.';
+        } else {
+          submitBtn.disabled = false; submitBtn.textContent = btnLabel;
+          alert('Something went wrong. Please call ' + cfg.phone + '.');
+        }
+      })
+      .catch(function() {
+        submitBtn.disabled = false; submitBtn.textContent = btnLabel;
+        alert('Connection error. Please call ' + cfg.phone + '.');
+      });
+    });
+  };
 })();

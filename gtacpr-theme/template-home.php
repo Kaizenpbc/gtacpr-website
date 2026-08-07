@@ -4,7 +4,6 @@ get_header();
 $register_url     = get_permalink( get_page_by_path('register') );
 $group_url        = get_permalink( get_page_by_path('group-training') );
 $esl_url          = get_permalink( get_page_by_path('esl') );
-$about_url        = get_permalink( get_page_by_path('about') );
 $contact_url      = get_permalink( get_page_by_path('contact') );
 ?>
 

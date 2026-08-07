@@ -213,64 +213,14 @@ get_header();
 </div>
 
 <script>
-(function(){
-  var FORMSPREE_ID = '<?php echo esc_js( gtacpr_config('formspree_provider') ); ?>';
-  var form    = document.getElementById('providerForm');
-  var success = document.getElementById('provSuccess');
-  var submitBtn = form ? form.querySelector('[type="submit"]') : null;
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var valid = true;
-    form.querySelectorAll('[required]').forEach(function(field) {
-      if (!field.value.trim()) {
-        field.style.borderColor = 'var(--red)';
-        field.setAttribute('aria-invalid', 'true');
-        valid = false;
-      } else {
-        field.style.borderColor = '';
-        field.removeAttribute('aria-invalid');
-      }
-    });
-    if (!valid) {
-      var a = document.getElementById('formAnnounce');
-      if (a) a.textContent = 'Please fill in all required fields.';
-      return;
-    }
-
-    if (form.querySelector('[name="_gotcha"]').value) return;
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-
-    fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(form)
-    })
-    .then(function(res) {
-      if (res.ok) {
-        form.style.display = 'none';
-        success.style.display = 'block';
-        success.setAttribute('tabindex', '-1');
-        success.focus();
-        var a = document.getElementById('formAnnounce');
-        if (a) a.textContent = 'Application submitted successfully.';
-      } else {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Submit Application';
-        alert('Something went wrong. Please call <?php echo esc_js( gtacpr_phone() ); ?>.');
-      }
-    })
-    .catch(function() {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Application';
-      alert('Connection error. Please call <?php echo esc_js( gtacpr_phone() ); ?>.');
-    });
-  });
-})();
+gtacprForm({
+  formId: 'providerForm',
+  successId: 'provSuccess',
+  formspreeId: '<?php echo esc_js( gtacpr_config('formspree_provider') ); ?>',
+  phone: '<?php echo esc_js( gtacpr_phone() ); ?>',
+  successMsg: 'Application submitted successfully.',
+  btnLabel: 'Submit Application'
+});
 </script>
 
 <?php get_footer(); ?>
