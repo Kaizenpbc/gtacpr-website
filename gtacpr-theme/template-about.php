@@ -5,6 +5,7 @@ get_header();
 <?php
 $register_url = get_permalink( get_page_by_path('register') );
 $group_url    = get_permalink( get_page_by_path('group-training') );
+$courses_url  = get_permalink( get_page_by_path('courses') );
 ?>
 
 <div class="page-hero">
@@ -90,6 +91,7 @@ $group_url    = get_permalink( get_page_by_path('group-training') );
     </div>
     <div class="cta-band-btns">
       <a href="<?php echo esc_url($register_url); ?>" class="btn-cta-primary">Register Now</a>
+      <a href="<?php echo esc_url($courses_url); ?>" class="btn-cta-outline">View Courses</a>
       <a href="<?php echo esc_url($group_url); ?>" class="btn-cta-outline">Group Training</a>
     </div>
   </div>

@@ -3,6 +3,7 @@
 get_header();
 $home_url    = home_url('/');
 $contact_url = get_permalink( get_page_by_path('contact') );
+$courses_url = get_permalink( get_page_by_path('courses') );
 ?>
 
 <div class="page-hero">
@@ -166,6 +167,7 @@ $contact_url = get_permalink( get_page_by_path('contact') );
           Send My Request
         </button>
         <p class="form-alt">Prefer to talk? Call <a href="tel:<?php echo esc_attr( gtacpr_phone_raw() ); ?>"><?php echo esc_html( gtacpr_phone() ); ?></a> or email <a href="mailto:<?php echo esc_attr( gtacpr_email() ); ?>"><?php echo esc_html( gtacpr_email() ); ?></a></p>
+        <p class="form-alt">Not sure which course? <a href="<?php echo esc_url($courses_url); ?>">View all courses →</a></p>
       </div>
       </form>
 

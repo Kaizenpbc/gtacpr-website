@@ -205,6 +205,7 @@ add_action( 'send_headers', function() {
         header( 'X-Robots-Tag: noindex, nofollow', true );
     }
     // SEC-03: Security headers
+    header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains' );
     header( 'X-Content-Type-Options: nosniff' );
     header( 'X-Frame-Options: SAMEORIGIN' );
     header( 'Referrer-Policy: strict-origin-when-cross-origin' );
