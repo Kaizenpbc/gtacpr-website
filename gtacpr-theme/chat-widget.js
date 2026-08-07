@@ -68,7 +68,7 @@
     #gtacpr-chat-window.open {
       opacity: 1;
       transform: translateY(0) scale(1);
-      pointer-events: all;
+      pointer-events: auto;
     }
 
     #gtacpr-chat-header {
@@ -249,6 +249,7 @@
   const win = document.createElement('div');
   win.id = 'gtacpr-chat-window';
   win.setAttribute('role', 'dialog');
+  win.setAttribute('aria-modal', 'true');
   win.setAttribute('aria-label', 'GTACPR Chat Assistant');
   win.innerHTML = `
     <div id="gtacpr-chat-header">
@@ -332,11 +333,13 @@
     showTyping();
 
     try {
+      const trimmed = messages.length > 20 ? messages.slice(-20) : messages;
       const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages })
+        body: JSON.stringify({ messages: trimmed })
       });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
       const data = await res.json();
       hideTyping();
       const reply = data.reply || 'Sorry, I had trouble answering that. Please call us at 416-723-2571.';
@@ -366,6 +369,7 @@
   function closeChat() {
     isOpen = false;
     win.classList.remove('open');
+    btn.focus();
   }
 
   btn.addEventListener('click', () => isOpen ? closeChat() : openChat());

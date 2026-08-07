@@ -11,67 +11,77 @@
     }
   }
 
+  // Drawer
   var btn=document.getElementById('hbBtn'),
       drawer=document.getElementById('drawer'),
       ov=document.getElementById('dOverlay'),
       cl=document.getElementById('dClose');
 
-  function openDrawer(){
-    document.body.classList.add('drawer-open');
-    btn.setAttribute('aria-expanded','true');
-    cl.focus();
-  }
-  function closeDrawer(){
-    document.body.classList.remove('drawer-open');
-    btn.setAttribute('aria-expanded','false');
-    btn.focus();
-  }
-
-  btn.addEventListener('click', openDrawer);
-  cl.addEventListener('click', closeDrawer);
-  ov.addEventListener('click', closeDrawer);
-  drawer.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', closeDrawer);
-  });
-  document.addEventListener('keydown', function(e){
-    if (document.body.classList.contains('drawer-open')) {
-      if (e.key === 'Escape') { closeDrawer(); return; }
-      trapFocus(drawer, e);
+  if (btn && drawer && ov && cl) {
+    function openDrawer(){
+      document.body.classList.add('drawer-open');
+      btn.setAttribute('aria-expanded','true');
+      cl.focus();
     }
-  });
+    function closeDrawer(){
+      document.body.classList.remove('drawer-open');
+      btn.setAttribute('aria-expanded','false');
+      btn.focus();
+    }
+
+    btn.addEventListener('click', openDrawer);
+    cl.addEventListener('click', closeDrawer);
+    ov.addEventListener('click', closeDrawer);
+    drawer.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeDrawer);
+    });
+    document.addEventListener('keydown', function(e){
+      if (document.body.classList.contains('drawer-open')) {
+        if (e.key === 'Escape') { closeDrawer(); return; }
+        trapFocus(drawer, e);
+      }
+    });
+  }
 
   // Booking modal
   var bookingOverlay = document.getElementById('bookingOverlay');
   var bookingClose   = document.getElementById('bookingClose');
-  var bookingModal   = bookingOverlay.querySelector('.booking-modal');
-  var _bookingOpener = null;
-  function openBooking(e){
-    e.preventDefault(); _bookingOpener = e.currentTarget; bookingOverlay.classList.add('open'); document.body.style.overflow='hidden';
-    var iframe = bookingOverlay.querySelector('iframe');
-    if (iframe && !iframe.src && iframe.dataset.src) { iframe.src = iframe.dataset.src; }
-    bookingClose.focus();
-  }
-  function closeBooking(){ bookingOverlay.classList.remove('open'); document.body.style.overflow=''; if(_bookingOpener){ _bookingOpener.focus(); _bookingOpener=null; } }
-  document.querySelectorAll('.open-booking').forEach(function(el){ el.addEventListener('click', openBooking); });
-  bookingClose.addEventListener('click', closeBooking);
-  bookingOverlay.addEventListener('click', function(e){ if(e.target===bookingOverlay) closeBooking(); });
-  document.addEventListener('keydown', function(e){
-    if (bookingOverlay.classList.contains('open')) {
-      if (e.key === 'Escape') { closeBooking(); return; }
-      trapFocus(bookingModal, e);
+
+  if (bookingOverlay && bookingClose) {
+    var bookingModal   = bookingOverlay.querySelector('.booking-modal');
+    var _bookingOpener = null;
+    function openBooking(e){
+      e.preventDefault(); _bookingOpener = e.currentTarget; bookingOverlay.classList.add('open'); document.body.style.overflow='hidden';
+      var iframe = bookingOverlay.querySelector('iframe');
+      if (iframe && !iframe.src && iframe.dataset.src) { iframe.src = iframe.dataset.src; }
+      bookingClose.focus();
     }
-  });
+    function closeBooking(){ bookingOverlay.classList.remove('open'); document.body.style.overflow=''; if(_bookingOpener){ _bookingOpener.focus(); _bookingOpener=null; } }
+    document.querySelectorAll('.open-booking').forEach(function(el){ el.addEventListener('click', openBooking); });
+    bookingClose.addEventListener('click', closeBooking);
+    bookingOverlay.addEventListener('click', function(e){ if(e.target===bookingOverlay) closeBooking(); });
+    document.addEventListener('keydown', function(e){
+      if (bookingOverlay.classList.contains('open')) {
+        if (e.key === 'Escape') { closeBooking(); return; }
+        if (bookingModal) trapFocus(bookingModal, e);
+      }
+    });
+  }
 
   // FAQ accordion — independent toggle (multiple can be open)
   document.querySelectorAll('.faq-trigger').forEach(function(t, i){
     var item = t.closest('.faq-item');
+    if (!item) return;
     var answer = item.querySelector('.faq-answer');
+    if (!answer) return;
     var id = 'faq-answer-' + i;
     answer.id = id;
     answer.setAttribute('role', 'region');
     answer.setAttribute('aria-labelledby', 'faq-trigger-' + i);
     t.id = 'faq-trigger-' + i;
     t.setAttribute('aria-controls', id);
+    var isInitiallyOpen = item.classList.contains('open');
+    t.setAttribute('aria-expanded', isInitiallyOpen ? 'true' : 'false');
     t.addEventListener('click', function(){
       var isOpen = item.classList.contains('open');
       if(isOpen){
@@ -136,6 +146,7 @@
     var success = document.getElementById(cfg.successId);
     if (!form) return;
     var submitBtn = form.querySelector('[type="submit"]');
+    if (!submitBtn) return;
     var btnLabel  = cfg.btnLabel || submitBtn.textContent;
 
     form.addEventListener('submit', function(e) {
@@ -157,10 +168,12 @@
       .then(function(res) {
         if (res.ok) {
           var body = cfg.bodyId ? document.getElementById(cfg.bodyId) : form;
-          body.style.display = 'none';
-          success.style.display = 'block';
-          success.setAttribute('tabindex', '-1');
-          success.focus();
+          if (body) body.style.display = 'none';
+          if (success) {
+            success.style.display = 'block';
+            success.setAttribute('tabindex', '-1');
+            success.focus();
+          }
           var a=document.getElementById('formAnnounce');
           if(a) a.textContent = cfg.successMsg || 'Message sent successfully.';
         } else {
