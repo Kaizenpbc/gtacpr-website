@@ -187,6 +187,22 @@
     }
     .gc-suggestion:hover { border-color: #CC1F1F; color: #CC1F1F; background: #FFF0F0; }
 
+    .gc-book-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 16px;
+      background: #CC1F1F;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+    .gc-book-btn:hover { background: #9B1515; }
+
     #gtacpr-chat-input-row {
       padding: 10px 12px;
       background: #fff;
@@ -313,7 +329,20 @@
   function addMessage(role, text) {
     const el = document.createElement('div');
     el.className = `gc-msg ${role}`;
-    if (role === 'bot') { el.innerHTML = formatChat(text); }
+    if (role === 'bot') {
+      el.innerHTML = formatChat(text);
+      if (/register|book|sign up|get started/i.test(text)) {
+        const btn = document.createElement('button');
+        btn.className = 'gc-book-btn';
+        btn.textContent = 'Book Now';
+        btn.addEventListener('click', function() {
+          var opener = document.querySelector('.open-booking');
+          if (opener) { opener.click(); }
+          else { window.location.href = (window.GTACPR && window.GTACPR.registerUrl) || '/register/'; }
+        });
+        el.appendChild(btn);
+      }
+    }
     else { el.textContent = text; }
     messagesEl.appendChild(el);
     messagesEl.scrollTop = messagesEl.scrollHeight;
