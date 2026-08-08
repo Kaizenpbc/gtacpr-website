@@ -57,7 +57,10 @@
       bookingClose.focus();
     }
     function closeBooking(){ bookingOverlay.classList.remove('open'); document.body.style.overflow=''; if(_bookingOpener){ _bookingOpener.focus(); _bookingOpener=null; } }
-    document.querySelectorAll('.open-booking').forEach(function(el){ el.addEventListener('click', openBooking); });
+    var isRegisterPage = document.body.classList.contains('page-template-template-register');
+    document.querySelectorAll('.open-booking').forEach(function(el){
+      if (!isRegisterPage) el.addEventListener('click', openBooking);
+    });
     bookingClose.addEventListener('click', closeBooking);
     bookingOverlay.addEventListener('click', function(e){ if(e.target===bookingOverlay) closeBooking(); });
     document.addEventListener('keydown', function(e){
@@ -139,15 +142,19 @@
       sections.forEach(function(s){ spyObserver.observe(s); });
     }
   }
-  // ── Shared Formspree form handler (CQ-04) ──
-  // Usage: gtacprForm({ formId, successId, formspreeId, phone, successMsg, btnLabel })
-  window.gtacprForm = function(cfg) {
-    var form    = document.getElementById(cfg.formId);
-    var success = document.getElementById(cfg.successId);
-    if (!form) return;
-    var submitBtn = form.querySelector('[type="submit"]');
+  // ── Shared Formspree form handler (CQ-04, W14) ──
+  // Auto-inits from data-formspree attribute; phone from GTACPR.phone (wp_localize_script).
+  function initForm(form) {
+    var formspreeId = form.dataset.formspree;
+    if (!formspreeId) return;
+    var successId  = form.dataset.successId;
+    var bodyId     = form.dataset.bodyId;
+    var successMsg = form.dataset.successMsg || 'Message sent successfully.';
+    var phone      = (window.GTACPR && window.GTACPR.phone) || '';
+    var success    = successId ? document.getElementById(successId) : null;
+    var submitBtn  = form.querySelector('[type="submit"]');
     if (!submitBtn) return;
-    var btnLabel  = cfg.btnLabel || submitBtn.textContent;
+    var btnLabel   = form.dataset.btnLabel || submitBtn.textContent;
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -162,12 +169,12 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
 
-      fetch('https://formspree.io/f/' + cfg.formspreeId, {
+      fetch('https://formspree.io/f/' + formspreeId, {
         method: 'POST', headers: {'Accept':'application/json'}, body: new FormData(form)
       })
       .then(function(res) {
         if (res.ok) {
-          var body = cfg.bodyId ? document.getElementById(cfg.bodyId) : form;
+          var body = bodyId ? document.getElementById(bodyId) : form;
           if (body) body.style.display = 'none';
           if (success) {
             success.style.display = 'block';
@@ -175,16 +182,17 @@
             success.focus();
           }
           var a=document.getElementById('formAnnounce');
-          if(a) a.textContent = cfg.successMsg || 'Message sent successfully.';
+          if(a) a.textContent = successMsg;
         } else {
           submitBtn.disabled = false; submitBtn.textContent = btnLabel;
-          alert('Something went wrong. Please call ' + cfg.phone + '.');
+          alert('Something went wrong. Please call ' + phone + '.');
         }
       })
       .catch(function() {
         submitBtn.disabled = false; submitBtn.textContent = btnLabel;
-        alert('Connection error. Please call ' + cfg.phone + '.');
+        alert('Connection error. Please call ' + phone + '.');
       });
     });
-  };
+  }
+  document.querySelectorAll('[data-formspree]').forEach(initForm);
 })();

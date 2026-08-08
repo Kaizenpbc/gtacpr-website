@@ -111,7 +111,7 @@ $courses_url = gtacpr_url('courses');
         <p>We'll respond within one business day</p>
       </div>
 
-      <form id="groupForm" novalidate>
+      <form id="groupForm" novalidate data-formspree="<?php echo esc_attr( gtacpr_config('formspree_group') ); ?>" data-success-id="formSuccess" data-body-id="formBody" data-success-msg="Request sent successfully. We will contact you within 24 hours." data-btn-label="Send My Request">
       <div style="display:none" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <div class="form-body" id="formBody">
         <div class="form-row">
@@ -181,16 +181,5 @@ $courses_url = gtacpr_url('courses');
   </div>
 </div>
 
-<script>
-gtacprForm({
-  formId: 'groupForm',
-  successId: 'formSuccess',
-  bodyId: 'formBody',
-  formspreeId: '<?php echo esc_js( gtacpr_config('formspree_group') ); ?>',
-  phone: '<?php echo esc_js( gtacpr_phone() ); ?>',
-  successMsg: 'Request sent successfully. We will contact you within 24 hours.',
-  btnLabel: 'Send My Request'
-});
-</script>
 
 <?php get_footer(); ?>

@@ -25,7 +25,7 @@ $home_url = home_url('/');
     <h2>Send Us a Message</h2>
     <p class="panel-sub">Have a question about a course, group booking, or ESL training? Fill in the form and we'll get back to you promptly.</p>
 
-    <form id="contactForm" novalidate>
+    <form id="contactForm" novalidate data-formspree="<?php echo esc_attr( gtacpr_config('formspree_contact') ); ?>" data-success-id="formSuccess" data-success-msg="Message sent successfully. We will get back to you within a few hours." data-btn-label="Send Message">
       <!-- Honeypot — bots fill this in, humans don't -->
       <div style="display:none" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <div class="form-row">
@@ -148,15 +148,5 @@ $home_url = home_url('/');
   <div class="faq-footer"><a href="<?php echo esc_url($home_url); ?>#faq">View all FAQs <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a></div>
 </div>
 
-<script>
-gtacprForm({
-  formId: 'contactForm',
-  successId: 'formSuccess',
-  formspreeId: '<?php echo esc_js( gtacpr_config('formspree_contact') ); ?>',
-  phone: '<?php echo esc_js( gtacpr_phone() ); ?>',
-  successMsg: 'Message sent successfully. We will get back to you within a few hours.',
-  btnLabel: 'Send Message'
-});
-</script>
 
 <?php get_footer(); ?>

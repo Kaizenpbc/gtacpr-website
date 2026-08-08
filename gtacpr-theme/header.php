@@ -74,14 +74,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
-  <?php
-    // Drawer active link helper
-    function gtacpr_drawer_class( $slug ) {
-      if ( $slug === 'home' && is_front_page() ) return ' class="drawer-active"';
-      if ( is_page( $slug ) ) return ' class="drawer-active"';
-      return '';
-    }
-  ?>
+  <?php // gtacpr_drawer_class() lives in functions.php ?>
   <ul class="drawer-nav">
     <li><a href="<?php echo esc_url( gtacpr_url('about') ); ?>"<?php echo gtacpr_drawer_class('about'); ?>><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>About Us</a></li>
     <li><a href="<?php echo esc_url( gtacpr_url('courses') ); ?>"<?php echo gtacpr_drawer_class('courses'); ?>><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Courses</a></li>

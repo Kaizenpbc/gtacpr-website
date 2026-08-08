@@ -106,12 +106,6 @@ $_schema = [
         'addressCountry'  => $_cfg['country'],
     ],
     'areaServed'      => $_areas,
-    'openingHoursSpecification' => [
-        '@type'     => 'OpeningHoursSpecification',
-        'dayOfWeek' => ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
-        'opens'     => '09:00',
-        'closes'    => '17:00',
-    ],
 ];
 ?>
 <script type="application/ld+json"><?php echo wp_json_encode( $_schema ); ?></script>

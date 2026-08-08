@@ -146,7 +146,7 @@ get_header();
 <div class="prov-form-section">
   <div class="prov-section">
     <div class="prov-form-wrap">
-      <form class="prov-form" id="providerForm">
+      <form class="prov-form" id="providerForm" data-formspree="<?php echo esc_attr( gtacpr_config('formspree_provider') ); ?>" data-success-id="provSuccess" data-success-msg="Application submitted successfully." data-btn-label="Submit Application">
         <div class="prov-form-row">
           <div>
             <label for="prov-first">First Name *</label>
@@ -214,15 +214,5 @@ get_header();
   </div>
 </div>
 
-<script>
-gtacprForm({
-  formId: 'providerForm',
-  successId: 'provSuccess',
-  formspreeId: '<?php echo esc_js( gtacpr_config('formspree_provider') ); ?>',
-  phone: '<?php echo esc_js( gtacpr_phone() ); ?>',
-  successMsg: 'Application submitted successfully.',
-  btnLabel: 'Submit Application'
-});
-</script>
 
 <?php get_footer(); ?>

@@ -13,6 +13,15 @@ function gtacpr_setup() {
 }
 add_action( 'after_setup_theme', 'gtacpr_setup' );
 
+/**
+ * Drawer active link helper (moved from header.php to avoid redeclaration fatal — W11).
+ */
+function gtacpr_drawer_class( $slug ) {
+    if ( $slug === 'home' && is_front_page() ) return ' class="drawer-active"';
+    if ( is_page( $slug ) ) return ' class="drawer-active"';
+    return '';
+}
+
 function gtacpr_enqueue() {
     wp_enqueue_style(
         'google-fonts',
@@ -20,27 +29,28 @@ function gtacpr_enqueue() {
         [],
         null
     );
+    $dir = get_template_directory();
     wp_enqueue_style(
         'gtacpr-style',
         get_stylesheet_uri(),
         [ 'google-fonts' ],
-        filemtime( get_template_directory() . '/style.css' )
+        file_exists( $dir . '/style.css' ) ? filemtime( $dir . '/style.css' ) : '1'
     );
     wp_enqueue_script(
         'gtacpr-main',
         get_template_directory_uri() . '/main.js',
         [],
-        filemtime( get_template_directory() . '/main.js' ),
+        file_exists( $dir . '/main.js' ) ? filemtime( $dir . '/main.js' ) : '1',
         true
     );
     wp_enqueue_script(
         'gtacpr-chat',
         get_template_directory_uri() . '/chat-widget.js',
         [],
-        filemtime( get_template_directory() . '/chat-widget.js' ),
+        file_exists( $dir . '/chat-widget.js' ) ? filemtime( $dir . '/chat-widget.js' ) : '1',
         true
     );
-    wp_localize_script( 'gtacpr-chat', 'GTACPR', [
+    wp_localize_script( 'gtacpr-main', 'GTACPR', [
         'chatApiUrl' => get_template_directory_uri() . '/chat-api.php',
         'phone'      => gtacpr_phone(),
     ] );
@@ -52,7 +62,7 @@ add_action( 'wp_enqueue_scripts', 'gtacpr_enqueue' );
 /**
  * Preload the hero background image for inner pages.
  * Improves LCP (Largest Contentful Paint) by fetching the hero image early.
- * Homepage hero is a CSS gradient — nothing to preload there.
+ * Homepage preloads hero-cpr1.jpg; inner pages preload Unsplash placeholders.
  * Update these URLs when replacing Unsplash placeholders with real images.
  */
 function gtacpr_preload_hero() {

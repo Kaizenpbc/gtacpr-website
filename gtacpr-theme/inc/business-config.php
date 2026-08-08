@@ -155,7 +155,15 @@ function gtacpr_portal_url() {
 function gtacpr_url( $slug ) {
     static $cache = [];
     if ( ! isset( $cache[ $slug ] ) ) {
-        $cache[ $slug ] = get_permalink( get_page_by_path( $slug ) );
+        $page = get_page_by_path( $slug );
+        if ( $page ) {
+            $cache[ $slug ] = get_permalink( $page );
+        } else {
+            if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+                error_log( 'gtacpr_url: page not found for slug "' . $slug . '"' );
+            }
+            $cache[ $slug ] = home_url( '/' . $slug . '/' );
+        }
     }
     return $cache[ $slug ];
 }
