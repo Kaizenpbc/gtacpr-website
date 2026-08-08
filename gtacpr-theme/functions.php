@@ -6,6 +6,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 require_once get_template_directory() . '/inc/business-config.php';
 
+// Load chat secret for CSRF token generation (W9). File is gitignored.
+$_chat_config = get_template_directory() . '/chat-config.php';
+if ( file_exists( $_chat_config ) ) {
+    require_once $_chat_config;
+}
+unset( $_chat_config );
+
 function gtacpr_setup() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
