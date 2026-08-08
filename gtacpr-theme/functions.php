@@ -50,9 +50,14 @@ function gtacpr_enqueue() {
         file_exists( $dir . '/chat-widget.js' ) ? filemtime( $dir . '/chat-widget.js' ) : '1',
         true
     );
+    $chat_token = '';
+    if ( defined('GTACPR_CHAT_SECRET') && GTACPR_CHAT_SECRET !== 'change-me-to-a-random-string' ) {
+        $chat_token = hash_hmac( 'sha256', gmdate('Y-m-d'), GTACPR_CHAT_SECRET );
+    }
     wp_localize_script( 'gtacpr-main', 'GTACPR', [
-        'chatApiUrl' => get_template_directory_uri() . '/chat-api.php',
-        'phone'      => gtacpr_phone(),
+        'chatApiUrl'  => get_template_directory_uri() . '/chat-api.php',
+        'phone'       => gtacpr_phone(),
+        'chatToken'   => $chat_token,
     ] );
 }
 add_action( 'wp_enqueue_scripts', 'gtacpr_enqueue' );

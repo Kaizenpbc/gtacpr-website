@@ -1,6 +1,7 @@
 (function () {
   const API_URL = (window.GTACPR && window.GTACPR.chatApiUrl)
     || '/wp-content/themes/gtacpr-theme/chat-api.php'; // fallback
+  const CHAT_TOKEN = (window.GTACPR && window.GTACPR.chatToken) || '';
 
   const style = document.createElement('style');
   style.textContent = `
@@ -337,9 +338,11 @@
 
     try {
       const trimmed = messages.length > 20 ? messages.slice(-20) : messages;
+      const hdrs = { 'Content-Type': 'application/json' };
+      if (CHAT_TOKEN) hdrs['X-GTACPR-Token'] = CHAT_TOKEN;
       const res = await fetch(API_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: hdrs,
         body: JSON.stringify({ messages: trimmed })
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);

@@ -21,7 +21,7 @@ $request_origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Headers: Content-Type, X-GTACPR-Token');
 header('Vary: Origin');
 
 if ( ! $allowed_origin ) {
@@ -43,6 +43,20 @@ if ( ! $origin_ok && ! $referer_ok ) {
 
 header('Access-Control-Allow-Origin: ' . $allowed_origin);
 
+// W9: Verify CSRF token (HMAC of the date, keyed by shared secret).
+// Scripted callers outside a browser cannot obtain this token.
+if ( defined('GTACPR_CHAT_SECRET') && GTACPR_CHAT_SECRET !== 'change-me-to-a-random-string' ) {
+    $token = $_SERVER['HTTP_X_GTACPR_TOKEN'] ?? '';
+    $today = gmdate('Y-m-d');
+    $valid = hash_equals( hash_hmac('sha256', $today, GTACPR_CHAT_SECRET), $token )
+          || hash_equals( hash_hmac('sha256', gmdate('Y-m-d', strtotime('-1 day')), GTACPR_CHAT_SECRET), $token );
+    if ( ! $valid && $_SERVER['REQUEST_METHOD'] === 'POST' ) {
+        http_response_code(403);
+        echo json_encode(['error' => 'Invalid token']);
+        exit;
+    }
+}
+
 if ( $_SERVER['REQUEST_METHOD'] === 'OPTIONS' ) {
     http_response_code(204);
     exit;
@@ -54,27 +68,46 @@ if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
     exit;
 }
 
-// ── RATE LIMITING ─────────────────────────────────────────────────────────────
-// 10 requests per IP per 60-second window, stored in temp files.
+// ── RATE LIMITING (W10) ──────────────────────────────────────────────────────
+// 10 requests per IP per 60-second window. Atomic read-check-write under LOCK_EX.
 function gtacpr_check_rate_limit( $limit = 10, $window = 60 ) {
     $ip   = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
-    $file = sys_get_temp_dir() . '/gtacpr_rl_' . md5($ip);
+    $dir  = sys_get_temp_dir() . '/gtacpr_rl';
+    if ( ! is_dir($dir) ) { @mkdir($dir, 0700); }
+    $file = $dir . '/' . md5($ip);
     $now  = time();
-    $data = ['count' => 0, 'start' => $now];
 
-    if ( file_exists($file) ) {
-        $raw = @json_decode( file_get_contents($file), true );
-        if ( is_array($raw) && ( $now - $raw['start'] ) <= $window ) {
-            $data = $raw;
-        }
+    $fh = @fopen($file, 'c+');
+    if ( ! $fh ) { return true; } // fail open if filesystem error
+
+    flock($fh, LOCK_EX);
+    $raw  = fread($fh, 256);
+    $data = $raw ? @json_decode($raw, true) : null;
+
+    if ( ! is_array($data) || ($now - $data['start']) > $window ) {
+        $data = ['count' => 0, 'start' => $now];
     }
 
     if ( $data['count'] >= $limit ) {
+        flock($fh, LOCK_UN);
+        fclose($fh);
         return false;
     }
 
     $data['count']++;
-    @file_put_contents( $file, json_encode($data), LOCK_EX );
+    ftruncate($fh, 0);
+    rewind($fh);
+    fwrite($fh, json_encode($data));
+    flock($fh, LOCK_UN);
+    fclose($fh);
+
+    // Clean up expired files ~1% of requests
+    if ( mt_rand(1, 100) === 1 ) {
+        foreach ( glob($dir . '/*') as $f ) {
+            if ( filemtime($f) < $now - $window * 2 ) { @unlink($f); }
+        }
+    }
+
     return true;
 }
 

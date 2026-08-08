@@ -18,3 +18,7 @@ define( 'ANTHROPIC_API_KEY', 'sk-ant-...' );
 // For local development you can temporarily set this to 'http://localhost'
 // or 'http://localhost:8888' etc. — change it back before deploying.
 define( 'GTACPR_SITE_URL', 'https://stagegtacpr.kpbc.ca' );
+
+// Shared secret for chat CSRF token (W9). Generate with: php -r "echo bin2hex(random_bytes(16));"
+// Must match the value in your live chat-config.php.
+define( 'GTACPR_CHAT_SECRET', 'change-me-to-a-random-string' );
