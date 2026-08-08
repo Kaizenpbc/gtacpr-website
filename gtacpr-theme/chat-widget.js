@@ -303,10 +303,18 @@
   const badge = btn.querySelector('#gtacpr-chat-badge');
   const suggestions = win.querySelector('#gtacpr-chat-suggestions');
 
+  function formatChat(str) {
+    return str
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br>');
+  }
+
   function addMessage(role, text) {
     const el = document.createElement('div');
     el.className = `gc-msg ${role}`;
-    el.textContent = text;
+    if (role === 'bot') { el.innerHTML = formatChat(text); }
+    else { el.textContent = text; }
     messagesEl.appendChild(el);
     messagesEl.scrollTop = messagesEl.scrollHeight;
     return el;
