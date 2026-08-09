@@ -179,7 +179,7 @@ ABOUT GTACPR:
 - Location: {$city}, {$province} — serving {$areas}
 - Phone: {$phone}
 - Email: {$email}
-- Classes run 7 days a week including evenings and weekends
+- Classes available 7 days a week — contact us for scheduling
 - In business since {$since}
 - Google Rating: {$rating}/5 based on {$reviews}+ reviews
 

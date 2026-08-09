@@ -16,9 +16,10 @@
       <div class="footer-col">
         <div class="footer-col-title">Courses</div>
         <ul>
-          <li><a href="<?php echo esc_url( gtacpr_url('register') ); ?>">Basic First Aid</a></li>
-          <li><a href="<?php echo esc_url( gtacpr_url('register') ); ?>">Intermediate First Aid</a></li>
-          <li><a href="<?php echo esc_url( gtacpr_url('register') ); ?>">Recertification</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('courses') ); ?>#efa">Basic First Aid</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('courses') ); ?>#sfa">Intermediate First Aid</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('courses') ); ?>#mask">Mask Fitting</a></li>
+          <li><a href="<?php echo esc_url( gtacpr_url('courses') ); ?>#recert">Recertification</a></li>
           <li><a href="<?php echo esc_url( gtacpr_url('esl') ); ?>">ESL Classes</a></li>
         </ul>
       </div>
@@ -79,7 +80,7 @@
 
 <?php
 $_cfg = gtacpr_config();
-$_url = defined('GTACPR_SITE_URL') ? GTACPR_SITE_URL : home_url('/');
+$_url = home_url('/');
 $_areas = array_map( function( $a ) { return [ '@type' => 'City', 'name' => $a ]; }, $_cfg['service_areas'] );
 $_schema = [
     '@context'        => 'https://schema.org',
@@ -91,7 +92,7 @@ $_schema = [
     'telephone'       => '+1-' . $_cfg['phone'],
     'email'           => $_cfg['email'],
     'foundingDate'    => $_cfg['since'] . '-01-01',
-    'priceRange'      => '$',
+    'priceRange'      => '$65–$115',
     'image'           => $_url . 'wp-content/themes/gtacpr-theme/assets/gtacpr-logo.png',
     'address'         => [
         '@type'           => 'PostalAddress',

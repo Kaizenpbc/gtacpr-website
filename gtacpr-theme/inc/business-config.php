@@ -42,9 +42,6 @@ function gtacpr_config( $key = null ) {
             'review_count'    => '60',
             'certified_count' => '2,500',
 
-            // ── Hours ─────────────────────────────────────────────────────────
-            'hours'        => 'Mo-Su 09:00-17:00',
-
             // ── Languages ─────────────────────────────────────────────────────
             'languages'    => ['Mandarin', 'Cantonese', 'Greek'],
 
@@ -86,12 +83,20 @@ function gtacpr_config( $key = null ) {
                     'notes'      => 'Covers basic first aid emergencies. Good for general workplaces.',
                 ],
                 [
+                    'id'         => 'mask',
+                    'name'       => 'Mask Fitting',
+                    'price'      => null,
+                    'duration'   => '30 minutes',
+                    'cert_years' => 2,
+                    'notes'      => 'Quantitative N95 mask fit testing per CSA Z94.4. Required by OHSA for healthcare and many workplace settings.',
+                ],
+                [
                     'id'         => 'recert',
                     'name'       => 'Recertification (Blended)',
                     'price'      => 65,
-                    'duration'   => 'Online + 4-hour in-person',
+                    'duration'   => 'Online + 8-hour in-person',
                     'cert_years' => null,
-                    'notes'      => 'Online theory + 4-hour in-person practical. For renewing an existing certificate.',
+                    'notes'      => 'Online theory + 8-hour in-person refresher. For renewing an existing Basic or Intermediate First Aid certificate. May only be renewed once.',
                 ],
                 [
                     'id'         => 'esl',
@@ -99,6 +104,7 @@ function gtacpr_config( $key = null ) {
                     'price'      => null,
                     'duration'   => null,
                     'cert_years' => null,
+                    'schema'     => false,
                     'notes'      => 'Available in Mandarin, Cantonese, and Greek for newcomers and diverse communities.',
                 ],
             ],
@@ -156,11 +162,11 @@ function gtacpr_url( $slug ) {
     static $cache = [];
     if ( ! isset( $cache[ $slug ] ) ) {
         $page = get_page_by_path( $slug );
-        if ( $page ) {
+        if ( $page && $page->post_status === 'publish' ) {
             $cache[ $slug ] = get_permalink( $page );
         } else {
             if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-                error_log( 'gtacpr_url: page not found for slug "' . $slug . '"' );
+                error_log( 'gtacpr_url: page not found or not published for slug "' . $slug . '"' );
             }
             $cache[ $slug ] = home_url( '/' . $slug . '/' );
         }

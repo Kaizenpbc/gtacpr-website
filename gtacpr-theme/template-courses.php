@@ -258,9 +258,9 @@ $_home_url = home_url('/');
 $_courses_schema = [];
 $_pos = 0;
 // Map durations to ISO 8601
-$_dur_map = [ '8 hours (1 day)' => 'PT8H', '16 hours (2 days)' => 'PT16H', 'Online + 4-hour in-person' => 'PT4H' ];
+$_dur_map = [ '8 hours (1 day)' => 'PT8H', '16 hours (2 days)' => 'PT16H', 'Online + 8-hour in-person' => 'PT8H', '30 minutes' => 'PT30M' ];
 foreach ( $_cfg['courses'] as $c ) {
-    if ( $c['id'] === 'esl' ) continue;
+    if ( isset( $c['schema'] ) && $c['schema'] === false ) continue;
     $_pos++;
     $course = [
         '@type'       => 'Course',

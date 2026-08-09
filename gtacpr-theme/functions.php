@@ -222,13 +222,15 @@ add_action( 'wp_head', 'gtacpr_meta_tags', 1 );
 // Remove WordPress version meta tag (TECH-03)
 remove_action( 'wp_head', 'wp_generator' );
 
-// Prevent staging site from being indexed (TECH-01)
-function gtacpr_staging_noindex() {
+// Prevent staging site from being indexed (TECH-01, W21)
+function gtacpr_staging_robots( $robots ) {
     if ( isset( $_SERVER['HTTP_HOST'] ) && strpos( $_SERVER['HTTP_HOST'], 'stagegtacpr' ) !== false ) {
-        echo '<meta name="robots" content="noindex, nofollow">' . "\n";
+        $robots['noindex']  = true;
+        $robots['nofollow'] = true;
     }
+    return $robots;
 }
-add_action( 'wp_head', 'gtacpr_staging_noindex', 0 );
+add_filter( 'wp_robots', 'gtacpr_staging_robots' );
 
 add_action( 'send_headers', function() {
     if ( isset( $_SERVER['HTTP_HOST'] ) && strpos( $_SERVER['HTTP_HOST'], 'stagegtacpr' ) !== false ) {
