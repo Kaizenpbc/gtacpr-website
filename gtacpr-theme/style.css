@@ -594,7 +594,7 @@ textarea.form-control{resize:vertical;min-height:90px;line-height:1.5}
 .courses-section .section-label{text-align:center}
 .courses-section h2{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;color:var(--g900);text-align:center;margin-bottom:.75rem;letter-spacing:-.01em}
 .courses-section .courses-sub{font-size:14.5px;color:var(--g600);text-align:center;max-width:520px;margin:0 auto 2rem;line-height:1.7}
-.courses-section .course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.courses-section .course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;max-width:720px;margin:0 auto}
 .courses-section .course-card{border-radius:12px}
 .course-img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--g100)}
 .courses-section .course-body{padding:1.25rem;align-items:flex-start;text-align:left}
