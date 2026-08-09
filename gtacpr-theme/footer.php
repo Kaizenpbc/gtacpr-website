@@ -106,6 +106,12 @@ $_schema = [
         'addressCountry'  => $_cfg['country'],
     ],
     'areaServed'      => $_areas,
+    'aggregateRating' => [
+        '@type'       => 'AggregateRating',
+        'ratingValue' => $_cfg['rating'],
+        'bestRating'  => '5',
+        'ratingCount' => $_cfg['review_count'],
+    ],
 ];
 ?>
 <script type="application/ld+json"><?php echo wp_json_encode( $_schema ); ?></script>
