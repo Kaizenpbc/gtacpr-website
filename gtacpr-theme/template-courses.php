@@ -40,10 +40,10 @@ $contact_url  = gtacpr_url('contact');
 
   <!-- BASIC FIRST AID -->
   <div class="course-detail" id="efa">
-    <div><div class="cd-img ci1" role="img" aria-label="Basic First Aid &amp; CPR training"></div></div>
+    <div><div class="cd-img ci1" role="img" aria-label="Basic First Aid training"></div></div>
     <div>
       <span class="cd-badge">Most Popular</span>
-      <h2 class="cd-title">Basic First Aid &amp; CPR</h2>
+      <h2 class="cd-title">Basic First Aid</h2>
       <div class="cd-meta-row">
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8 hours in-class or blended</span>
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year certification</span>
@@ -93,9 +93,9 @@ $contact_url  = gtacpr_url('contact');
 
   <!-- INTERMEDIATE FIRST AID -->
   <div class="course-detail" id="sfa">
-    <div><div class="cd-img ci2" role="img" aria-label="Intermediate First Aid &amp; CPR training"></div></div>
+    <div><div class="cd-img ci2" role="img" aria-label="Intermediate First Aid training"></div></div>
     <div>
-      <h2 class="cd-title">Intermediate First Aid &amp; CPR</h2>
+      <h2 class="cd-title">Intermediate First Aid</h2>
       <div class="cd-meta-row">
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>16 hours over 2 days or blended</span>
         <span class="cd-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>3-year certification</span>
@@ -111,7 +111,7 @@ $contact_url  = gtacpr_url('contact');
         </ul>
         <div class="cd-section-title">Course Content (CSA Z1210)</div>
         <ul class="cd-list">
-          <li>Everything in Basic First Aid &amp; CPR, plus:</li>
+          <li>Everything in Basic First Aid, plus:</li>
           <li>Medical emergencies (heart attack, stroke, diabetic, seizure, asthma)</li>
           <li>Head, neck &amp; spinal injuries</li>
           <li>Bone, muscle &amp; joint injuries</li>

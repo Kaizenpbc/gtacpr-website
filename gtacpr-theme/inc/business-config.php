@@ -71,7 +71,7 @@ function gtacpr_config( $key = null ) {
                 // ],
                 [
                     'id'         => 'sfa',
-                    'name'       => 'Intermediate First Aid + CPR-C',
+                    'name'       => 'Intermediate First Aid',
                     'price'      => 115,
                     'duration'   => '16 hours (2 days)',
                     'cert_years' => 3,
@@ -79,7 +79,7 @@ function gtacpr_config( $key = null ) {
                 ],
                 [
                     'id'         => 'efa',
-                    'name'       => 'Basic First Aid + CPR-C',
+                    'name'       => 'Basic First Aid',
                     'price'      => null,
                     'duration'   => '8 hours (1 day)',
                     'cert_years' => 3,

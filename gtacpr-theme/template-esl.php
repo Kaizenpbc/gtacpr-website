@@ -64,7 +64,7 @@ $home_url     = home_url('/');
         <img class="course-img" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=70" alt="Basic First Aid class" width="600" height="400" loading="lazy">
         <div class="course-body">
           <span class="course-badge cb-c">Most Popular</span>
-          <div class="course-name">Basic First Aid + CPR-C</div>
+          <div class="course-name">Basic First Aid</div>
           <div class="course-meta">8 hrs · 3-year cert</div>
           <div class="course-desc">CPR, AED, bleeding control, choking response and mental health emergency recognition. WSIB Approved — the most common certification for Ontario workplaces.</div>
           <a href="<?php echo esc_url($register_url); ?>" class="btn-course">Register Now</a>
@@ -74,7 +74,7 @@ $home_url     = home_url('/');
         <img class="course-img" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=70" alt="Instructor demonstrating first aid techniques in class" width="600" height="400" loading="lazy">
         <div class="course-body">
           <span class="course-badge cb-sfa">Full Cert</span>
-          <div class="course-name">Intermediate First Aid + CPR-C</div>
+          <div class="course-name">Intermediate First Aid</div>
           <div class="course-meta">16 hrs over 2 days · 3-year cert</div>
           <div class="course-desc">The most comprehensive certification — covers the full CSA Z1210 first aid and CPR curriculum over two days.</div>
           <a href="<?php echo esc_url($register_url); ?>" class="btn-course">Register Now</a>
@@ -137,15 +137,15 @@ $_esl_courses = [];
 foreach ( $_esl_languages as $lang ) {
     $_esl_courses[] = [
         '@type'              => 'Course',
-        'name'               => 'Basic First Aid & CPR — ' . $lang,
-        'description'        => 'WSIB Approved Basic First Aid and CPR course taught in ' . $lang . '.',
+        'name'               => 'Basic First Aid — ' . $lang,
+        'description'        => 'WSIB Approved Basic First Aid course taught in ' . $lang . '.',
         'inLanguage'         => $lang,
         'provider'           => [ '@type' => 'Organization', 'name' => $_cfg['name'], 'url' => home_url('/') ],
     ];
     $_esl_courses[] = [
         '@type'              => 'Course',
-        'name'               => 'Intermediate First Aid & CPR — ' . $lang,
-        'description'        => 'WSIB Approved Intermediate First Aid and CPR course taught in ' . $lang . '.',
+        'name'               => 'Intermediate First Aid — ' . $lang,
+        'description'        => 'WSIB Approved Intermediate First Aid course taught in ' . $lang . '.',
         'inLanguage'         => $lang,
         'provider'           => [ '@type' => 'Organization', 'name' => $_cfg['name'], 'url' => home_url('/') ],
     ];
