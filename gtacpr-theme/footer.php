@@ -34,15 +34,11 @@
         </ul>
       </div>
     </div>
-    <!-- WSIB First Aid Program Badge -->
+    <!-- WSIB First Aid Program Badge (official image per Appendix C) -->
     <div class="wsib-badge-row">
       <a href="https://www.virtualbadge.io/certificate-validator?credential=1e259afa-4016-4c00-bc46-bd7ef0c180bd" target="_blank" rel="noopener noreferrer" class="wsib-credential">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span>
-          <strong>WSIB Approved Provider</strong>
-          We're approved by the WSIB to deliver workplace first aid training in Ontario.
-          <span class="wsib-verify">Verify Credential →</span>
-        </span>
+        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/wsib-badge.jpg" alt="WSIB First Aid Program — Approved Training Provider" width="280" height="200" loading="lazy" class="wsib-badge-img">
+        <span class="wsib-verify">Verify Credential →</span>
       </a>
     </div>
     <!-- French Language Active Offer (WSIB Appendix A requirement) -->

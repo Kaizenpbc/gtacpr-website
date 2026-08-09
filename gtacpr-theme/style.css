@@ -213,11 +213,13 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
 .footer-col ul li a{font-size:13px;color:rgba(255,255,255,.5);transition:color .15s}
 .footer-col ul li a:hover{color:#fff}
 .wsib-badge-row{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,.08)}
-.wsib-credential{display:inline-flex;align-items:flex-start;gap:12px;padding:14px 18px;border:1px solid rgba(255,255,255,.15);border-radius:12px;color:rgba(255,255,255,.6);font-size:12px;line-height:1.5;transition:border-color .15s,color .15s;max-width:480px}
-.wsib-credential:hover{border-color:rgba(255,255,255,.35);color:rgba(255,255,255,.8)}
-.wsib-credential svg{width:28px;height:28px;flex-shrink:0;color:#22c55e;margin-top:2px}
-.wsib-credential strong{display:block;font-size:13px;color:#fff;margin-bottom:2px}
-.wsib-verify{display:block;margin-top:4px;font-size:11px;font-weight:600;color:#22c55e}
+.wsib-credential{display:inline-flex;flex-direction:column;align-items:flex-start;gap:8px;padding:14px 18px;border:1px solid rgba(255,255,255,.15);border-radius:12px;transition:border-color .15s;max-width:320px}
+.wsib-credential:hover{border-color:rgba(255,255,255,.35)}
+.wsib-badge-img{width:100%;max-width:280px;height:auto;border-radius:8px}
+.wsib-verify{font-size:11px;font-weight:600;color:#22c55e}
+.cert-card-badge{display:flex;align-items:center;justify-content:center;padding:1rem}
+.cert-card-badge a{display:block}
+.wsib-badge-full{width:100%;max-width:320px;height:auto;border-radius:8px}
 .french-offer{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,.08)}
 .french-offer p{font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;font-style:italic;max-width:600px}
 .french-offer a{color:rgba(255,255,255,.5);text-decoration:underline}
