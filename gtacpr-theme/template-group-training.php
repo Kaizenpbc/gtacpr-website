@@ -68,10 +68,10 @@ $courses_url = gtacpr_url('courses');
     <section class="courses-section">
       <h2>Available Group Courses</h2>
       <div class="course-list">
-        <div class="course-row"><div class="course-badge"><span class="cb cb-blended">Blended</span></div><div><div class="course-row-name">Basic First Aid</div><div class="course-row-sub">Online theory + in-person skills · 1-day equivalent · 3-year cert</div></div></div>
-        <div class="course-row"><div class="course-badge"><span class="cb cb-inperson">In-Person</span></div><div><div class="course-row-name">Basic First Aid</div><div class="course-row-sub">Full in-person delivery at your site · 1 day · 3-year cert</div></div></div>
-        <div class="course-row"><div class="course-badge"><span class="cb cb-blended">Blended</span></div><div><div class="course-row-name">Intermediate First Aid</div><div class="course-row-sub">Online theory + in-person skills · 2-day equivalent · 3-year cert</div></div></div>
-        <div class="course-row"><div class="course-badge"><span class="cb cb-inperson">In-Person</span></div><div><div class="course-row-name">Intermediate First Aid</div><div class="course-row-sub">Full in-person delivery at your site · 2 days · 3-year cert</div></div></div>
+        <div class="course-row"><div class="course-badge"><span class="cb cb-blended">Blended</span></div><div><div class="course-row-name"><a href="<?php echo esc_url($courses_url); ?>#efa">Basic First Aid</a></div><div class="course-row-sub">Online theory + in-person skills · 1-day equivalent · 3-year cert</div></div></div>
+        <div class="course-row"><div class="course-badge"><span class="cb cb-inperson">In-Person</span></div><div><div class="course-row-name"><a href="<?php echo esc_url($courses_url); ?>#efa">Basic First Aid</a></div><div class="course-row-sub">Full in-person delivery at your site · 1 day · 3-year cert</div></div></div>
+        <div class="course-row"><div class="course-badge"><span class="cb cb-blended">Blended</span></div><div><div class="course-row-name"><a href="<?php echo esc_url($courses_url); ?>#sfa">Intermediate First Aid</a></div><div class="course-row-sub">Online theory + in-person skills · 2-day equivalent · 3-year cert</div></div></div>
+        <div class="course-row"><div class="course-badge"><span class="cb cb-inperson">In-Person</span></div><div><div class="course-row-name"><a href="<?php echo esc_url($courses_url); ?>#sfa">Intermediate First Aid</a></div><div class="course-row-sub">Full in-person delivery at your site · 2 days · 3-year cert</div></div></div>
       </div>
     </section>
 

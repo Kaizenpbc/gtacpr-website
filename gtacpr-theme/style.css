@@ -413,6 +413,8 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
 .cb-blended{background:#EDE9FE;color:#5B21B6}
 .cb-inperson{background:#D1FAE5;color:#065F46}
 .course-row-name{font-size:14px;font-weight:600;color:var(--g900);flex:1;line-height:1.4}
+.course-row-name a{color:var(--red);text-decoration:none}
+.course-row-name a:hover{text-decoration:underline}
 .course-row-sub{font-size:12px;color:var(--g400);margin-top:2px}
 
 /* WHO WE SERVE */
