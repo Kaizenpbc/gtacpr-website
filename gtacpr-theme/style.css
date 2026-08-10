@@ -237,7 +237,7 @@ footer{background:var(--g900);color:rgba(255,255,255,.6);padding:clamp(2rem,5vw,
 
 /* ── BREAKPOINTS ── */
 @media(max-width:1024px){
-  .nav-links,.nav-phone,.nav-btn,.nav-wsib{display:none}
+  .nav-links,.nav-phone,.nav-btn,.nav-btn-outline,.nav-wsib{display:none}
   .nav-hamburger,.nav-call-mob{display:flex}
 }
 @media(max-width:768px){
